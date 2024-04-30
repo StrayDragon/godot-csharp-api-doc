@@ -1,0 +1,1451 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ImporterMesh | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ImporterMesh | Godot4 C# API ">
+      
+      <meta name="description" content="ImporterMesh is a type of  analogous to . It contains vertex array-based geometry, divided in surfaces. Each surface contains a completely separate array and a material used to draw it. Design wise, a mesh with multiple surfaces is preferred to a single surface, because objects created in 3D editing software commonly contain multiple materials. Unlike its runtime counterpart,  contains mesh data before various import steps, such as lod and shadow mesh generation, have taken place. Modify surface data by calling , followed by  for each surface.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.ImporterMesh">
+
+
+
+  <h1 id="Godot_ImporterMesh" data-uid="Godot.ImporterMesh" class="text-break">
+Class ImporterMesh  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Compat.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>ImporterMesh is a type of <a class="xref" href="Godot.Resource.html">Resource</a> analogous to <a class="xref" href="Godot.ArrayMesh.html">ArrayMesh</a>. It contains vertex array-based geometry, divided in <i>surfaces</i>. Each surface contains a completely separate array and a material used to draw it. Design wise, a mesh with multiple surfaces is preferred to a single surface, because objects created in 3D editing software commonly contain multiple materials.</p>
+<p>Unlike its runtime counterpart, <a class="xref" href="Godot.ImporterMesh.html">ImporterMesh</a> contains mesh data before various import steps, such as lod and shadow mesh generation, have taken place. Modify surface data by calling <a class="xref" href="Godot.ImporterMesh.html#Godot_ImporterMesh_Clear">Clear()</a>, followed by <a class="xref" href="Godot.ImporterMesh.html#Godot_ImporterMesh_AddSurface_Godot_Mesh_PrimitiveType_Godot_Collections_Array_Godot_Collections_Array_Godot_Collections_Array__Godot_Collections_Dictionary_Godot_Material_System_String_System_UInt64_">AddSurface(PrimitiveType, Array, Array&lt;Array&gt;, Dictionary, Material, string, ulong)</a> for each surface.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ImporterMesh : Resource, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><a class="xref" href="Godot.Resource.html">Resource</a></div>
+      <div><span class="xref">ImporterMesh</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__GetRid">Resource._GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__SetupLocalToScene">Resource._SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_TakeOverPath_System_String_">Resource.TakeOverPath(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetRid">Resource.GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetLocalScene">Resource.GetLocalScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToScene">Resource.SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitChanged">Resource.EmitChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Duplicate_System_Boolean_">Resource.Duplicate(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceLocalToScene">Resource.ResourceLocalToScene</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourcePath">Resource.ResourcePath</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceName">Resource.ResourceName</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Changed">Resource.Changed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToSceneRequested">Resource.SetupLocalToSceneRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_InitRef">RefCounted.InitRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Reference">RefCounted.Reference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Unreference">RefCounted.Unreference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_GetReferenceCount">RefCounted.GetReferenceCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_ImporterMesh__ctor_" data-uid="Godot.ImporterMesh.#ctor*"></a>
+
+  <h3 id="Godot_ImporterMesh__ctor" data-uid="Godot.ImporterMesh.#ctor">
+  ImporterMesh()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImporterMesh()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_ImporterMesh__Data_" data-uid="Godot.ImporterMesh._Data*"></a>
+
+  <h3 id="Godot_ImporterMesh__Data" data-uid="Godot.ImporterMesh._Data">
+  _Data
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary _Data { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_ImporterMesh_AddBlendShape_" data-uid="Godot.ImporterMesh.AddBlendShape*"></a>
+
+  <h3 id="Godot_ImporterMesh_AddBlendShape_System_String_" data-uid="Godot.ImporterMesh.AddBlendShape(System.String)">
+  AddBlendShape(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds name for a blend shape that will be added with <a class="xref" href="Godot.ImporterMesh.html#Godot_ImporterMesh_AddSurface_Godot_Mesh_PrimitiveType_Godot_Collections_Array_Godot_Collections_Array_Godot_Collections_Array__Godot_Collections_Dictionary_Godot_Material_System_String_System_UInt64_">AddSurface(PrimitiveType, Array, Array&lt;Array&gt;, Dictionary, Material, string, ulong)</a>. Must be called before surface is added.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddBlendShape(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_AddSurface_" data-uid="Godot.ImporterMesh.AddSurface*"></a>
+
+  <h3 id="Godot_ImporterMesh_AddSurface_Godot_Mesh_PrimitiveType_Godot_Collections_Array_Godot_Collections_Array_Godot_Collections_Array__Godot_Collections_Dictionary_Godot_Material_System_String_System_UInt64_" data-uid="Godot.ImporterMesh.AddSurface(Godot.Mesh.PrimitiveType,Godot.Collections.Array,Godot.Collections.Array{Godot.Collections.Array},Godot.Collections.Dictionary,Godot.Material,System.String,System.UInt64)">
+  AddSurface(PrimitiveType, Array, Array&lt;Array&gt;, Dictionary, Material, string, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new surface. <a class="xref" href="Godot.Mesh.html#Godot_Mesh_GetSurfaceCount">GetSurfaceCount()</a> will become the <code>surf_idx</code> for this new surface.</p>
+<p>Surfaces are created to be rendered using a <code class="paramref">primitive</code>, which may be any of the values defined in <a class="xref" href="Godot.Mesh.PrimitiveType.html">Mesh.PrimitiveType</a>.</p>
+<p>The <code class="paramref">arrays</code> argument is an array of arrays. Each of the <a class="xref" href="Godot.Mesh.ArrayType.html#Godot_Mesh_ArrayType_Max">Max</a> elements contains an array with some of the mesh data for this surface as described by the corresponding member of <a class="xref" href="Godot.Mesh.ArrayType.html">Mesh.ArrayType</a> or <code>null</code> if it is not used by the surface. For example, <code>arrays[0]</code> is the array of vertices. That first vertex sub-array is always required; the others are optional. Adding an index array puts this surface into "index mode" where the vertex and other arrays become the sources of data and the index array defines the vertex order. All sub-arrays must have the same length as the vertex array (or be an exact multiple of the vertex array's length, when multiple elements of a sub-array correspond to a single vertex) or be empty, except for <a class="xref" href="Godot.Mesh.ArrayType.html#Godot_Mesh_ArrayType_Index">Index</a> if it is used.</p>
+<p>The <code class="paramref">blendShapes</code> argument is an array of vertex data for each blend shape. Each element is an array of the same structure as <code class="paramref">arrays</code>, but <a class="xref" href="Godot.Mesh.ArrayType.html#Godot_Mesh_ArrayType_Vertex">Vertex</a>, <a class="xref" href="Godot.Mesh.ArrayType.html#Godot_Mesh_ArrayType_Normal">Normal</a>, and <a class="xref" href="Godot.Mesh.ArrayType.html#Godot_Mesh_ArrayType_Tangent">Tangent</a> are set if and only if they are set in <code class="paramref">arrays</code> and all other entries are <code>null</code>.</p>
+<p>The <code class="paramref">lods</code> argument is a dictionary with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> keys and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[] values. Each entry in the dictionary represents a LOD level of the surface, where the value is the <a class="xref" href="Godot.Mesh.ArrayType.html#Godot_Mesh_ArrayType_Index">Index</a> array to use for the LOD level and the key is roughly proportional to the distance at which the LOD stats being used. I.e., increasing the key of a LOD also increases the distance that the objects has to be from the camera before the LOD is used.</p>
+<p>The <code class="paramref">flags</code> argument is the bitwise or of, as required: One value of <a class="xref" href="Godot.Mesh.ArrayCustomFormat.html">Mesh.ArrayCustomFormat</a> left shifted by <code>ARRAY_FORMAT_CUSTOMn_SHIFT</code> for each custom channel in use, <a class="xref" href="Godot.Mesh.ArrayFormat.html#Godot_Mesh_ArrayFormat_FlagUseDynamicUpdate">FlagUseDynamicUpdate</a>, <a class="xref" href="Godot.Mesh.ArrayFormat.html#Godot_Mesh_ArrayFormat_FlagUse8BoneWeights">FlagUse8BoneWeights</a>, or <a class="xref" href="Godot.Mesh.ArrayFormat.html#Godot_Mesh_ArrayFormat_FlagUsesEmptyVertexArray">FlagUsesEmptyVertexArray</a>.</p>
+<p>
+  <b>Note:</b> When using indices, it is recommended to only use points, lines, or triangles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddSurface(Mesh.PrimitiveType primitive, Array arrays, Array&lt;Array&gt; blendShapes = null, Dictionary lods = null, Material material = null, string name = &quot;&quot;, ulong flags = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>primitive</code> <a class="xref" href="Godot.Mesh.html">Mesh</a>.<a class="xref" href="Godot.Mesh.PrimitiveType.html">PrimitiveType</a></dt>
+    <dd></dd>
+    <dt><code>arrays</code> <a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+    <dt><code>blendShapes</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.Collections.Array.html">Array</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>lods</code> <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <a class="xref" href="Godot.Material.html">Material</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>flags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_Clear_" data-uid="Godot.ImporterMesh.Clear*"></a>
+
+  <h3 id="Godot_ImporterMesh_Clear" data-uid="Godot.ImporterMesh.Clear">
+  Clear()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all surfaces and blend shapes from this <a class="xref" href="Godot.ImporterMesh.html">ImporterMesh</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GenerateLods_" data-uid="Godot.ImporterMesh.GenerateLods*"></a>
+
+  <h3 id="Godot_ImporterMesh_GenerateLods_System_Single_System_Single_Godot_Collections_Array_" data-uid="Godot.ImporterMesh.GenerateLods(System.Single,System.Single,Godot.Collections.Array)">
+  GenerateLods(float, float, Array)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates all lods for this ImporterMesh.</p>
+<p>
+  <code class="paramref">normalMergeAngle</code> and <code class="paramref">normalSplitAngle</code> are in degrees and used in the same way as the importer settings in <code>lods</code>. As a good default, use 25 and 60 respectively.</p>
+<p>The number of generated lods can be accessed using <a class="xref" href="Godot.ImporterMesh.html#Godot_ImporterMesh_GetSurfaceLodCount_System_Int32_">GetSurfaceLodCount(int)</a>, and each LOD is available in <a class="xref" href="Godot.ImporterMesh.html#Godot_ImporterMesh_GetSurfaceLodSize_System_Int32_System_Int32_">GetSurfaceLodSize(int, int)</a> and <a class="xref" href="Godot.ImporterMesh.html#Godot_ImporterMesh_GetSurfaceLodIndices_System_Int32_System_Int32_">GetSurfaceLodIndices(int, int)</a>.</p>
+<p>
+  <code class="paramref">boneTransformArray</code> is an <a class="xref" href="Godot.Collections.Array.html">Array</a> which can be either empty or contain <a class="xref" href="Godot.Transform3D.html">Transform3D</a>s which, for each of the mesh's bone IDs, will apply mesh skinning when generating the LOD mesh variations. This is usually used to account for discrepancies in scale between the mesh itself and its skinning data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GenerateLods(float normalMergeAngle, float normalSplitAngle, Array boneTransformArray)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>normalMergeAngle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>normalSplitAngle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>boneTransformArray</code> <a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetBlendShapeCount_" data-uid="Godot.ImporterMesh.GetBlendShapeCount*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetBlendShapeCount" data-uid="Godot.ImporterMesh.GetBlendShapeCount">
+  GetBlendShapeCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of blend shapes that the mesh holds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetBlendShapeCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetBlendShapeMode_" data-uid="Godot.ImporterMesh.GetBlendShapeMode*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetBlendShapeMode" data-uid="Godot.ImporterMesh.GetBlendShapeMode">
+  GetBlendShapeMode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the blend shape mode for this Mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Mesh.BlendShapeMode GetBlendShapeMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Mesh.html">Mesh</a>.<a class="xref" href="Godot.Mesh.BlendShapeMode.html">BlendShapeMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetBlendShapeName_" data-uid="Godot.ImporterMesh.GetBlendShapeName*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetBlendShapeName_System_Int32_" data-uid="Godot.ImporterMesh.GetBlendShapeName(System.Int32)">
+  GetBlendShapeName(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the name of the blend shape at this index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetBlendShapeName(int blendShapeIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>blendShapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetLightmapSizeHint_" data-uid="Godot.ImporterMesh.GetLightmapSizeHint*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetLightmapSizeHint" data-uid="Godot.ImporterMesh.GetLightmapSizeHint">
+  GetLightmapSizeHint()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the size hint of this mesh for lightmap-unwrapping in UV-space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2I GetLightmapSizeHint()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetMesh_" data-uid="Godot.ImporterMesh.GetMesh*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetMesh_Godot_ArrayMesh_" data-uid="Godot.ImporterMesh.GetMesh(Godot.ArrayMesh)">
+  GetMesh(ArrayMesh)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the mesh data represented by this <a class="xref" href="Godot.ImporterMesh.html">ImporterMesh</a> as a usable <a class="xref" href="Godot.ArrayMesh.html">ArrayMesh</a>.</p>
+<p>This method caches the returned mesh, and subsequent calls will return the cached data until <a class="xref" href="Godot.ImporterMesh.html#Godot_ImporterMesh_Clear">Clear()</a> is called.</p>
+<p>If not yet cached and <code class="paramref">baseMesh</code> is provided, <code class="paramref">baseMesh</code> will be used and mutated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ArrayMesh GetMesh(ArrayMesh baseMesh = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>baseMesh</code> <a class="xref" href="Godot.ArrayMesh.html">ArrayMesh</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.ArrayMesh.html">ArrayMesh</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetSurfaceArrays_" data-uid="Godot.ImporterMesh.GetSurfaceArrays*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetSurfaceArrays_System_Int32_" data-uid="Godot.ImporterMesh.GetSurfaceArrays(System.Int32)">
+  GetSurfaceArrays(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the arrays for the vertices, normals, UVs, etc. that make up the requested surface. See <a class="xref" href="Godot.ImporterMesh.html#Godot_ImporterMesh_AddSurface_Godot_Mesh_PrimitiveType_Godot_Collections_Array_Godot_Collections_Array_Godot_Collections_Array__Godot_Collections_Dictionary_Godot_Material_System_String_System_UInt64_">AddSurface(PrimitiveType, Array, Array&lt;Array&gt;, Dictionary, Material, string, ulong)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array GetSurfaceArrays(int surfaceIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surfaceIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetSurfaceBlendShapeArrays_" data-uid="Godot.ImporterMesh.GetSurfaceBlendShapeArrays*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetSurfaceBlendShapeArrays_System_Int32_System_Int32_" data-uid="Godot.ImporterMesh.GetSurfaceBlendShapeArrays(System.Int32,System.Int32)">
+  GetSurfaceBlendShapeArrays(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a single set of blend shape arrays for the requested blend shape index for a surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array GetSurfaceBlendShapeArrays(int surfaceIdx, int blendShapeIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surfaceIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>blendShapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetSurfaceCount_" data-uid="Godot.ImporterMesh.GetSurfaceCount*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetSurfaceCount" data-uid="Godot.ImporterMesh.GetSurfaceCount">
+  GetSurfaceCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of surfaces that the mesh holds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetSurfaceCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetSurfaceFormat_" data-uid="Godot.ImporterMesh.GetSurfaceFormat*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetSurfaceFormat_System_Int32_" data-uid="Godot.ImporterMesh.GetSurfaceFormat(System.Int32)">
+  GetSurfaceFormat(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the format of the surface that the mesh holds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong GetSurfaceFormat(int surfaceIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surfaceIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetSurfaceLodCount_" data-uid="Godot.ImporterMesh.GetSurfaceLodCount*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetSurfaceLodCount_System_Int32_" data-uid="Godot.ImporterMesh.GetSurfaceLodCount(System.Int32)">
+  GetSurfaceLodCount(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of lods that the mesh holds on a given surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetSurfaceLodCount(int surfaceIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surfaceIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetSurfaceLodIndices_" data-uid="Godot.ImporterMesh.GetSurfaceLodIndices*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetSurfaceLodIndices_System_Int32_System_Int32_" data-uid="Godot.ImporterMesh.GetSurfaceLodIndices(System.Int32,System.Int32)">
+  GetSurfaceLodIndices(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the index buffer of a lod for a surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int[] GetSurfaceLodIndices(int surfaceIdx, int lodIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surfaceIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>lodIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetSurfaceLodSize_" data-uid="Godot.ImporterMesh.GetSurfaceLodSize*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetSurfaceLodSize_System_Int32_System_Int32_" data-uid="Godot.ImporterMesh.GetSurfaceLodSize(System.Int32,System.Int32)">
+  GetSurfaceLodSize(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the screen ratio which activates a lod for a surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetSurfaceLodSize(int surfaceIdx, int lodIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surfaceIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>lodIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetSurfaceMaterial_" data-uid="Godot.ImporterMesh.GetSurfaceMaterial*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetSurfaceMaterial_System_Int32_" data-uid="Godot.ImporterMesh.GetSurfaceMaterial(System.Int32)">
+  GetSurfaceMaterial(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="Godot.Material.html">Material</a> in a given surface. Surface is rendered using this material.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Material GetSurfaceMaterial(int surfaceIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surfaceIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Material.html">Material</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetSurfaceName_" data-uid="Godot.ImporterMesh.GetSurfaceName*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetSurfaceName_System_Int32_" data-uid="Godot.ImporterMesh.GetSurfaceName(System.Int32)">
+  GetSurfaceName(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the name assigned to this surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetSurfaceName(int surfaceIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surfaceIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_GetSurfacePrimitiveType_" data-uid="Godot.ImporterMesh.GetSurfacePrimitiveType*"></a>
+
+  <h3 id="Godot_ImporterMesh_GetSurfacePrimitiveType_System_Int32_" data-uid="Godot.ImporterMesh.GetSurfacePrimitiveType(System.Int32)">
+  GetSurfacePrimitiveType(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the primitive type of the requested surface (see <a class="xref" href="Godot.ImporterMesh.html#Godot_ImporterMesh_AddSurface_Godot_Mesh_PrimitiveType_Godot_Collections_Array_Godot_Collections_Array_Godot_Collections_Array__Godot_Collections_Dictionary_Godot_Material_System_String_System_UInt64_">AddSurface(PrimitiveType, Array, Array&lt;Array&gt;, Dictionary, Material, string, ulong)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Mesh.PrimitiveType GetSurfacePrimitiveType(int surfaceIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surfaceIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Mesh.html">Mesh</a>.<a class="xref" href="Godot.Mesh.PrimitiveType.html">PrimitiveType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_HasGodotClassMethod_" data-uid="Godot.ImporterMesh.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_ImporterMesh_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.ImporterMesh.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_HasGodotClassSignal_" data-uid="Godot.ImporterMesh.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_ImporterMesh_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.ImporterMesh.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_InvokeGodotClassMethod_" data-uid="Godot.ImporterMesh.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_ImporterMesh_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.ImporterMesh.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_SetBlendShapeMode_" data-uid="Godot.ImporterMesh.SetBlendShapeMode*"></a>
+
+  <h3 id="Godot_ImporterMesh_SetBlendShapeMode_Godot_Mesh_BlendShapeMode_" data-uid="Godot.ImporterMesh.SetBlendShapeMode(Godot.Mesh.BlendShapeMode)">
+  SetBlendShapeMode(BlendShapeMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the blend shape mode to one of <a class="xref" href="Godot.Mesh.BlendShapeMode.html">Mesh.BlendShapeMode</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetBlendShapeMode(Mesh.BlendShapeMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="Godot.Mesh.html">Mesh</a>.<a class="xref" href="Godot.Mesh.BlendShapeMode.html">BlendShapeMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_SetLightmapSizeHint_" data-uid="Godot.ImporterMesh.SetLightmapSizeHint*"></a>
+
+  <h3 id="Godot_ImporterMesh_SetLightmapSizeHint_Godot_Vector2I_" data-uid="Godot.ImporterMesh.SetLightmapSizeHint(Godot.Vector2I)">
+  SetLightmapSizeHint(Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the size hint of this mesh for lightmap-unwrapping in UV-space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLightmapSizeHint(Vector2I size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_SetSurfaceMaterial_" data-uid="Godot.ImporterMesh.SetSurfaceMaterial*"></a>
+
+  <h3 id="Godot_ImporterMesh_SetSurfaceMaterial_System_Int32_Godot_Material_" data-uid="Godot.ImporterMesh.SetSurfaceMaterial(System.Int32,Godot.Material)">
+  SetSurfaceMaterial(int, Material)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a <a class="xref" href="Godot.Material.html">Material</a> for a given surface. Surface will be rendered using this material.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSurfaceMaterial(int surfaceIdx, Material material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surfaceIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <a class="xref" href="Godot.Material.html">Material</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ImporterMesh_SetSurfaceName_" data-uid="Godot.ImporterMesh.SetSurfaceName*"></a>
+
+  <h3 id="Godot_ImporterMesh_SetSurfaceName_System_Int32_System_String_" data-uid="Godot.ImporterMesh.SetSurfaceName(System.Int32,System.String)">
+  SetSurfaceName(int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ImporterMesh.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a name for a given surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSurfaceName(int surfaceIdx, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>surfaceIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Compat.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

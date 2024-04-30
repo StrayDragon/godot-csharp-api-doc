@@ -1,0 +1,1987 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Basis | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Basis | Godot4 C# API ">
+      
+      <meta name="description" content="3&#215;3 matrix used for 3D rotation and scale. Almost always used as an orthogonal basis for a Transform. Contains 3 vector fields X, Y and Z as its columns, which are typically interpreted as the local basis vectors of a 3D transformation. For such use, it is composed of a scaling and a rotation matrix, in that order (M = R.S). Can also be accessed as array of 3D vectors. These vectors are normally orthogonal to each other, but are not necessarily normalized (due to scaling). For more information, read this documentation article: https://docs.godotengine.org/en/latest/tutorials/math/matrices_and_transforms.html">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.Basis">
+
+
+
+  <h1 id="Godot_Basis" data-uid="Godot.Basis" class="text-break">
+Struct Basis  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>3×3 matrix used for 3D rotation and scale.
+Almost always used as an orthogonal basis for a Transform.</p>
+<p>Contains 3 vector fields X, Y and Z as its columns, which are typically
+interpreted as the local basis vectors of a 3D transformation. For such use,
+it is composed of a scaling and a rotation matrix, in that order (M = R.S).</p>
+<p>Can also be accessed as array of 3D vectors. These vectors are normally
+orthogonal to each other, but are not necessarily normalized (due to scaling).</p>
+<p>For more information, read this documentation article:
+<a href="https://docs.godotengine.org/en/latest/tutorials/math/matrices_and_transforms.html">https://docs.godotengine.org/en/latest/tutorials/math/matrices_and_transforms.html</a></p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct Basis : IEquatable&lt;Basis&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Godot.Basis.html">Basis</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_Basis__ctor_" data-uid="Godot.Basis.#ctor*"></a>
+
+  <h3 id="Godot_Basis__ctor_Godot_Quaternion_" data-uid="Godot.Basis.#ctor(Godot.Quaternion)">
+  Basis(Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a pure rotation basis matrix from the given quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Basis(Quaternion quaternion)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quaternion</code> <a class="xref" href="Godot.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to create the basis from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis__ctor_" data-uid="Godot.Basis.#ctor*"></a>
+
+  <h3 id="Godot_Basis__ctor_Godot_Vector3_Godot_Vector3_Godot_Vector3_" data-uid="Godot.Basis.#ctor(Godot.Vector3,Godot.Vector3,Godot.Vector3)">
+  Basis(Vector3, Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a basis matrix from 3 axis vectors (matrix columns).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Basis(Vector3 column0, Vector3 column1, Vector3 column2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>column0</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>The X vector, or Column0.</p>
+</dd>
+    <dt><code>column1</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>The Y vector, or Column1.</p>
+</dd>
+    <dt><code>column2</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>The Z vector, or Column2.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis__ctor_" data-uid="Godot.Basis.#ctor*"></a>
+
+  <h3 id="Godot_Basis__ctor_Godot_Vector3_System_Single_" data-uid="Godot.Basis.#ctor(Godot.Vector3,System.Single)">
+  Basis(Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a pure rotation basis matrix, rotated around the given <code class="paramref">axis</code>
+by <code class="paramref">angle</code> (in radians). The axis must be a normalized vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Basis(Vector3 axis, float angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>axis</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>The axis to rotate around. Must be normalized.</p>
+</dd>
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The angle to rotate, in radians.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis__ctor_" data-uid="Godot.Basis.#ctor*"></a>
+
+  <h3 id="Godot_Basis__ctor_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_" data-uid="Godot.Basis.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+  Basis(float, float, float, float, float, float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a transformation matrix from the given components.
+Arguments are named such that xy is equal to calling <code>X.Y</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Basis(float xx, float yx, float zx, float xy, float yy, float zy, float xz, float yz, float zz)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The X component of the X column vector, accessed via <code>b.X.X</code> or <code>[0][0]</code>.</p>
+</dd>
+    <dt><code>yx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The X component of the Y column vector, accessed via <code>b.Y.X</code> or <code>[1][0]</code>.</p>
+</dd>
+    <dt><code>zx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The X component of the Z column vector, accessed via <code>b.Z.X</code> or <code>[2][0]</code>.</p>
+</dd>
+    <dt><code>xy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Y component of the X column vector, accessed via <code>b.X.Y</code> or <code>[0][1]</code>.</p>
+</dd>
+    <dt><code>yy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Y component of the Y column vector, accessed via <code>b.Y.Y</code> or <code>[1][1]</code>.</p>
+</dd>
+    <dt><code>zy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Y component of the Z column vector, accessed via <code>b.Y.Y</code> or <code>[2][1]</code>.</p>
+</dd>
+    <dt><code>xz</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Z component of the X column vector, accessed via <code>b.X.Y</code> or <code>[0][2]</code>.</p>
+</dd>
+    <dt><code>yz</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Z component of the Y column vector, accessed via <code>b.Y.Y</code> or <code>[1][2]</code>.</p>
+</dd>
+    <dt><code>zz</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Z component of the Z column vector, accessed via <code>b.Y.Y</code> or <code>[2][2]</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Godot_Basis_Row0" data-uid="Godot.Basis.Row0">
+  Row0
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Row 0 of the basis matrix. Shows which vectors contribute
+to the X direction. Rows are not very useful for user code,
+but are more efficient for some internal calculations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Row0</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Godot_Basis_Row1" data-uid="Godot.Basis.Row1">
+  Row1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Row 1 of the basis matrix. Shows which vectors contribute
+to the Y direction. Rows are not very useful for user code,
+but are more efficient for some internal calculations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Row1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Godot_Basis_Row2" data-uid="Godot.Basis.Row2">
+  Row2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Row 2 of the basis matrix. Shows which vectors contribute
+to the Z direction. Rows are not very useful for user code,
+but are more efficient for some internal calculations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Row2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_Basis_Column0_" data-uid="Godot.Basis.Column0*"></a>
+
+  <h3 id="Godot_Basis_Column0" data-uid="Godot.Basis.Column0">
+  Column0
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Column 0 of the basis matrix (the X vector).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Column0 { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>Equivalent to <a class="xref" href="Godot.Basis.html#Godot_Basis_X">X</a> and array index <code>[0]</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Column1_" data-uid="Godot.Basis.Column1*"></a>
+
+  <h3 id="Godot_Basis_Column1" data-uid="Godot.Basis.Column1">
+  Column1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Column 1 of the basis matrix (the Y vector).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Column1 { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>Equivalent to <a class="xref" href="Godot.Basis.html#Godot_Basis_Y">Y</a> and array index <code>[1]</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Column2_" data-uid="Godot.Basis.Column2*"></a>
+
+  <h3 id="Godot_Basis_Column2" data-uid="Godot.Basis.Column2">
+  Column2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Column 2 of the basis matrix (the Z vector).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Column2 { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>Equivalent to <a class="xref" href="Godot.Basis.html#Godot_Basis_Z">Z</a> and array index <code>[2]</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_FlipX_" data-uid="Godot.Basis.FlipX*"></a>
+
+  <h3 id="Godot_Basis_FlipX" data-uid="Godot.Basis.FlipX">
+  FlipX
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The basis that will flip something along the X axis when used in a transformation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Basis FlipX { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>Equivalent to <code>new Basis(Vector3.Left, Vector3.Up, Vector3.Back)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_FlipY_" data-uid="Godot.Basis.FlipY*"></a>
+
+  <h3 id="Godot_Basis_FlipY" data-uid="Godot.Basis.FlipY">
+  FlipY
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The basis that will flip something along the Y axis when used in a transformation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Basis FlipY { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>Equivalent to <code>new Basis(Vector3.Right, Vector3.Down, Vector3.Back)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_FlipZ_" data-uid="Godot.Basis.FlipZ*"></a>
+
+  <h3 id="Godot_Basis_FlipZ" data-uid="Godot.Basis.FlipZ">
+  FlipZ
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The basis that will flip something along the Z axis when used in a transformation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Basis FlipZ { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>Equivalent to <code>new Basis(Vector3.Right, Vector3.Up, Vector3.Forward)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Identity_" data-uid="Godot.Basis.Identity*"></a>
+
+  <h3 id="Godot_Basis_Identity" data-uid="Godot.Basis.Identity">
+  Identity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The identity basis, with no rotation or scaling applied.
+This is used as a replacement for <code>Basis()</code> in GDScript.
+Do not use <code>new Basis()</code> with no arguments in C#, because it sets all values to zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Basis Identity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>Equivalent to <code>new Basis(Vector3.Right, Vector3.Up, Vector3.Back)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Item_" data-uid="Godot.Basis.Item*"></a>
+
+  <h3 id="Godot_Basis_Item_System_Int32_" data-uid="Godot.Basis.Item(System.Int32)">
+  this[int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Access whole columns in the form of <a class="xref" href="Godot.Vector3.html">Vector3</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 this[int column] { readonly get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>column</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Which column vector.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>The basis column.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">column</code> is not 0, 1, 2 or 3.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Godot_Basis_Item_" data-uid="Godot.Basis.Item*"></a>
+
+  <h3 id="Godot_Basis_Item_System_Int32_System_Int32_" data-uid="Godot.Basis.Item(System.Int32,System.Int32)">
+  this[int, int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Access matrix elements in column-major order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float this[int column, int row] { readonly get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>column</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Which column, the matrix horizontal position.</p>
+</dd>
+    <dt><code>row</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Which row, the matrix vertical position.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The matrix element.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Scale_" data-uid="Godot.Basis.Scale*"></a>
+
+  <h3 id="Godot_Basis_Scale" data-uid="Godot.Basis.Scale">
+  Scale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assuming that the matrix is the combination of a rotation and scaling,
+return the absolute value of scaling factors along each axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Vector3 Scale { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_X_" data-uid="Godot.Basis.X*"></a>
+
+  <h3 id="Godot_Basis_X" data-uid="Godot.Basis.X">
+  X
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The basis matrix's X vector (column 0).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 X { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>Equivalent to <a class="xref" href="Godot.Basis.html#Godot_Basis_Column0">Column0</a> and array index <code>[0]</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Y_" data-uid="Godot.Basis.Y*"></a>
+
+  <h3 id="Godot_Basis_Y" data-uid="Godot.Basis.Y">
+  Y
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The basis matrix's Y vector (column 1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Y { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>Equivalent to <a class="xref" href="Godot.Basis.html#Godot_Basis_Column1">Column1</a> and array index <code>[1]</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Z_" data-uid="Godot.Basis.Z*"></a>
+
+  <h3 id="Godot_Basis_Z" data-uid="Godot.Basis.Z">
+  Z
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The basis matrix's Z vector (column 2).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Z { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>Equivalent to <a class="xref" href="Godot.Basis.html#Godot_Basis_Column2">Column2</a> and array index <code>[2]</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_Basis_Determinant_" data-uid="Godot.Basis.Determinant*"></a>
+
+  <h3 id="Godot_Basis_Determinant" data-uid="Godot.Basis.Determinant">
+  Determinant()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the determinant of the basis matrix. If the basis is
+uniformly scaled, its determinant is the square of the scale.</p>
+<p>A negative determinant means the basis has a negative scale.
+A zero determinant means the basis isn't invertible,
+and is usually considered invalid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float Determinant()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The determinant of the basis matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Equals_" data-uid="Godot.Basis.Equals*"></a>
+
+  <h3 id="Godot_Basis_Equals_Godot_Basis_" data-uid="Godot.Basis.Equals(Godot.Basis)">
+  Equals(Basis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the basis matrices are exactly
+equal. Note: Due to floating-point precision errors, consider using
+<a class="xref" href="Godot.Basis.html#Godot_Basis_IsEqualApprox_Godot_Basis_">IsEqualApprox(Basis)</a> instead, which is more reliable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(Basis other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The other basis.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the basis matrices are exactly equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Equals_" data-uid="Godot.Basis.Equals*"></a>
+
+  <h3 id="Godot_Basis_Equals_System_Object_" data-uid="Godot.Basis.Equals(System.Object)">
+  Equals(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <a class="xref" href="Godot.Basis.html">Basis</a> is
+exactly equal to the given object (<code class="paramref">obj</code>).
+Note: Due to floating-point precision errors, consider using
+<a class="xref" href="Godot.Basis.html#Godot_Basis_IsEqualApprox_Godot_Basis_">IsEqualApprox(Basis)</a> instead, which is more reliable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The object to compare with.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the basis matrix and the object are exactly equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_FromEuler_" data-uid="Godot.Basis.FromEuler*"></a>
+
+  <h3 id="Godot_Basis_FromEuler_Godot_Vector3_Godot_EulerOrder_" data-uid="Godot.Basis.FromEuler(Godot.Vector3,Godot.EulerOrder)">
+  FromEuler(Vector3, EulerOrder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a Basis matrix from Euler angles in the specified rotation order. By default, use YXZ order (most common).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Basis FromEuler(Vector3 euler, EulerOrder order = EulerOrder.Yxz)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>euler</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>The Euler angles to use.</p>
+</dd>
+    <dt><code>order</code> <a class="xref" href="Godot.EulerOrder.html">EulerOrder</a></dt>
+    <dd><p>The order to compose the Euler angles.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_FromScale_" data-uid="Godot.Basis.FromScale*"></a>
+
+  <h3 id="Godot_Basis_FromScale_Godot_Vector3_" data-uid="Godot.Basis.FromScale(Godot.Vector3)">
+  FromScale(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a pure scale basis matrix with no rotation or shearing.
+The scale values are set as the main diagonal of the matrix,
+and all of the other parts of the matrix are zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Basis FromScale(Vector3 scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scale</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>The scale Vector3.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>A pure scale Basis matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_GetEuler_" data-uid="Godot.Basis.GetEuler*"></a>
+
+  <h3 id="Godot_Basis_GetEuler_Godot_EulerOrder_" data-uid="Godot.Basis.GetEuler(Godot.EulerOrder)">
+  GetEuler(EulerOrder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the basis's rotation in the form of Euler angles.
+The Euler order depends on the <code class="paramref">order</code> parameter,
+by default it uses the YXZ convention: when decomposing,
+first Z, then X, and Y last. The returned vector contains
+the rotation angles in the format (X angle, Y angle, Z angle).</p>
+<p>Consider using the <a class="xref" href="Godot.Basis.html#Godot_Basis_GetRotationQuaternion">GetRotationQuaternion()</a> method instead, which
+returns a <a class="xref" href="Godot.Quaternion.html">Quaternion</a> quaternion instead of Euler angles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Vector3 GetEuler(EulerOrder order = EulerOrder.Yxz)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>order</code> <a class="xref" href="Godot.EulerOrder.html">EulerOrder</a></dt>
+    <dd><p>The Euler order to use. By default, use YXZ order (most common).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>A <a class="xref" href="Godot.Vector3.html">Vector3</a> representing the basis rotation in Euler angles.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_GetHashCode_" data-uid="Godot.Basis.GetHashCode*"></a>
+
+  <h3 id="Godot_Basis_GetHashCode" data-uid="Godot.Basis.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the hash function for <a class="xref" href="Godot.Basis.html">Basis</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for this basis.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_GetRotationQuaternion_" data-uid="Godot.Basis.GetRotationQuaternion*"></a>
+
+  <h3 id="Godot_Basis_GetRotationQuaternion" data-uid="Godot.Basis.GetRotationQuaternion">
+  GetRotationQuaternion()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.Basis.html">Basis</a>'s rotation in the form of a
+<a class="xref" href="Godot.Quaternion.html">Quaternion</a>. See <a class="xref" href="Godot.Basis.html#Godot_Basis_GetEuler_Godot_EulerOrder_">GetEuler(EulerOrder)</a> if you
+need Euler angles, but keep in mind quaternions should generally
+be preferred to Euler angles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Quaternion GetRotationQuaternion()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The basis rotation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Inverse_" data-uid="Godot.Basis.Inverse*"></a>
+
+  <h3 id="Godot_Basis_Inverse" data-uid="Godot.Basis.Inverse">
+  Inverse()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the inverse of the matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Basis Inverse()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The inverse matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_IsEqualApprox_" data-uid="Godot.Basis.IsEqualApprox*"></a>
+
+  <h3 id="Godot_Basis_IsEqualApprox_Godot_Basis_" data-uid="Godot.Basis.IsEqualApprox(Godot.Basis)">
+  IsEqualApprox(Basis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this basis and <code class="paramref">other</code> are approximately equal,
+by running <a class="xref" href="Godot.Vector3.html#Godot_Vector3_IsEqualApprox_Godot_Vector3_">IsEqualApprox(Vector3)</a> on each component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsEqualApprox(Basis other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The other basis to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the bases are approximately equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_IsFinite_" data-uid="Godot.Basis.IsFinite*"></a>
+
+  <h3 id="Godot_Basis_IsFinite" data-uid="Godot.Basis.IsFinite">
+  IsFinite()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this basis is finite, by calling
+<a class="xref" href="Godot.Mathf.html#Godot_Mathf_IsFinite_System_Single_">IsFinite(float)</a> on each component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsFinite()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether this vector is finite or not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_LookingAt_" data-uid="Godot.Basis.LookingAt*"></a>
+
+  <h3 id="Godot_Basis_LookingAt_Godot_Vector3_System_Nullable_Godot_Vector3__System_Boolean_" data-uid="Godot.Basis.LookingAt(Godot.Vector3,System.Nullable{Godot.Vector3},System.Boolean)">
+  LookingAt(Vector3, Vector3?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="Godot.Basis.html">Basis</a> with a rotation such that the forward
+axis (-Z) points towards the <code class="paramref">target</code> position.
+The up axis (+Y) points as close to the <code class="paramref">up</code> vector
+as possible while staying perpendicular to the forward axis.
+The resulting Basis is orthonormalized.
+The <code class="paramref">target</code> and <code class="paramref">up</code> vectors
+cannot be zero, and cannot be parallel to each other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Basis LookingAt(Vector3 target, Vector3? up = null, bool useModelFront = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>The position to look at.</p>
+</dd>
+    <dt><code>up</code> <a class="xref" href="Godot.Vector3.html">Vector3</a>?</dt>
+    <dd><p>The relative up direction.</p>
+</dd>
+    <dt><code>useModelFront</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If true, then the model is oriented in reverse,
+towards the model front axis (+Z, Vector3.ModelFront),
+which is more useful for orienting 3D models.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The resulting basis matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Orthonormalized_" data-uid="Godot.Basis.Orthonormalized*"></a>
+
+  <h3 id="Godot_Basis_Orthonormalized" data-uid="Godot.Basis.Orthonormalized">
+  Orthonormalized()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the orthonormalized version of the basis matrix (useful to
+call occasionally to avoid rounding errors for orthogonal matrices).
+This performs a Gram-Schmidt orthonormalization on the basis of the matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Basis Orthonormalized()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>An orthonormalized basis matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Rotated_" data-uid="Godot.Basis.Rotated*"></a>
+
+  <h3 id="Godot_Basis_Rotated_Godot_Vector3_System_Single_" data-uid="Godot.Basis.Rotated(Godot.Vector3,System.Single)">
+  Rotated(Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Introduce an additional rotation around the given <code class="paramref">axis</code>
+by <code class="paramref">angle</code> (in radians). The axis must be a normalized vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Basis Rotated(Vector3 axis, float angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>axis</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>The axis to rotate around. Must be normalized.</p>
+</dd>
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The angle to rotate, in radians.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The rotated basis matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Scaled_" data-uid="Godot.Basis.Scaled*"></a>
+
+  <h3 id="Godot_Basis_Scaled_Godot_Vector3_" data-uid="Godot.Basis.Scaled(Godot.Vector3)">
+  Scaled(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Introduce an additional scaling specified by the given 3D scaling factor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Basis Scaled(Vector3 scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scale</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>The scale to introduce.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The scaled basis matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Slerp_" data-uid="Godot.Basis.Slerp*"></a>
+
+  <h3 id="Godot_Basis_Slerp_Godot_Basis_System_Single_" data-uid="Godot.Basis.Slerp(Godot.Basis,System.Single)">
+  Slerp(Basis, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assuming that the matrix is a proper rotation matrix, slerp performs
+a spherical-linear interpolation with another rotation matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Basis Slerp(Basis target, float weight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The destination basis for interpolation.</p>
+</dd>
+    <dt><code>weight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>A value on the range of 0.0 to 1.0, representing the amount of interpolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The resulting basis matrix of the interpolation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Tdotx_" data-uid="Godot.Basis.Tdotx*"></a>
+
+  <h3 id="Godot_Basis_Tdotx_Godot_Vector3_" data-uid="Godot.Basis.Tdotx(Godot.Vector3)">
+  Tdotx(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transposed dot product with the X axis of the matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float Tdotx(Vector3 with)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>with</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>A vector to calculate the dot product with.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The resulting dot product.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Tdoty_" data-uid="Godot.Basis.Tdoty*"></a>
+
+  <h3 id="Godot_Basis_Tdoty_Godot_Vector3_" data-uid="Godot.Basis.Tdoty(Godot.Vector3)">
+  Tdoty(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transposed dot product with the Y axis of the matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float Tdoty(Vector3 with)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>with</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>A vector to calculate the dot product with.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The resulting dot product.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Tdotz_" data-uid="Godot.Basis.Tdotz*"></a>
+
+  <h3 id="Godot_Basis_Tdotz_Godot_Vector3_" data-uid="Godot.Basis.Tdotz(Godot.Vector3)">
+  Tdotz(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transposed dot product with the Z axis of the matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float Tdotz(Vector3 with)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>with</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>A vector to calculate the dot product with.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The resulting dot product.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_ToString_" data-uid="Godot.Basis.ToString*"></a>
+
+  <h3 id="Godot_Basis_ToString" data-uid="Godot.Basis.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts this <a class="xref" href="Godot.Basis.html">Basis</a> to a string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string representation of this basis.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_ToString_" data-uid="Godot.Basis.ToString*"></a>
+
+  <h3 id="Godot_Basis_ToString_System_String_" data-uid="Godot.Basis.ToString(System.String)">
+  ToString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts this <a class="xref" href="Godot.Basis.html">Basis</a> to a string with the given <code class="paramref">format</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string representation of this basis.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_Transposed_" data-uid="Godot.Basis.Transposed*"></a>
+
+  <h3 id="Godot_Basis_Transposed" data-uid="Godot.Basis.Transposed">
+  Transposed()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the transposed version of the basis matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Basis Transposed()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The transposed basis matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Godot_Basis_op_Equality_" data-uid="Godot.Basis.op_Equality*"></a>
+
+  <h3 id="Godot_Basis_op_Equality_Godot_Basis_Godot_Basis_" data-uid="Godot.Basis.op_Equality(Godot.Basis,Godot.Basis)">
+  operator ==(Basis, Basis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the basis matrices are exactly
+equal. Note: Due to floating-point precision errors, consider using
+<a class="xref" href="Godot.Basis.html#Godot_Basis_IsEqualApprox_Godot_Basis_">IsEqualApprox(Basis)</a> instead, which is more reliable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Basis left, Basis right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The left basis.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The right basis.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the basis matrices are exactly equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_op_Inequality_" data-uid="Godot.Basis.op_Inequality*"></a>
+
+  <h3 id="Godot_Basis_op_Inequality_Godot_Basis_Godot_Basis_" data-uid="Godot.Basis.op_Inequality(Godot.Basis,Godot.Basis)">
+  operator !=(Basis, Basis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the basis matrices are not equal.
+Note: Due to floating-point precision errors, consider using
+<a class="xref" href="Godot.Basis.html#Godot_Basis_IsEqualApprox_Godot_Basis_">IsEqualApprox(Basis)</a> instead, which is more reliable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Basis left, Basis right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The left basis.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The right basis.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the basis matrices are not equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_op_Multiply_" data-uid="Godot.Basis.op_Multiply*"></a>
+
+  <h3 id="Godot_Basis_op_Multiply_Godot_Basis_Godot_Basis_" data-uid="Godot.Basis.op_Multiply(Godot.Basis,Godot.Basis)">
+  operator *(Basis, Basis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Composes these two basis matrices by multiplying them
+together. This has the effect of transforming the second basis
+(the child) by the first basis (the parent).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Basis operator *(Basis left, Basis right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The parent basis.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The child basis.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The composed basis.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_op_Multiply_" data-uid="Godot.Basis.op_Multiply*"></a>
+
+  <h3 id="Godot_Basis_op_Multiply_Godot_Basis_Godot_Vector3_" data-uid="Godot.Basis.op_Multiply(Godot.Basis,Godot.Vector3)">
+  operator *(Basis, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a Vector3 transformed (multiplied) by the basis matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 operator *(Basis basis, Vector3 vector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>basis</code> <a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The basis matrix transformation to apply.</p>
+</dd>
+    <dt><code>vector</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>A Vector3 to transform.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>The transformed Vector3.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Basis_op_Multiply_" data-uid="Godot.Basis.op_Multiply*"></a>
+
+  <h3 id="Godot_Basis_op_Multiply_Godot_Vector3_Godot_Basis_" data-uid="Godot.Basis.op_Multiply(Godot.Vector3,Godot.Basis)">
+  operator *(Vector3, Basis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a Vector3 transformed (multiplied) by the inverse basis matrix,
+under the assumption that the transformation basis is orthonormal (i.e. rotation/reflection
+is fine, scaling/skew is not).
+<code>vector * basis</code> is equivalent to <code>basis.Transposed() * vector</code>. See <a class="xref" href="Godot.Basis.html#Godot_Basis_Transposed">Transposed()</a>.
+For transforming by inverse of a non-orthonormal basis (e.g. with scaling) <code>basis.Inverse() * vector</code> can be used instead. See <a class="xref" href="Godot.Basis.html#Godot_Basis_Inverse">Inverse()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 operator *(Vector3 vector, Basis basis)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>A Vector3 to inversely transform.</p>
+</dd>
+    <dt><code>basis</code> <a class="xref" href="Godot.Basis.html">Basis</a></dt>
+    <dd><p>The basis matrix transformation to apply.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd><p>The inversely transformed vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Basis.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

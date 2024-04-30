@@ -1,0 +1,2193 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class EditorInterface | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class EditorInterface | Godot4 C# API ">
+      
+      <meta name="description" content="gives you control over Godot editor&#39;s window. It allows customizing the window, saving and (re-)loading scenes, rendering mesh previews, inspecting and editing resources and objects, and provides access to , , , , the editor viewport, and information about scenes.    Note: This class shouldn&#39;t be instantiated directly. Instead, access the singleton directly by its name.    // In C# you can access it via the static Singleton property.   EditorSettings settings = EditorInterface.Singleton.GetEditorSettings();">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.EditorInterface">
+
+
+
+  <h1 id="Godot_EditorInterface" data-uid="Godot.EditorInterface" class="text-break">
+Class EditorInterface  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharpEditor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>
+  <a class="xref" href="Godot.EditorInterface.html">EditorInterface</a> gives you control over Godot editor's window. It allows customizing the window, saving and (re-)loading scenes, rendering mesh previews, inspecting and editing resources and objects, and provides access to <a class="xref" href="Godot.EditorSettings.html">EditorSettings</a>, <a class="xref" href="Godot.EditorFileSystem.html">EditorFileSystem</a>, <a class="xref" href="Godot.EditorResourcePreview.html">EditorResourcePreview</a>, <a class="xref" href="Godot.ScriptEditor.html">ScriptEditor</a>, the editor viewport, and information about scenes.</p>
+<p>
+  <b>Note:</b> This class shouldn't be instantiated directly. Instead, access the singleton directly by its name.</p>
+<p>
+  <pre><code class="lang-csharp">// In C# you can access it via the static Singleton property.
+  EditorSettings settings = EditorInterface.Singleton.GetEditorSettings();</code></pre>
+
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class EditorInterface : GodotObject, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="../main/Godot.GodotObject.html">GodotObject</a></div>
+      <div><span class="xref">EditorInterface</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_EditorInterface_DistractionFreeMode_" data-uid="Godot.EditorInterface.DistractionFreeMode*"></a>
+
+  <h3 id="Godot_EditorInterface_DistractionFreeMode" data-uid="Godot.EditorInterface.DistractionFreeMode">
+  DistractionFreeMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <code>true</code>, enables distraction-free mode which hides side docks to increase the space available for the main view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DistractionFreeMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_MovieMakerEnabled_" data-uid="Godot.EditorInterface.MovieMakerEnabled*"></a>
+
+  <h3 id="Godot_EditorInterface_MovieMakerEnabled" data-uid="Godot.EditorInterface.MovieMakerEnabled">
+  MovieMakerEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <code>true</code>, the Movie Maker mode is enabled in the editor. See <a class="xref" href="../main/Godot.MovieWriter.html">MovieWriter</a> for more information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool MovieMakerEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_Singleton_" data-uid="Godot.EditorInterface.Singleton*"></a>
+
+  <h3 id="Godot_EditorInterface_Singleton" data-uid="Godot.EditorInterface.Singleton">
+  Singleton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static EditorInterface Singleton { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.EditorInterface.html">EditorInterface</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_EditorInterface_EditNode_" data-uid="Godot.EditorInterface.EditNode*"></a>
+
+  <h3 id="Godot_EditorInterface_EditNode_Godot_Node_" data-uid="Godot.EditorInterface.EditNode(Godot.Node)">
+  EditNode(Node)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Edits the given <a class="xref" href="../main/Godot.Node.html">Node</a>. The node will be also selected if it's inside the scene tree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EditNode(Node node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="../main/Godot.Node.html">Node</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_EditResource_" data-uid="Godot.EditorInterface.EditResource*"></a>
+
+  <h3 id="Godot_EditorInterface_EditResource_Godot_Resource_" data-uid="Godot.EditorInterface.EditResource(Godot.Resource)">
+  EditResource(Resource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Edits the given <a class="xref" href="../main/Godot.Resource.html">Resource</a>. If the resource is a <a class="xref" href="../main/Godot.Script.html">Script</a> you can also edit it with <a class="xref" href="Godot.EditorInterface.html#Godot_EditorInterface_EditScript_Godot_Script_System_Int32_System_Int32_System_Boolean_">EditScript(Script, int, int, bool)</a> to specify the line and column position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EditResource(Resource resource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>resource</code> <a class="xref" href="../main/Godot.Resource.html">Resource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_EditScript_" data-uid="Godot.EditorInterface.EditScript*"></a>
+
+  <h3 id="Godot_EditorInterface_EditScript_Godot_Script_System_Int32_System_Int32_System_Boolean_" data-uid="Godot.EditorInterface.EditScript(Godot.Script,System.Int32,System.Int32,System.Boolean)">
+  EditScript(Script, int, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Edits the given <a class="xref" href="../main/Godot.Script.html">Script</a>. The line and column on which to open the script can also be specified. The script will be open with the user-configured editor for the script's language which may be an external editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EditScript(Script script, int line = -1, int column = 0, bool grabFocus = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="../main/Godot.Script.html">Script</a></dt>
+    <dd></dd>
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>column</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>grabFocus</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetBaseControl_" data-uid="Godot.EditorInterface.GetBaseControl*"></a>
+
+  <h3 id="Godot_EditorInterface_GetBaseControl" data-uid="Godot.EditorInterface.GetBaseControl">
+  GetBaseControl()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the main container of Godot editor's window. For example, you can use it to retrieve the size of the container and place your controls accordingly.</p>
+<p>
+  <b>Warning:</b> Removing and freeing this node will render the editor useless and may cause a crash.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Control GetBaseControl()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.Control.html">Control</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetCommandPalette_" data-uid="Godot.EditorInterface.GetCommandPalette*"></a>
+
+  <h3 id="Godot_EditorInterface_GetCommandPalette" data-uid="Godot.EditorInterface.GetCommandPalette">
+  GetCommandPalette()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the editor's <a class="xref" href="Godot.EditorCommandPalette.html">EditorCommandPalette</a> instance.</p>
+<p>
+  <b>Warning:</b> Removing and freeing this node will render a part of the editor useless and may cause a crash.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorCommandPalette GetCommandPalette()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.EditorCommandPalette.html">EditorCommandPalette</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetCurrentDirectory_" data-uid="Godot.EditorInterface.GetCurrentDirectory*"></a>
+
+  <h3 id="Godot_EditorInterface_GetCurrentDirectory" data-uid="Godot.EditorInterface.GetCurrentDirectory">
+  GetCurrentDirectory()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current directory being viewed in the <a class="xref" href="Godot.FileSystemDock.html">FileSystemDock</a>. If a file is selected, its base directory will be returned using <code>String.get_base_dir</code> instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetCurrentDirectory()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetCurrentFeatureProfile_" data-uid="Godot.EditorInterface.GetCurrentFeatureProfile*"></a>
+
+  <h3 id="Godot_EditorInterface_GetCurrentFeatureProfile" data-uid="Godot.EditorInterface.GetCurrentFeatureProfile">
+  GetCurrentFeatureProfile()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the name of the currently activated feature profile. If the default profile is currently active, an empty string is returned instead.</p>
+<p>In order to get a reference to the <a class="xref" href="Godot.EditorFeatureProfile.html">EditorFeatureProfile</a>, you must load the feature profile using <a class="xref" href="Godot.EditorFeatureProfile.html#Godot_EditorFeatureProfile_LoadFromFile_System_String_">LoadFromFile(string)</a>.</p>
+<p>
+  <b>Note:</b> Feature profiles created via the user interface are loaded from the <code>feature_profiles</code> directory, as a file with the <code>.profile</code> extension. The editor configuration folder can be found by using <a class="xref" href="Godot.EditorPaths.html#Godot_EditorPaths_GetConfigDir">GetConfigDir()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetCurrentFeatureProfile()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetCurrentPath_" data-uid="Godot.EditorInterface.GetCurrentPath*"></a>
+
+  <h3 id="Godot_EditorInterface_GetCurrentPath" data-uid="Godot.EditorInterface.GetCurrentPath">
+  GetCurrentPath()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current path being viewed in the <a class="xref" href="Godot.FileSystemDock.html">FileSystemDock</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetCurrentPath()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetEditedSceneRoot_" data-uid="Godot.EditorInterface.GetEditedSceneRoot*"></a>
+
+  <h3 id="Godot_EditorInterface_GetEditedSceneRoot" data-uid="Godot.EditorInterface.GetEditedSceneRoot">
+  GetEditedSceneRoot()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the edited (current) scene's root <a class="xref" href="../main/Godot.Node.html">Node</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Node GetEditedSceneRoot()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.Node.html">Node</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetEditorMainScreen_" data-uid="Godot.EditorInterface.GetEditorMainScreen*"></a>
+
+  <h3 id="Godot_EditorInterface_GetEditorMainScreen" data-uid="Godot.EditorInterface.GetEditorMainScreen">
+  GetEditorMainScreen()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the editor control responsible for main screen plugins and tools. Use it with plugins that implement <a class="xref" href="Godot.EditorPlugin.html#Godot_EditorPlugin__HasMainScreen">_HasMainScreen()</a>.</p>
+<p>
+  <b>Warning:</b> Removing and freeing this node will render a part of the editor useless and may cause a crash.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VBoxContainer GetEditorMainScreen()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.VBoxContainer.html">VBoxContainer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetEditorPaths_" data-uid="Godot.EditorInterface.GetEditorPaths*"></a>
+
+  <h3 id="Godot_EditorInterface_GetEditorPaths" data-uid="Godot.EditorInterface.GetEditorPaths">
+  GetEditorPaths()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.EditorPaths.html">EditorPaths</a> singleton.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorPaths GetEditorPaths()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.EditorPaths.html">EditorPaths</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetEditorScale_" data-uid="Godot.EditorInterface.GetEditorScale*"></a>
+
+  <h3 id="Godot_EditorInterface_GetEditorScale" data-uid="Godot.EditorInterface.GetEditorScale">
+  GetEditorScale()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the actual scale of the editor UI (<code>1.0</code> being 100% scale). This can be used to adjust position and dimensions of the UI added by plugins.</p>
+<p>
+  <b>Note:</b> This value is set via the <code>interface/editor/display_scale</code> and <code>interface/editor/custom_display_scale</code> editor settings. Editor must be restarted for changes to be properly applied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetEditorScale()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetEditorSettings_" data-uid="Godot.EditorInterface.GetEditorSettings*"></a>
+
+  <h3 id="Godot_EditorInterface_GetEditorSettings" data-uid="Godot.EditorInterface.GetEditorSettings">
+  GetEditorSettings()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the editor's <a class="xref" href="Godot.EditorSettings.html">EditorSettings</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorSettings GetEditorSettings()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.EditorSettings.html">EditorSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetEditorTheme_" data-uid="Godot.EditorInterface.GetEditorTheme*"></a>
+
+  <h3 id="Godot_EditorInterface_GetEditorTheme" data-uid="Godot.EditorInterface.GetEditorTheme">
+  GetEditorTheme()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the editor's <a class="xref" href="../main/Godot.Theme.html">Theme</a>.</p>
+<p>
+  <b>Note:</b> When creating custom editor UI, prefer accessing theme items directly from your GUI nodes using the <code>get_theme_*</code> methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Theme GetEditorTheme()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.Theme.html">Theme</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetEditorViewport2D_" data-uid="Godot.EditorInterface.GetEditorViewport2D*"></a>
+
+  <h3 id="Godot_EditorInterface_GetEditorViewport2D" data-uid="Godot.EditorInterface.GetEditorViewport2D">
+  GetEditorViewport2D()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the 2D editor <a class="xref" href="../main/Godot.SubViewport.html">SubViewport</a>. It does not have a camera. Instead, the view transforms are done directly and can be accessed with <a class="xref" href="../main/Godot.Viewport.html#Godot_Viewport_GlobalCanvasTransform">GlobalCanvasTransform</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SubViewport GetEditorViewport2D()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.SubViewport.html">SubViewport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetEditorViewport3D_" data-uid="Godot.EditorInterface.GetEditorViewport3D*"></a>
+
+  <h3 id="Godot_EditorInterface_GetEditorViewport3D_System_Int32_" data-uid="Godot.EditorInterface.GetEditorViewport3D(System.Int32)">
+  GetEditorViewport3D(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the specified 3D editor <a class="xref" href="../main/Godot.SubViewport.html">SubViewport</a>, from <code>0</code> to <code>3</code>. The viewport can be used to access the active editor cameras with <a class="xref" href="../main/Godot.Viewport.html#Godot_Viewport_GetCamera3D">GetCamera3D()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SubViewport GetEditorViewport3D(int idx = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.SubViewport.html">SubViewport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetFileSystemDock_" data-uid="Godot.EditorInterface.GetFileSystemDock*"></a>
+
+  <h3 id="Godot_EditorInterface_GetFileSystemDock" data-uid="Godot.EditorInterface.GetFileSystemDock">
+  GetFileSystemDock()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the editor's <a class="xref" href="Godot.FileSystemDock.html">FileSystemDock</a> instance.</p>
+<p>
+  <b>Warning:</b> Removing and freeing this node will render a part of the editor useless and may cause a crash.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileSystemDock GetFileSystemDock()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileSystemDock.html">FileSystemDock</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetInspector_" data-uid="Godot.EditorInterface.GetInspector*"></a>
+
+  <h3 id="Godot_EditorInterface_GetInspector" data-uid="Godot.EditorInterface.GetInspector">
+  GetInspector()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the editor's <a class="xref" href="Godot.EditorInspector.html">EditorInspector</a> instance.</p>
+<p>
+  <b>Warning:</b> Removing and freeing this node will render a part of the editor useless and may cause a crash.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorInspector GetInspector()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.EditorInspector.html">EditorInspector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetOpenScenes_" data-uid="Godot.EditorInterface.GetOpenScenes*"></a>
+
+  <h3 id="Godot_EditorInterface_GetOpenScenes" data-uid="Godot.EditorInterface.GetOpenScenes">
+  GetOpenScenes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="../main/Godot.Collections.Array.html">Array</a> with the file paths of the currently opened scenes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetOpenScenes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetPlayingScene_" data-uid="Godot.EditorInterface.GetPlayingScene*"></a>
+
+  <h3 id="Godot_EditorInterface_GetPlayingScene" data-uid="Godot.EditorInterface.GetPlayingScene">
+  GetPlayingScene()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the name of the scene that is being played. If no scene is currently being played, returns an empty string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetPlayingScene()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetResourceFilesystem_" data-uid="Godot.EditorInterface.GetResourceFilesystem*"></a>
+
+  <h3 id="Godot_EditorInterface_GetResourceFilesystem" data-uid="Godot.EditorInterface.GetResourceFilesystem">
+  GetResourceFilesystem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the editor's <a class="xref" href="Godot.EditorFileSystem.html">EditorFileSystem</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorFileSystem GetResourceFilesystem()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.EditorFileSystem.html">EditorFileSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetResourcePreviewer_" data-uid="Godot.EditorInterface.GetResourcePreviewer*"></a>
+
+  <h3 id="Godot_EditorInterface_GetResourcePreviewer" data-uid="Godot.EditorInterface.GetResourcePreviewer">
+  GetResourcePreviewer()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the editor's <a class="xref" href="Godot.EditorResourcePreview.html">EditorResourcePreview</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorResourcePreview GetResourcePreviewer()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.EditorResourcePreview.html">EditorResourcePreview</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetScriptEditor_" data-uid="Godot.EditorInterface.GetScriptEditor*"></a>
+
+  <h3 id="Godot_EditorInterface_GetScriptEditor" data-uid="Godot.EditorInterface.GetScriptEditor">
+  GetScriptEditor()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the editor's <a class="xref" href="Godot.ScriptEditor.html">ScriptEditor</a> instance.</p>
+<p>
+  <b>Warning:</b> Removing and freeing this node will render a part of the editor useless and may cause a crash.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScriptEditor GetScriptEditor()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.ScriptEditor.html">ScriptEditor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetSelectedPaths_" data-uid="Godot.EditorInterface.GetSelectedPaths*"></a>
+
+  <h3 id="Godot_EditorInterface_GetSelectedPaths" data-uid="Godot.EditorInterface.GetSelectedPaths">
+  GetSelectedPaths()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array containing the paths of the currently selected files (and directories) in the <a class="xref" href="Godot.FileSystemDock.html">FileSystemDock</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetSelectedPaths()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_GetSelection_" data-uid="Godot.EditorInterface.GetSelection*"></a>
+
+  <h3 id="Godot_EditorInterface_GetSelection" data-uid="Godot.EditorInterface.GetSelection">
+  GetSelection()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the editor's <a class="xref" href="Godot.EditorSelection.html">EditorSelection</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorSelection GetSelection()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.EditorSelection.html">EditorSelection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_HasGodotClassMethod_" data-uid="Godot.EditorInterface.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_EditorInterface_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.EditorInterface.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="../main/Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_HasGodotClassSignal_" data-uid="Godot.EditorInterface.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_EditorInterface_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.EditorInterface.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="../main/Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_InspectObject_" data-uid="Godot.EditorInterface.InspectObject*"></a>
+
+  <h3 id="Godot_EditorInterface_InspectObject_Godot_GodotObject_System_String_System_Boolean_" data-uid="Godot.EditorInterface.InspectObject(Godot.GodotObject,System.String,System.Boolean)">
+  InspectObject(GodotObject, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shows the given property on the given <code class="paramref">object</code> in the editor's Inspector dock. If <code class="paramref">inspectorOnly</code> is <code>true</code>, plugins will not attempt to edit <code class="paramref">object</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InspectObject(GodotObject @object, string forProperty = &quot;&quot;, bool inspectorOnly = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>object</code> <a class="xref" href="../main/Godot.GodotObject.html">GodotObject</a></dt>
+    <dd></dd>
+    <dt><code>forProperty</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>inspectorOnly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_InvokeGodotClassMethod_" data-uid="Godot.EditorInterface.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_EditorInterface_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.EditorInterface.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="../main/Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="../main/Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="../main/Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_IsPlayingScene_" data-uid="Godot.EditorInterface.IsPlayingScene*"></a>
+
+  <h3 id="Godot_EditorInterface_IsPlayingScene" data-uid="Godot.EditorInterface.IsPlayingScene">
+  IsPlayingScene()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <code>true</code> if a scene is currently being played, <code>false</code> otherwise. Paused scenes are considered as being played.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPlayingScene()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_IsPluginEnabled_" data-uid="Godot.EditorInterface.IsPluginEnabled*"></a>
+
+  <h3 id="Godot_EditorInterface_IsPluginEnabled_System_String_" data-uid="Godot.EditorInterface.IsPluginEnabled(System.String)">
+  IsPluginEnabled(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <code>true</code> if the specified <code class="paramref">plugin</code> is enabled. The plugin name is the same as its directory name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPluginEnabled(string plugin)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plugin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_MakeMeshPreviews_" data-uid="Godot.EditorInterface.MakeMeshPreviews*"></a>
+
+  <h3 id="Godot_EditorInterface_MakeMeshPreviews_Godot_Collections_Array_Godot_Mesh__System_Int32_" data-uid="Godot.EditorInterface.MakeMeshPreviews(Godot.Collections.Array{Godot.Mesh},System.Int32)">
+  MakeMeshPreviews(Array&lt;Mesh&gt;, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns mesh previews rendered at the given size as an <a class="xref" href="../main/Godot.Collections.Array.html">Array</a> of <a class="xref" href="../main/Godot.Texture2D.html">Texture2D</a>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;Texture2D&gt; MakeMeshPreviews(Array&lt;Mesh&gt; meshes, int previewSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>meshes</code> <a class="xref" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Array.cs">Array</a>&lt;<a class="xref" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Mesh.cs">Mesh</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>previewSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Array.cs">Array</a>&lt;<a class="xref" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Texture2D.cs">Texture2D</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_MarkSceneAsUnsaved_" data-uid="Godot.EditorInterface.MarkSceneAsUnsaved*"></a>
+
+  <h3 id="Godot_EditorInterface_MarkSceneAsUnsaved" data-uid="Godot.EditorInterface.MarkSceneAsUnsaved">
+  MarkSceneAsUnsaved()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Marks the current scene tab as unsaved.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MarkSceneAsUnsaved()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_OpenSceneFromPath_" data-uid="Godot.EditorInterface.OpenSceneFromPath*"></a>
+
+  <h3 id="Godot_EditorInterface_OpenSceneFromPath_System_String_" data-uid="Godot.EditorInterface.OpenSceneFromPath(System.String)">
+  OpenSceneFromPath(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens the scene at the given path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OpenSceneFromPath(string sceneFilepath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sceneFilepath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_PlayCurrentScene_" data-uid="Godot.EditorInterface.PlayCurrentScene*"></a>
+
+  <h3 id="Godot_EditorInterface_PlayCurrentScene" data-uid="Godot.EditorInterface.PlayCurrentScene">
+  PlayCurrentScene()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Plays the currently active scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PlayCurrentScene()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_PlayCustomScene_" data-uid="Godot.EditorInterface.PlayCustomScene*"></a>
+
+  <h3 id="Godot_EditorInterface_PlayCustomScene_System_String_" data-uid="Godot.EditorInterface.PlayCustomScene(System.String)">
+  PlayCustomScene(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Plays the scene specified by its filepath.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PlayCustomScene(string sceneFilepath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sceneFilepath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_PlayMainScene_" data-uid="Godot.EditorInterface.PlayMainScene*"></a>
+
+  <h3 id="Godot_EditorInterface_PlayMainScene" data-uid="Godot.EditorInterface.PlayMainScene">
+  PlayMainScene()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Plays the main scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PlayMainScene()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_PopupDialog_" data-uid="Godot.EditorInterface.PopupDialog*"></a>
+
+  <h3 id="Godot_EditorInterface_PopupDialog_Godot_Window_System_Nullable_Godot_Rect2I__" data-uid="Godot.EditorInterface.PopupDialog(Godot.Window,System.Nullable{Godot.Rect2I})">
+  PopupDialog(Window, Rect2I?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pops up the <code class="paramref">dialog</code> in the editor UI with <a class="xref" href="../main/Godot.Window.html#Godot_Window_PopupExclusive_Godot_Node_System_Nullable_Godot_Rect2I__">PopupExclusive(Node, Rect2I?)</a>. The dialog must have no current parent, otherwise the method fails.</p>
+<p>See also <a class="xref" href="../main/Godot.Window.html#Godot_Window_SetUnparentWhenInvisible_System_Boolean_">SetUnparentWhenInvisible(bool)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PopupDialog(Window dialog, Rect2I? rect = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dialog</code> <a class="xref" href="../main/Godot.Window.html">Window</a></dt>
+    <dd></dd>
+    <dt><code>rect</code> <a class="xref" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Rect2I.cs">Rect2I</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Rect2I(new Vector2I(0, 0), new Vector2I(0, 0))</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_PopupDialogCentered_" data-uid="Godot.EditorInterface.PopupDialogCentered*"></a>
+
+  <h3 id="Godot_EditorInterface_PopupDialogCentered_Godot_Window_System_Nullable_Godot_Vector2I__" data-uid="Godot.EditorInterface.PopupDialogCentered(Godot.Window,System.Nullable{Godot.Vector2I})">
+  PopupDialogCentered(Window, Vector2I?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pops up the <code class="paramref">dialog</code> in the editor UI with <a class="xref" href="../main/Godot.Window.html#Godot_Window_PopupExclusiveCentered_Godot_Node_System_Nullable_Godot_Vector2I__">PopupExclusiveCentered(Node, Vector2I?)</a>. The dialog must have no current parent, otherwise the method fails.</p>
+<p>See also <a class="xref" href="../main/Godot.Window.html#Godot_Window_SetUnparentWhenInvisible_System_Boolean_">SetUnparentWhenInvisible(bool)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PopupDialogCentered(Window dialog, Vector2I? minsize = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dialog</code> <a class="xref" href="../main/Godot.Window.html">Window</a></dt>
+    <dd></dd>
+    <dt><code>minsize</code> <a class="xref" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Vector2I.cs">Vector2I</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Vector2I(0, 0)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_PopupDialogCenteredClamped_" data-uid="Godot.EditorInterface.PopupDialogCenteredClamped*"></a>
+
+  <h3 id="Godot_EditorInterface_PopupDialogCenteredClamped_Godot_Window_System_Nullable_Godot_Vector2I__System_Single_" data-uid="Godot.EditorInterface.PopupDialogCenteredClamped(Godot.Window,System.Nullable{Godot.Vector2I},System.Single)">
+  PopupDialogCenteredClamped(Window, Vector2I?, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pops up the <code class="paramref">dialog</code> in the editor UI with <a class="xref" href="../main/Godot.Window.html#Godot_Window_PopupExclusiveCenteredClamped_Godot_Node_System_Nullable_Godot_Vector2I__System_Single_">PopupExclusiveCenteredClamped(Node, Vector2I?, float)</a>. The dialog must have no current parent, otherwise the method fails.</p>
+<p>See also <a class="xref" href="../main/Godot.Window.html#Godot_Window_SetUnparentWhenInvisible_System_Boolean_">SetUnparentWhenInvisible(bool)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PopupDialogCenteredClamped(Window dialog, Vector2I? minsize = null, float fallbackRatio = 0.75)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dialog</code> <a class="xref" href="../main/Godot.Window.html">Window</a></dt>
+    <dd></dd>
+    <dt><code>minsize</code> <a class="xref" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Core/Vector2I.cs">Vector2I</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Vector2I(0, 0)</code>.</p>
+</dd>
+    <dt><code>fallbackRatio</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_PopupDialogCenteredRatio_" data-uid="Godot.EditorInterface.PopupDialogCenteredRatio*"></a>
+
+  <h3 id="Godot_EditorInterface_PopupDialogCenteredRatio_Godot_Window_System_Single_" data-uid="Godot.EditorInterface.PopupDialogCenteredRatio(Godot.Window,System.Single)">
+  PopupDialogCenteredRatio(Window, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pops up the <code class="paramref">dialog</code> in the editor UI with <a class="xref" href="../main/Godot.Window.html#Godot_Window_PopupExclusiveCenteredRatio_Godot_Node_System_Single_">PopupExclusiveCenteredRatio(Node, float)</a>. The dialog must have no current parent, otherwise the method fails.</p>
+<p>See also <a class="xref" href="../main/Godot.Window.html#Godot_Window_SetUnparentWhenInvisible_System_Boolean_">SetUnparentWhenInvisible(bool)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PopupDialogCenteredRatio(Window dialog, float ratio = 0.8)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dialog</code> <a class="xref" href="../main/Godot.Window.html">Window</a></dt>
+    <dd></dd>
+    <dt><code>ratio</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_ReloadSceneFromPath_" data-uid="Godot.EditorInterface.ReloadSceneFromPath*"></a>
+
+  <h3 id="Godot_EditorInterface_ReloadSceneFromPath_System_String_" data-uid="Godot.EditorInterface.ReloadSceneFromPath(System.String)">
+  ReloadSceneFromPath(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reloads the scene at the given path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReloadSceneFromPath(string sceneFilepath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sceneFilepath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_RestartEditor_" data-uid="Godot.EditorInterface.RestartEditor*"></a>
+
+  <h3 id="Godot_EditorInterface_RestartEditor_System_Boolean_" data-uid="Godot.EditorInterface.RestartEditor(System.Boolean)">
+  RestartEditor(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restarts the editor. This closes the editor and then opens the same project. If <code class="paramref">save</code> is <code>true</code>, the project will be saved before restarting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RestartEditor(bool save = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>save</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_SaveAllScenes_" data-uid="Godot.EditorInterface.SaveAllScenes*"></a>
+
+  <h3 id="Godot_EditorInterface_SaveAllScenes" data-uid="Godot.EditorInterface.SaveAllScenes">
+  SaveAllScenes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves all opened scenes in the editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SaveAllScenes()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_SaveScene_" data-uid="Godot.EditorInterface.SaveScene*"></a>
+
+  <h3 id="Godot_EditorInterface_SaveScene" data-uid="Godot.EditorInterface.SaveScene">
+  SaveScene()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves the currently active scene. Returns either <a class="xref" href="../main/Godot.Error.html#Godot_Error_Ok">Ok</a> or <a class="xref" href="../main/Godot.Error.html#Godot_Error_CantCreate">CantCreate</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Error SaveScene()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_SaveSceneAs_" data-uid="Godot.EditorInterface.SaveSceneAs*"></a>
+
+  <h3 id="Godot_EditorInterface_SaveSceneAs_System_String_System_Boolean_" data-uid="Godot.EditorInterface.SaveSceneAs(System.String,System.Boolean)">
+  SaveSceneAs(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves the currently active scene as a file at <code class="paramref">path</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SaveSceneAs(string path, bool withPreview = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>withPreview</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_SelectFile_" data-uid="Godot.EditorInterface.SelectFile*"></a>
+
+  <h3 id="Godot_EditorInterface_SelectFile_System_String_" data-uid="Godot.EditorInterface.SelectFile(System.String)">
+  SelectFile(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Selects the file, with the path provided by <code class="paramref">file</code>, in the FileSystem dock.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SelectFile(string file)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_SetCurrentFeatureProfile_" data-uid="Godot.EditorInterface.SetCurrentFeatureProfile*"></a>
+
+  <h3 id="Godot_EditorInterface_SetCurrentFeatureProfile_System_String_" data-uid="Godot.EditorInterface.SetCurrentFeatureProfile(System.String)">
+  SetCurrentFeatureProfile(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Selects and activates the specified feature profile with the given <code class="paramref">profileName</code>. Set <code class="paramref">profileName</code> to an empty string to reset to the default feature profile.</p>
+<p>A feature profile can be created programmatically using the <a class="xref" href="Godot.EditorFeatureProfile.html">EditorFeatureProfile</a> class.</p>
+<p>
+  <b>Note:</b> The feature profile that gets activated must be located in the <code>feature_profiles</code> directory, as a file with the <code>.profile</code> extension. If a profile could not be found, an error occurs. The editor configuration folder can be found by using <a class="xref" href="Godot.EditorPaths.html#Godot_EditorPaths_GetConfigDir">GetConfigDir()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCurrentFeatureProfile(string profileName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>profileName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_SetMainScreenEditor_" data-uid="Godot.EditorInterface.SetMainScreenEditor*"></a>
+
+  <h3 id="Godot_EditorInterface_SetMainScreenEditor_System_String_" data-uid="Godot.EditorInterface.SetMainScreenEditor(System.String)">
+  SetMainScreenEditor(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the editor's current main screen to the one specified in <code class="paramref">name</code>. <code class="paramref">name</code> must match the title of the tab in question exactly (e.g. <code>2D</code>, <code>3D</code>, <code>Script</code>, or <code>AssetLib</code> for default tabs).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMainScreenEditor(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_SetPluginEnabled_" data-uid="Godot.EditorInterface.SetPluginEnabled*"></a>
+
+  <h3 id="Godot_EditorInterface_SetPluginEnabled_System_String_System_Boolean_" data-uid="Godot.EditorInterface.SetPluginEnabled(System.String,System.Boolean)">
+  SetPluginEnabled(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the enabled status of a plugin. The plugin name is the same as its directory name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPluginEnabled(string plugin, bool enabled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plugin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>enabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorInterface_StopPlayingScene_" data-uid="Godot.EditorInterface.StopPlayingScene*"></a>
+
+  <h3 id="Godot_EditorInterface_StopPlayingScene" data-uid="Godot.EditorInterface.StopPlayingScene">
+  StopPlayingScene()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stops the scene that is currently playing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StopPlayingScene()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorInterface.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

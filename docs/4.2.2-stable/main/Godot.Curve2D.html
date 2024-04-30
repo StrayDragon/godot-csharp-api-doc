@@ -1,0 +1,1396 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Curve2D | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Curve2D | Godot4 C# API ">
+      
+      <meta name="description" content="This class describes a B&#233;zier curve in 2D space. It is mainly used to give a shape to a , but can be manually sampled for other purposes. It keeps a cache of precalculated points along the curve, to speed up further calculations.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.Curve2D">
+
+
+
+  <h1 id="Godot_Curve2D" data-uid="Godot.Curve2D" class="text-break">
+Class Curve2D  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>This class describes a Bézier curve in 2D space. It is mainly used to give a shape to a <a class="xref" href="Godot.Path2D.html">Path2D</a>, but can be manually sampled for other purposes.</p>
+<p>It keeps a cache of precalculated points along the curve, to speed up further calculations.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Curve2D : Resource, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><a class="xref" href="Godot.Resource.html">Resource</a></div>
+      <div><span class="xref">Curve2D</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__GetRid">Resource._GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__SetupLocalToScene">Resource._SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_TakeOverPath_System_String_">Resource.TakeOverPath(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetRid">Resource.GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetLocalScene">Resource.GetLocalScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToScene">Resource.SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitChanged">Resource.EmitChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Duplicate_System_Boolean_">Resource.Duplicate(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceLocalToScene">Resource.ResourceLocalToScene</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourcePath">Resource.ResourcePath</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceName">Resource.ResourceName</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Changed">Resource.Changed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToSceneRequested">Resource.SetupLocalToSceneRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_InitRef">RefCounted.InitRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Reference">RefCounted.Reference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Unreference">RefCounted.Unreference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_GetReferenceCount">RefCounted.GetReferenceCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_Curve2D__ctor_" data-uid="Godot.Curve2D.#ctor*"></a>
+
+  <h3 id="Godot_Curve2D__ctor" data-uid="Godot.Curve2D.#ctor">
+  Curve2D()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Curve2D()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_Curve2D_BakeInterval_" data-uid="Godot.Curve2D.BakeInterval*"></a>
+
+  <h3 id="Godot_Curve2D_BakeInterval" data-uid="Godot.Curve2D.BakeInterval">
+  BakeInterval
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The distance in pixels between two adjacent cached points. Changing it forces the cache to be recomputed the next time the <a class="xref" href="Godot.Curve2D.html#Godot_Curve2D_GetBakedPoints">GetBakedPoints()</a> or <a class="xref" href="Godot.Curve2D.html#Godot_Curve2D_GetBakedLength">GetBakedLength()</a> function is called. The smaller the distance, the more points in the cache and the more memory it will consume, so use with care.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float BakeInterval { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_PointCount_" data-uid="Godot.Curve2D.PointCount*"></a>
+
+  <h3 id="Godot_Curve2D_PointCount" data-uid="Godot.Curve2D.PointCount">
+  PointCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of points describing the curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PointCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D__Data_" data-uid="Godot.Curve2D._Data*"></a>
+
+  <h3 id="Godot_Curve2D__Data" data-uid="Godot.Curve2D._Data">
+  _Data
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary _Data { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_Curve2D_AddPoint_" data-uid="Godot.Curve2D.AddPoint*"></a>
+
+  <h3 id="Godot_Curve2D_AddPoint_Godot_Vector2_System_Nullable_Godot_Vector2__System_Nullable_Godot_Vector2__System_Int32_" data-uid="Godot.Curve2D.AddPoint(Godot.Vector2,System.Nullable{Godot.Vector2},System.Nullable{Godot.Vector2},System.Int32)">
+  AddPoint(Vector2, Vector2?, Vector2?, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a point with the specified <code class="paramref">position</code> relative to the curve's own position, with control points <code class="paramref">in</code> and <code class="paramref">out</code>. Appends the new point at the end of the point list.</p>
+<p>If <code class="paramref">index</code> is given, the new point is inserted before the existing point identified by index <code class="paramref">index</code>. Every existing point starting from <code class="paramref">index</code> is shifted further down the list of points. The index must be greater than or equal to <code>0</code> and must not exceed the number of existing points in the line. See <a class="xref" href="Godot.Curve2D.html#Godot_Curve2D_PointCount">PointCount</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddPoint(Vector2 position, Vector2? @in = null, Vector2? @out = null, int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>in</code> <a class="xref" href="Godot.Vector2.html">Vector2</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Vector2(0, 0)</code>.</p>
+</dd>
+    <dt><code>out</code> <a class="xref" href="Godot.Vector2.html">Vector2</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Vector2(0, 0)</code>.</p>
+</dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_ClearPoints_" data-uid="Godot.Curve2D.ClearPoints*"></a>
+
+  <h3 id="Godot_Curve2D_ClearPoints" data-uid="Godot.Curve2D.ClearPoints">
+  ClearPoints()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all points from the curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearPoints()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_GetBakedLength_" data-uid="Godot.Curve2D.GetBakedLength*"></a>
+
+  <h3 id="Godot_Curve2D_GetBakedLength" data-uid="Godot.Curve2D.GetBakedLength">
+  GetBakedLength()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the total length of the curve, based on the cached points. Given enough density (see <a class="xref" href="Godot.Curve2D.html#Godot_Curve2D_BakeInterval">BakeInterval</a>), it should be approximate enough.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetBakedLength()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_GetBakedPoints_" data-uid="Godot.Curve2D.GetBakedPoints*"></a>
+
+  <h3 id="Godot_Curve2D_GetBakedPoints" data-uid="Godot.Curve2D.GetBakedPoints">
+  GetBakedPoints()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the cache of points as a <a class="xref" href="Godot.Vector2.html">Vector2</a>[].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2[] GetBakedPoints()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_GetClosestOffset_" data-uid="Godot.Curve2D.GetClosestOffset*"></a>
+
+  <h3 id="Godot_Curve2D_GetClosestOffset_Godot_Vector2_" data-uid="Godot.Curve2D.GetClosestOffset(Godot.Vector2)">
+  GetClosestOffset(Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the closest offset to <code class="paramref">toPoint</code>. This offset is meant to be used in <a class="xref" href="Godot.Curve2D.html#Godot_Curve2D_SampleBaked_System_Single_System_Boolean_">SampleBaked(float, bool)</a>.</p>
+<p>
+  <code class="paramref">toPoint</code> must be in this curve's local space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetClosestOffset(Vector2 toPoint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toPoint</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_GetClosestPoint_" data-uid="Godot.Curve2D.GetClosestPoint*"></a>
+
+  <h3 id="Godot_Curve2D_GetClosestPoint_Godot_Vector2_" data-uid="Godot.Curve2D.GetClosestPoint(Godot.Vector2)">
+  GetClosestPoint(Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the closest point on baked segments (in curve's local space) to <code class="paramref">toPoint</code>.</p>
+<p>
+  <code class="paramref">toPoint</code> must be in this curve's local space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 GetClosestPoint(Vector2 toPoint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toPoint</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_GetPointIn_" data-uid="Godot.Curve2D.GetPointIn*"></a>
+
+  <h3 id="Godot_Curve2D_GetPointIn_System_Int32_" data-uid="Godot.Curve2D.GetPointIn(System.Int32)">
+  GetPointIn(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the position of the control point leading to the vertex <code class="paramref">idx</code>. The returned position is relative to the vertex <code class="paramref">idx</code>. If the index is out of bounds, the function sends an error to the console, and returns <code>(0, 0)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 GetPointIn(int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_GetPointOut_" data-uid="Godot.Curve2D.GetPointOut*"></a>
+
+  <h3 id="Godot_Curve2D_GetPointOut_System_Int32_" data-uid="Godot.Curve2D.GetPointOut(System.Int32)">
+  GetPointOut(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the position of the control point leading out of the vertex <code class="paramref">idx</code>. The returned position is relative to the vertex <code class="paramref">idx</code>. If the index is out of bounds, the function sends an error to the console, and returns <code>(0, 0)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 GetPointOut(int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_GetPointPosition_" data-uid="Godot.Curve2D.GetPointPosition*"></a>
+
+  <h3 id="Godot_Curve2D_GetPointPosition_System_Int32_" data-uid="Godot.Curve2D.GetPointPosition(System.Int32)">
+  GetPointPosition(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the position of the vertex <code class="paramref">idx</code>. If the index is out of bounds, the function sends an error to the console, and returns <code>(0, 0)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 GetPointPosition(int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_HasGodotClassMethod_" data-uid="Godot.Curve2D.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_Curve2D_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.Curve2D.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_HasGodotClassSignal_" data-uid="Godot.Curve2D.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_Curve2D_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.Curve2D.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_InvokeGodotClassMethod_" data-uid="Godot.Curve2D.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_Curve2D_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.Curve2D.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_RemovePoint_" data-uid="Godot.Curve2D.RemovePoint*"></a>
+
+  <h3 id="Godot_Curve2D_RemovePoint_System_Int32_" data-uid="Godot.Curve2D.RemovePoint(System.Int32)">
+  RemovePoint(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes the point <code class="paramref">idx</code> from the curve. Sends an error to the console if <code class="paramref">idx</code> is out of bounds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemovePoint(int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_Sample_" data-uid="Godot.Curve2D.Sample*"></a>
+
+  <h3 id="Godot_Curve2D_Sample_System_Int32_System_Single_" data-uid="Godot.Curve2D.Sample(System.Int32,System.Single)">
+  Sample(int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the position between the vertex <code class="paramref">idx</code> and the vertex <code>idx + 1</code>, where <code class="paramref">t</code> controls if the point is the first vertex (<code>t = 0.0</code>), the last vertex (<code>t = 1.0</code>), or in between. Values of <code class="paramref">t</code> outside the range (<code>0.0 &gt;= t &lt;=1</code>) give strange, but predictable results.</p>
+<p>If <code class="paramref">idx</code> is out of bounds it is truncated to the first or last vertex, and <code class="paramref">t</code> is ignored. If the curve has no points, the function sends an error to the console, and returns <code>(0, 0)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 Sample(int idx, float t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_SampleBaked_" data-uid="Godot.Curve2D.SampleBaked*"></a>
+
+  <h3 id="Godot_Curve2D_SampleBaked_System_Single_System_Boolean_" data-uid="Godot.Curve2D.SampleBaked(System.Single,System.Boolean)">
+  SampleBaked(float, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a point within the curve at position <code class="paramref">offset</code>, where <code class="paramref">offset</code> is measured as a pixel distance along the curve.</p>
+<p>To do that, it finds the two cached points where the <code class="paramref">offset</code> lies between, then interpolates the values. This interpolation is cubic if <code class="paramref">cubic</code> is set to <code>true</code>, or linear if set to <code>false</code>.</p>
+<p>Cubic interpolation tends to follow the curves better, but linear is faster (and often, precise enough).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 SampleBaked(float offset = 0, bool cubic = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>cubic</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_SampleBakedWithRotation_" data-uid="Godot.Curve2D.SampleBakedWithRotation*"></a>
+
+  <h3 id="Godot_Curve2D_SampleBakedWithRotation_System_Single_System_Boolean_" data-uid="Godot.Curve2D.SampleBakedWithRotation(System.Single,System.Boolean)">
+  SampleBakedWithRotation(float, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Similar to <a class="xref" href="Godot.Curve2D.html#Godot_Curve2D_SampleBaked_System_Single_System_Boolean_">SampleBaked(float, bool)</a>, but returns <a class="xref" href="Godot.Transform2D.html">Transform2D</a> that includes a rotation along the curve, with <code>Transform2D.origin</code> as the point position, <code>Transform2D.x</code> as the sideways vector, and <code>Transform2D.y</code> as the forward vector. Returns an empty transform if the length of the curve is <code>0</code>.</p>
+<p>
+  <pre><code class="lang-csharp">var baked = curve.sample_baked_with_rotation(offset)
+  # This will rotate and position the node with the up direction pointing along the curve.
+  position = baked.get_origin()
+  rotation = baked.get_rotation()
+  # Alternatively, not preserving scale.
+  transform = baked * Transform2D.FLIP_Y
+  # To match the rotation of PathFollow2D, not preserving scale.
+  transform = Transform2D(baked.y, baked.x, baked.origin)</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Transform2D SampleBakedWithRotation(float offset = 0, bool cubic = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>cubic</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Transform2D.html">Transform2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_Samplef_" data-uid="Godot.Curve2D.Samplef*"></a>
+
+  <h3 id="Godot_Curve2D_Samplef_System_Single_" data-uid="Godot.Curve2D.Samplef(System.Single)">
+  Samplef(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the position at the vertex <code class="paramref">fofs</code>. It calls <a class="xref" href="Godot.Curve2D.html#Godot_Curve2D_Sample_System_Int32_System_Single_">Sample(int, float)</a> using the integer part of <code class="paramref">fofs</code> as <code>idx</code>, and its fractional part as <code>t</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 Samplef(float fofs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fofs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_SetPointIn_" data-uid="Godot.Curve2D.SetPointIn*"></a>
+
+  <h3 id="Godot_Curve2D_SetPointIn_System_Int32_Godot_Vector2_" data-uid="Godot.Curve2D.SetPointIn(System.Int32,Godot.Vector2)">
+  SetPointIn(int, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the position of the control point leading to the vertex <code class="paramref">idx</code>. If the index is out of bounds, the function sends an error to the console. The position is relative to the vertex.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPointIn(int idx, Vector2 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_SetPointOut_" data-uid="Godot.Curve2D.SetPointOut*"></a>
+
+  <h3 id="Godot_Curve2D_SetPointOut_System_Int32_Godot_Vector2_" data-uid="Godot.Curve2D.SetPointOut(System.Int32,Godot.Vector2)">
+  SetPointOut(int, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the position of the control point leading out of the vertex <code class="paramref">idx</code>. If the index is out of bounds, the function sends an error to the console. The position is relative to the vertex.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPointOut(int idx, Vector2 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_SetPointPosition_" data-uid="Godot.Curve2D.SetPointPosition*"></a>
+
+  <h3 id="Godot_Curve2D_SetPointPosition_System_Int32_Godot_Vector2_" data-uid="Godot.Curve2D.SetPointPosition(System.Int32,Godot.Vector2)">
+  SetPointPosition(int, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the position for the vertex <code class="paramref">idx</code>. If the index is out of bounds, the function sends an error to the console.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPointPosition(int idx, Vector2 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_Tessellate_" data-uid="Godot.Curve2D.Tessellate*"></a>
+
+  <h3 id="Godot_Curve2D_Tessellate_System_Int32_System_Single_" data-uid="Godot.Curve2D.Tessellate(System.Int32,System.Single)">
+  Tessellate(int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of points along the curve, with a curvature controlled point density. That is, the curvier parts will have more points than the straighter parts.</p>
+<p>This approximation makes straight segments between each point, then subdivides those segments until the resulting shape is similar enough.</p>
+<p>
+  <code class="paramref">maxStages</code> controls how many subdivisions a curve segment may face before it is considered approximate enough. Each subdivision splits the segment in half, so the default 5 stages may mean up to 32 subdivisions per curve segment. Increase with care!</p>
+<p>
+  <code class="paramref">toleranceDegrees</code> controls how many degrees the midpoint of a segment may deviate from the real curve, before the segment has to be subdivided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2[] Tessellate(int maxStages = 5, float toleranceDegrees = 4)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maxStages</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>toleranceDegrees</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Curve2D_TessellateEvenLength_" data-uid="Godot.Curve2D.TessellateEvenLength*"></a>
+
+  <h3 id="Godot_Curve2D_TessellateEvenLength_System_Int32_System_Single_" data-uid="Godot.Curve2D.TessellateEvenLength(System.Int32,System.Single)">
+  TessellateEvenLength(int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of points along the curve, with almost uniform density. <code class="paramref">maxStages</code> controls how many subdivisions a curve segment may face before it is considered approximate enough. Each subdivision splits the segment in half, so the default 5 stages may mean up to 32 subdivisions per curve segment. Increase with care!</p>
+<p>
+  <code class="paramref">toleranceLength</code> controls the maximal distance between two neighboring points, before the segment has to be subdivided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2[] TessellateEvenLength(int maxStages = 5, float toleranceLength = 20)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maxStages</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>toleranceLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Curve2D.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

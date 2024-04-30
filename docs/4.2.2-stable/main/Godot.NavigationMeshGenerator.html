@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class NavigationMeshGenerator | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NavigationMeshGenerator | Godot4 C# API ">
+      
+      <meta name="description" content="This class is responsible for creating and clearing 3D navigation meshes used as  resources inside . The  has very limited to no use for 2D as the navigation mesh baking process expects 3D node types and 3D source geometry to parse. The entire navigation mesh baking is best done in a separate thread as the voxelization, collision tests and mesh optimization steps involved are very performance and time hungry operations. Navigation mesh baking happens in multiple steps and the result depends on 3D source geometry and properties of the  resource. In the first step, starting from a root node and depending on  properties all valid 3D source geometry nodes are collected from the . Second, all collected nodes are parsed for their relevant 3D geometry data and a combined 3D mesh is build. Due to the many different types of parsable objects, from normal s to s or various s, some operations to collect geometry data can trigger  and  synchronizations. Server synchronization can have a negative effect on baking time or framerate as it often involves  locking for thread security. Many parsable objects and the continuous synchronization with other threaded Servers can increase the baking time significantly. On the other hand only a few but very large and complex objects will take some time to prepare for the Servers which can noticeably stall the next frame render. As a general rule the total number of parsable objects and their individual size and complexity should be balanced to avoid framerate issues or very long baking times. The combined mesh is then passed to the Recast Navigation Object to test the source geometry for walkable terrain suitable to  agent properties by creating a voxel world around the meshes bounding area. The finalized navigation mesh is then returned and stored inside the  for use as a resource inside  nodes.    Note: Using meshes to not only define walkable surfaces but also obstruct navigation baking does not always work. The navigation baking has no concept of what is a geometry &quot;inside&quot; when dealing with mesh source geometry and this is intentional. Depending on current baking parameters, as soon as the obstructing mesh is large enough to fit a navigation mesh area inside, the baking will generate navigation mesh areas that are inside the obstructing source geometry mesh.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.NavigationMeshGenerator">
+
+
+
+  <h1 id="Godot_NavigationMeshGenerator" data-uid="Godot.NavigationMeshGenerator" class="text-break">
+Class NavigationMeshGenerator  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NavigationMeshGenerator.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>This class is responsible for creating and clearing 3D navigation meshes used as <a class="xref" href="Godot.NavigationMesh.html">NavigationMesh</a> resources inside <a class="xref" href="Godot.NavigationRegion3D.html">NavigationRegion3D</a>. The <a class="xref" href="Godot.NavigationMeshGenerator.html">NavigationMeshGenerator</a> has very limited to no use for 2D as the navigation mesh baking process expects 3D node types and 3D source geometry to parse.</p>
+<p>The entire navigation mesh baking is best done in a separate thread as the voxelization, collision tests and mesh optimization steps involved are very performance and time hungry operations.</p>
+<p>Navigation mesh baking happens in multiple steps and the result depends on 3D source geometry and properties of the <a class="xref" href="Godot.NavigationMesh.html">NavigationMesh</a> resource. In the first step, starting from a root node and depending on <a class="xref" href="Godot.NavigationMesh.html">NavigationMesh</a> properties all valid 3D source geometry nodes are collected from the <a class="xref" href="Godot.SceneTree.html">SceneTree</a>. Second, all collected nodes are parsed for their relevant 3D geometry data and a combined 3D mesh is build. Due to the many different types of parsable objects, from normal <a class="xref" href="Godot.MeshInstance3D.html">MeshInstance3D</a>s to <a class="xref" href="Godot.CsgShape3D.html">CsgShape3D</a>s or various <a class="xref" href="Godot.CollisionObject3D.html">CollisionObject3D</a>s, some operations to collect geometry data can trigger <a class="xref" href="Godot.RenderingServer.html">RenderingServer</a> and <a class="xref" href="Godot.PhysicsServer3D.html">PhysicsServer3D</a> synchronizations. Server synchronization can have a negative effect on baking time or framerate as it often involves <a class="xref" href="Godot.Mutex.html">Mutex</a> locking for thread security. Many parsable objects and the continuous synchronization with other threaded Servers can increase the baking time significantly. On the other hand only a few but very large and complex objects will take some time to prepare for the Servers which can noticeably stall the next frame render. As a general rule the total number of parsable objects and their individual size and complexity should be balanced to avoid framerate issues or very long baking times. The combined mesh is then passed to the Recast Navigation Object to test the source geometry for walkable terrain suitable to <a class="xref" href="Godot.NavigationMesh.html">NavigationMesh</a> agent properties by creating a voxel world around the meshes bounding area.</p>
+<p>The finalized navigation mesh is then returned and stored inside the <a class="xref" href="Godot.NavigationMesh.html">NavigationMesh</a> for use as a resource inside <a class="xref" href="Godot.NavigationRegion3D.html">NavigationRegion3D</a> nodes.</p>
+<p>
+  <b>Note:</b> Using meshes to not only define walkable surfaces but also obstruct navigation baking does not always work. The navigation baking has no concept of what is a geometry "inside" when dealing with mesh source geometry and this is intentional. Depending on current baking parameters, as soon as the obstructing mesh is large enough to fit a navigation mesh area inside, the baking will generate navigation mesh areas that are inside the obstructing source geometry mesh.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This class is deprecated.&quot;)]
+public static class NavigationMeshGenerator</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">NavigationMeshGenerator</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_NavigationMeshGenerator_Singleton_" data-uid="Godot.NavigationMeshGenerator.Singleton*"></a>
+
+  <h3 id="Godot_NavigationMeshGenerator_Singleton" data-uid="Godot.NavigationMeshGenerator.Singleton">
+  Singleton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NavigationMeshGenerator.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NavigationMeshGeneratorInstance Singleton { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.NavigationMeshGeneratorInstance.html">NavigationMeshGeneratorInstance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_NavigationMeshGenerator_Bake_" data-uid="Godot.NavigationMeshGenerator.Bake*"></a>
+
+  <h3 id="Godot_NavigationMeshGenerator_Bake_Godot_NavigationMesh_Godot_Node_" data-uid="Godot.NavigationMeshGenerator.Bake(Godot.NavigationMesh,Godot.Node)">
+  Bake(NavigationMesh, Node)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NavigationMeshGenerator.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The bake function is deprecated due to core threading changes. To upgrade existing code, first create a <a class="xref" href="Godot.NavigationMeshSourceGeometryData3D.html">NavigationMeshSourceGeometryData3D</a> resource. Use this resource with <a class="xref" href="Godot.NavigationMeshGenerator.html#Godot_NavigationMeshGenerator_ParseSourceGeometryData_Godot_NavigationMesh_Godot_NavigationMeshSourceGeometryData3D_Godot_Node_Godot_Callable_">ParseSourceGeometryData(NavigationMesh, NavigationMeshSourceGeometryData3D, Node, Callable)</a> to parse the SceneTree for nodes that should contribute to the navigation mesh baking. The SceneTree parsing needs to happen on the main thread. After the parsing is finished use the resource with <a class="xref" href="Godot.NavigationMeshGenerator.html#Godot_NavigationMeshGenerator_BakeFromSourceGeometryData_Godot_NavigationMesh_Godot_NavigationMeshSourceGeometryData3D_Godot_Callable_">BakeFromSourceGeometryData(NavigationMesh, NavigationMeshSourceGeometryData3D, Callable)</a> to bake a navigation mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is deprecated.&quot;)]
+public static void Bake(NavigationMesh navigationMesh, Node rootNode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigationMesh</code> <a class="xref" href="Godot.NavigationMesh.html">NavigationMesh</a></dt>
+    <dd></dd>
+    <dt><code>rootNode</code> <a class="xref" href="Godot.Node.html">Node</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NavigationMeshGenerator_BakeFromSourceGeometryData_" data-uid="Godot.NavigationMeshGenerator.BakeFromSourceGeometryData*"></a>
+
+  <h3 id="Godot_NavigationMeshGenerator_BakeFromSourceGeometryData_Godot_NavigationMesh_Godot_NavigationMeshSourceGeometryData3D_Godot_Callable_" data-uid="Godot.NavigationMeshGenerator.BakeFromSourceGeometryData(Godot.NavigationMesh,Godot.NavigationMeshSourceGeometryData3D,Godot.Callable)">
+  BakeFromSourceGeometryData(NavigationMesh, NavigationMeshSourceGeometryData3D, Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NavigationMeshGenerator.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Bakes the provided <code class="paramref">navigationMesh</code> with the data from the provided <code class="paramref">sourceGeometryData</code>. After the process is finished the optional <code class="paramref">callback</code> will be called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BakeFromSourceGeometryData(NavigationMesh navigationMesh, NavigationMeshSourceGeometryData3D sourceGeometryData, Callable callback = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigationMesh</code> <a class="xref" href="Godot.NavigationMesh.html">NavigationMesh</a></dt>
+    <dd></dd>
+    <dt><code>sourceGeometryData</code> <a class="xref" href="Godot.NavigationMeshSourceGeometryData3D.html">NavigationMeshSourceGeometryData3D</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NavigationMeshGenerator_Clear_" data-uid="Godot.NavigationMeshGenerator.Clear*"></a>
+
+  <h3 id="Godot_NavigationMeshGenerator_Clear_Godot_NavigationMesh_" data-uid="Godot.NavigationMeshGenerator.Clear(Godot.NavigationMesh)">
+  Clear(NavigationMesh)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NavigationMeshGenerator.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all polygons and vertices from the provided <code class="paramref">navigationMesh</code> resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Clear(NavigationMesh navigationMesh)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigationMesh</code> <a class="xref" href="Godot.NavigationMesh.html">NavigationMesh</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NavigationMeshGenerator_ParseSourceGeometryData_" data-uid="Godot.NavigationMeshGenerator.ParseSourceGeometryData*"></a>
+
+  <h3 id="Godot_NavigationMeshGenerator_ParseSourceGeometryData_Godot_NavigationMesh_Godot_NavigationMeshSourceGeometryData3D_Godot_Node_Godot_Callable_" data-uid="Godot.NavigationMeshGenerator.ParseSourceGeometryData(Godot.NavigationMesh,Godot.NavigationMeshSourceGeometryData3D,Godot.Node,Godot.Callable)">
+  ParseSourceGeometryData(NavigationMesh, NavigationMeshSourceGeometryData3D, Node, Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NavigationMeshGenerator.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parses the <a class="xref" href="Godot.SceneTree.html">SceneTree</a> for source geometry according to the properties of <code class="paramref">navigationMesh</code>. Updates the provided <code class="paramref">sourceGeometryData</code> resource with the resulting data. The resource can then be used to bake a navigation mesh with <a class="xref" href="Godot.NavigationMeshGenerator.html#Godot_NavigationMeshGenerator_BakeFromSourceGeometryData_Godot_NavigationMesh_Godot_NavigationMeshSourceGeometryData3D_Godot_Callable_">BakeFromSourceGeometryData(NavigationMesh, NavigationMeshSourceGeometryData3D, Callable)</a>. After the process is finished the optional <code class="paramref">callback</code> will be called.</p>
+<p>
+  <b>Note:</b> This function needs to run on the main thread or with a deferred call as the SceneTree is not thread-safe.</p>
+<p>
+  <b>Performance:</b> While convenient, reading data arrays from <a class="xref" href="Godot.Mesh.html">Mesh</a> resources can affect the frame rate negatively. The data needs to be received from the GPU, stalling the <a class="xref" href="Godot.RenderingServer.html">RenderingServer</a> in the process. For performance prefer the use of e.g. collision shapes or creating the data arrays entirely in code.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ParseSourceGeometryData(NavigationMesh navigationMesh, NavigationMeshSourceGeometryData3D sourceGeometryData, Node rootNode, Callable callback = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigationMesh</code> <a class="xref" href="Godot.NavigationMesh.html">NavigationMesh</a></dt>
+    <dd></dd>
+    <dt><code>sourceGeometryData</code> <a class="xref" href="Godot.NavigationMeshSourceGeometryData3D.html">NavigationMeshSourceGeometryData3D</a></dt>
+    <dd></dd>
+    <dt><code>rootNode</code> <a class="xref" href="Godot.Node.html">Node</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NavigationMeshGenerator.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

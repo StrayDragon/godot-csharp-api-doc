@@ -1,0 +1,1549 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class WebXRInterface | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class WebXRInterface | Godot4 C# API ">
+      
+      <meta name="description" content="WebXR is an open standard that allows creating VR and AR applications that run in the web browser. As such, this interface is only available when running in Web exports. WebXR supports a wide range of devices, from the very capable (like Valve Index, HTC Vive, Oculus Rift and Quest) down to the much less capable (like Google Cardboard, Oculus Go, GearVR, or plain smartphones). Since WebXR is based on JavaScript, it makes extensive use of callbacks, which means that  is forced to use signals, where other XR interfaces would instead use functions that return a result immediately. This makes  quite a bit more complicated to initialize than other XR interfaces. Here&#39;s the minimum code required to start an immersive VR session:    extends Node3D var webxr_interface var vr_supported = false func _ready(): # We assume this node has a button as a child. # This button is for the user to consent to entering immersive VR mode. $Button.pressed.connect(self._on_button_pressed)   webxr_interface = XRServer.find_interface(&amp;quot;WebXR&amp;quot;)   if webxr_interface:       # WebXR uses a lot of asynchronous callbacks, so we connect to various       # signals in order to receive them.       webxr_interface.session_supported.connect(self._webxr_session_supported)       webxr_interface.session_started.connect(self._webxr_session_started)       webxr_interface.session_ended.connect(self._webxr_session_ended)       webxr_interface.session_failed.connect(self._webxr_session_failed)        # This returns immediately - our _webxr_session_supported() method       # (which we connected to the &amp;quot;session_supported&amp;quot; signal above) will       # be called sometime later to let us know if it&#39;s supported or not.       webxr_interface.is_session_supported(&amp;quot;immersive-vr&amp;quot;)  func _webxr_session_supported(session_mode, supported): if session_mode == &#39;immersive-vr&#39;: vr_supported = supported func _on_button_pressed(): if not vr_supported: OS.alert(&amp;quot;Your browser doesn&#39;t support VR&amp;quot;) return   # We want an immersive VR session, as opposed to AR (&#39;immersive-ar&#39;) or a   # simple 3DoF viewer (&#39;viewer&#39;).   webxr_interface.session_mode = &#39;immersive-vr&#39;   # &#39;bounded-floor&#39; is room scale, &#39;local-floor&#39; is a standing or sitting   # experience (it puts you 1.6m above the ground if you have 3DoF headset),   # whereas as &#39;local&#39; puts you down at the XROrigin.   # This list means it&#39;ll first try to request &#39;bounded-floor&#39;, then   # fallback on &#39;local-floor&#39; and ultimately &#39;local&#39;, if nothing else is   # supported.   webxr_interface.requested_reference_space_types = &#39;bounded-floor, local-floor, local&#39;   # In order to use &#39;local-floor&#39; or &#39;bounded-floor&#39; we must also   # mark the features as required or optional.   webxr_interface.required_features = &#39;local-floor&#39;   webxr_interface.optional_features = &#39;bounded-floor&#39;    # This will return false if we&#39;re unable to even request the session,   # however, it can still fail asynchronously later in the process, so we   # only know if it&#39;s really succeeded or failed when our   # _webxr_session_started() or _webxr_session_failed() methods are called.   if not webxr_interface.initialize():       OS.alert(&amp;quot;Failed to initialize&amp;quot;)       return  func _webxr_session_started(): $Button.visible = false # This tells Godot to start rendering to the headset. get_viewport().use_xr = true # This will be the reference space type you ultimately got, out of the # types that you requested above. This is useful if you want the game to # work a little differently in &#39;bounded-floor&#39; versus &#39;local-floor&#39;. print (&amp;quot;Reference space type: &amp;quot; + webxr_interface.reference_space_type) func _webxr_session_ended(): $Button.visible = true # If the user exits immersive mode, then we tell Godot to render to the web # page again. get_viewport().use_xr = false func _webxr_session_failed(message): OS.alert(&amp;quot;Failed to initialize: &amp;quot; + message)  There are a couple ways to handle &quot;controller&quot; input: - Using  nodes and their  and  signals. This is how controllers are typically handled in XR apps in Godot, however, this will only work with advanced VR controllers like the Oculus Touch or Index controllers, for example. - Using the ,  and related signals. This method will work for both advanced VR controllers, and non-traditional input sources like a tap on the screen, a spoken voice command or a button press on the device itself. You can use both methods to allow your game or app to support a wider or narrower set of devices and input methods, or to allow more advanced interactions with more advanced devices.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.WebXRInterface">
+
+
+
+  <h1 id="Godot_WebXRInterface" data-uid="Godot.WebXRInterface" class="text-break">
+Class WebXRInterface  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>WebXR is an open standard that allows creating VR and AR applications that run in the web browser.</p>
+<p>As such, this interface is only available when running in Web exports.</p>
+<p>WebXR supports a wide range of devices, from the very capable (like Valve Index, HTC Vive, Oculus Rift and Quest) down to the much less capable (like Google Cardboard, Oculus Go, GearVR, or plain smartphones).</p>
+<p>Since WebXR is based on JavaScript, it makes extensive use of callbacks, which means that <a class="xref" href="Godot.WebXRInterface.html">WebXRInterface</a> is forced to use signals, where other XR interfaces would instead use functions that return a result immediately. This makes <a class="xref" href="Godot.WebXRInterface.html">WebXRInterface</a> quite a bit more complicated to initialize than other XR interfaces.</p>
+<p>Here's the minimum code required to start an immersive VR session:</p>
+<p>
+  <pre><code class="lang-csharp">extends Node3D
+<p>var webxr_interface
+var vr_supported = false</p>
+<p>func _ready():
+# We assume this node has a button as a child.
+# This button is for the user to consent to entering immersive VR mode.
+$Button.pressed.connect(self._on_button_pressed)</p>
+<pre><code>  webxr_interface = XRServer.find_interface(&quot;WebXR&quot;)
+  if webxr_interface:
+      # WebXR uses a lot of asynchronous callbacks, so we connect to various
+      # signals in order to receive them.
+      webxr_interface.session_supported.connect(self._webxr_session_supported)
+      webxr_interface.session_started.connect(self._webxr_session_started)
+      webxr_interface.session_ended.connect(self._webxr_session_ended)
+      webxr_interface.session_failed.connect(self._webxr_session_failed)
+
+      # This returns immediately - our _webxr_session_supported() method
+      # (which we connected to the &quot;session_supported&quot; signal above) will
+      # be called sometime later to let us know if it's supported or not.
+      webxr_interface.is_session_supported(&quot;immersive-vr&quot;)
+</code></pre>
+<p>func _webxr_session_supported(session_mode, supported):
+if session_mode == 'immersive-vr':
+vr_supported = supported</p>
+<p>func _on_button_pressed():
+if not vr_supported:
+OS.alert(&quot;Your browser doesn't support VR&quot;)
+return</p>
+<pre><code>  # We want an immersive VR session, as opposed to AR ('immersive-ar') or a
+  # simple 3DoF viewer ('viewer').
+  webxr_interface.session_mode = 'immersive-vr'
+  # 'bounded-floor' is room scale, 'local-floor' is a standing or sitting
+  # experience (it puts you 1.6m above the ground if you have 3DoF headset),
+  # whereas as 'local' puts you down at the XROrigin.
+  # This list means it'll first try to request 'bounded-floor', then
+  # fallback on 'local-floor' and ultimately 'local', if nothing else is
+  # supported.
+  webxr_interface.requested_reference_space_types = 'bounded-floor, local-floor, local'
+  # In order to use 'local-floor' or 'bounded-floor' we must also
+  # mark the features as required or optional.
+  webxr_interface.required_features = 'local-floor'
+  webxr_interface.optional_features = 'bounded-floor'
+
+  # This will return false if we're unable to even request the session,
+  # however, it can still fail asynchronously later in the process, so we
+  # only know if it's really succeeded or failed when our
+  # _webxr_session_started() or _webxr_session_failed() methods are called.
+  if not webxr_interface.initialize():
+      OS.alert(&quot;Failed to initialize&quot;)
+      return
+</code></pre>
+<p>func _webxr_session_started():
+$Button.visible = false
+# This tells Godot to start rendering to the headset.
+get_viewport().use_xr = true
+# This will be the reference space type you ultimately got, out of the
+# types that you requested above. This is useful if you want the game to
+# work a little differently in 'bounded-floor' versus 'local-floor'.
+print (&quot;Reference space type: &quot; + webxr_interface.reference_space_type)</p>
+<p>func _webxr_session_ended():
+$Button.visible = true
+# If the user exits immersive mode, then we tell Godot to render to the web
+# page again.
+get_viewport().use_xr = false</p>
+<p>func _webxr_session_failed(message):
+OS.alert(&quot;Failed to initialize: &quot; + message)</p></code></pre>
+
+<p>There are a couple ways to handle "controller" input:</p>
+<p>- Using <a class="xref" href="Godot.XRController3D.html">XRController3D</a> nodes and their <a class="xref" href="Godot.XRController3D.html#Godot_XRController3D_ButtonPressed">ButtonPressed</a> and <a class="xref" href="Godot.XRController3D.html#Godot_XRController3D_ButtonReleased">ButtonReleased</a> signals. This is how controllers are typically handled in XR apps in Godot, however, this will only work with advanced VR controllers like the Oculus Touch or Index controllers, for example.</p>
+<p>- Using the <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_Select">Select</a>, <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_Squeeze">Squeeze</a> and related signals. This method will work for both advanced VR controllers, and non-traditional input sources like a tap on the screen, a spoken voice command or a button press on the device itself.</p>
+<p>You can use both methods to allow your game or app to support a wider or narrower set of devices and input methods, or to allow more advanced interactions with more advanced devices.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class WebXRInterface : XRInterface, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><a class="xref" href="Godot.XRInterface.html">XRInterface</a></div>
+      <div><span class="xref">WebXRInterface</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetName">XRInterface.GetName()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetCapabilities">XRInterface.GetCapabilities()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_IsInitialized">XRInterface.IsInitialized()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_Initialize">XRInterface.Initialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_Uninitialize">XRInterface.Uninitialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetSystemInfo">XRInterface.GetSystemInfo()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetTrackingStatus">XRInterface.GetTrackingStatus()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetRenderTargetSize">XRInterface.GetRenderTargetSize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetViewCount">XRInterface.GetViewCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_TriggerHapticPulse_System_String_Godot_StringName_System_Double_System_Double_System_Double_System_Double_">XRInterface.TriggerHapticPulse(string, StringName, double, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_SupportsPlayAreaMode_Godot_XRInterface_PlayAreaMode_">XRInterface.SupportsPlayAreaMode(XRInterface.PlayAreaMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetPlayArea">XRInterface.GetPlayArea()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetCameraFeedId">XRInterface.GetCameraFeedId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_IsPassthroughSupported">XRInterface.IsPassthroughSupported()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_IsPassthroughEnabled">XRInterface.IsPassthroughEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_StartPassthrough">XRInterface.StartPassthrough()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_StopPassthrough">XRInterface.StopPassthrough()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetTransformForView_System_UInt32_Godot_Transform3D_">XRInterface.GetTransformForView(uint, Transform3D)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetProjectionForView_System_UInt32_System_Double_System_Double_System_Double_">XRInterface.GetProjectionForView(uint, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetSupportedEnvironmentBlendModes">XRInterface.GetSupportedEnvironmentBlendModes()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_InterfaceIsPrimary">XRInterface.InterfaceIsPrimary</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_XRPlayAreaMode">XRInterface.XRPlayAreaMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_EnvironmentBlendMode">XRInterface.EnvironmentBlendMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_ArIsAnchorDetectionEnabled">XRInterface.ArIsAnchorDetectionEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_PlayAreaChanged">XRInterface.PlayAreaChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_InitRef">RefCounted.InitRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Reference">RefCounted.Reference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Unreference">RefCounted.Unreference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_GetReferenceCount">RefCounted.GetReferenceCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_WebXRInterface_OptionalFeatures_" data-uid="Godot.WebXRInterface.OptionalFeatures*"></a>
+
+  <h3 id="Godot_WebXRInterface_OptionalFeatures" data-uid="Godot.WebXRInterface.OptionalFeatures">
+  OptionalFeatures
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A comma-seperated list of optional features used by <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_Initialize">Initialize()</a> when setting up the WebXR session.</p>
+<p>If a user's browser or device doesn't support one of the given features, initialization will continue, but you won't be able to use the requested feature.</p>
+<p>This doesn't have any effect on the interface when already initialized.</p>
+<p>Possible values come from <a href="https://developer.mozilla.org/en-US/docs/Web/API/XRReferenceSpaceType">WebXR's XRReferenceSpaceType</a>. If you want to use a particular reference space type, it must be listed in either <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_RequiredFeatures">RequiredFeatures</a> or <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_OptionalFeatures">OptionalFeatures</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string OptionalFeatures { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_ReferenceSpaceType_" data-uid="Godot.WebXRInterface.ReferenceSpaceType*"></a>
+
+  <h3 id="Godot_WebXRInterface_ReferenceSpaceType" data-uid="Godot.WebXRInterface.ReferenceSpaceType">
+  ReferenceSpaceType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The reference space type (from the list of requested types set in the <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_RequestedReferenceSpaceTypes">RequestedReferenceSpaceTypes</a> property), that was ultimately used by <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_Initialize">Initialize()</a> when setting up the WebXR session.</p>
+<p>Possible values come from <a href="https://developer.mozilla.org/en-US/docs/Web/API/XRReferenceSpaceType">WebXR's XRReferenceSpaceType</a>. If you want to use a particular reference space type, it must be listed in either <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_RequiredFeatures">RequiredFeatures</a> or <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_OptionalFeatures">OptionalFeatures</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ReferenceSpaceType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_RequestedReferenceSpaceTypes_" data-uid="Godot.WebXRInterface.RequestedReferenceSpaceTypes*"></a>
+
+  <h3 id="Godot_WebXRInterface_RequestedReferenceSpaceTypes" data-uid="Godot.WebXRInterface.RequestedReferenceSpaceTypes">
+  RequestedReferenceSpaceTypes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A comma-seperated list of reference space types used by <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_Initialize">Initialize()</a> when setting up the WebXR session.</p>
+<p>The reference space types are requested in order, and the first one supported by the users device or browser will be used. The <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_ReferenceSpaceType">ReferenceSpaceType</a> property contains the reference space type that was ultimately selected.</p>
+<p>This doesn't have any effect on the interface when already initialized.</p>
+<p>Possible values come from <a href="https://developer.mozilla.org/en-US/docs/Web/API/XRReferenceSpaceType">WebXR's XRReferenceSpaceType</a>. If you want to use a particular reference space type, it must be listed in either <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_RequiredFeatures">RequiredFeatures</a> or <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_OptionalFeatures">OptionalFeatures</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string RequestedReferenceSpaceTypes { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_RequiredFeatures_" data-uid="Godot.WebXRInterface.RequiredFeatures*"></a>
+
+  <h3 id="Godot_WebXRInterface_RequiredFeatures" data-uid="Godot.WebXRInterface.RequiredFeatures">
+  RequiredFeatures
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A comma-seperated list of required features used by <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_Initialize">Initialize()</a> when setting up the WebXR session.</p>
+<p>If a user's browser or device doesn't support one of the given features, initialization will fail and <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_SessionFailed">SessionFailed</a> will be emitted.</p>
+<p>This doesn't have any effect on the interface when already initialized.</p>
+<p>Possible values come from <a href="https://developer.mozilla.org/en-US/docs/Web/API/XRReferenceSpaceType">WebXR's XRReferenceSpaceType</a>. If you want to use a particular reference space type, it must be listed in either <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_RequiredFeatures">RequiredFeatures</a> or <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_OptionalFeatures">OptionalFeatures</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string RequiredFeatures { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_SessionMode_" data-uid="Godot.WebXRInterface.SessionMode*"></a>
+
+  <h3 id="Godot_WebXRInterface_SessionMode" data-uid="Godot.WebXRInterface.SessionMode">
+  SessionMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The session mode used by <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_Initialize">Initialize()</a> when setting up the WebXR session.</p>
+<p>This doesn't have any effect on the interface when already initialized.</p>
+<p>Possible values come from <a href="https://developer.mozilla.org/en-US/docs/Web/API/XRSessionMode">WebXR's XRSessionMode</a>, including: <code>"immersive-vr"</code>, <code>"immersive-ar"</code>, and <code>"inline"</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SessionMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_VisibilityState_" data-uid="Godot.WebXRInterface.VisibilityState*"></a>
+
+  <h3 id="Godot_WebXRInterface_VisibilityState" data-uid="Godot.WebXRInterface.VisibilityState">
+  VisibilityState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates if the WebXR session's imagery is visible to the user.</p>
+<p>Possible values come from <a href="https://developer.mozilla.org/en-US/docs/Web/API/XRVisibilityState">WebXR's XRVisibilityState</a>, including <code>"hidden"</code>, <code>"visible"</code>, and <code>"visible-blurred"</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string VisibilityState { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_WebXRInterface_GetAvailableDisplayRefreshRates_" data-uid="Godot.WebXRInterface.GetAvailableDisplayRefreshRates*"></a>
+
+  <h3 id="Godot_WebXRInterface_GetAvailableDisplayRefreshRates" data-uid="Godot.WebXRInterface.GetAvailableDisplayRefreshRates">
+  GetAvailableDisplayRefreshRates()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns display refresh rates supported by the current HMD. Only returned if this feature is supported by the web browser and after the interface has been initialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array GetAvailableDisplayRefreshRates()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_GetDisplayRefreshRate_" data-uid="Godot.WebXRInterface.GetDisplayRefreshRate*"></a>
+
+  <h3 id="Godot_WebXRInterface_GetDisplayRefreshRate" data-uid="Godot.WebXRInterface.GetDisplayRefreshRate">
+  GetDisplayRefreshRate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the display refresh rate for the current HMD. Not supported on all HMDs and browsers. It may not report an accurate value until after using <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_SetDisplayRefreshRate_System_Single_">SetDisplayRefreshRate(float)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetDisplayRefreshRate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_GetInputSourceTargetRayMode_" data-uid="Godot.WebXRInterface.GetInputSourceTargetRayMode*"></a>
+
+  <h3 id="Godot_WebXRInterface_GetInputSourceTargetRayMode_System_Int32_" data-uid="Godot.WebXRInterface.GetInputSourceTargetRayMode(System.Int32)">
+  GetInputSourceTargetRayMode(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the target ray mode for the given <code class="paramref">inputSourceId</code>.</p>
+<p>This can help interpret the input coming from that input source. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/XRInputSource/targetRayMode">XRInputSource.targetRayMode</a> for more information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebXRInterface.TargetRayMode GetInputSourceTargetRayMode(int inputSourceId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputSourceId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.WebXRInterface.html">WebXRInterface</a>.<a class="xref" href="Godot.WebXRInterface.TargetRayMode.html">TargetRayMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_GetInputSourceTracker_" data-uid="Godot.WebXRInterface.GetInputSourceTracker*"></a>
+
+  <h3 id="Godot_WebXRInterface_GetInputSourceTracker_System_Int32_" data-uid="Godot.WebXRInterface.GetInputSourceTracker(System.Int32)">
+  GetInputSourceTracker(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="Godot.XRPositionalTracker.html">XRPositionalTracker</a> for the given <code class="paramref">inputSourceId</code>.</p>
+<p>In the context of WebXR, an input source can be an advanced VR controller like the Oculus Touch or Index controllers, or even a tap on the screen, a spoken voice command or a button press on the device itself. When a non-traditional input source is used, interpret the position and orientation of the <a class="xref" href="Godot.XRPositionalTracker.html">XRPositionalTracker</a> as a ray pointing at the object the user wishes to interact with.</p>
+<p>Use this method to get information about the input source that triggered one of these signals:</p>
+<p>- <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_Selectstart">Selectstart</a></p>
+<p>- <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_Select">Select</a></p>
+<p>- <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_Selectend">Selectend</a></p>
+<p>- <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_Squeezestart">Squeezestart</a></p>
+<p>- <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_Squeeze">Squeeze</a></p>
+<p>- <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_Squeezestart">Squeezestart</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XRPositionalTracker GetInputSourceTracker(int inputSourceId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputSourceId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.XRPositionalTracker.html">XRPositionalTracker</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_HasGodotClassMethod_" data-uid="Godot.WebXRInterface.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_WebXRInterface_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.WebXRInterface.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_HasGodotClassSignal_" data-uid="Godot.WebXRInterface.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_WebXRInterface_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.WebXRInterface.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_InvokeGodotClassMethod_" data-uid="Godot.WebXRInterface.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_WebXRInterface_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.WebXRInterface.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_IsInputSourceActive_" data-uid="Godot.WebXRInterface.IsInputSourceActive*"></a>
+
+  <h3 id="Godot_WebXRInterface_IsInputSourceActive_System_Int32_" data-uid="Godot.WebXRInterface.IsInputSourceActive(System.Int32)">
+  IsInputSourceActive(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <code>true</code> if there is an active input source with the given <code class="paramref">inputSourceId</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsInputSourceActive(int inputSourceId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputSourceId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_IsSessionSupported_" data-uid="Godot.WebXRInterface.IsSessionSupported*"></a>
+
+  <h3 id="Godot_WebXRInterface_IsSessionSupported_System_String_" data-uid="Godot.WebXRInterface.IsSessionSupported(System.String)">
+  IsSessionSupported(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks if the given <code class="paramref">sessionMode</code> is supported by the user's browser.</p>
+<p>Possible values come from <a href="https://developer.mozilla.org/en-US/docs/Web/API/XRSessionMode">WebXR's XRSessionMode</a>, including: <code>"immersive-vr"</code>, <code>"immersive-ar"</code>, and <code>"inline"</code>.</p>
+<p>This method returns nothing, instead it emits the <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_SessionSupported">SessionSupported</a> signal with the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void IsSessionSupported(string sessionMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sessionMode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_WebXRInterface_SetDisplayRefreshRate_" data-uid="Godot.WebXRInterface.SetDisplayRefreshRate*"></a>
+
+  <h3 id="Godot_WebXRInterface_SetDisplayRefreshRate_System_Single_" data-uid="Godot.WebXRInterface.SetDisplayRefreshRate(System.Single)">
+  SetDisplayRefreshRate(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the display refresh rate for the current HMD. Not supported on all HMDs and browsers. It won't take effect right away until after <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_DisplayRefreshRateChanged">DisplayRefreshRateChanged</a> is emitted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDisplayRefreshRate(float refreshRate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>refreshRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Godot_WebXRInterface_DisplayRefreshRateChanged" data-uid="Godot.WebXRInterface.DisplayRefreshRateChanged">
+  DisplayRefreshRateChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted after the display's refresh rate has changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action DisplayRefreshRateChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_WebXRInterface_ReferenceSpaceReset" data-uid="Godot.WebXRInterface.ReferenceSpaceReset">
+  ReferenceSpaceReset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted to indicate that the reference space has been reset or reconfigured.</p>
+<p>When (or whether) this is emitted depends on the user's browser or device, but may include when the user has changed the dimensions of their play space (which you may be able to access via <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetPlayArea">GetPlayArea()</a>) or pressed/held a button to recenter their position.</p>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/API/XRReferenceSpace/reset_event">WebXR's XRReferenceSpace reset event</a> for more information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action ReferenceSpaceReset</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_WebXRInterface_Select" data-uid="Godot.WebXRInterface.Select">
+  Select
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted after one of the input sources has finished its "primary action".</p>
+<p>Use <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_GetInputSourceTracker_System_Int32_">GetInputSourceTracker(int)</a> and <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_GetInputSourceTargetRayMode_System_Int32_">GetInputSourceTargetRayMode(int)</a> to get more information about the input source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event WebXRInterface.SelectEventHandler Select</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.WebXRInterface.html">WebXRInterface</a>.<a class="xref" href="Godot.WebXRInterface.SelectEventHandler.html">SelectEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_WebXRInterface_Selectend" data-uid="Godot.WebXRInterface.Selectend">
+  Selectend
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when one of the input sources has finished its "primary action".</p>
+<p>Use <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_GetInputSourceTracker_System_Int32_">GetInputSourceTracker(int)</a> and <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_GetInputSourceTargetRayMode_System_Int32_">GetInputSourceTargetRayMode(int)</a> to get more information about the input source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event WebXRInterface.SelectendEventHandler Selectend</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.WebXRInterface.html">WebXRInterface</a>.<a class="xref" href="Godot.WebXRInterface.SelectendEventHandler.html">SelectendEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_WebXRInterface_Selectstart" data-uid="Godot.WebXRInterface.Selectstart">
+  Selectstart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when one of the input source has started its "primary action".</p>
+<p>Use <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_GetInputSourceTracker_System_Int32_">GetInputSourceTracker(int)</a> and <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_GetInputSourceTargetRayMode_System_Int32_">GetInputSourceTargetRayMode(int)</a> to get more information about the input source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event WebXRInterface.SelectstartEventHandler Selectstart</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.WebXRInterface.html">WebXRInterface</a>.<a class="xref" href="Godot.WebXRInterface.SelectstartEventHandler.html">SelectstartEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_WebXRInterface_SessionEnded" data-uid="Godot.WebXRInterface.SessionEnded">
+  SessionEnded
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when the user ends the WebXR session (which can be done using UI from the browser or device).</p>
+<p>At this point, you should do <code>get_viewport().use_xr = false</code> to instruct Godot to resume rendering to the screen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action SessionEnded</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_WebXRInterface_SessionFailed" data-uid="Godot.WebXRInterface.SessionFailed">
+  SessionFailed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted by <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_Initialize">Initialize()</a> if the session fails to start.</p>
+<p>
+  <code>message</code> may optionally contain an error message from WebXR, or an empty string if no message is available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event WebXRInterface.SessionFailedEventHandler SessionFailed</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.WebXRInterface.html">WebXRInterface</a>.<a class="xref" href="Godot.WebXRInterface.SessionFailedEventHandler.html">SessionFailedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_WebXRInterface_SessionStarted" data-uid="Godot.WebXRInterface.SessionStarted">
+  SessionStarted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted by <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_Initialize">Initialize()</a> if the session is successfully started.</p>
+<p>At this point, it's safe to do <code>get_viewport().use_xr = true</code> to instruct Godot to start rendering to the XR device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action SessionStarted</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_WebXRInterface_SessionSupported" data-uid="Godot.WebXRInterface.SessionSupported">
+  SessionSupported
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted by <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_IsSessionSupported_System_String_">IsSessionSupported(string)</a> to indicate if the given <code>sessionMode</code> is supported or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event WebXRInterface.SessionSupportedEventHandler SessionSupported</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.WebXRInterface.html">WebXRInterface</a>.<a class="xref" href="Godot.WebXRInterface.SessionSupportedEventHandler.html">SessionSupportedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_WebXRInterface_Squeeze" data-uid="Godot.WebXRInterface.Squeeze">
+  Squeeze
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted after one of the input sources has finished its "primary squeeze action".</p>
+<p>Use <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_GetInputSourceTracker_System_Int32_">GetInputSourceTracker(int)</a> and <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_GetInputSourceTargetRayMode_System_Int32_">GetInputSourceTargetRayMode(int)</a> to get more information about the input source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event WebXRInterface.SqueezeEventHandler Squeeze</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.WebXRInterface.html">WebXRInterface</a>.<a class="xref" href="Godot.WebXRInterface.SqueezeEventHandler.html">SqueezeEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_WebXRInterface_Squeezeend" data-uid="Godot.WebXRInterface.Squeezeend">
+  Squeezeend
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when one of the input sources has finished its "primary squeeze action".</p>
+<p>Use <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_GetInputSourceTracker_System_Int32_">GetInputSourceTracker(int)</a> and <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_GetInputSourceTargetRayMode_System_Int32_">GetInputSourceTargetRayMode(int)</a> to get more information about the input source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event WebXRInterface.SqueezeendEventHandler Squeezeend</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.WebXRInterface.html">WebXRInterface</a>.<a class="xref" href="Godot.WebXRInterface.SqueezeendEventHandler.html">SqueezeendEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_WebXRInterface_Squeezestart" data-uid="Godot.WebXRInterface.Squeezestart">
+  Squeezestart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when one of the input sources has started its "primary squeeze action".</p>
+<p>Use <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_GetInputSourceTracker_System_Int32_">GetInputSourceTracker(int)</a> and <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_GetInputSourceTargetRayMode_System_Int32_">GetInputSourceTargetRayMode(int)</a> to get more information about the input source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event WebXRInterface.SqueezestartEventHandler Squeezestart</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.WebXRInterface.html">WebXRInterface</a>.<a class="xref" href="Godot.WebXRInterface.SqueezestartEventHandler.html">SqueezestartEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_WebXRInterface_VisibilityStateChanged" data-uid="Godot.WebXRInterface.VisibilityStateChanged">
+  VisibilityStateChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when <a class="xref" href="Godot.WebXRInterface.html#Godot_WebXRInterface_VisibilityState">VisibilityState</a> has changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action VisibilityStateChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/WebXRInterface.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

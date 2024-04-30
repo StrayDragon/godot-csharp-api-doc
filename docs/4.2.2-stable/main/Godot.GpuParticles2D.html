@@ -1,0 +1,2310 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GpuParticles2D | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GpuParticles2D | Godot4 C# API ">
+      
+      <meta name="description" content="2D particle node used to create a variety of particle systems and effects.  features an emitter that generates some number of particles at a given rate. Use the  property to add a  to configure particle appearance and behavior. Alternatively, you can add a  which will be applied to all particles. 2D particles can optionally collide with , but they don&#39;t collide with  nodes.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.GpuParticles2D">
+
+
+
+  <h1 id="Godot_GpuParticles2D" data-uid="Godot.GpuParticles2D" class="text-break">
+Class GpuParticles2D  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>2D particle node used to create a variety of particle systems and effects. <a class="xref" href="Godot.GpuParticles2D.html">GpuParticles2D</a> features an emitter that generates some number of particles at a given rate.</p>
+<p>Use the <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_ProcessMaterial">ProcessMaterial</a> property to add a <a class="xref" href="Godot.ParticleProcessMaterial.html">ParticleProcessMaterial</a> to configure particle appearance and behavior. Alternatively, you can add a <a class="xref" href="Godot.ShaderMaterial.html">ShaderMaterial</a> which will be applied to all particles.</p>
+<p>2D particles can optionally collide with <a class="xref" href="Godot.LightOccluder2D.html">LightOccluder2D</a>, but they don't collide with <a class="xref" href="Godot.PhysicsBody2D.html">PhysicsBody2D</a> nodes.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GodotClassName(&quot;GPUParticles2D&quot;)]
+public class GpuParticles2D : Node2D, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.Node.html">Node</a></div>
+      <div><a class="xref" href="Godot.CanvasItem.html">CanvasItem</a></div>
+      <div><a class="xref" href="Godot.Node2D.html">Node2D</a></div>
+      <div><span class="xref">GpuParticles2D</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_Rotate_System_Single_">Node2D.Rotate(float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_MoveLocalX_System_Single_System_Boolean_">Node2D.MoveLocalX(float, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_MoveLocalY_System_Single_System_Boolean_">Node2D.MoveLocalY(float, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_Translate_Godot_Vector2_">Node2D.Translate(Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_GlobalTranslate_Godot_Vector2_">Node2D.GlobalTranslate(Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_ApplyScale_Godot_Vector2_">Node2D.ApplyScale(Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_LookAt_Godot_Vector2_">Node2D.LookAt(Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_GetAngleTo_Godot_Vector2_">Node2D.GetAngleTo(Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_ToLocal_Godot_Vector2_">Node2D.ToLocal(Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_ToGlobal_Godot_Vector2_">Node2D.ToGlobal(Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_GetRelativeTransformToParent_Godot_Node_">Node2D.GetRelativeTransformToParent(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_Position">Node2D.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_Rotation">Node2D.Rotation</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_RotationDegrees">Node2D.RotationDegrees</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_Scale">Node2D.Scale</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_Skew">Node2D.Skew</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_Transform">Node2D.Transform</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_GlobalPosition">Node2D.GlobalPosition</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_GlobalRotation">Node2D.GlobalRotation</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_GlobalRotationDegrees">Node2D.GlobalRotationDegrees</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_GlobalScale">Node2D.GlobalScale</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_GlobalSkew">Node2D.GlobalSkew</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node2D.html#Godot_Node2D_GlobalTransform">Node2D.GlobalTransform</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_NotificationTransformChanged">CanvasItem.NotificationTransformChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_NotificationLocalTransformChanged">CanvasItem.NotificationLocalTransformChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_NotificationDraw">CanvasItem.NotificationDraw</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_NotificationVisibilityChanged">CanvasItem.NotificationVisibilityChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_NotificationEnterCanvas">CanvasItem.NotificationEnterCanvas</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_NotificationExitCanvas">CanvasItem.NotificationExitCanvas</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_NotificationWorld2DChanged">CanvasItem.NotificationWorld2DChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem__Draw">CanvasItem._Draw()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetCanvasItem">CanvasItem.GetCanvasItem()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_IsVisibleInTree">CanvasItem.IsVisibleInTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_Show">CanvasItem.Show()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_Hide">CanvasItem.Hide()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_QueueRedraw">CanvasItem.QueueRedraw()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_MoveToFront">CanvasItem.MoveToFront()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawLine_Godot_Vector2_Godot_Vector2_Godot_Color_System_Single_System_Boolean_">CanvasItem.DrawLine(Vector2, Vector2, Color, float, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawDashedLine_Godot_Vector2_Godot_Vector2_Godot_Color_System_Single_System_Single_System_Boolean_">CanvasItem.DrawDashedLine(Vector2, Vector2, Color, float, float, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawPolyline_Godot_Vector2___Godot_Color_System_Single_System_Boolean_">CanvasItem.DrawPolyline(Vector2[], Color, float, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawPolylineColors_Godot_Vector2___Godot_Color___System_Single_System_Boolean_">CanvasItem.DrawPolylineColors(Vector2[], Color[], float, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawArc_Godot_Vector2_System_Single_System_Single_System_Single_System_Int32_Godot_Color_System_Single_System_Boolean_">CanvasItem.DrawArc(Vector2, float, float, float, int, Color, float, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawMultiline_Godot_Vector2___Godot_Color_System_Single_">CanvasItem.DrawMultiline(Vector2[], Color, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawMultilineColors_Godot_Vector2___Godot_Color___System_Single_">CanvasItem.DrawMultilineColors(Vector2[], Color[], float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawRect_Godot_Rect2_Godot_Color_System_Boolean_System_Single_">CanvasItem.DrawRect(Rect2, Color, bool, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawCircle_Godot_Vector2_System_Single_Godot_Color_">CanvasItem.DrawCircle(Vector2, float, Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawTexture_Godot_Texture2D_Godot_Vector2_System_Nullable_Godot_Color__">CanvasItem.DrawTexture(Texture2D, Vector2, Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawTextureRect_Godot_Texture2D_Godot_Rect2_System_Boolean_System_Nullable_Godot_Color__System_Boolean_">CanvasItem.DrawTextureRect(Texture2D, Rect2, bool, Color?, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawTextureRectRegion_Godot_Texture2D_Godot_Rect2_Godot_Rect2_System_Nullable_Godot_Color__System_Boolean_System_Boolean_">CanvasItem.DrawTextureRectRegion(Texture2D, Rect2, Rect2, Color?, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawMsdfTextureRectRegion_Godot_Texture2D_Godot_Rect2_Godot_Rect2_System_Nullable_Godot_Color__System_Double_System_Double_System_Double_">CanvasItem.DrawMsdfTextureRectRegion(Texture2D, Rect2, Rect2, Color?, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawLcdTextureRectRegion_Godot_Texture2D_Godot_Rect2_Godot_Rect2_System_Nullable_Godot_Color__">CanvasItem.DrawLcdTextureRectRegion(Texture2D, Rect2, Rect2, Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawStyleBox_Godot_StyleBox_Godot_Rect2_">CanvasItem.DrawStyleBox(StyleBox, Rect2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawPrimitive_Godot_Vector2___Godot_Color___Godot_Vector2___Godot_Texture2D_">CanvasItem.DrawPrimitive(Vector2[], Color[], Vector2[], Texture2D)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawPolygon_Godot_Vector2___Godot_Color___Godot_Vector2___Godot_Texture2D_">CanvasItem.DrawPolygon(Vector2[], Color[], Vector2[], Texture2D)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawColoredPolygon_Godot_Vector2___Godot_Color_Godot_Vector2___Godot_Texture2D_">CanvasItem.DrawColoredPolygon(Vector2[], Color, Vector2[], Texture2D)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawString_Godot_Font_Godot_Vector2_System_String_Godot_HorizontalAlignment_System_Single_System_Int32_System_Nullable_Godot_Color__Godot_TextServer_JustificationFlag_Godot_TextServer_Direction_Godot_TextServer_Orientation_">CanvasItem.DrawString(Font, Vector2, string, HorizontalAlignment, float, int, Color?, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawMultilineString_Godot_Font_Godot_Vector2_System_String_Godot_HorizontalAlignment_System_Single_System_Int32_System_Int32_System_Nullable_Godot_Color__Godot_TextServer_LineBreakFlag_Godot_TextServer_JustificationFlag_Godot_TextServer_Direction_Godot_TextServer_Orientation_">CanvasItem.DrawMultilineString(Font, Vector2, string, HorizontalAlignment, float, int, int, Color?, TextServer.LineBreakFlag, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawStringOutline_Godot_Font_Godot_Vector2_System_String_Godot_HorizontalAlignment_System_Single_System_Int32_System_Int32_System_Nullable_Godot_Color__Godot_TextServer_JustificationFlag_Godot_TextServer_Direction_Godot_TextServer_Orientation_">CanvasItem.DrawStringOutline(Font, Vector2, string, HorizontalAlignment, float, int, int, Color?, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawMultilineStringOutline_Godot_Font_Godot_Vector2_System_String_Godot_HorizontalAlignment_System_Single_System_Int32_System_Int32_System_Int32_System_Nullable_Godot_Color__Godot_TextServer_LineBreakFlag_Godot_TextServer_JustificationFlag_Godot_TextServer_Direction_Godot_TextServer_Orientation_">CanvasItem.DrawMultilineStringOutline(Font, Vector2, string, HorizontalAlignment, float, int, int, int, Color?, TextServer.LineBreakFlag, TextServer.JustificationFlag, TextServer.Direction, TextServer.Orientation)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawChar_Godot_Font_Godot_Vector2_System_String_System_Int32_System_Nullable_Godot_Color__">CanvasItem.DrawChar(Font, Vector2, string, int, Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawCharOutline_Godot_Font_Godot_Vector2_System_String_System_Int32_System_Int32_System_Nullable_Godot_Color__">CanvasItem.DrawCharOutline(Font, Vector2, string, int, int, Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawMesh_Godot_Mesh_Godot_Texture2D_System_Nullable_Godot_Transform2D__System_Nullable_Godot_Color__">CanvasItem.DrawMesh(Mesh, Texture2D, Transform2D?, Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawMultimesh_Godot_MultiMesh_Godot_Texture2D_">CanvasItem.DrawMultimesh(MultiMesh, Texture2D)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawSetTransform_Godot_Vector2_System_Single_System_Nullable_Godot_Vector2__">CanvasItem.DrawSetTransform(Vector2, float, Vector2?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawSetTransformMatrix_Godot_Transform2D_">CanvasItem.DrawSetTransformMatrix(Transform2D)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawAnimationSlice_System_Double_System_Double_System_Double_System_Double_">CanvasItem.DrawAnimationSlice(double, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_DrawEndAnimation">CanvasItem.DrawEndAnimation()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetTransform">CanvasItem.GetTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetGlobalTransform">CanvasItem.GetGlobalTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetGlobalTransformWithCanvas">CanvasItem.GetGlobalTransformWithCanvas()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetViewportTransform">CanvasItem.GetViewportTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetViewportRect">CanvasItem.GetViewportRect()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetCanvasTransform">CanvasItem.GetCanvasTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetScreenTransform">CanvasItem.GetScreenTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetLocalMousePosition">CanvasItem.GetLocalMousePosition()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetGlobalMousePosition">CanvasItem.GetGlobalMousePosition()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetCanvas">CanvasItem.GetCanvas()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetWorld2D">CanvasItem.GetWorld2D()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_SetNotifyLocalTransform_System_Boolean_">CanvasItem.SetNotifyLocalTransform(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_IsLocalTransformNotificationEnabled">CanvasItem.IsLocalTransformNotificationEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_SetNotifyTransform_System_Boolean_">CanvasItem.SetNotifyTransform(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_IsTransformNotificationEnabled">CanvasItem.IsTransformNotificationEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_ForceUpdateTransform">CanvasItem.ForceUpdateTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_MakeCanvasPositionLocal_Godot_Vector2_">CanvasItem.MakeCanvasPositionLocal(Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_MakeInputLocal_Godot_InputEvent_">CanvasItem.MakeInputLocal(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_SetVisibilityLayerBit_System_UInt32_System_Boolean_">CanvasItem.SetVisibilityLayerBit(uint, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_GetVisibilityLayerBit_System_UInt32_">CanvasItem.GetVisibilityLayerBit(uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_Visible">CanvasItem.Visible</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_Modulate">CanvasItem.Modulate</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_SelfModulate">CanvasItem.SelfModulate</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_ShowBehindParent">CanvasItem.ShowBehindParent</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_TopLevel">CanvasItem.TopLevel</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_ClipChildren">CanvasItem.ClipChildren</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_LightMask">CanvasItem.LightMask</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_VisibilityLayer">CanvasItem.VisibilityLayer</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_ZIndex">CanvasItem.ZIndex</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_ZAsRelative">CanvasItem.ZAsRelative</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_YSortEnabled">CanvasItem.YSortEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_TextureFilter">CanvasItem.TextureFilter</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_TextureRepeat">CanvasItem.TextureRepeat</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_Material">CanvasItem.Material</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_UseParentMaterial">CanvasItem.UseParentMaterial</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_Draw">CanvasItem.Draw</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_VisibilityChanged">CanvasItem.VisibilityChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_Hidden">CanvasItem.Hidden</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_ItemRectChanged">CanvasItem.ItemRectChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEnterTree">Node.NotificationEnterTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationExitTree">Node.NotificationExitTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationMovedInParent">Node.NotificationMovedInParent</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationReady">Node.NotificationReady</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPaused">Node.NotificationPaused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationUnpaused">Node.NotificationUnpaused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPhysicsProcess">Node.NotificationPhysicsProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationProcess">Node.NotificationProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationParented">Node.NotificationParented</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationUnparented">Node.NotificationUnparented</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationSceneInstantiated">Node.NotificationSceneInstantiated</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationDragBegin">Node.NotificationDragBegin</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationDragEnd">Node.NotificationDragEnd</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPathRenamed">Node.NotificationPathRenamed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationChildOrderChanged">Node.NotificationChildOrderChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationInternalProcess">Node.NotificationInternalProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationInternalPhysicsProcess">Node.NotificationInternalPhysicsProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPostEnterTree">Node.NotificationPostEnterTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationDisabled">Node.NotificationDisabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEnabled">Node.NotificationEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEditorPreSave">Node.NotificationEditorPreSave</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEditorPostSave">Node.NotificationEditorPostSave</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMMouseEnter">Node.NotificationWMMouseEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMMouseExit">Node.NotificationWMMouseExit</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMWindowFocusIn">Node.NotificationWMWindowFocusIn</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMWindowFocusOut">Node.NotificationWMWindowFocusOut</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMCloseRequest">Node.NotificationWMCloseRequest</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMGoBackRequest">Node.NotificationWMGoBackRequest</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMSizeChanged">Node.NotificationWMSizeChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMDpiChange">Node.NotificationWMDpiChange</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationVpMouseEnter">Node.NotificationVpMouseEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationVpMouseExit">Node.NotificationVpMouseExit</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationOsMemoryWarning">Node.NotificationOsMemoryWarning</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationTranslationChanged">Node.NotificationTranslationChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMAbout">Node.NotificationWMAbout</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationCrash">Node.NotificationCrash</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationOsImeUpdate">Node.NotificationOsImeUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationResumed">Node.NotificationApplicationResumed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationPaused">Node.NotificationApplicationPaused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationFocusIn">Node.NotificationApplicationFocusIn</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationFocusOut">Node.NotificationApplicationFocusOut</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationTextServerChanged">Node.NotificationTextServerChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNode__1_Godot_NodePath_">Node.GetNode&lt;T&gt;(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeOrNull__1_Godot_NodePath_">Node.GetNodeOrNull&lt;T&gt;(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChild__1_System_Int32_System_Boolean_">Node.GetChild&lt;T&gt;(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChildOrNull__1_System_Int32_System_Boolean_">Node.GetChildOrNull&lt;T&gt;(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetOwner__1">Node.GetOwner&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetOwnerOrNull__1">Node.GetOwnerOrNull&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetParent__1">Node.GetParent&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetParentOrNull__1">Node.GetParentOrNull&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__EnterTree">Node._EnterTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__ExitTree">Node._ExitTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__GetConfigurationWarnings">Node._GetConfigurationWarnings()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__Input_Godot_InputEvent_">Node._Input(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__PhysicsProcess_System_Double_">Node._PhysicsProcess(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__Process_System_Double_">Node._Process(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__Ready">Node._Ready()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__ShortcutInput_Godot_InputEvent_">Node._ShortcutInput(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__UnhandledInput_Godot_InputEvent_">Node._UnhandledInput(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__UnhandledKeyInput_Godot_InputEvent_">Node._UnhandledKeyInput(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PrintOrphanNodes">Node.PrintOrphanNodes()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AddSibling_Godot_Node_System_Boolean_">Node.AddSibling(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AddChild_Godot_Node_System_Boolean_Godot_Node_InternalMode_">Node.AddChild(Node, bool, Node.InternalMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RemoveChild_Godot_Node_">Node.RemoveChild(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Reparent_Godot_Node_System_Boolean_">Node.Reparent(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChildCount_System_Boolean_">Node.GetChildCount(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChildren_System_Boolean_">Node.GetChildren(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChild_System_Int32_System_Boolean_">Node.GetChild(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_HasNode_Godot_NodePath_">Node.HasNode(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNode_Godot_NodePath_">Node.GetNode(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeOrNull_Godot_NodePath_">Node.GetNodeOrNull(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetParent">Node.GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_FindChild_System_String_System_Boolean_System_Boolean_">Node.FindChild(string, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_FindChildren_System_String_System_String_System_Boolean_System_Boolean_">Node.FindChildren(string, string, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_FindParent_System_String_">Node.FindParent(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_HasNodeAndResource_Godot_NodePath_">Node.HasNodeAndResource(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeAndResource_Godot_NodePath_">Node.GetNodeAndResource(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsInsideTree">Node.IsInsideTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsAncestorOf_Godot_Node_">Node.IsAncestorOf(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsGreaterThan_Godot_Node_">Node.IsGreaterThan(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetPath">Node.GetPath()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetPathTo_Godot_Node_System_Boolean_">Node.GetPathTo(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AddToGroup_Godot_StringName_System_Boolean_">Node.AddToGroup(StringName, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RemoveFromGroup_Godot_StringName_">Node.RemoveFromGroup(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsInGroup_Godot_StringName_">Node.IsInGroup(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_MoveChild_Godot_Node_System_Int32_">Node.MoveChild(Node, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetGroups">Node.GetGroups()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetIndex_System_Boolean_">Node.GetIndex(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PrintTree">Node.PrintTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PrintTreePretty">Node.PrintTreePretty()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetTreeString">Node.GetTreeString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetTreeStringPretty">Node.GetTreeStringPretty()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PropagateNotification_System_Int32_">Node.PropagateNotification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PropagateCall_Godot_StringName_Godot_Collections_Array_System_Boolean_">Node.PropagateCall(StringName, Array, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetPhysicsProcess_System_Boolean_">Node.SetPhysicsProcess(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetPhysicsProcessDeltaTime">Node.GetPhysicsProcessDeltaTime()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsProcessing">Node.IsPhysicsProcessing()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetProcessDeltaTime">Node.GetProcessDeltaTime()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcess_System_Boolean_">Node.SetProcess(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessing">Node.IsProcessing()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessInput_System_Boolean_">Node.SetProcessInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingInput">Node.IsProcessingInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessShortcutInput_System_Boolean_">Node.SetProcessShortcutInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingShortcutInput">Node.IsProcessingShortcutInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessUnhandledInput_System_Boolean_">Node.SetProcessUnhandledInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingUnhandledInput">Node.IsProcessingUnhandledInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessUnhandledKeyInput_System_Boolean_">Node.SetProcessUnhandledKeyInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingUnhandledKeyInput">Node.IsProcessingUnhandledKeyInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CanProcess">Node.CanProcess()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetDisplayFolded_System_Boolean_">Node.SetDisplayFolded(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsDisplayedFolded">Node.IsDisplayedFolded()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessInternal_System_Boolean_">Node.SetProcessInternal(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingInternal">Node.IsProcessingInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetPhysicsProcessInternal_System_Boolean_">Node.SetPhysicsProcessInternal(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsProcessingInternal">Node.IsPhysicsProcessingInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetWindow">Node.GetWindow()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetLastExclusiveWindow">Node.GetLastExclusiveWindow()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetTree">Node.GetTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CreateTween">Node.CreateTween()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Duplicate_System_Int32_">Node.Duplicate(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ReplaceBy_Godot_Node_System_Boolean_">Node.ReplaceBy(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetSceneInstanceLoadPlaceholder_System_Boolean_">Node.SetSceneInstanceLoadPlaceholder(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetSceneInstanceLoadPlaceholder">Node.GetSceneInstanceLoadPlaceholder()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetEditableInstance_Godot_Node_System_Boolean_">Node.SetEditableInstance(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsEditableInstance_Godot_Node_">Node.IsEditableInstance(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetViewport">Node.GetViewport()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_QueueFree">Node.QueueFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RequestReady">Node.RequestReady()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsNodeReady">Node.IsNodeReady()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetMultiplayerAuthority_System_Int32_System_Boolean_">Node.SetMultiplayerAuthority(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetMultiplayerAuthority">Node.GetMultiplayerAuthority()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsMultiplayerAuthority">Node.IsMultiplayerAuthority()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RpcConfig_Godot_StringName_Godot_Variant_">Node.RpcConfig(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Rpc_Godot_StringName_Godot_Variant___">Node.Rpc(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RpcId_System_Int64_Godot_StringName_Godot_Variant___">Node.RpcId(long, StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_UpdateConfigurationWarnings">Node.UpdateConfigurationWarnings()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CallDeferredThreadGroup_Godot_StringName_Godot_Variant___">Node.CallDeferredThreadGroup(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetDeferredThreadGroup_Godot_StringName_Godot_Variant_">Node.SetDeferredThreadGroup(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotifyDeferredThreadGroup_System_Int32_">Node.NotifyDeferredThreadGroup(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CallThreadSafe_Godot_StringName_Godot_Variant___">Node.CallThreadSafe(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetThreadSafe_Godot_StringName_Godot_Variant_">Node.SetThreadSafe(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotifyThreadSafe_System_Int32_">Node.NotifyThreadSafe(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__ImportPath">Node._ImportPath</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Name">Node.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_UniqueNameInOwner">Node.UniqueNameInOwner</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SceneFilePath">Node.SceneFilePath</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Owner">Node.Owner</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Multiplayer">Node.Multiplayer</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessMode">Node.ProcessMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessPriority">Node.ProcessPriority</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessPhysicsPriority">Node.ProcessPhysicsPriority</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessThreadGroup">Node.ProcessThreadGroup</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessThreadGroupOrder">Node.ProcessThreadGroupOrder</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessThreadMessages">Node.ProcessThreadMessages</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EditorDescription">Node.EditorDescription</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Ready">Node.Ready</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Renamed">Node.Renamed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_TreeEntered">Node.TreeEntered</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_TreeExiting">Node.TreeExiting</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_TreeExited">Node.TreeExited</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ChildEnteredTree">Node.ChildEnteredTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ChildExitingTree">Node.ChildExitingTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ChildOrderChanged">Node.ChildOrderChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ReplacingBy">Node.ReplacingBy</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_GpuParticles2D__ctor_" data-uid="Godot.GpuParticles2D.#ctor*"></a>
+
+  <h3 id="Godot_GpuParticles2D__ctor" data-uid="Godot.GpuParticles2D.#ctor">
+  GpuParticles2D()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpuParticles2D()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_GpuParticles2D_Amount_" data-uid="Godot.GpuParticles2D.Amount*"></a>
+
+  <h3 id="Godot_GpuParticles2D_Amount" data-uid="Godot.GpuParticles2D.Amount">
+  Amount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of particles to emit in one emission cycle. The effective emission rate is <code>(amount * amount_ratio) / lifetime</code> particles per second. Higher values will increase GPU requirements, even if not all particles are visible at a given time or if <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_AmountRatio">AmountRatio</a> is decreased.</p>
+<p>
+  <b>Note:</b> Changing this value will cause the particle system to restart. To avoid this, change <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_AmountRatio">AmountRatio</a> instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Amount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_AmountRatio_" data-uid="Godot.GpuParticles2D.AmountRatio*"></a>
+
+  <h3 id="Godot_GpuParticles2D_AmountRatio" data-uid="Godot.GpuParticles2D.AmountRatio">
+  AmountRatio
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ratio of particles that should actually be emitted. If set to a value lower than <code>1.0</code>, this will set the amount of emitted particles throughout the lifetime to <code>amount * amount_ratio</code>. Unlike changing <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_Amount">Amount</a>, changing <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_AmountRatio">AmountRatio</a> while emitting does not affect already-emitted particles and doesn't cause the particle system to restart. <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_AmountRatio">AmountRatio</a> can be used to create effects that make the number of emitted particles vary over time.</p>
+<p>
+  <b>Note:</b> Reducing the <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_AmountRatio">AmountRatio</a> has no performance benefit, since resources need to be allocated and processed for the total <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_Amount">Amount</a> of particles regardless of the <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_AmountRatio">AmountRatio</a>. If you don't intend to change the number of particles emitted while the particles are emitting, make sure <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_AmountRatio">AmountRatio</a> is set to <code>1</code> and change <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_Amount">Amount</a> to your liking instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float AmountRatio { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_CollisionBaseSize_" data-uid="Godot.GpuParticles2D.CollisionBaseSize*"></a>
+
+  <h3 id="Godot_GpuParticles2D_CollisionBaseSize" data-uid="Godot.GpuParticles2D.CollisionBaseSize">
+  CollisionBaseSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Multiplier for particle's collision radius. <code>1.0</code> corresponds to the size of the sprite. If particles appear to sink into the ground when colliding, increase this value. If particles appear to float when colliding, decrease this value. Only effective if <a class="xref" href="Godot.ParticleProcessMaterial.html#Godot_ParticleProcessMaterial_CollisionMode">CollisionMode</a> is <a class="xref" href="Godot.ParticleProcessMaterial.CollisionModeEnum.html#Godot_ParticleProcessMaterial_CollisionModeEnum_Rigid">Rigid</a> or <a class="xref" href="Godot.ParticleProcessMaterial.CollisionModeEnum.html#Godot_ParticleProcessMaterial_CollisionModeEnum_HideOnContact">HideOnContact</a>.</p>
+<p>
+  <b>Note:</b> Particles always have a spherical collision shape.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CollisionBaseSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_DrawOrder_" data-uid="Godot.GpuParticles2D.DrawOrder*"></a>
+
+  <h3 id="Godot_GpuParticles2D_DrawOrder" data-uid="Godot.GpuParticles2D.DrawOrder">
+  DrawOrder
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Particle draw order. Uses <a class="xref" href="Godot.GpuParticles2D.DrawOrderEnum.html">GpuParticles2D.DrawOrderEnum</a> values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GpuParticles2D.DrawOrderEnum DrawOrder { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.GpuParticles2D.html">GpuParticles2D</a>.<a class="xref" href="Godot.GpuParticles2D.DrawOrderEnum.html">DrawOrderEnum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_Emitting_" data-uid="Godot.GpuParticles2D.Emitting*"></a>
+
+  <h3 id="Godot_GpuParticles2D_Emitting" data-uid="Godot.GpuParticles2D.Emitting">
+  Emitting
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <code>true</code>, particles are being emitted. <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_Emitting">Emitting</a> can be used to start and stop particles from emitting. However, if <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_OneShot">OneShot</a> is <code>true</code> setting <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_Emitting">Emitting</a> to <code>true</code> will not restart the emission cycle until after all active particles finish processing. You can use the <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_Finished">Finished</a> signal to be notified once all active particles finish processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Emitting { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_Explosiveness_" data-uid="Godot.GpuParticles2D.Explosiveness*"></a>
+
+  <h3 id="Godot_GpuParticles2D_Explosiveness" data-uid="Godot.GpuParticles2D.Explosiveness">
+  Explosiveness
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How rapidly particles in an emission cycle are emitted. If greater than <code>0</code>, there will be a gap in emissions before the next cycle begins.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Explosiveness { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_FixedFps_" data-uid="Godot.GpuParticles2D.FixedFps*"></a>
+
+  <h3 id="Godot_GpuParticles2D_FixedFps" data-uid="Godot.GpuParticles2D.FixedFps">
+  FixedFps
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The particle system's frame rate is fixed to a value. For example, changing the value to 2 will make the particles render at 2 frames per second. Note this does not slow down the simulation of the particle system itself.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FixedFps { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_FractDelta_" data-uid="Godot.GpuParticles2D.FractDelta*"></a>
+
+  <h3 id="Godot_GpuParticles2D_FractDelta" data-uid="Godot.GpuParticles2D.FractDelta">
+  FractDelta
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <code>true</code>, results in fractional delta calculation which has a smoother particles display effect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FractDelta { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_InterpToEnd_" data-uid="Godot.GpuParticles2D.InterpToEnd*"></a>
+
+  <h3 id="Godot_GpuParticles2D_InterpToEnd" data-uid="Godot.GpuParticles2D.InterpToEnd">
+  InterpToEnd
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Causes all the particles in this node to interpolate towards the end of their lifetime.</p>
+<p>
+  <b>Note:</b> This only works when used with a <a class="xref" href="Godot.ParticleProcessMaterial.html">ParticleProcessMaterial</a>. It needs to be manually implemented for custom process shaders.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float InterpToEnd { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_Interpolate_" data-uid="Godot.GpuParticles2D.Interpolate*"></a>
+
+  <h3 id="Godot_GpuParticles2D_Interpolate" data-uid="Godot.GpuParticles2D.Interpolate">
+  Interpolate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enables particle interpolation, which makes the particle movement smoother when their <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_FixedFps">FixedFps</a> is lower than the screen refresh rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Interpolate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_Lifetime_" data-uid="Godot.GpuParticles2D.Lifetime*"></a>
+
+  <h3 id="Godot_GpuParticles2D_Lifetime" data-uid="Godot.GpuParticles2D.Lifetime">
+  Lifetime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The amount of time each particle will exist (in seconds). The effective emission rate is <code>(amount * amount_ratio) / lifetime</code> particles per second.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Lifetime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_LocalCoords_" data-uid="Godot.GpuParticles2D.LocalCoords*"></a>
+
+  <h3 id="Godot_GpuParticles2D_LocalCoords" data-uid="Godot.GpuParticles2D.LocalCoords">
+  LocalCoords
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <code>true</code>, particles use the parent node's coordinate space (known as local coordinates). This will cause particles to move and rotate along the <a class="xref" href="Godot.GpuParticles2D.html">GpuParticles2D</a> node (and its parents) when it is moved or rotated. If <code>false</code>, particles use global coordinates; they will not move or rotate along the <a class="xref" href="Godot.GpuParticles2D.html">GpuParticles2D</a> node (and its parents) when it is moved or rotated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LocalCoords { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_OneShot_" data-uid="Godot.GpuParticles2D.OneShot*"></a>
+
+  <h3 id="Godot_GpuParticles2D_OneShot" data-uid="Godot.GpuParticles2D.OneShot">
+  OneShot
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <code>true</code>, only one emission cycle occurs. If set <code>true</code> during a cycle, emission will stop at the cycle's end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool OneShot { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_Preprocess_" data-uid="Godot.GpuParticles2D.Preprocess*"></a>
+
+  <h3 id="Godot_GpuParticles2D_Preprocess" data-uid="Godot.GpuParticles2D.Preprocess">
+  Preprocess
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Particle system starts as if it had already run for this many seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Preprocess { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_ProcessMaterial_" data-uid="Godot.GpuParticles2D.ProcessMaterial*"></a>
+
+  <h3 id="Godot_GpuParticles2D_ProcessMaterial" data-uid="Godot.GpuParticles2D.ProcessMaterial">
+  ProcessMaterial
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>
+  <a class="xref" href="Godot.Material.html">Material</a> for processing particles. Can be a <a class="xref" href="Godot.ParticleProcessMaterial.html">ParticleProcessMaterial</a> or a <a class="xref" href="Godot.ShaderMaterial.html">ShaderMaterial</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Material ProcessMaterial { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Material.html">Material</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_Randomness_" data-uid="Godot.GpuParticles2D.Randomness*"></a>
+
+  <h3 id="Godot_GpuParticles2D_Randomness" data-uid="Godot.GpuParticles2D.Randomness">
+  Randomness
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emission lifetime randomness ratio.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Randomness { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_SpeedScale_" data-uid="Godot.GpuParticles2D.SpeedScale*"></a>
+
+  <h3 id="Godot_GpuParticles2D_SpeedScale" data-uid="Godot.GpuParticles2D.SpeedScale">
+  SpeedScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Particle system's running speed scaling ratio. A value of <code>0</code> can be used to pause the particles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SpeedScale { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_SubEmitter_" data-uid="Godot.GpuParticles2D.SubEmitter*"></a>
+
+  <h3 id="Godot_GpuParticles2D_SubEmitter" data-uid="Godot.GpuParticles2D.SubEmitter">
+  SubEmitter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Path to another <a class="xref" href="Godot.GpuParticles2D.html">GpuParticles2D</a> node that will be used as a subemitter (see <a class="xref" href="Godot.ParticleProcessMaterial.html#Godot_ParticleProcessMaterial_SubEmitterMode">SubEmitterMode</a>). Subemitters can be used to achieve effects such as fireworks, sparks on collision, bubbles popping into water drops, and more.</p>
+<p>
+  <b>Note:</b> When <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_SubEmitter">SubEmitter</a> is set, the target <a class="xref" href="Godot.GpuParticles2D.html">GpuParticles2D</a> node will no longer emit particles on its own.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NodePath SubEmitter { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.NodePath.html">NodePath</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_Texture_" data-uid="Godot.GpuParticles2D.Texture*"></a>
+
+  <h3 id="Godot_GpuParticles2D_Texture" data-uid="Godot.GpuParticles2D.Texture">
+  Texture
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Particle texture. If <code>null</code>, particles will be squares with a size of 1×1 pixels.</p>
+<p>
+  <b>Note:</b> To use a flipbook texture, assign a new <a class="xref" href="Godot.CanvasItemMaterial.html">CanvasItemMaterial</a> to the <a class="xref" href="Godot.GpuParticles2D.html">GpuParticles2D</a>'s <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_Material">Material</a> property, then enable <a class="xref" href="Godot.CanvasItemMaterial.html#Godot_CanvasItemMaterial_ParticlesAnimation">ParticlesAnimation</a> and set <a class="xref" href="Godot.CanvasItemMaterial.html#Godot_CanvasItemMaterial_ParticlesAnimHFrames">ParticlesAnimHFrames</a>, <a class="xref" href="Godot.CanvasItemMaterial.html#Godot_CanvasItemMaterial_ParticlesAnimVFrames">ParticlesAnimVFrames</a>, and <a class="xref" href="Godot.CanvasItemMaterial.html#Godot_CanvasItemMaterial_ParticlesAnimLoop">ParticlesAnimLoop</a> to match the flipbook texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture2D Texture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_TrailEnabled_" data-uid="Godot.GpuParticles2D.TrailEnabled*"></a>
+
+  <h3 id="Godot_GpuParticles2D_TrailEnabled" data-uid="Godot.GpuParticles2D.TrailEnabled">
+  TrailEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <code>true</code>, enables particle trails using a mesh skinning system.</p>
+<p>
+  <b>Note:</b> Unlike <a class="xref" href="Godot.GpuParticles3D.html">GpuParticles3D</a>, the number of trail sections and subdivisions is set with the <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_TrailSections">TrailSections</a> and <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_TrailSectionSubdivisions">TrailSectionSubdivisions</a> properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TrailEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_TrailLifetime_" data-uid="Godot.GpuParticles2D.TrailLifetime*"></a>
+
+  <h3 id="Godot_GpuParticles2D_TrailLifetime" data-uid="Godot.GpuParticles2D.TrailLifetime">
+  TrailLifetime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The amount of time the particle's trail should represent (in seconds). Only effective if <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_TrailEnabled">TrailEnabled</a> is <code>true</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double TrailLifetime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_TrailSectionSubdivisions_" data-uid="Godot.GpuParticles2D.TrailSectionSubdivisions*"></a>
+
+  <h3 id="Godot_GpuParticles2D_TrailSectionSubdivisions" data-uid="Godot.GpuParticles2D.TrailSectionSubdivisions">
+  TrailSectionSubdivisions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of subdivisions to use for the particle trail rendering. Higher values can result in smoother trail curves, at the cost of performance due to increased mesh complexity. See also <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_TrailSections">TrailSections</a>. Only effective if <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_TrailEnabled">TrailEnabled</a> is <code>true</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TrailSectionSubdivisions { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_TrailSections_" data-uid="Godot.GpuParticles2D.TrailSections*"></a>
+
+  <h3 id="Godot_GpuParticles2D_TrailSections" data-uid="Godot.GpuParticles2D.TrailSections">
+  TrailSections
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of sections to use for the particle trail rendering. Higher values can result in smoother trail curves, at the cost of performance due to increased mesh complexity. See also <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_TrailSectionSubdivisions">TrailSectionSubdivisions</a>. Only effective if <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_TrailEnabled">TrailEnabled</a> is <code>true</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TrailSections { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_VisibilityRect_" data-uid="Godot.GpuParticles2D.VisibilityRect*"></a>
+
+  <h3 id="Godot_GpuParticles2D_VisibilityRect" data-uid="Godot.GpuParticles2D.VisibilityRect">
+  VisibilityRect
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Godot.Rect2.html">Rect2</a> that determines the node's region which needs to be visible on screen for the particle system to be active.</p>
+<p>Grow the rect if particles suddenly appear/disappear when the node enters/exits the screen. The <a class="xref" href="Godot.Rect2.html">Rect2</a> can be grown via code or with the <b>Particles → Generate Visibility Rect</b> editor tool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rect2 VisibilityRect { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rect2.html">Rect2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_GpuParticles2D_CaptureRect_" data-uid="Godot.GpuParticles2D.CaptureRect*"></a>
+
+  <h3 id="Godot_GpuParticles2D_CaptureRect" data-uid="Godot.GpuParticles2D.CaptureRect">
+  CaptureRect()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a rectangle containing the positions of all existing particles.</p>
+<p>
+  <b>Note:</b> When using threaded rendering this method synchronizes the rendering thread. Calling it often may have a negative impact on performance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rect2 CaptureRect()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rect2.html">Rect2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_ConvertFromParticles_" data-uid="Godot.GpuParticles2D.ConvertFromParticles*"></a>
+
+  <h3 id="Godot_GpuParticles2D_ConvertFromParticles_Godot_Node_" data-uid="Godot.GpuParticles2D.ConvertFromParticles(Godot.Node)">
+  ConvertFromParticles(Node)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets this node's properties to match a given <a class="xref" href="Godot.CpuParticles2D.html">CpuParticles2D</a> node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ConvertFromParticles(Node particles)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>particles</code> <a class="xref" href="Godot.Node.html">Node</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_EmitParticle_" data-uid="Godot.GpuParticles2D.EmitParticle*"></a>
+
+  <h3 id="Godot_GpuParticles2D_EmitParticle_Godot_Transform2D_Godot_Vector2_Godot_Color_Godot_Color_System_UInt32_" data-uid="Godot.GpuParticles2D.EmitParticle(Godot.Transform2D,Godot.Vector2,Godot.Color,Godot.Color,System.UInt32)">
+  EmitParticle(Transform2D, Vector2, Color, Color, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emits a single particle. Whether <code class="paramref">xform</code>, <code class="paramref">velocity</code>, <code class="paramref">color</code> and <code class="paramref">custom</code> are applied depends on the value of <code class="paramref">flags</code>. See <a class="xref" href="Godot.GpuParticles2D.EmitFlags.html">GpuParticles2D.EmitFlags</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EmitParticle(Transform2D xform, Vector2 velocity, Color color, Color custom, uint flags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xform</code> <a class="xref" href="Godot.Transform2D.html">Transform2D</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd></dd>
+    <dt><code>custom</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd></dd>
+    <dt><code>flags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_HasGodotClassMethod_" data-uid="Godot.GpuParticles2D.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_GpuParticles2D_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.GpuParticles2D.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_HasGodotClassSignal_" data-uid="Godot.GpuParticles2D.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_GpuParticles2D_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.GpuParticles2D.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_InvokeGodotClassMethod_" data-uid="Godot.GpuParticles2D.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_GpuParticles2D_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.GpuParticles2D.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GpuParticles2D_Restart_" data-uid="Godot.GpuParticles2D.Restart*"></a>
+
+  <h3 id="Godot_GpuParticles2D_Restart" data-uid="Godot.GpuParticles2D.Restart">
+  Restart()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restarts all the existing particles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Restart()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Godot_GpuParticles2D_Finished" data-uid="Godot.GpuParticles2D.Finished">
+  Finished
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when all active particles have finished processing. When <a class="xref" href="Godot.GpuParticles2D.html#Godot_GpuParticles2D_OneShot">OneShot</a> is disabled, particles will process continuously, so this is never emitted.</p>
+<p>
+  <b>Note:</b> Due to the particles being computed on the GPU there might be a delay before the signal gets emitted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action Finished</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GpuParticles2D.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

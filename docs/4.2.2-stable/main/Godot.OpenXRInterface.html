@@ -1,0 +1,1459 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class OpenXRInterface | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class OpenXRInterface | Godot4 C# API ">
+      
+      <meta name="description" content="The OpenXR interface allows Godot to interact with OpenXR runtimes and make it possible to create XR experiences and games. Due to the needs of OpenXR this interface works slightly different than other plugin based XR interfaces. It needs to be initialized when Godot starts. You need to enable OpenXR, settings for this can be found in your games project settings under the XR heading. You do need to mark a viewport for use with XR in order for Godot to know which render result should be output to the headset.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.OpenXRInterface">
+
+
+
+  <h1 id="Godot_OpenXRInterface" data-uid="Godot.OpenXRInterface" class="text-break">
+Class OpenXRInterface  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The OpenXR interface allows Godot to interact with OpenXR runtimes and make it possible to create XR experiences and games.</p>
+<p>Due to the needs of OpenXR this interface works slightly different than other plugin based XR interfaces. It needs to be initialized when Godot starts. You need to enable OpenXR, settings for this can be found in your games project settings under the XR heading. You do need to mark a viewport for use with XR in order for Godot to know which render result should be output to the headset.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class OpenXRInterface : XRInterface, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><a class="xref" href="Godot.XRInterface.html">XRInterface</a></div>
+      <div><span class="xref">OpenXRInterface</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetName">XRInterface.GetName()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetCapabilities">XRInterface.GetCapabilities()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_IsInitialized">XRInterface.IsInitialized()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_Initialize">XRInterface.Initialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_Uninitialize">XRInterface.Uninitialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetSystemInfo">XRInterface.GetSystemInfo()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetTrackingStatus">XRInterface.GetTrackingStatus()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetRenderTargetSize">XRInterface.GetRenderTargetSize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetViewCount">XRInterface.GetViewCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_TriggerHapticPulse_System_String_Godot_StringName_System_Double_System_Double_System_Double_System_Double_">XRInterface.TriggerHapticPulse(string, StringName, double, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_SupportsPlayAreaMode_Godot_XRInterface_PlayAreaMode_">XRInterface.SupportsPlayAreaMode(XRInterface.PlayAreaMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetPlayArea">XRInterface.GetPlayArea()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetCameraFeedId">XRInterface.GetCameraFeedId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_IsPassthroughSupported">XRInterface.IsPassthroughSupported()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_IsPassthroughEnabled">XRInterface.IsPassthroughEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_StartPassthrough">XRInterface.StartPassthrough()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_StopPassthrough">XRInterface.StopPassthrough()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetTransformForView_System_UInt32_Godot_Transform3D_">XRInterface.GetTransformForView(uint, Transform3D)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetProjectionForView_System_UInt32_System_Double_System_Double_System_Double_">XRInterface.GetProjectionForView(uint, double, double, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_GetSupportedEnvironmentBlendModes">XRInterface.GetSupportedEnvironmentBlendModes()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_InterfaceIsPrimary">XRInterface.InterfaceIsPrimary</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_XRPlayAreaMode">XRInterface.XRPlayAreaMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_EnvironmentBlendMode">XRInterface.EnvironmentBlendMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_ArIsAnchorDetectionEnabled">XRInterface.ArIsAnchorDetectionEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.XRInterface.html#Godot_XRInterface_PlayAreaChanged">XRInterface.PlayAreaChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_InitRef">RefCounted.InitRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Reference">RefCounted.Reference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Unreference">RefCounted.Unreference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_GetReferenceCount">RefCounted.GetReferenceCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_OpenXRInterface__ctor_" data-uid="Godot.OpenXRInterface.#ctor*"></a>
+
+  <h3 id="Godot_OpenXRInterface__ctor" data-uid="Godot.OpenXRInterface.#ctor">
+  OpenXRInterface()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OpenXRInterface()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_OpenXRInterface_DisplayRefreshRate_" data-uid="Godot.OpenXRInterface.DisplayRefreshRate*"></a>
+
+  <h3 id="Godot_OpenXRInterface_DisplayRefreshRate" data-uid="Godot.OpenXRInterface.DisplayRefreshRate">
+  DisplayRefreshRate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The display refresh rate for the current HMD. Only functional if this feature is supported by the OpenXR runtime and after the interface has been initialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float DisplayRefreshRate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_FoveationDynamic_" data-uid="Godot.OpenXRInterface.FoveationDynamic*"></a>
+
+  <h3 id="Godot_OpenXRInterface_FoveationDynamic" data-uid="Godot.OpenXRInterface.FoveationDynamic">
+  FoveationDynamic
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enable dynamic foveation adjustment, the interface must be initialized before this is accessible. If enabled foveation will automatically adjusted between low and <a class="xref" href="Godot.OpenXRInterface.html#Godot_OpenXRInterface_FoveationLevel">FoveationLevel</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FoveationDynamic { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_FoveationLevel_" data-uid="Godot.OpenXRInterface.FoveationLevel*"></a>
+
+  <h3 id="Godot_OpenXRInterface_FoveationLevel" data-uid="Godot.OpenXRInterface.FoveationLevel">
+  FoveationLevel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set foveation level from 0 (off) to 3 (high), the interface must be initialized before this is accessible.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FoveationLevel { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_RenderTargetSizeMultiplier_" data-uid="Godot.OpenXRInterface.RenderTargetSizeMultiplier*"></a>
+
+  <h3 id="Godot_OpenXRInterface_RenderTargetSizeMultiplier" data-uid="Godot.OpenXRInterface.RenderTargetSizeMultiplier">
+  RenderTargetSizeMultiplier
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The render size multiplier for the current HMD. Must be set before the interface has been initialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RenderTargetSizeMultiplier { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_OpenXRInterface_GetActionSets_" data-uid="Godot.OpenXRInterface.GetActionSets*"></a>
+
+  <h3 id="Godot_OpenXRInterface_GetActionSets" data-uid="Godot.OpenXRInterface.GetActionSets">
+  GetActionSets()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of action sets registered with Godot (loaded from the action map at runtime).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array GetActionSets()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_GetAvailableDisplayRefreshRates_" data-uid="Godot.OpenXRInterface.GetAvailableDisplayRefreshRates*"></a>
+
+  <h3 id="Godot_OpenXRInterface_GetAvailableDisplayRefreshRates" data-uid="Godot.OpenXRInterface.GetAvailableDisplayRefreshRates">
+  GetAvailableDisplayRefreshRates()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns display refresh rates supported by the current HMD. Only returned if this feature is supported by the OpenXR runtime and after the interface has been initialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array GetAvailableDisplayRefreshRates()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_GetHandJointAngularVelocity_" data-uid="Godot.OpenXRInterface.GetHandJointAngularVelocity*"></a>
+
+  <h3 id="Godot_OpenXRInterface_GetHandJointAngularVelocity_Godot_OpenXRInterface_Hand_Godot_OpenXRInterface_HandJoints_" data-uid="Godot.OpenXRInterface.GetHandJointAngularVelocity(Godot.OpenXRInterface.Hand,Godot.OpenXRInterface.HandJoints)">
+  GetHandJointAngularVelocity(Hand, HandJoints)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If handtracking is enabled, returns the angular velocity of a joint (<code class="paramref">joint</code>) of a hand (<code class="paramref">hand</code>) as provided by OpenXR. This is relative to <a class="xref" href="Godot.XROrigin3D.html">XROrigin3D</a>!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetHandJointAngularVelocity(OpenXRInterface.Hand hand, OpenXRInterface.HandJoints joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hand</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.Hand.html">Hand</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.HandJoints.html">HandJoints</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_GetHandJointFlags_" data-uid="Godot.OpenXRInterface.GetHandJointFlags*"></a>
+
+  <h3 id="Godot_OpenXRInterface_GetHandJointFlags_Godot_OpenXRInterface_Hand_Godot_OpenXRInterface_HandJoints_" data-uid="Godot.OpenXRInterface.GetHandJointFlags(Godot.OpenXRInterface.Hand,Godot.OpenXRInterface.HandJoints)">
+  GetHandJointFlags(Hand, HandJoints)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If handtracking is enabled, returns flags that inform us of the validity of the tracking data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OpenXRInterface.HandJointFlags GetHandJointFlags(OpenXRInterface.Hand hand, OpenXRInterface.HandJoints joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hand</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.Hand.html">Hand</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.HandJoints.html">HandJoints</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.HandJointFlags.html">HandJointFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_GetHandJointLinearVelocity_" data-uid="Godot.OpenXRInterface.GetHandJointLinearVelocity*"></a>
+
+  <h3 id="Godot_OpenXRInterface_GetHandJointLinearVelocity_Godot_OpenXRInterface_Hand_Godot_OpenXRInterface_HandJoints_" data-uid="Godot.OpenXRInterface.GetHandJointLinearVelocity(Godot.OpenXRInterface.Hand,Godot.OpenXRInterface.HandJoints)">
+  GetHandJointLinearVelocity(Hand, HandJoints)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If handtracking is enabled, returns the linear velocity of a joint (<code class="paramref">joint</code>) of a hand (<code class="paramref">hand</code>) as provided by OpenXR. This is relative to <a class="xref" href="Godot.XROrigin3D.html">XROrigin3D</a> without worldscale applied!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetHandJointLinearVelocity(OpenXRInterface.Hand hand, OpenXRInterface.HandJoints joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hand</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.Hand.html">Hand</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.HandJoints.html">HandJoints</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_GetHandJointPosition_" data-uid="Godot.OpenXRInterface.GetHandJointPosition*"></a>
+
+  <h3 id="Godot_OpenXRInterface_GetHandJointPosition_Godot_OpenXRInterface_Hand_Godot_OpenXRInterface_HandJoints_" data-uid="Godot.OpenXRInterface.GetHandJointPosition(Godot.OpenXRInterface.Hand,Godot.OpenXRInterface.HandJoints)">
+  GetHandJointPosition(Hand, HandJoints)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If handtracking is enabled, returns the position of a joint (<code class="paramref">joint</code>) of a hand (<code class="paramref">hand</code>) as provided by OpenXR. This is relative to <a class="xref" href="Godot.XROrigin3D.html">XROrigin3D</a> without worldscale applied!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetHandJointPosition(OpenXRInterface.Hand hand, OpenXRInterface.HandJoints joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hand</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.Hand.html">Hand</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.HandJoints.html">HandJoints</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_GetHandJointRadius_" data-uid="Godot.OpenXRInterface.GetHandJointRadius*"></a>
+
+  <h3 id="Godot_OpenXRInterface_GetHandJointRadius_Godot_OpenXRInterface_Hand_Godot_OpenXRInterface_HandJoints_" data-uid="Godot.OpenXRInterface.GetHandJointRadius(Godot.OpenXRInterface.Hand,Godot.OpenXRInterface.HandJoints)">
+  GetHandJointRadius(Hand, HandJoints)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If handtracking is enabled, returns the radius of a joint (<code class="paramref">joint</code>) of a hand (<code class="paramref">hand</code>) as provided by OpenXR. This is without worldscale applied!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetHandJointRadius(OpenXRInterface.Hand hand, OpenXRInterface.HandJoints joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hand</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.Hand.html">Hand</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.HandJoints.html">HandJoints</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_GetHandJointRotation_" data-uid="Godot.OpenXRInterface.GetHandJointRotation*"></a>
+
+  <h3 id="Godot_OpenXRInterface_GetHandJointRotation_Godot_OpenXRInterface_Hand_Godot_OpenXRInterface_HandJoints_" data-uid="Godot.OpenXRInterface.GetHandJointRotation(Godot.OpenXRInterface.Hand,Godot.OpenXRInterface.HandJoints)">
+  GetHandJointRotation(Hand, HandJoints)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If handtracking is enabled, returns the rotation of a joint (<code class="paramref">joint</code>) of a hand (<code class="paramref">hand</code>) as provided by OpenXR.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion GetHandJointRotation(OpenXRInterface.Hand hand, OpenXRInterface.HandJoints joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hand</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.Hand.html">Hand</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.HandJoints.html">HandJoints</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_GetMotionRange_" data-uid="Godot.OpenXRInterface.GetMotionRange*"></a>
+
+  <h3 id="Godot_OpenXRInterface_GetMotionRange_Godot_OpenXRInterface_Hand_" data-uid="Godot.OpenXRInterface.GetMotionRange(Godot.OpenXRInterface.Hand)">
+  GetMotionRange(Hand)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If handtracking is enabled and motion range is supported, gets the currently configured motion range for <code class="paramref">hand</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OpenXRInterface.HandMotionRange GetMotionRange(OpenXRInterface.Hand hand)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hand</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.Hand.html">Hand</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.HandMotionRange.html">HandMotionRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_HasGodotClassMethod_" data-uid="Godot.OpenXRInterface.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_OpenXRInterface_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.OpenXRInterface.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_HasGodotClassSignal_" data-uid="Godot.OpenXRInterface.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_OpenXRInterface_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.OpenXRInterface.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_InvokeGodotClassMethod_" data-uid="Godot.OpenXRInterface.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_OpenXRInterface_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.OpenXRInterface.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_IsActionSetActive_" data-uid="Godot.OpenXRInterface.IsActionSetActive*"></a>
+
+  <h3 id="Godot_OpenXRInterface_IsActionSetActive_System_String_" data-uid="Godot.OpenXRInterface.IsActionSetActive(System.String)">
+  IsActionSetActive(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <code>true</code> if the given action set is active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsActionSetActive(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_IsEyeGazeInteractionSupported_" data-uid="Godot.OpenXRInterface.IsEyeGazeInteractionSupported*"></a>
+
+  <h3 id="Godot_OpenXRInterface_IsEyeGazeInteractionSupported" data-uid="Godot.OpenXRInterface.IsEyeGazeInteractionSupported">
+  IsEyeGazeInteractionSupported()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the capabilities of the eye gaze interaction extension.</p>
+<p>
+  <b>Note:</b> This only returns a valid value after OpenXR has been initialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEyeGazeInteractionSupported()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_IsFoveationSupported_" data-uid="Godot.OpenXRInterface.IsFoveationSupported*"></a>
+
+  <h3 id="Godot_OpenXRInterface_IsFoveationSupported" data-uid="Godot.OpenXRInterface.IsFoveationSupported">
+  IsFoveationSupported()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <code>true</code> if OpenXR's foveation extension is supported, the interface must be initialized before this returns a valid value.</p>
+<p>
+  <b>Note:</b> This feature is only available on the compatibility renderer and currently only available on some stand alone headsets. For Vulkan set <a class="xref" href="Godot.Viewport.html#Godot_Viewport_VrsMode">VrsMode</a> to <code>VRS_XR</code> on desktop.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsFoveationSupported()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_IsHandTrackingSupported_" data-uid="Godot.OpenXRInterface.IsHandTrackingSupported*"></a>
+
+  <h3 id="Godot_OpenXRInterface_IsHandTrackingSupported" data-uid="Godot.OpenXRInterface.IsHandTrackingSupported">
+  IsHandTrackingSupported()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <code>true</code> if OpenXR's hand tracking is supported and enabled.</p>
+<p>
+  <b>Note:</b> This only returns a valid value after OpenXR has been initialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsHandTrackingSupported()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_SetActionSetActive_" data-uid="Godot.OpenXRInterface.SetActionSetActive*"></a>
+
+  <h3 id="Godot_OpenXRInterface_SetActionSetActive_System_String_System_Boolean_" data-uid="Godot.OpenXRInterface.SetActionSetActive(System.String,System.Boolean)">
+  SetActionSetActive(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the given action set as active or inactive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetActionSetActive(string name, bool active)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>active</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_OpenXRInterface_SetMotionRange_" data-uid="Godot.OpenXRInterface.SetMotionRange*"></a>
+
+  <h3 id="Godot_OpenXRInterface_SetMotionRange_Godot_OpenXRInterface_Hand_Godot_OpenXRInterface_HandMotionRange_" data-uid="Godot.OpenXRInterface.SetMotionRange(Godot.OpenXRInterface.Hand,Godot.OpenXRInterface.HandMotionRange)">
+  SetMotionRange(Hand, HandMotionRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If handtracking is enabled and motion range is supported, sets the currently configured motion range for <code class="paramref">hand</code> to <code class="paramref">motionRange</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMotionRange(OpenXRInterface.Hand hand, OpenXRInterface.HandMotionRange motionRange)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hand</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.Hand.html">Hand</a></dt>
+    <dd></dd>
+    <dt><code>motionRange</code> <a class="xref" href="Godot.OpenXRInterface.html">OpenXRInterface</a>.<a class="xref" href="Godot.OpenXRInterface.HandMotionRange.html">HandMotionRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Godot_OpenXRInterface_PoseRecentered" data-uid="Godot.OpenXRInterface.PoseRecentered">
+  PoseRecentered
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Informs the user queued a recenter of the player position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action PoseRecentered</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_OpenXRInterface_SessionBegun" data-uid="Godot.OpenXRInterface.SessionBegun">
+  SessionBegun
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Informs our OpenXR session has been started.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action SessionBegun</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_OpenXRInterface_SessionFocussed" data-uid="Godot.OpenXRInterface.SessionFocussed">
+  SessionFocussed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Informs our OpenXR session now has focus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action SessionFocussed</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_OpenXRInterface_SessionStopping" data-uid="Godot.OpenXRInterface.SessionStopping">
+  SessionStopping
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Informs our OpenXR session is stopping.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action SessionStopping</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_OpenXRInterface_SessionVisible" data-uid="Godot.OpenXRInterface.SessionVisible">
+  SessionVisible
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Informs our OpenXR session is now visible (output is being sent to the HMD).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action SessionVisible</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/15073afe3856abd2aa1622492fe50026c7d63dc1/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/OpenXRInterface.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
