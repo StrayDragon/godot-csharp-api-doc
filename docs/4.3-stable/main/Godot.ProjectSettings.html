@@ -1,0 +1,962 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ProjectSettings | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ProjectSettings | Godot4 C# API ">
+      
+      <meta name="description" content="Stores variables that can be accessed from everywhere. Use ,  or  to access them. Variables stored in project.godot are also loaded into , making this object very useful for reading custom game configuration options. When naming a Project Settings property, use the full path to the setting including the category. For example, &quot;application/config/name&quot; for the project name. Category and property names can be viewed in the Project Settings dialog.    Feature tags: Project settings can be overridden for specific platforms and configurations (debug, release, ...) using feature tags.    Overriding: Any project setting can be overridden by creating a file named override.cfg in the project&#39;s root directory. This can also be used in exported projects by placing this file in the same directory as the project binary. Overriding will still take the base project settings&#39; feature tags in account. Therefore, make sure to also override the setting with the desired feature tags if you want them to override base project settings on all platforms and configurations.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.ProjectSettings">
+
+
+
+  <h1 id="Godot_ProjectSettings" data-uid="Godot.ProjectSettings" class="text-break">
+Class ProjectSettings  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Stores variables that can be accessed from everywhere. Use <a class="xref" href="Godot.ProjectSettings.html#Godot_ProjectSettings_GetSetting_System_String_Godot_Variant_">GetSetting(string, Variant)</a>, <a class="xref" href="Godot.ProjectSettings.html#Godot_ProjectSettings_SetSetting_System_String_Godot_Variant_">SetSetting(string, Variant)</a> or <a class="xref" href="Godot.ProjectSettings.html#Godot_ProjectSettings_HasSetting_System_String_">HasSetting(string)</a> to access them. Variables stored in <code>project.godot</code> are also loaded into <a class="xref" href="Godot.ProjectSettings.html">ProjectSettings</a>, making this object very useful for reading custom game configuration options.</p>
+<p>When naming a Project Settings property, use the full path to the setting including the category. For example, <code>"application/config/name"</code> for the project name. Category and property names can be viewed in the Project Settings dialog.</p>
+<p>
+  <b>Feature tags:</b> Project settings can be overridden for specific platforms and configurations (debug, release, ...) using <a href="$DOCS_URL/tutorials/export/feature_tags.html">feature tags</a>.</p>
+<p>
+  <b>Overriding:</b> Any project setting can be overridden by creating a file named <code>override.cfg</code> in the project's root directory. This can also be used in exported projects by placing this file in the same directory as the project binary. Overriding will still take the base project settings' <a href="$DOCS_URL/tutorials/export/feature_tags.html">feature tags</a> in account. Therefore, make sure to <i>also</i> override the setting with the desired feature tags if you want them to override base project settings on all platforms and configurations.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ProjectSettings</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ProjectSettings</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_ProjectSettings_Singleton_" data-uid="Godot.ProjectSettings.Singleton*"></a>
+
+  <h3 id="Godot_ProjectSettings_Singleton" data-uid="Godot.ProjectSettings.Singleton">
+  Singleton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ProjectSettingsInstance Singleton { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.ProjectSettingsInstance.html">ProjectSettingsInstance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_ProjectSettings_AddPropertyInfo_" data-uid="Godot.ProjectSettings.AddPropertyInfo*"></a>
+
+  <h3 id="Godot_ProjectSettings_AddPropertyInfo_Godot_Collections_Dictionary_" data-uid="Godot.ProjectSettings.AddPropertyInfo(Godot.Collections.Dictionary)">
+  AddPropertyInfo(Dictionary)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a custom property info to a property. The dictionary must contain:</p>
+<p>- <code>"name"</code>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> (the property's name)</p>
+<p>- <code>"type"</code>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> (see <a class="xref" href="Godot.Variant.Type.html">Variant.Type</a>)</p>
+<p>- optionally <code>"hint"</code>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> (see <a class="xref" href="Godot.PropertyHint.html">PropertyHint</a>) and <code>"hint_string"</code>: <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></p>
+<p>
+  <b>Example:</b>
+</p>
+<p>
+  <pre><code class="lang-csharp">ProjectSettings.Singleton.Set("category/property_name", 0);
+<p>var propertyInfo = new Godot.Collections.Dictionary
+{
+{&quot;name&quot;, &quot;category/propertyName&quot;},
+{&quot;type&quot;, (int)Variant.Type.Int},
+{&quot;hint&quot;, (int)PropertyHint.Enum},
+{&quot;hint_string&quot;, &quot;one,two,three&quot;},
+};</p>
+<p>ProjectSettings.AddPropertyInfo(propertyInfo);</p></code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddPropertyInfo(Dictionary hint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hint</code> <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_Clear_" data-uid="Godot.ProjectSettings.Clear*"></a>
+
+  <h3 id="Godot_ProjectSettings_Clear_System_String_" data-uid="Godot.ProjectSettings.Clear(System.String)">
+  Clear(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears the whole configuration (not recommended, may break things).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Clear(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_GetGlobalClassList_" data-uid="Godot.ProjectSettings.GetGlobalClassList*"></a>
+
+  <h3 id="Godot_ProjectSettings_GetGlobalClassList" data-uid="Godot.ProjectSettings.GetGlobalClassList">
+  GetGlobalClassList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="Godot.Collections.Array.html">Array</a> of registered global classes. Each global class is represented as a <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a> that contains the following entries:</p>
+<p>- <code>base</code> is a name of the base class;</p>
+<p>- <code>class</code> is a name of the registered global class;</p>
+<p>- <code>icon</code> is a path to a custom icon of the global class, if it has any;</p>
+<p>- <code>language</code> is a name of a programming language in which the global class is written;</p>
+<p>- <code>path</code> is a path to a file containing the global class.</p>
+<p>
+  <b>Note:</b> Both the script and the icon paths are local to the project filesystem, i.e. they start with <code>res://</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Array&lt;Dictionary&gt; GetGlobalClassList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_GetOrder_" data-uid="Godot.ProjectSettings.GetOrder*"></a>
+
+  <h3 id="Godot_ProjectSettings_GetOrder_System_String_" data-uid="Godot.ProjectSettings.GetOrder(System.String)">
+  GetOrder(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the order of a configuration value (influences when saved to the config file).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetOrder(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_GetSetting_" data-uid="Godot.ProjectSettings.GetSetting*"></a>
+
+  <h3 id="Godot_ProjectSettings_GetSetting_System_String_Godot_Variant_" data-uid="Godot.ProjectSettings.GetSetting(System.String,Godot.Variant)">
+  GetSetting(string, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the value of the setting identified by <code class="paramref">name</code>. If the setting doesn't exist and <code class="paramref">defaultValue</code> is specified, the value of <code class="paramref">defaultValue</code> is returned. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is returned.</p>
+<p>
+  <b>Example:</b>
+</p>
+<p>
+  <pre><code class="lang-csharp">GD.Print(ProjectSettings.GetSetting("application/config/name"));
+  GD.Print(ProjectSettings.GetSetting("application/config/custom_description", "No description specified."));</code></pre>
+
+<p>
+  <b>Note:</b> This method doesn't take potential feature overrides into account automatically. Use <a class="xref" href="Godot.ProjectSettings.html#Godot_ProjectSettings_GetSettingWithOverride_Godot_StringName_">GetSettingWithOverride(StringName)</a> to handle seamlessly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Variant GetSetting(string name, Variant defaultValue = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>defaultValue</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_GetSettingWithOverride_" data-uid="Godot.ProjectSettings.GetSettingWithOverride*"></a>
+
+  <h3 id="Godot_ProjectSettings_GetSettingWithOverride_Godot_StringName_" data-uid="Godot.ProjectSettings.GetSettingWithOverride(Godot.StringName)">
+  GetSettingWithOverride(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Similar to <a class="xref" href="Godot.ProjectSettings.html#Godot_ProjectSettings_GetSetting_System_String_Godot_Variant_">GetSetting(string, Variant)</a>, but applies feature tag overrides if any exists and is valid.</p>
+<p>
+  <b>Example:</b>
+</p>
+<p>If the following setting override exists "application/config/name.windows", and the following code is executed:</p>
+<p>
+  <pre><code class="lang-csharp">GD.Print(ProjectSettings.GetSettingWithOverride("application/config/name"));</code></pre>
+
+<p>Then the overridden setting will be returned instead if the project is running on the <i>Windows</i> operating system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Variant GetSettingWithOverride(StringName name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_GlobalizePath_" data-uid="Godot.ProjectSettings.GlobalizePath*"></a>
+
+  <h3 id="Godot_ProjectSettings_GlobalizePath_System_String_" data-uid="Godot.ProjectSettings.GlobalizePath(System.String)">
+  GlobalizePath(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the absolute, native OS path corresponding to the localized <code class="paramref">path</code> (starting with <code>res://</code> or <code>user://</code>). The returned path will vary depending on the operating system and user preferences. See <a href="$DOCS_URL/tutorials/io/data_paths.html">File paths in Godot projects</a> to see what those paths convert to. See also <a class="xref" href="Godot.ProjectSettings.html#Godot_ProjectSettings_LocalizePath_System_String_">LocalizePath(string)</a>.</p>
+<p>
+  <b>Note:</b>
+  <a class="xref" href="Godot.ProjectSettings.html#Godot_ProjectSettings_GlobalizePath_System_String_">GlobalizePath(string)</a> with <code>res://</code> will not work in an exported project. Instead, prepend the executable's base directory to the path when running from an exported project:</p>
+<p>
+  <pre><code class="lang-csharp">var path = ""
+  if OS.has_feature("editor"):
+      # Running from an editor binary.
+      # `path` will contain the absolute path to `hello.txt` located in the project root.
+      path = ProjectSettings.globalize_path("res://hello.txt")
+  else:
+      # Running from an exported project.
+      # `path` will contain the absolute path to `hello.txt` next to the executable.
+      # This is *not* identical to using `ProjectSettings.globalize_path()` with a `res://` path,
+      # but is close enough in spirit.
+      path = OS.get_executable_path().get_base_dir().path_join("hello.txt")</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GlobalizePath(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_HasSetting_" data-uid="Godot.ProjectSettings.HasSetting*"></a>
+
+  <h3 id="Godot_ProjectSettings_HasSetting_System_String_" data-uid="Godot.ProjectSettings.HasSetting(System.String)">
+  HasSetting(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a configuration value is present.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasSetting(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_LoadResourcePack_" data-uid="Godot.ProjectSettings.LoadResourcePack*"></a>
+
+  <h3 id="Godot_ProjectSettings_LoadResourcePack_System_String_System_Boolean_System_Int32_" data-uid="Godot.ProjectSettings.LoadResourcePack(System.String,System.Boolean,System.Int32)">
+  LoadResourcePack(string, bool, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads the contents of the .pck or .zip file specified by <code class="paramref">pack</code> into the resource filesystem (<code>res://</code>). Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> on success.</p>
+<p>
+  <b>Note:</b> If a file from <code class="paramref">pack</code> shares the same path as a file already in the resource filesystem, any attempts to load that file will use the file from <code class="paramref">pack</code> unless <code class="paramref">replaceFiles</code> is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+<p>
+  <b>Note:</b> The optional <code class="paramref">offset</code> parameter can be used to specify the offset in bytes to the start of the resource pack. This is only supported for .pck files.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool LoadResourcePack(string pack, bool replaceFiles = true, int offset = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pack</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>replaceFiles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_LocalizePath_" data-uid="Godot.ProjectSettings.LocalizePath*"></a>
+
+  <h3 id="Godot_ProjectSettings_LocalizePath_System_String_" data-uid="Godot.ProjectSettings.LocalizePath(System.String)">
+  LocalizePath(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the localized path (starting with <code>res://</code>) corresponding to the absolute, native OS <code class="paramref">path</code>. See also <a class="xref" href="Godot.ProjectSettings.html#Godot_ProjectSettings_GlobalizePath_System_String_">GlobalizePath(string)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string LocalizePath(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_Save_" data-uid="Godot.ProjectSettings.Save*"></a>
+
+  <h3 id="Godot_ProjectSettings_Save" data-uid="Godot.ProjectSettings.Save">
+  Save()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves the configuration to the <code>project.godot</code> file.</p>
+<p>
+  <b>Note:</b> This method is intended to be used by editor plugins, as modified <a class="xref" href="Godot.ProjectSettings.html">ProjectSettings</a> can't be loaded back in the running app. If you want to change project settings in exported projects, use <a class="xref" href="Godot.ProjectSettings.html#Godot_ProjectSettings_SaveCustom_System_String_">SaveCustom(string)</a> to save <code>override.cfg</code> file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Error Save()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_SaveCustom_" data-uid="Godot.ProjectSettings.SaveCustom*"></a>
+
+  <h3 id="Godot_ProjectSettings_SaveCustom_System_String_" data-uid="Godot.ProjectSettings.SaveCustom(System.String)">
+  SaveCustom(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves the configuration to a custom file. The file extension must be <code>.godot</code> (to save in text-based <a class="xref" href="Godot.ConfigFile.html">ConfigFile</a> format) or <code>.binary</code> (to save in binary format). You can also save <code>override.cfg</code> file, which is also text, but can be used in exported projects unlike other formats.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Error SaveCustom(string file)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_SetAsBasic_" data-uid="Godot.ProjectSettings.SetAsBasic*"></a>
+
+  <h3 id="Godot_ProjectSettings_SetAsBasic_System_String_System_Boolean_" data-uid="Godot.ProjectSettings.SetAsBasic(System.String,System.Boolean)">
+  SetAsBasic(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Defines if the specified setting is considered basic or advanced. Basic settings will always be shown in the project settings. Advanced settings will only be shown if the user enables the "Advanced Settings" option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetAsBasic(string name, bool basic)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>basic</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_SetAsInternal_" data-uid="Godot.ProjectSettings.SetAsInternal*"></a>
+
+  <h3 id="Godot_ProjectSettings_SetAsInternal_System_String_System_Boolean_" data-uid="Godot.ProjectSettings.SetAsInternal(System.String,System.Boolean)">
+  SetAsInternal(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Defines if the specified setting is considered internal. An internal setting won't show up in the Project Settings dialog. This is mostly useful for addons that need to store their own internal settings without exposing them directly to the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetAsInternal(string name, bool @internal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>internal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_SetInitialValue_" data-uid="Godot.ProjectSettings.SetInitialValue*"></a>
+
+  <h3 id="Godot_ProjectSettings_SetInitialValue_System_String_Godot_Variant_" data-uid="Godot.ProjectSettings.SetInitialValue(System.String,Godot.Variant)">
+  SetInitialValue(string, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the specified setting's initial value. This is the value the setting reverts to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetInitialValue(string name, Variant value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_SetOrder_" data-uid="Godot.ProjectSettings.SetOrder*"></a>
+
+  <h3 id="Godot_ProjectSettings_SetOrder_System_String_System_Int32_" data-uid="Godot.ProjectSettings.SetOrder(System.String,System.Int32)">
+  SetOrder(string, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the order of a configuration value (influences when saved to the config file).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetOrder(string name, int position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_SetRestartIfChanged_" data-uid="Godot.ProjectSettings.SetRestartIfChanged*"></a>
+
+  <h3 id="Godot_ProjectSettings_SetRestartIfChanged_System_String_System_Boolean_" data-uid="Godot.ProjectSettings.SetRestartIfChanged(System.String,System.Boolean)">
+  SetRestartIfChanged(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether a setting requires restarting the editor to properly take effect.</p>
+<p>
+  <b>Note:</b> This is just a hint to display to the user that the editor must be restarted for changes to take effect. Enabling <a class="xref" href="Godot.ProjectSettings.html#Godot_ProjectSettings_SetRestartIfChanged_System_String_System_Boolean_">SetRestartIfChanged(string, bool)</a> does <i>not</i> delay the setting being set when changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetRestartIfChanged(string name, bool restart)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>restart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ProjectSettings_SetSetting_" data-uid="Godot.ProjectSettings.SetSetting*"></a>
+
+  <h3 id="Godot_ProjectSettings_SetSetting_System_String_Godot_Variant_" data-uid="Godot.ProjectSettings.SetSetting(System.String,Godot.Variant)">
+  SetSetting(string, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the value of a setting.</p>
+<p>
+  <b>Example:</b>
+</p>
+<p>
+  <pre><code class="lang-csharp">ProjectSettings.SetSetting("application/config/name", "Example");</code></pre>
+
+<p>This can also be used to erase custom project settings. To do this change the setting value to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetSetting(string name, Variant value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Godot_ProjectSettings_SettingsChanged" data-uid="Godot.ProjectSettings.SettingsChanged">
+  SettingsChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when any setting is changed, up to once per process frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static event Action SettingsChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ProjectSettings.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

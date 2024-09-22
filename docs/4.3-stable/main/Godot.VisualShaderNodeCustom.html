@@ -1,0 +1,1447 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class VisualShaderNodeCustom | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class VisualShaderNodeCustom | Godot4 C# API ">
+      
+      <meta name="description" content="By inheriting this class you can create a custom  script addon which will be automatically added to the Visual Shader Editor. The &#39;s behavior is defined by overriding the provided virtual methods. In order for the node to be registered as an editor addon, you must use the @tool annotation and provide a class_name for your custom script. For example:    @tool   extends VisualShaderNodeCustom   class_name VisualShaderNodeNoise">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.VisualShaderNodeCustom">
+
+
+
+  <h1 id="Godot_VisualShaderNodeCustom" data-uid="Godot.VisualShaderNodeCustom" class="text-break">
+Class VisualShaderNodeCustom  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>By inheriting this class you can create a custom <a class="xref" href="Godot.VisualShader.html">VisualShader</a> script addon which will be automatically added to the Visual Shader Editor. The <a class="xref" href="Godot.VisualShaderNode.html">VisualShaderNode</a>'s behavior is defined by overriding the provided virtual methods.</p>
+<p>In order for the node to be registered as an editor addon, you must use the <code>@tool</code> annotation and provide a <code>class_name</code> for your custom script. For example:</p>
+<p>
+  <pre><code class="lang-csharp">@tool
+  extends VisualShaderNodeCustom
+  class_name VisualShaderNodeNoise</code></pre>
+
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class VisualShaderNodeCustom : VisualShaderNode, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><a class="xref" href="Godot.Resource.html">Resource</a></div>
+      <div><a class="xref" href="Godot.VisualShaderNode.html">VisualShaderNode</a></div>
+      <div><span class="xref">VisualShaderNodeCustom</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.VisualShaderNode.html#Godot_VisualShaderNode_GetDefaultInputPort_Godot_VisualShaderNode_PortType_">VisualShaderNode.GetDefaultInputPort(VisualShaderNode.PortType)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.VisualShaderNode.html#Godot_VisualShaderNode_SetInputPortDefaultValue_System_Int32_Godot_Variant_Godot_Variant_">VisualShaderNode.SetInputPortDefaultValue(int, Variant, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.VisualShaderNode.html#Godot_VisualShaderNode_GetInputPortDefaultValue_System_Int32_">VisualShaderNode.GetInputPortDefaultValue(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.VisualShaderNode.html#Godot_VisualShaderNode_RemoveInputPortDefaultValue_System_Int32_">VisualShaderNode.RemoveInputPortDefaultValue(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.VisualShaderNode.html#Godot_VisualShaderNode_ClearDefaultInputValues">VisualShaderNode.ClearDefaultInputValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.VisualShaderNode.html#Godot_VisualShaderNode_SetDefaultInputValues_Godot_Collections_Array_">VisualShaderNode.SetDefaultInputValues(Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.VisualShaderNode.html#Godot_VisualShaderNode_GetDefaultInputValues">VisualShaderNode.GetDefaultInputValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.VisualShaderNode.html#Godot_VisualShaderNode_OutputPortForPreview">VisualShaderNode.OutputPortForPreview</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.VisualShaderNode.html#Godot_VisualShaderNode_LinkedParentGraphFrame">VisualShaderNode.LinkedParentGraphFrame</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__GetRid">Resource._GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__SetupLocalToScene">Resource._SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_TakeOverPath_System_String_">Resource.TakeOverPath(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetRid">Resource.GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetLocalScene">Resource.GetLocalScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToScene">Resource.SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GenerateSceneUniqueId">Resource.GenerateSceneUniqueId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitChanged">Resource.EmitChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Duplicate_System_Boolean_">Resource.Duplicate(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceLocalToScene">Resource.ResourceLocalToScene</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourcePath">Resource.ResourcePath</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceName">Resource.ResourceName</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceSceneUniqueId">Resource.ResourceSceneUniqueId</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Changed">Resource.Changed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToSceneRequested">Resource.SetupLocalToSceneRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_InitRef">RefCounted.InitRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Reference">RefCounted.Reference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Unreference">RefCounted.Unreference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_GetReferenceCount">RefCounted.GetReferenceCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">GodotObject.RemoveUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_">GodotObject.GetMethodArgumentCount(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_VisualShaderNodeCustom__ctor_" data-uid="Godot.VisualShaderNodeCustom.#ctor*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__ctor" data-uid="Godot.VisualShaderNodeCustom.#ctor">
+  VisualShaderNodeCustom()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VisualShaderNodeCustom()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_VisualShaderNodeCustom_GetOptionIndex_" data-uid="Godot.VisualShaderNodeCustom.GetOptionIndex*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom_GetOptionIndex_System_Int32_" data-uid="Godot.VisualShaderNodeCustom.GetOptionIndex(System.Int32)">
+  GetOptionIndex(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the selected index of the drop-down list option within a graph. You may use this function to define the specific behavior in the <a class="xref" href="Godot.VisualShaderNodeCustom.html#Godot_VisualShaderNodeCustom__GetCode_Godot_Collections_Array_System_String__Godot_Collections_Array_System_String__Godot_Shader_Mode_Godot_VisualShader_Type_">_GetCode(Array&lt;string&gt;, Array&lt;string&gt;, Mode, Type)</a> or <a class="xref" href="Godot.VisualShaderNodeCustom.html#Godot_VisualShaderNodeCustom__GetGlobalCode_Godot_Shader_Mode_">_GetGlobalCode(Mode)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetOptionIndex(int option)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom_HasGodotClassMethod_" data-uid="Godot.VisualShaderNodeCustom.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.VisualShaderNodeCustom.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom_HasGodotClassSignal_" data-uid="Godot.VisualShaderNodeCustom.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.VisualShaderNodeCustom.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom_InvokeGodotClassMethod_" data-uid="Godot.VisualShaderNodeCustom.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.VisualShaderNodeCustom.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetCategory_" data-uid="Godot.VisualShaderNodeCustom._GetCategory*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetCategory" data-uid="Godot.VisualShaderNodeCustom._GetCategory">
+  _GetCategory()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the path to the associated custom node in the Visual Shader Editor's members dialog. The path may look like <code>"MyGame/MyFunctions/Noise"</code>.</p>
+<p>Defining this method is <b>optional</b>. If not overridden, the node will be filed under the "Addons" category.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string _GetCategory()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetCode_" data-uid="Godot.VisualShaderNodeCustom._GetCode*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetCode_Godot_Collections_Array_System_String__Godot_Collections_Array_System_String__Godot_Shader_Mode_Godot_VisualShader_Type_" data-uid="Godot.VisualShaderNodeCustom._GetCode(Godot.Collections.Array{System.String},Godot.Collections.Array{System.String},Godot.Shader.Mode,Godot.VisualShader.Type)">
+  _GetCode(Array&lt;string&gt;, Array&lt;string&gt;, Mode, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the actual shader code of the associated custom node. The shader code should be returned as a string, which can have multiple lines (the <code>"""</code> multiline string construct can be used for convenience).</p>
+<p>The <code class="paramref">inputVars</code> and <code class="paramref">outputVars</code> arrays contain the string names of the various input and output variables, as defined by <code>_get_input_*</code> and <code>_get_output_*</code> virtual methods in this class.</p>
+<p>The output ports can be assigned values in the shader code. For example, <code>return output_vars[0] + " = " + input_vars[0] + ";"</code>.</p>
+<p>You can customize the generated code based on the shader <code class="paramref">mode</code> (see <a class="xref" href="Godot.Shader.Mode.html">Shader.Mode</a>) and/or <code class="paramref">type</code> (see <a class="xref" href="Godot.VisualShader.Type.html">VisualShader.Type</a>).</p>
+<p>Defining this method is <b>required</b>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string _GetCode(Array&lt;string&gt; inputVars, Array&lt;string&gt; outputVars, Shader.Mode mode, VisualShader.Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputVars</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>outputVars</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>mode</code> <a class="xref" href="Godot.Shader.html">Shader</a>.<a class="xref" href="Godot.Shader.Mode.html">Mode</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="Godot.VisualShader.html">VisualShader</a>.<a class="xref" href="Godot.VisualShader.Type.html">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetDefaultInputPort_" data-uid="Godot.VisualShaderNodeCustom._GetDefaultInputPort*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetDefaultInputPort_Godot_VisualShaderNode_PortType_" data-uid="Godot.VisualShaderNodeCustom._GetDefaultInputPort(Godot.VisualShaderNode.PortType)">
+  _GetDefaultInputPort(PortType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the input port which should be connected by default when this node is created as a result of dragging a connection from an existing node to the empty space on the graph.</p>
+<p>Defining this method is <b>optional</b>. If not overridden, the connection will be created to the first valid port.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int _GetDefaultInputPort(VisualShaderNode.PortType type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="Godot.VisualShaderNode.html">VisualShaderNode</a>.<a class="xref" href="Godot.VisualShaderNode.PortType.html">PortType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetDescription_" data-uid="Godot.VisualShaderNodeCustom._GetDescription*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetDescription" data-uid="Godot.VisualShaderNodeCustom._GetDescription">
+  _GetDescription()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the description of the associated custom node in the Visual Shader Editor's members dialog.</p>
+<p>Defining this method is <b>optional</b>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string _GetDescription()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetFuncCode_" data-uid="Godot.VisualShaderNodeCustom._GetFuncCode*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetFuncCode_Godot_Shader_Mode_Godot_VisualShader_Type_" data-uid="Godot.VisualShaderNodeCustom._GetFuncCode(Godot.Shader.Mode,Godot.VisualShader.Type)">
+  _GetFuncCode(Mode, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to add a shader code to the beginning of each shader function (once). The shader code should be returned as a string, which can have multiple lines (the <code>"""</code> multiline string construct can be used for convenience).</p>
+<p>If there are multiple custom nodes of different types which use this feature the order of each insertion is undefined.</p>
+<p>You can customize the generated code based on the shader <code class="paramref">mode</code> (see <a class="xref" href="Godot.Shader.Mode.html">Shader.Mode</a>) and/or <code class="paramref">type</code> (see <a class="xref" href="Godot.VisualShader.Type.html">VisualShader.Type</a>).</p>
+<p>Defining this method is <b>optional</b>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string _GetFuncCode(Shader.Mode mode, VisualShader.Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="Godot.Shader.html">Shader</a>.<a class="xref" href="Godot.Shader.Mode.html">Mode</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="Godot.VisualShader.html">VisualShader</a>.<a class="xref" href="Godot.VisualShader.Type.html">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetGlobalCode_" data-uid="Godot.VisualShaderNodeCustom._GetGlobalCode*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetGlobalCode_Godot_Shader_Mode_" data-uid="Godot.VisualShaderNodeCustom._GetGlobalCode(Godot.Shader.Mode)">
+  _GetGlobalCode(Mode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to add shader code on top of the global shader, to define your own standard library of reusable methods, varyings, constants, uniforms, etc. The shader code should be returned as a string, which can have multiple lines (the <code>"""</code> multiline string construct can be used for convenience).</p>
+<p>Be careful with this functionality as it can cause name conflicts with other custom nodes, so be sure to give the defined entities unique names.</p>
+<p>You can customize the generated code based on the shader <code class="paramref">mode</code> (see <a class="xref" href="Godot.Shader.Mode.html">Shader.Mode</a>).</p>
+<p>Defining this method is <b>optional</b>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string _GetGlobalCode(Shader.Mode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="Godot.Shader.html">Shader</a>.<a class="xref" href="Godot.Shader.Mode.html">Mode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetInputPortCount_" data-uid="Godot.VisualShaderNodeCustom._GetInputPortCount*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetInputPortCount" data-uid="Godot.VisualShaderNodeCustom._GetInputPortCount">
+  _GetInputPortCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the number of input ports of the associated custom node.</p>
+<p>Defining this method is <b>required</b>. If not overridden, the node has no input ports.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int _GetInputPortCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetInputPortDefaultValue_" data-uid="Godot.VisualShaderNodeCustom._GetInputPortDefaultValue*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetInputPortDefaultValue_System_Int32_" data-uid="Godot.VisualShaderNodeCustom._GetInputPortDefaultValue(System.Int32)">
+  _GetInputPortDefaultValue(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the default value for the specified input port. Prefer use this over <a class="xref" href="Godot.VisualShaderNode.html#Godot_VisualShaderNode_SetInputPortDefaultValue_System_Int32_Godot_Variant_Godot_Variant_">SetInputPortDefaultValue(int, Variant, Variant)</a>.</p>
+<p>Defining this method is <b>required</b>. If not overridden, the node has no default values for their input ports.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Variant _GetInputPortDefaultValue(int port)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetInputPortName_" data-uid="Godot.VisualShaderNodeCustom._GetInputPortName*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetInputPortName_System_Int32_" data-uid="Godot.VisualShaderNodeCustom._GetInputPortName(System.Int32)">
+  _GetInputPortName(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the names of input ports of the associated custom node. The names are used both for the input slots in the editor and as identifiers in the shader code, and are passed in the <code>input_vars</code> array in <a class="xref" href="Godot.VisualShaderNodeCustom.html#Godot_VisualShaderNodeCustom__GetCode_Godot_Collections_Array_System_String__Godot_Collections_Array_System_String__Godot_Shader_Mode_Godot_VisualShader_Type_">_GetCode(Array&lt;string&gt;, Array&lt;string&gt;, Mode, Type)</a>.</p>
+<p>Defining this method is <b>optional</b>, but recommended. If not overridden, input ports are named as <code>"in" + str(port)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string _GetInputPortName(int port)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetInputPortType_" data-uid="Godot.VisualShaderNodeCustom._GetInputPortType*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetInputPortType_System_Int32_" data-uid="Godot.VisualShaderNodeCustom._GetInputPortType(System.Int32)">
+  _GetInputPortType(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the returned type of each input port of the associated custom node (see <a class="xref" href="Godot.VisualShaderNode.PortType.html">VisualShaderNode.PortType</a> for possible types).</p>
+<p>Defining this method is <b>optional</b>, but recommended. If not overridden, input ports will return the <a class="xref" href="Godot.VisualShaderNode.PortType.html#Godot_VisualShaderNode_PortType_Scalar">Scalar</a> type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual VisualShaderNode.PortType _GetInputPortType(int port)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.VisualShaderNode.html">VisualShaderNode</a>.<a class="xref" href="Godot.VisualShaderNode.PortType.html">PortType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetName_" data-uid="Godot.VisualShaderNodeCustom._GetName*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetName" data-uid="Godot.VisualShaderNodeCustom._GetName">
+  _GetName()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the name of the associated custom node in the Visual Shader Editor's members dialog and graph.</p>
+<p>Defining this method is <b>optional</b>, but recommended. If not overridden, the node will be named as "Unnamed".</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string _GetName()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetOutputPortCount_" data-uid="Godot.VisualShaderNodeCustom._GetOutputPortCount*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetOutputPortCount" data-uid="Godot.VisualShaderNodeCustom._GetOutputPortCount">
+  _GetOutputPortCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the number of output ports of the associated custom node.</p>
+<p>Defining this method is <b>required</b>. If not overridden, the node has no output ports.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int _GetOutputPortCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetOutputPortName_" data-uid="Godot.VisualShaderNodeCustom._GetOutputPortName*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetOutputPortName_System_Int32_" data-uid="Godot.VisualShaderNodeCustom._GetOutputPortName(System.Int32)">
+  _GetOutputPortName(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the names of output ports of the associated custom node. The names are used both for the output slots in the editor and as identifiers in the shader code, and are passed in the <code>output_vars</code> array in <a class="xref" href="Godot.VisualShaderNodeCustom.html#Godot_VisualShaderNodeCustom__GetCode_Godot_Collections_Array_System_String__Godot_Collections_Array_System_String__Godot_Shader_Mode_Godot_VisualShader_Type_">_GetCode(Array&lt;string&gt;, Array&lt;string&gt;, Mode, Type)</a>.</p>
+<p>Defining this method is <b>optional</b>, but recommended. If not overridden, output ports are named as <code>"out" + str(port)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string _GetOutputPortName(int port)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetOutputPortType_" data-uid="Godot.VisualShaderNodeCustom._GetOutputPortType*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetOutputPortType_System_Int32_" data-uid="Godot.VisualShaderNodeCustom._GetOutputPortType(System.Int32)">
+  _GetOutputPortType(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the returned type of each output port of the associated custom node (see <a class="xref" href="Godot.VisualShaderNode.PortType.html">VisualShaderNode.PortType</a> for possible types).</p>
+<p>Defining this method is <b>optional</b>, but recommended. If not overridden, output ports will return the <a class="xref" href="Godot.VisualShaderNode.PortType.html#Godot_VisualShaderNode_PortType_Scalar">Scalar</a> type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual VisualShaderNode.PortType _GetOutputPortType(int port)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.VisualShaderNode.html">VisualShaderNode</a>.<a class="xref" href="Godot.VisualShaderNode.PortType.html">PortType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetPropertyCount_" data-uid="Godot.VisualShaderNodeCustom._GetPropertyCount*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetPropertyCount" data-uid="Godot.VisualShaderNodeCustom._GetPropertyCount">
+  _GetPropertyCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the number of the properties.</p>
+<p>Defining this method is <b>optional</b>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int _GetPropertyCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetPropertyDefaultIndex_" data-uid="Godot.VisualShaderNodeCustom._GetPropertyDefaultIndex*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetPropertyDefaultIndex_System_Int32_" data-uid="Godot.VisualShaderNodeCustom._GetPropertyDefaultIndex(System.Int32)">
+  _GetPropertyDefaultIndex(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the default index of the property of the associated custom node.</p>
+<p>Defining this method is <b>optional</b>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int _GetPropertyDefaultIndex(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetPropertyName_" data-uid="Godot.VisualShaderNodeCustom._GetPropertyName*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetPropertyName_System_Int32_" data-uid="Godot.VisualShaderNodeCustom._GetPropertyName(System.Int32)">
+  _GetPropertyName(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the names of the property of the associated custom node.</p>
+<p>Defining this method is <b>optional</b>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string _GetPropertyName(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetPropertyOptions_" data-uid="Godot.VisualShaderNodeCustom._GetPropertyOptions*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetPropertyOptions_System_Int32_" data-uid="Godot.VisualShaderNodeCustom._GetPropertyOptions(System.Int32)">
+  _GetPropertyOptions(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the options inside the drop-down list property of the associated custom node.</p>
+<p>Defining this method is <b>optional</b>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string[] _GetPropertyOptions(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__GetReturnIconType_" data-uid="Godot.VisualShaderNodeCustom._GetReturnIconType*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__GetReturnIconType" data-uid="Godot.VisualShaderNodeCustom._GetReturnIconType">
+  _GetReturnIconType()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to define the return icon of the associated custom node in the Visual Shader Editor's members dialog.</p>
+<p>Defining this method is <b>optional</b>. If not overridden, no return icon is shown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual VisualShaderNode.PortType _GetReturnIconType()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.VisualShaderNode.html">VisualShaderNode</a>.<a class="xref" href="Godot.VisualShaderNode.PortType.html">PortType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__IsAvailable_" data-uid="Godot.VisualShaderNodeCustom._IsAvailable*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__IsAvailable_Godot_Shader_Mode_Godot_VisualShader_Type_" data-uid="Godot.VisualShaderNodeCustom._IsAvailable(Godot.Shader.Mode,Godot.VisualShader.Type)">
+  _IsAvailable(Mode, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to prevent the node to be visible in the member dialog for the certain <code class="paramref">mode</code> (see <a class="xref" href="Godot.Shader.Mode.html">Shader.Mode</a>) and/or <code class="paramref">type</code> (see <a class="xref" href="Godot.VisualShader.Type.html">VisualShader.Type</a>).</p>
+<p>Defining this method is <b>optional</b>. If not overridden, it's <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool _IsAvailable(Shader.Mode mode, VisualShader.Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="Godot.Shader.html">Shader</a>.<a class="xref" href="Godot.Shader.Mode.html">Mode</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="Godot.VisualShader.html">VisualShader</a>.<a class="xref" href="Godot.VisualShader.Type.html">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_VisualShaderNodeCustom__IsHighend_" data-uid="Godot.VisualShaderNodeCustom._IsHighend*"></a>
+
+  <h3 id="Godot_VisualShaderNodeCustom__IsHighend" data-uid="Godot.VisualShaderNodeCustom._IsHighend">
+  _IsHighend()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to enable high-end mark in the Visual Shader Editor's members dialog.</p>
+<p>Defining this method is <b>optional</b>. If not overridden, it's <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool _IsHighend()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/VisualShaderNodeCustom.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

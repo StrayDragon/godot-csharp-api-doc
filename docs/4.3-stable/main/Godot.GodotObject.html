@@ -1,0 +1,3241 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GodotObject | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GodotObject | Godot4 C# API ">
+      
+      <meta name="description" content="An advanced  type. All classes in the engine inherit from Object. Each class may define new properties, methods or signals, which are available to all inheriting classes. For example, a  instance is able to call  because it inherits from . You can create new instances, using Object.new() in GDScript, or new GodotObject in C#. To delete an Object instance, call . This is necessary for most classes inheriting Object, because they do not manage memory on their own, and will otherwise cause memory leaks when no longer in use. There are a few classes that perform memory management. For example,  (and by extension ) deletes itself when no longer referenced, and  deletes its children when freed. Objects can have a  attached to them. Once the  is instantiated, it effectively acts as an extension to the base class, allowing it to define and inherit new properties, methods and signals. Inside a ,  may be overridden to customize properties in several ways. This allows them to be available to the editor, display as lists of options, sub-divide into groups, save on disk, etc. Scripting languages offer easier ways to customize properties, such as with the [annotation @GDScript.@export] annotation. Godot is very dynamic. An object&#39;s script, and therefore its properties, methods and signals, can be changed at run-time. Because of this, there can be occasions where, for example, a property required by a method may not exist. To prevent run-time errors, see methods such as , , , , , etc. Note that these methods are much slower than direct references. In GDScript, you can also check if a given property, method, or signal name exists in an object with the in operator:    var node = Node.new()   print(&quot;name&quot; in node)         # Prints true   print(&quot;get_parent&quot; in node)   # Prints true   print(&quot;tree_entered&quot; in node) # Prints true   print(&quot;unknown&quot; in node)      # Prints false  Notifications are  constants commonly sent and received by objects. For example, on every rendered frame, the  notifies nodes inside the tree with a . The nodes receive it and may call  to update. To make use of notifications, see  and . Lastly, every object can also contain metadata (data about data).  can be useful to store information that the object itself does not depend on. To keep your code clean, making excessive use of metadata is discouraged.    Note: Unlike references to a , references to an object stored in a variable can become invalid without being set to null. To check if an object has been deleted, do not compare it against null. Instead, use @GlobalScope.is_instance_valid. It&#39;s also recommended to inherit from  for classes storing data instead of .    Note: The script is not exposed like most properties. To set or get an object&#39;s  in code, use  and , respectively.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.GodotObject">
+
+
+
+  <h1 id="Godot_GodotObject" data-uid="Godot.GodotObject" class="text-break">
+Class GodotObject  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Extensions/GodotObjectExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An advanced <a class="xref" href="Godot.Variant.html">Variant</a> type. All classes in the engine inherit from Object. Each class may define new properties, methods or signals, which are available to all inheriting classes. For example, a <a class="xref" href="Godot.Sprite2D.html">Sprite2D</a> instance is able to call <a class="xref" href="Godot.Node.html#Godot_Node_AddChild_Godot_Node_System_Boolean_Godot_Node_InternalMode_">AddChild(Node, bool, InternalMode)</a> because it inherits from <a class="xref" href="Godot.Node.html">Node</a>.</p>
+<p>You can create new instances, using <code>Object.new()</code> in GDScript, or <code>new GodotObject</code> in C#.</p>
+<p>To delete an Object instance, call <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">Free()</a>. This is necessary for most classes inheriting Object, because they do not manage memory on their own, and will otherwise cause memory leaks when no longer in use. There are a few classes that perform memory management. For example, <a class="xref" href="Godot.RefCounted.html">RefCounted</a> (and by extension <a class="xref" href="Godot.Resource.html">Resource</a>) deletes itself when no longer referenced, and <a class="xref" href="Godot.Node.html">Node</a> deletes its children when freed.</p>
+<p>Objects can have a <a class="xref" href="Godot.Script.html">Script</a> attached to them. Once the <a class="xref" href="Godot.Script.html">Script</a> is instantiated, it effectively acts as an extension to the base class, allowing it to define and inherit new properties, methods and signals.</p>
+<p>Inside a <a class="xref" href="Godot.Script.html">Script</a>, <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">_GetPropertyList()</a> may be overridden to customize properties in several ways. This allows them to be available to the editor, display as lists of options, sub-divide into groups, save on disk, etc. Scripting languages offer easier ways to customize properties, such as with the [annotation @GDScript.@export] annotation.</p>
+<p>Godot is very dynamic. An object's script, and therefore its properties, methods and signals, can be changed at run-time. Because of this, there can be occasions where, for example, a property required by a method may not exist. To prevent run-time errors, see methods such as <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">Set(StringName, Variant)</a>, <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">Get(StringName)</a>, <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">Call(StringName, params Variant[])</a>, <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">HasMethod(StringName)</a>, <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">HasSignal(StringName)</a>, etc. Note that these methods are <b>much</b> slower than direct references.</p>
+<p>In GDScript, you can also check if a given property, method, or signal name exists in an object with the <code>in</code> operator:</p>
+<p>
+  <pre><code class="lang-csharp">var node = Node.new()
+  print("name" in node)         # Prints true
+  print("get_parent" in node)   # Prints true
+  print("tree_entered" in node) # Prints true
+  print("unknown" in node)      # Prints false</code></pre>
+
+<p>Notifications are <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> constants commonly sent and received by objects. For example, on every rendered frame, the <a class="xref" href="Godot.SceneTree.html">SceneTree</a> notifies nodes inside the tree with a <a class="xref" href="Godot.Node.html#Godot_Node_NotificationProcess">NotificationProcess</a>. The nodes receive it and may call <a class="xref" href="Godot.Node.html#Godot_Node__Process_System_Double_">_Process(double)</a> to update. To make use of notifications, see <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">Notification(int, bool)</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">_Notification(int)</a>.</p>
+<p>Lastly, every object can also contain metadata (data about data). <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">SetMeta(StringName, Variant)</a> can be useful to store information that the object itself does not depend on. To keep your code clean, making excessive use of metadata is discouraged.</p>
+<p>
+  <b>Note:</b> Unlike references to a <a class="xref" href="Godot.RefCounted.html">RefCounted</a>, references to an object stored in a variable can become invalid without being set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>. To check if an object has been deleted, do <i>not</i> compare it against <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>. Instead, use <code>@GlobalScope.is_instance_valid</code>. It's also recommended to inherit from <a class="xref" href="Godot.RefCounted.html">RefCounted</a> for classes storing data instead of <a class="xref" href="Godot.GodotObject.html">GodotObject</a>.</p>
+<p>
+  <b>Note:</b> The <code>script</code> is not exposed like most properties. To set or get an object's <a class="xref" href="Godot.Script.html">Script</a> in code, use <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">SetScript(Variant)</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GetScript()</a>, respectively.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GodotClassName(&quot;Object&quot;)]
+public class GodotObject : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">GodotObject</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Godot.AudioServerInstance.html">AudioServerInstance</a></div>
+      <div><a class="xref" href="Godot.CameraServerInstance.html">CameraServerInstance</a></div>
+      <div><a class="xref" href="Godot.ClassDBInstance.html">ClassDBInstance</a></div>
+      <div><a class="xref" href="Godot.DisplayServerInstance.html">DisplayServerInstance</a></div>
+      <div><a class="xref" href="Godot.EngineDebuggerInstance.html">EngineDebuggerInstance</a></div>
+      <div><a class="xref" href="Godot.EngineInstance.html">EngineInstance</a></div>
+      <div><a class="xref" href="Godot.FramebufferCacheRD.html">FramebufferCacheRD</a></div>
+      <div><a class="xref" href="Godot.GDExtensionManagerInstance.html">GDExtensionManagerInstance</a></div>
+      <div><a class="xref" href="Godot.Geometry2DInstance.html">Geometry2DInstance</a></div>
+      <div><a class="xref" href="Godot.Geometry3DInstance.html">Geometry3DInstance</a></div>
+      <div><a class="xref" href="Godot.IPInstance.html">IPInstance</a></div>
+      <div><a class="xref" href="Godot.InputInstance.html">InputInstance</a></div>
+      <div><a class="xref" href="Godot.InputMapInstance.html">InputMapInstance</a></div>
+      <div><a class="xref" href="Godot.JavaClassWrapperInstance.html">JavaClassWrapperInstance</a></div>
+      <div><a class="xref" href="Godot.JavaScriptBridgeInstance.html">JavaScriptBridgeInstance</a></div>
+      <div><a class="xref" href="Godot.JniSingleton.html">JniSingleton</a></div>
+      <div><a class="xref" href="Godot.JsonRpc.html">JsonRpc</a></div>
+      <div><a class="xref" href="Godot.MainLoop.html">MainLoop</a></div>
+      <div><a class="xref" href="Godot.MarshallsInstance.html">MarshallsInstance</a></div>
+      <div><a class="xref" href="Godot.MovieWriter.html">MovieWriter</a></div>
+      <div><a class="xref" href="Godot.NativeMenuInstance.html">NativeMenuInstance</a></div>
+      <div><a class="xref" href="Godot.NavigationMeshGeneratorInstance.html">NavigationMeshGeneratorInstance</a></div>
+      <div><a class="xref" href="Godot.NavigationServer2DInstance.html">NavigationServer2DInstance</a></div>
+      <div><a class="xref" href="Godot.NavigationServer3DInstance.html">NavigationServer3DInstance</a></div>
+      <div><a class="xref" href="Godot.Node.html">Node</a></div>
+      <div><a class="xref" href="Godot.OSInstance.html">OSInstance</a></div>
+      <div><a class="xref" href="Godot.OpenXRExtensionWrapperExtension.html">OpenXRExtensionWrapperExtension</a></div>
+      <div><a class="xref" href="Godot.OpenXRInteractionProfileMetadata.html">OpenXRInteractionProfileMetadata</a></div>
+      <div><a class="xref" href="Godot.PerformanceInstance.html">PerformanceInstance</a></div>
+      <div><a class="xref" href="Godot.PhysicsDirectBodyState2D.html">PhysicsDirectBodyState2D</a></div>
+      <div><a class="xref" href="Godot.PhysicsDirectBodyState3D.html">PhysicsDirectBodyState3D</a></div>
+      <div><a class="xref" href="Godot.PhysicsDirectSpaceState2D.html">PhysicsDirectSpaceState2D</a></div>
+      <div><a class="xref" href="Godot.PhysicsDirectSpaceState3D.html">PhysicsDirectSpaceState3D</a></div>
+      <div><a class="xref" href="Godot.PhysicsServer2DInstance.html">PhysicsServer2DInstance</a></div>
+      <div><a class="xref" href="Godot.PhysicsServer2DManagerInstance.html">PhysicsServer2DManagerInstance</a></div>
+      <div><a class="xref" href="Godot.PhysicsServer3DInstance.html">PhysicsServer3DInstance</a></div>
+      <div><a class="xref" href="Godot.PhysicsServer3DManagerInstance.html">PhysicsServer3DManagerInstance</a></div>
+      <div><a class="xref" href="Godot.PhysicsServer3DRenderingServerHandler.html">PhysicsServer3DRenderingServerHandler</a></div>
+      <div><a class="xref" href="Godot.ProjectSettingsInstance.html">ProjectSettingsInstance</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><a class="xref" href="Godot.RenderData.html">RenderData</a></div>
+      <div><a class="xref" href="Godot.RenderSceneData.html">RenderSceneData</a></div>
+      <div><a class="xref" href="Godot.RenderingDevice.html">RenderingDevice</a></div>
+      <div><a class="xref" href="Godot.RenderingServerInstance.html">RenderingServerInstance</a></div>
+      <div><a class="xref" href="Godot.ResourceLoaderInstance.html">ResourceLoaderInstance</a></div>
+      <div><a class="xref" href="Godot.ResourceSaverInstance.html">ResourceSaverInstance</a></div>
+      <div><a class="xref" href="Godot.ResourceUidInstance.html">ResourceUidInstance</a></div>
+      <div><a class="xref" href="Godot.ScriptLanguage.html">ScriptLanguage</a></div>
+      <div><a class="xref" href="Godot.TextServerManagerInstance.html">TextServerManagerInstance</a></div>
+      <div><a class="xref" href="Godot.ThemeDBInstance.html">ThemeDBInstance</a></div>
+      <div><a class="xref" href="Godot.TileData.html">TileData</a></div>
+      <div><a class="xref" href="Godot.TimeInstance.html">TimeInstance</a></div>
+      <div><a class="xref" href="Godot.TranslationServerInstance.html">TranslationServerInstance</a></div>
+      <div><a class="xref" href="Godot.TreeItem.html">TreeItem</a></div>
+      <div><a class="xref" href="Godot.UndoRedo.html">UndoRedo</a></div>
+      <div><a class="xref" href="Godot.UniformSetCacheRD.html">UniformSetCacheRD</a></div>
+      <div><a class="xref" href="Godot.WorkerThreadPoolInstance.html">WorkerThreadPoolInstance</a></div>
+      <div><a class="xref" href="Godot.XRServerInstance.html">XRServerInstance</a></div>
+      <div><a class="xref" href="Godot.Xrvrs.html">Xrvrs</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_GodotObject__ctor_" data-uid="Godot.GodotObject.#ctor*"></a>
+
+  <h3 id="Godot_GodotObject__ctor" data-uid="Godot.GodotObject.#ctor">
+  GodotObject()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/GodotObject.base.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a new <a class="xref" href="Godot.GodotObject.html">GodotObject</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GodotObject()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Godot_GodotObject_NotificationExtensionReloaded" data-uid="Godot.GodotObject.NotificationExtensionReloaded">
+  NotificationExtensionReloaded
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Extensions/GodotObjectExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Notification received when the object finishes hot reloading. This notification is only sent for extensions classes and derived.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long NotificationExtensionReloaded = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Godot_GodotObject_NotificationPostinitialize" data-uid="Godot.GodotObject.NotificationPostinitialize">
+  NotificationPostinitialize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Extensions/GodotObjectExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Notification received when the object is initialized, before its script is attached. Used internally.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long NotificationPostinitialize = 0</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Godot_GodotObject_NotificationPredelete" data-uid="Godot.GodotObject.NotificationPredelete">
+  NotificationPredelete
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Extensions/GodotObjectExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Notification received when the object is about to be deleted. Can act as the deconstructor of some programming languages.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long NotificationPredelete = 1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_GodotObject_NativeInstance_" data-uid="Godot.GodotObject.NativeInstance*"></a>
+
+  <h3 id="Godot_GodotObject_NativeInstance" data-uid="Godot.GodotObject.NativeInstance">
+  NativeInstance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/GodotObject.base.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The pointer to the native instance of this <a class="xref" href="Godot.GodotObject.html">GodotObject</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntPtr NativeInstance { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_GodotObject_AddUserSignal_" data-uid="Godot.GodotObject.AddUserSignal*"></a>
+
+  <h3 id="Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_" data-uid="Godot.GodotObject.AddUserSignal(System.String,Godot.Collections.Array)">
+  AddUserSignal(string, Array)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a user-defined <code class="paramref">signal</code>. Optional arguments for the signal can be added as an <a class="xref" href="Godot.Collections.Array.html">Array</a> of dictionaries, each defining a <code>name</code><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> and a <code>type</code><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> (see <a class="xref" href="Godot.Variant.Type.html">Variant.Type</a>). See also <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">HasUserSignal(StringName)</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">RemoveUserSignal(StringName)</a>.</p>
+<p>
+  <pre><code class="lang-csharp">AddUserSignal("Hurt", new Godot.Collections.Array()
+  {
+      new Godot.Collections.Dictionary()
+      {
+          { "name", "damage" },
+          { "type", (int)Variant.Type.Int }
+      },
+      new Godot.Collections.Dictionary()
+      {
+          { "name", "source" },
+          { "type", (int)Variant.Type.Object }
+      }
+  });</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddUserSignal(string signal, Array arguments = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>arguments</code> <a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_Call_" data-uid="Godot.GodotObject.Call*"></a>
+
+  <h3 id="Godot_GodotObject_Call_Godot_StringName_Godot_Variant___" data-uid="Godot.GodotObject.Call(Godot.StringName,Godot.Variant[])">
+  Call(StringName, params Variant[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calls the <code class="paramref">method</code> on the object and returns the result. This method supports a variable number of arguments, so parameters can be passed as a comma separated list.</p>
+<p>
+  <pre><code class="lang-csharp">var node = new Node3D();
+  node.Call(Node3D.MethodName.Rotate, new Vector3(1f, 0f, 0f), 1.571f);</code></pre>
+
+<p>
+  <b>Note:</b> In C#, <code class="paramref">method</code> must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the <code>MethodName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variant Call(StringName method, params Variant[] args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>args</code> <a class="xref" href="Godot.Variant.html">Variant</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_CallDeferred_" data-uid="Godot.GodotObject.CallDeferred*"></a>
+
+  <h3 id="Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___" data-uid="Godot.GodotObject.CallDeferred(Godot.StringName,Godot.Variant[])">
+  CallDeferred(StringName, params Variant[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calls the <code class="paramref">method</code> on the object during idle time. Always returns null, <b>not</b> the method's result.</p>
+<p>Idle time happens mainly at the end of process and physics frames. In it, deferred calls will be run until there are none left, which means you can defer calls from other deferred calls and they'll still be run in the current idle time cycle. This means you should not call a method deferred from itself (or from a method called by it), as this causes infinite recursion the same way as if you had called the method directly.</p>
+<p>This method supports a variable number of arguments, so parameters can be passed as a comma separated list.</p>
+<p>
+  <pre><code class="lang-csharp">var node = new Node3D();
+  node.CallDeferred(Node3D.MethodName.Rotate, new Vector3(1f, 0f, 0f), 1.571f);</code></pre>
+
+<p>See also <code>Callable.call_deferred</code>.</p>
+<p>
+  <b>Note:</b> In C#, <code class="paramref">method</code> must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the <code>MethodName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+<p>
+  <b>Note:</b> If you're looking to delay the function call by a frame, refer to the <a class="xref" href="Godot.SceneTree.html#Godot_SceneTree_ProcessFrame">ProcessFrame</a> and <a class="xref" href="Godot.SceneTree.html#Godot_SceneTree_PhysicsFrame">PhysicsFrame</a> signals.</p>
+<p>
+  <pre><code class="lang-csharp">var node = Node3D.new()
+  # Make a Callable and bind the arguments to the node's rotate() call.
+  var callable = node.rotate.bind(Vector3(1.0, 0.0, 0.0), 1.571)
+  # Connect the callable to the process_frame signal, so it gets called in the next process frame.
+  # CONNECT_ONE_SHOT makes sure it only gets called once instead of every frame.
+  get_tree().process_frame.connect(callable, CONNECT_ONE_SHOT)</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variant CallDeferred(StringName method, params Variant[] args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>args</code> <a class="xref" href="Godot.Variant.html">Variant</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_Callv_" data-uid="Godot.GodotObject.Callv*"></a>
+
+  <h3 id="Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_" data-uid="Godot.GodotObject.Callv(Godot.StringName,Godot.Collections.Array)">
+  Callv(StringName, Array)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calls the <code class="paramref">method</code> on the object and returns the result. Unlike <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">Call(StringName, params Variant[])</a>, this method expects all parameters to be contained inside <code class="paramref">argArray</code>.</p>
+<p>
+  <pre><code class="lang-csharp">var node = new Node3D();
+  node.Callv(Node3D.MethodName.Rotate, new Godot.Collections.Array { new Vector3(1f, 0f, 0f), 1.571f });</code></pre>
+
+<p>
+  <b>Note:</b> In C#, <code class="paramref">method</code> must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the <code>MethodName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variant Callv(StringName method, Array argArray)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>argArray</code> <a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_CanTranslateMessages_" data-uid="Godot.GodotObject.CanTranslateMessages*"></a>
+
+  <h3 id="Godot_GodotObject_CanTranslateMessages" data-uid="Godot.GodotObject.CanTranslateMessages">
+  CanTranslateMessages()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the object is allowed to translate messages with <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">Tr(StringName, StringName)</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">TrN(StringName, StringName, int, StringName)</a>. See also <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">SetMessageTranslation(bool)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanTranslateMessages()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_CancelFree_" data-uid="Godot.GodotObject.CancelFree*"></a>
+
+  <h3 id="Godot_GodotObject_CancelFree" data-uid="Godot.GodotObject.CancelFree">
+  CancelFree()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If this method is called during <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">NotificationPredelete</a>, this object will reject being freed and will remain allocated. This is mostly an internal function used for error handling to avoid the user from freeing objects when they are not intended to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CancelFree()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_Connect_" data-uid="Godot.GodotObject.Connect*"></a>
+
+  <h3 id="Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_" data-uid="Godot.GodotObject.Connect(Godot.StringName,Godot.Callable,System.UInt32)">
+  Connect(StringName, Callable, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Connects a <code class="paramref">signal</code> by name to a <code class="paramref">callable</code>. Optional <code class="paramref">flags</code> can be also added to configure the connection's behavior (see <a class="xref" href="Godot.GodotObject.ConnectFlags.html">GodotObject.ConnectFlags</a> constants).</p>
+<p>A signal can only be connected once to the same <a class="xref" href="Godot.Callable.html">Callable</a>. If the signal is already connected, this method returns <a class="xref" href="Godot.Error.html#Godot_Error_InvalidParameter">InvalidParameter</a> and pushes an error message, unless the signal is connected with <a class="xref" href="Godot.GodotObject.ConnectFlags.html#Godot_GodotObject_ConnectFlags_ReferenceCounted">ReferenceCounted</a>. To prevent this, use <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">IsConnected(StringName, Callable)</a> first to check for existing connections.</p>
+<p>If the <code class="paramref">callable</code>'s object is freed, the connection will be lost.</p>
+<p>
+  <b>Examples with recommended syntax:</b>
+</p>
+<p>Connecting signals is one of the most common operations in Godot and the API gives many options to do so, which are described further down. The code block below shows the recommended approach.</p>
+<p>
+  <pre><code class="lang-csharp">public override void _Ready()
+  {
+      var button = new Button();
+      // C# supports passing signals as events, so we can use this idiomatic construct:
+      button.ButtonDown += OnButtonDown;
+<pre><code>  // This assumes that a `Player` class exists, which defines a `Hit` signal.
+  var player = new Player();
+  // We can use lambdas when we need to bind additional parameters.
+  player.Hit += () =&gt; OnPlayerHit(&quot;sword&quot;, 100);
+</code></pre>
+<p>}</p>
+<p>private void OnButtonDown()
+{
+GD.Print(&quot;Button down!&quot;);
+}</p>
+<p>private void OnPlayerHit(string weaponType, int damage)
+{
+GD.Print($&quot;Hit with weapon {weaponType} for {damage} damage.&quot;);
+}</p></code></pre>
+
+<p>
+  <b>
+    <code>Object.connect()</code> or <code>Signal.connect()</code>?</b>
+</p>
+<p>As seen above, the recommended method to connect signals is not <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">Connect(StringName, Callable, uint)</a>. The code block below shows the four options for connecting signals, using either this legacy method or the recommended <code>Signal.connect</code>, and using either an implicit <a class="xref" href="Godot.Callable.html">Callable</a> or a manually defined one.</p>
+<p>
+  <pre><code class="lang-csharp">public override void _Ready()
+  {
+      var button = new Button();
+      // Option 1: In C#, we can use signals as events and connect with this idiomatic syntax:
+      button.ButtonDown += OnButtonDown;
+      // Option 2: GodotObject.Connect() with a constructed Callable from a method group.
+      button.Connect(Button.SignalName.ButtonDown, Callable.From(OnButtonDown));
+      // Option 3: GodotObject.Connect() with a constructed Callable using a target object and method name.
+      button.Connect(Button.SignalName.ButtonDown, new Callable(this, MethodName.OnButtonDown));
+  }
+<p>private void OnButtonDown()
+{
+GD.Print(&quot;Button down!&quot;);
+}</p></code></pre>
+
+<p>While all options have the same outcome (<code>button</code>'s <a class="xref" href="Godot.BaseButton.html#Godot_BaseButton_ButtonDown">ButtonDown</a> signal will be connected to <code>_on_button_down</code>), <b>option 3</b> offers the best validation: it will print a compile-time error if either the <code>button_down</code><a class="xref" href="Godot.Signal.html">Signal</a> or the <code>_on_button_down</code><a class="xref" href="Godot.Callable.html">Callable</a> are not defined. On the other hand, <b>option 2</b> only relies on string names and will only be able to validate either names at runtime: it will print a runtime error if <code>"button_down"</code> doesn't correspond to a signal, or if <code>"_on_button_down"</code> is not a registered method in the object <code>self</code>. The main reason for using options 1, 2, or 4 would be if you actually need to use strings (e.g. to connect signals programmatically based on strings read from a configuration file). Otherwise, option 3 is the recommended (and fastest) method.</p>
+<p>
+  <b>Binding and passing parameters:</b>
+</p>
+<p>The syntax to bind parameters is through <code>Callable.bind</code>, which returns a copy of the <a class="xref" href="Godot.Callable.html">Callable</a> with its parameters bound.</p>
+<p>When calling <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">EmitSignal(StringName, params Variant[])</a> or <code>Signal.emit</code>, the signal parameters can be also passed. The examples below show the relationship between these signal parameters and bound parameters.</p>
+<p>
+  <pre><code class="lang-csharp">public override void _Ready()
+  {
+      // This assumes that a `Player` class exists, which defines a `Hit` signal.
+      var player = new Player();
+      // Using lambda expressions that create a closure that captures the additional parameters.
+      // The lambda only receives the parameters defined by the signal's delegate.
+      player.Hit += (hitBy, level) =&gt; OnPlayerHit(hitBy, level, "sword", 100);
+<pre><code>  // Parameters added when emitting the signal are passed first.
+  player.EmitSignal(SignalName.Hit, &quot;Dark lord&quot;, 5);
+</code></pre>
+<p>}</p>
+<p>// We pass two arguments when emitting (<code>hit_by</code>, <code>level</code>),
+// and bind two more arguments when connecting (<code>weapon_type</code>, <code>damage</code>).
+private void OnPlayerHit(string hitBy, int level, string weaponType, int damage)
+{
+GD.Print($&quot;Hit by {hitBy} (level {level}) with weapon {weaponType} for {damage} damage.&quot;);
+}</p></code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Error Connect(StringName signal, Callable callable, uint flags = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>callable</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>flags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_Disconnect_" data-uid="Godot.GodotObject.Disconnect*"></a>
+
+  <h3 id="Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_" data-uid="Godot.GodotObject.Disconnect(Godot.StringName,Godot.Callable)">
+  Disconnect(StringName, Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disconnects a <code class="paramref">signal</code> by name from a given <code class="paramref">callable</code>. If the connection does not exist, generates an error. Use <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">IsConnected(StringName, Callable)</a> to make sure that the connection exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Disconnect(StringName signal, Callable callable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>callable</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_Dispose_" data-uid="Godot.GodotObject.Dispose*"></a>
+
+  <h3 id="Godot_GodotObject_Dispose" data-uid="Godot.GodotObject.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/GodotObject.base.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of this <a class="xref" href="Godot.GodotObject.html">GodotObject</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_Dispose_" data-uid="Godot.GodotObject.Dispose*"></a>
+
+  <h3 id="Godot_GodotObject_Dispose_System_Boolean_" data-uid="Godot.GodotObject.Dispose(System.Boolean)">
+  Dispose(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/GodotObject.base.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes implementation of this <a class="xref" href="Godot.GodotObject.html">GodotObject</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_EmitSignal_" data-uid="Godot.GodotObject.EmitSignal*"></a>
+
+  <h3 id="Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___" data-uid="Godot.GodotObject.EmitSignal(Godot.StringName,Godot.Variant[])">
+  EmitSignal(StringName, params Variant[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emits the given <code class="paramref">signal</code> by name. The signal must exist, so it should be a built-in signal of this class or one of its inherited classes, or a user-defined signal (see <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">AddUserSignal(string, Array)</a>). This method supports a variable number of arguments, so parameters can be passed as a comma separated list.</p>
+<p>Returns <a class="xref" href="Godot.Error.html#Godot_Error_Unavailable">Unavailable</a> if <code class="paramref">signal</code> does not exist or the parameters are invalid.</p>
+<p>
+  <pre><code class="lang-csharp">EmitSignal(SignalName.Hit, "sword", 100);
+  EmitSignal(SignalName.GameOver);</code></pre>
+
+<p>
+  <b>Note:</b> In C#, <code class="paramref">signal</code> must be in snake_case when referring to built-in Godot signals. Prefer using the names exposed in the <code>SignalName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Error EmitSignal(StringName signal, params Variant[] args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>args</code> <a class="xref" href="Godot.Variant.html">Variant</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_Finalize_" data-uid="Godot.GodotObject.Finalize*"></a>
+
+  <h3 id="Godot_GodotObject_Finalize" data-uid="Godot.GodotObject.Finalize">
+  ~GodotObject()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/GodotObject.base.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ~GodotObject()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_Free_" data-uid="Godot.GodotObject.Free*"></a>
+
+  <h3 id="Godot_GodotObject_Free" data-uid="Godot.GodotObject.Free">
+  Free()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes the object from memory. Pre-existing references to the object become invalid, and any attempt to access them will result in a run-time error. Checking the references with <code>@GlobalScope.is_instance_valid</code> will return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Free()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_Get_" data-uid="Godot.GodotObject.Get*"></a>
+
+  <h3 id="Godot_GodotObject_Get_Godot_StringName_" data-uid="Godot.GodotObject.Get(Godot.StringName)">
+  Get(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.Variant.html">Variant</a> value of the given <code class="paramref">property</code>. If the <code class="paramref">property</code> does not exist, this method returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+<p>
+  <pre><code class="lang-csharp">var node = new Node2D();
+  node.Rotation = 1.5f;
+  var a = node.Get(Node2D.PropertyName.Rotation); // a is 1.5</code></pre>
+
+<p>
+  <b>Note:</b> In C#, <code class="paramref">property</code> must be in snake_case when referring to built-in Godot properties. Prefer using the names exposed in the <code>PropertyName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variant Get(StringName property)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_GetClass_" data-uid="Godot.GodotObject.GetClass*"></a>
+
+  <h3 id="Godot_GodotObject_GetClass" data-uid="Godot.GodotObject.GetClass">
+  GetClass()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the object's built-in class name, as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>. See also <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">IsClass(string)</a>.</p>
+<p>
+  <b>Note:</b> This method ignores <code>class_name</code> declarations. If this object's script has defined a <code>class_name</code>, the base, built-in class name is returned instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetClass()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_GetIncomingConnections_" data-uid="Godot.GodotObject.GetIncomingConnections*"></a>
+
+  <h3 id="Godot_GodotObject_GetIncomingConnections" data-uid="Godot.GodotObject.GetIncomingConnections">
+  GetIncomingConnections()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="Godot.Collections.Array.html">Array</a> of signal connections received by this object. Each connection is represented as a <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a> that contains three entries:</p>
+<p>- <code>signal</code> is a reference to the <a class="xref" href="Godot.Signal.html">Signal</a>;</p>
+<p>- <code>callable</code> is a reference to the <a class="xref" href="Godot.Callable.html">Callable</a>;</p>
+<p>- <code>flags</code> is a combination of <a class="xref" href="Godot.GodotObject.ConnectFlags.html">GodotObject.ConnectFlags</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;Dictionary&gt; GetIncomingConnections()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_GetIndexed_" data-uid="Godot.GodotObject.GetIndexed*"></a>
+
+  <h3 id="Godot_GodotObject_GetIndexed_Godot_NodePath_" data-uid="Godot.GodotObject.GetIndexed(Godot.NodePath)">
+  GetIndexed(NodePath)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the object's property indexed by the given <code class="paramref">propertyPath</code>. The path should be a <a class="xref" href="Godot.NodePath.html">NodePath</a> relative to the current object and can use the colon character (<code>:</code>) to access nested properties.</p>
+<p>
+  <b>Examples:</b>
+  <code>"position:x"</code> or <code>"material:next_pass:blend_mode"</code>.</p>
+<p>
+  <pre><code class="lang-csharp">var node = new Node2D();
+  node.Position = new Vector2(5, -10);
+  var a = node.GetIndexed("position");   // a is Vector2(5, -10)
+  var b = node.GetIndexed("position:y"); // b is -10</code></pre>
+
+<p>
+  <b>Note:</b> In C#, <code class="paramref">propertyPath</code> must be in snake_case when referring to built-in Godot properties. Prefer using the names exposed in the <code>PropertyName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+<p>
+  <b>Note:</b> This method does not support actual paths to nodes in the <a class="xref" href="Godot.SceneTree.html">SceneTree</a>, only sub-property paths. In the context of nodes, use <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeAndResource_Godot_NodePath_">GetNodeAndResource(NodePath)</a> instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variant GetIndexed(NodePath propertyPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyPath</code> <a class="xref" href="Godot.NodePath.html">NodePath</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_GetInstanceId_" data-uid="Godot.GodotObject.GetInstanceId*"></a>
+
+  <h3 id="Godot_GodotObject_GetInstanceId" data-uid="Godot.GodotObject.GetInstanceId">
+  GetInstanceId()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the object's unique instance ID. This ID can be saved in <a class="xref" href="Godot.EncodedObjectAsId.html">EncodedObjectAsId</a>, and can be used to retrieve this object instance with <code>@GlobalScope.instance_from_id</code>.</p>
+<p>
+  <b>Note:</b> This ID is only useful during the current session. It won't correspond to a similar object if the ID is sent over a network, or loaded from a file at a later time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong GetInstanceId()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_GetMeta_" data-uid="Godot.GodotObject.GetMeta*"></a>
+
+  <h3 id="Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_" data-uid="Godot.GodotObject.GetMeta(Godot.StringName,Godot.Variant)">
+  GetMeta(StringName, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the object's metadata value for the given entry <code class="paramref">name</code>. If the entry does not exist, returns <code class="paramref">default</code>. If <code class="paramref">default</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, an error is also generated.</p>
+<p>
+  <b>Note:</b> A metadata's name must be a valid identifier as per <code>StringName.is_valid_identifier</code> method.</p>
+<p>
+  <b>Note:</b> Metadata that has a name starting with an underscore (<code>_</code>) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variant GetMeta(StringName name, Variant @default = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>default</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_GetMetaList_" data-uid="Godot.GodotObject.GetMetaList*"></a>
+
+  <h3 id="Godot_GodotObject_GetMetaList" data-uid="Godot.GodotObject.GetMetaList">
+  GetMetaList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the object's metadata entry names as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;StringName&gt; GetMetaList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.StringName.html">StringName</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_GetMethodArgumentCount_" data-uid="Godot.GodotObject.GetMethodArgumentCount*"></a>
+
+  <h3 id="Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_" data-uid="Godot.GodotObject.GetMethodArgumentCount(Godot.StringName)">
+  GetMethodArgumentCount(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of arguments of the given <code class="paramref">method</code> by name.</p>
+<p>
+  <b>Note:</b> In C#, <code class="paramref">method</code> must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the <code>MethodName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetMethodArgumentCount(StringName method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_GetMethodList_" data-uid="Godot.GodotObject.GetMethodList*"></a>
+
+  <h3 id="Godot_GodotObject_GetMethodList" data-uid="Godot.GodotObject.GetMethodList">
+  GetMethodList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns this object's methods and their signatures as an <a class="xref" href="Godot.Collections.Array.html">Array</a> of dictionaries. Each <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a> contains the following entries:</p>
+<p>- <code>name</code> is the name of the method, as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>;</p>
+<p>- <code>args</code> is an <a class="xref" href="Godot.Collections.Array.html">Array</a> of dictionaries representing the arguments;</p>
+<p>- <code>default_args</code> is the default arguments as an <a class="xref" href="Godot.Collections.Array.html">Array</a> of variants;</p>
+<p>- <code>flags</code> is a combination of <a class="xref" href="Godot.MethodFlags.html">MethodFlags</a>;</p>
+<p>- <code>id</code> is the method's internal identifier <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>;</p>
+<p>- <code>return</code> is the returned value, as a <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a>;</p>
+<p>
+  <b>Note:</b> The dictionaries of <code>args</code> and <code>return</code> are formatted identically to the results of <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GetPropertyList()</a>, although not all entries are used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;Dictionary&gt; GetMethodList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_GetPropertyList_" data-uid="Godot.GodotObject.GetPropertyList*"></a>
+
+  <h3 id="Godot_GodotObject_GetPropertyList" data-uid="Godot.GodotObject.GetPropertyList">
+  GetPropertyList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the object's property list as an <a class="xref" href="Godot.Collections.Array.html">Array</a> of dictionaries. Each <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a> contains the following entries:</p>
+<p>- <code>name</code> is the property's name, as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>;</p>
+<p>- <code>class_name</code> is an empty <a class="xref" href="Godot.StringName.html">StringName</a>, unless the property is <a class="xref" href="Godot.Variant.Type.html#Godot_Variant_Type_Object">Object</a> and it inherits from a class;</p>
+<p>- <code>type</code> is the property's type, as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> (see <a class="xref" href="Godot.Variant.Type.html">Variant.Type</a>);</p>
+<p>- <code>hint</code> is <i>how</i> the property is meant to be edited (see <a class="xref" href="Godot.PropertyHint.html">PropertyHint</a>);</p>
+<p>- <code>hint_string</code> depends on the hint (see <a class="xref" href="Godot.PropertyHint.html">PropertyHint</a>);</p>
+<p>- <code>usage</code> is a combination of <a class="xref" href="Godot.PropertyUsageFlags.html">PropertyUsageFlags</a>.</p>
+<p>
+  <b>Note:</b> In GDScript, all class members are treated as properties. In C# and GDExtension, it may be necessary to explicitly mark class members as Godot properties using decorators or attributes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;Dictionary&gt; GetPropertyList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_GetScript_" data-uid="Godot.GodotObject.GetScript*"></a>
+
+  <h3 id="Godot_GodotObject_GetScript" data-uid="Godot.GodotObject.GetScript">
+  GetScript()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the object's <a class="xref" href="Godot.Script.html">Script</a> instance, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no script is attached.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variant GetScript()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_GetSignalConnectionList_" data-uid="Godot.GodotObject.GetSignalConnectionList*"></a>
+
+  <h3 id="Godot_GodotObject_GetSignalConnectionList_Godot_StringName_" data-uid="Godot.GodotObject.GetSignalConnectionList(Godot.StringName)">
+  GetSignalConnectionList(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="Godot.Collections.Array.html">Array</a> of connections for the given <code class="paramref">signal</code> name. Each connection is represented as a <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a> that contains three entries:</p>
+<p>- <code>signal</code> is a reference to the <a class="xref" href="Godot.Signal.html">Signal</a>;</p>
+<p>- <code>callable</code> is a reference to the connected <a class="xref" href="Godot.Callable.html">Callable</a>;</p>
+<p>- <code>flags</code> is a combination of <a class="xref" href="Godot.GodotObject.ConnectFlags.html">GodotObject.ConnectFlags</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;Dictionary&gt; GetSignalConnectionList(StringName signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_GetSignalList_" data-uid="Godot.GodotObject.GetSignalList*"></a>
+
+  <h3 id="Godot_GodotObject_GetSignalList" data-uid="Godot.GodotObject.GetSignalList">
+  GetSignalList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the list of existing signals as an <a class="xref" href="Godot.Collections.Array.html">Array</a> of dictionaries.</p>
+<p>
+  <b>Note:</b> Due of the implementation, each <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a> is formatted very similarly to the returned values of <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GetMethodList()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;Dictionary&gt; GetSignalList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_HasGodotClassMethod_" data-uid="Godot.GodotObject.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_GodotObject_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.GodotObject.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_HasGodotClassSignal_" data-uid="Godot.GodotObject.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_GodotObject_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.GodotObject.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_HasMeta_" data-uid="Godot.GodotObject.HasMeta*"></a>
+
+  <h3 id="Godot_GodotObject_HasMeta_Godot_StringName_" data-uid="Godot.GodotObject.HasMeta(Godot.StringName)">
+  HasMeta(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a metadata entry is found with the given <code class="paramref">name</code>. See also <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GetMeta(StringName, Variant)</a>, <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">SetMeta(StringName, Variant)</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">RemoveMeta(StringName)</a>.</p>
+<p>
+  <b>Note:</b> A metadata's name must be a valid identifier as per <code>StringName.is_valid_identifier</code> method.</p>
+<p>
+  <b>Note:</b> Metadata that has a name starting with an underscore (<code>_</code>) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasMeta(StringName name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_HasMethod_" data-uid="Godot.GodotObject.HasMethod*"></a>
+
+  <h3 id="Godot_GodotObject_HasMethod_Godot_StringName_" data-uid="Godot.GodotObject.HasMethod(Godot.StringName)">
+  HasMethod(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the given <code class="paramref">method</code> name exists in the object.</p>
+<p>
+  <b>Note:</b> In C#, <code class="paramref">method</code> must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the <code>MethodName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasMethod(StringName method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_HasSignal_" data-uid="Godot.GodotObject.HasSignal*"></a>
+
+  <h3 id="Godot_GodotObject_HasSignal_Godot_StringName_" data-uid="Godot.GodotObject.HasSignal(Godot.StringName)">
+  HasSignal(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the given <code class="paramref">signal</code> name exists in the object.</p>
+<p>
+  <b>Note:</b> In C#, <code class="paramref">signal</code> must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the <code>SignalName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasSignal(StringName signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_HasUserSignal_" data-uid="Godot.GodotObject.HasUserSignal*"></a>
+
+  <h3 id="Godot_GodotObject_HasUserSignal_Godot_StringName_" data-uid="Godot.GodotObject.HasUserSignal(Godot.StringName)">
+  HasUserSignal(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the given user-defined <code class="paramref">signal</code> name exists. Only signals added with <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">AddUserSignal(string, Array)</a> are included. See also <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">RemoveUserSignal(StringName)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasUserSignal(StringName signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_InstanceFromId_" data-uid="Godot.GodotObject.InstanceFromId*"></a>
+
+  <h3 id="Godot_GodotObject_InstanceFromId_System_UInt64_" data-uid="Godot.GodotObject.InstanceFromId(System.UInt64)">
+  InstanceFromId(ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Extensions/GodotObjectExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.GodotObject.html">GodotObject</a> that corresponds to <code class="paramref">instanceId</code>.
+All Objects have a unique instance ID. See also <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GetInstanceId()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GodotObject? InstanceFromId(ulong instanceId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>instanceId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>Instance ID of the Object to retrieve.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.GodotObject.html">GodotObject</a></dt>
+    <dd><p>The <a class="xref" href="Godot.GodotObject.html">GodotObject</a> instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Godot_GodotObject_InstanceFromId_System_UInt64__examples">Examples</h4>
+  <pre><code class="lang-csharp">public partial class MyNode : Node
+{
+    public string Foo { get; set; } = "bar";
+
+    public override void _Ready()
+    {
+        ulong id = GetInstanceId();
+        var inst = (MyNode)InstanceFromId(Id);
+        GD.Print(inst.Foo); // Prints bar
+    }
+}</code></pre>
+
+
+
+
+
+
+  <a id="Godot_GodotObject_InvokeGodotClassMethod_" data-uid="Godot.GodotObject.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_GodotObject_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.GodotObject.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_IsBlockingSignals_" data-uid="Godot.GodotObject.IsBlockingSignals*"></a>
+
+  <h3 id="Godot_GodotObject_IsBlockingSignals" data-uid="Godot.GodotObject.IsBlockingSignals">
+  IsBlockingSignals()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the object is blocking its signals from being emitted. See <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">SetBlockSignals(bool)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsBlockingSignals()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_IsClass_" data-uid="Godot.GodotObject.IsClass*"></a>
+
+  <h3 id="Godot_GodotObject_IsClass_System_String_" data-uid="Godot.GodotObject.IsClass(System.String)">
+  IsClass(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the object inherits from the given <code class="paramref">class</code>. See also <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GetClass()</a>.</p>
+<p>
+  <pre><code class="lang-csharp">var sprite2D = new Sprite2D();
+  sprite2D.IsClass("Sprite2D"); // Returns true
+  sprite2D.IsClass("Node");     // Returns true
+  sprite2D.IsClass("Node3D");   // Returns false</code></pre>
+
+<p>
+  <b>Note:</b> This method ignores <code>class_name</code> declarations in the object's script.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsClass(string @class)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>class</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_IsConnected_" data-uid="Godot.GodotObject.IsConnected*"></a>
+
+  <h3 id="Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_" data-uid="Godot.GodotObject.IsConnected(Godot.StringName,Godot.Callable)">
+  IsConnected(StringName, Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a connection exists between the given <code class="paramref">signal</code> name and <code class="paramref">callable</code>.</p>
+<p>
+  <b>Note:</b> In C#, <code class="paramref">signal</code> must be in snake_case when referring to built-in Godot methods. Prefer using the names exposed in the <code>SignalName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsConnected(StringName signal, Callable callable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>callable</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_IsInstanceIdValid_" data-uid="Godot.GodotObject.IsInstanceIdValid*"></a>
+
+  <h3 id="Godot_GodotObject_IsInstanceIdValid_System_UInt64_" data-uid="Godot.GodotObject.IsInstanceIdValid(System.UInt64)">
+  IsInstanceIdValid(ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Extensions/GodotObjectExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <a class="xref" href="Godot.GodotObject.html">GodotObject</a> that corresponds
+to <code class="paramref">id</code> is a valid object (e.g. has not been deleted from
+memory). All Objects have a unique instance ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsInstanceIdValid(ulong id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The Object ID to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If the instance with the given ID is a valid object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_IsInstanceValid_" data-uid="Godot.GodotObject.IsInstanceValid*"></a>
+
+  <h3 id="Godot_GodotObject_IsInstanceValid_Godot_GodotObject_" data-uid="Godot.GodotObject.IsInstanceValid(Godot.GodotObject)">
+  IsInstanceValid(GodotObject?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Extensions/GodotObjectExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">instance</code> is a
+valid <a class="xref" href="Godot.GodotObject.html">GodotObject</a> (e.g. has not been deleted from memory).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsInstanceValid(GodotObject? instance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>instance</code> <a class="xref" href="Godot.GodotObject.html">GodotObject</a></dt>
+    <dd><p>The instance to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If the instance is a valid object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_IsQueuedForDeletion_" data-uid="Godot.GodotObject.IsQueuedForDeletion*"></a>
+
+  <h3 id="Godot_GodotObject_IsQueuedForDeletion" data-uid="Godot.GodotObject.IsQueuedForDeletion">
+  IsQueuedForDeletion()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <a class="xref" href="Godot.Node.html#Godot_Node_QueueFree">QueueFree()</a> method was called for the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsQueuedForDeletion()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_Notification_" data-uid="Godot.GodotObject.Notification*"></a>
+
+  <h3 id="Godot_GodotObject_Notification_System_Int32_System_Boolean_" data-uid="Godot.GodotObject.Notification(System.Int32,System.Boolean)">
+  Notification(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends the given <code class="paramref">what</code> notification to all classes inherited by the object, triggering calls to <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">_Notification(int)</a>, starting from the highest ancestor (the <a class="xref" href="Godot.GodotObject.html">GodotObject</a> class) and going down to the object's script.</p>
+<p>If <code class="paramref">reversed</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the call order is reversed.</p>
+<p>
+  <pre><code class="lang-csharp">var player = new Node2D();
+  player.SetScript(GD.Load("res://player.gd"));
+<p>player.Notification(NotificationEnterTree);
+// The call order is GodotObject -&gt; Node -&gt; Node2D -&gt; player.gd.</p>
+<p>player.Notification(NotificationEnterTree, true);
+// The call order is player.gd -&gt; Node2D -&gt; Node -&gt; GodotObject.</p></code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Notification(int what, bool reversed = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>what</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>reversed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_NotifyPropertyListChanged_" data-uid="Godot.GodotObject.NotifyPropertyListChanged*"></a>
+
+  <h3 id="Godot_GodotObject_NotifyPropertyListChanged" data-uid="Godot.GodotObject.NotifyPropertyListChanged">
+  NotifyPropertyListChanged()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emits the <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">PropertyListChanged</a> signal. This is mainly used to refresh the editor, so that the Inspector and editor plugins are properly updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void NotifyPropertyListChanged()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_PropertyCanRevert_" data-uid="Godot.GodotObject.PropertyCanRevert*"></a>
+
+  <h3 id="Godot_GodotObject_PropertyCanRevert_Godot_StringName_" data-uid="Godot.GodotObject.PropertyCanRevert(Godot.StringName)">
+  PropertyCanRevert(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the given <code class="paramref">property</code> has a custom default value. Use <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">PropertyGetRevert(StringName)</a> to get the <code class="paramref">property</code>'s default value.</p>
+<p>
+  <b>Note:</b> This method is used by the Inspector dock to display a revert icon. The object must implement <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">_PropertyCanRevert(StringName)</a> to customize the default value. If <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">_PropertyCanRevert(StringName)</a> is not implemented, this method returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PropertyCanRevert(StringName property)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_PropertyGetRevert_" data-uid="Godot.GodotObject.PropertyGetRevert*"></a>
+
+  <h3 id="Godot_GodotObject_PropertyGetRevert_Godot_StringName_" data-uid="Godot.GodotObject.PropertyGetRevert(Godot.StringName)">
+  PropertyGetRevert(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the custom default value of the given <code class="paramref">property</code>. Use <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">PropertyCanRevert(StringName)</a> to check if the <code class="paramref">property</code> has a custom default value.</p>
+<p>
+  <b>Note:</b> This method is used by the Inspector dock to display a revert icon. The object must implement <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">_PropertyGetRevert(StringName)</a> to customize the default value. If <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">_PropertyGetRevert(StringName)</a> is not implemented, this method returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variant PropertyGetRevert(StringName property)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_RemoveMeta_" data-uid="Godot.GodotObject.RemoveMeta*"></a>
+
+  <h3 id="Godot_GodotObject_RemoveMeta_Godot_StringName_" data-uid="Godot.GodotObject.RemoveMeta(Godot.StringName)">
+  RemoveMeta(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the given entry <code class="paramref">name</code> from the object's metadata. See also <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">HasMeta(StringName)</a>, <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GetMeta(StringName, Variant)</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">SetMeta(StringName, Variant)</a>.</p>
+<p>
+  <b>Note:</b> A metadata's name must be a valid identifier as per <code>StringName.is_valid_identifier</code> method.</p>
+<p>
+  <b>Note:</b> Metadata that has a name starting with an underscore (<code>_</code>) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveMeta(StringName name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_RemoveUserSignal_" data-uid="Godot.GodotObject.RemoveUserSignal*"></a>
+
+  <h3 id="Godot_GodotObject_RemoveUserSignal_Godot_StringName_" data-uid="Godot.GodotObject.RemoveUserSignal(Godot.StringName)">
+  RemoveUserSignal(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the given user signal <code class="paramref">signal</code> from the object. See also <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">AddUserSignal(string, Array)</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">HasUserSignal(StringName)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveUserSignal(StringName signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_Set_" data-uid="Godot.GodotObject.Set*"></a>
+
+  <h3 id="Godot_GodotObject_Set_Godot_StringName_Godot_Variant_" data-uid="Godot.GodotObject.Set(Godot.StringName,Godot.Variant)">
+  Set(StringName, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assigns <code class="paramref">value</code> to the given <code class="paramref">property</code>. If the property does not exist or the given <code class="paramref">value</code>'s type doesn't match, nothing happens.</p>
+<p>
+  <pre><code class="lang-csharp">var node = new Node2D();
+  node.Set(Node2D.PropertyName.GlobalScale, new Vector2(8, 2.5));
+  GD.Print(node.GlobalScale); // Prints Vector2(8, 2.5)</code></pre>
+
+<p>
+  <b>Note:</b> In C#, <code class="paramref">property</code> must be in snake_case when referring to built-in Godot properties. Prefer using the names exposed in the <code>PropertyName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(StringName property, Variant value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_SetBlockSignals_" data-uid="Godot.GodotObject.SetBlockSignals*"></a>
+
+  <h3 id="Godot_GodotObject_SetBlockSignals_System_Boolean_" data-uid="Godot.GodotObject.SetBlockSignals(System.Boolean)">
+  SetBlockSignals(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the object becomes unable to emit signals. As such, <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">EmitSignal(StringName, params Variant[])</a> and signal connections will not work, until it is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetBlockSignals(bool enable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>enable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_SetDeferred_" data-uid="Godot.GodotObject.SetDeferred*"></a>
+
+  <h3 id="Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_" data-uid="Godot.GodotObject.SetDeferred(Godot.StringName,Godot.Variant)">
+  SetDeferred(StringName, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assigns <code class="paramref">value</code> to the given <code class="paramref">property</code>, at the end of the current frame. This is equivalent to calling <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">Set(StringName, Variant)</a> through <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">CallDeferred(StringName, params Variant[])</a>.</p>
+<p>
+  <pre><code class="lang-csharp">var node = new Node2D();
+  node.Rotation = 1.5f;
+  node.SetDeferred(Node2D.PropertyName.Rotation, 3f);
+  GD.Print(node.Rotation); // Prints 1.5
+<p>await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+GD.Print(node.Rotation); // Prints 3.0</p></code></pre>
+
+<p>
+  <b>Note:</b> In C#, <code class="paramref">property</code> must be in snake_case when referring to built-in Godot properties. Prefer using the names exposed in the <code>PropertyName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDeferred(StringName property, Variant value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_SetIndexed_" data-uid="Godot.GodotObject.SetIndexed*"></a>
+
+  <h3 id="Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_" data-uid="Godot.GodotObject.SetIndexed(Godot.NodePath,Godot.Variant)">
+  SetIndexed(NodePath, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assigns a new <code class="paramref">value</code> to the property identified by the <code class="paramref">propertyPath</code>. The path should be a <a class="xref" href="Godot.NodePath.html">NodePath</a> relative to this object, and can use the colon character (<code>:</code>) to access nested properties.</p>
+<p>
+  <pre><code class="lang-csharp">var node = new Node2D();
+  node.SetIndexed("position", new Vector2(42, 0));
+  node.SetIndexed("position:y", -10);
+  GD.Print(node.Position); // Prints (42, -10)</code></pre>
+
+<p>
+  <b>Note:</b> In C#, <code class="paramref">propertyPath</code> must be in snake_case when referring to built-in Godot properties. Prefer using the names exposed in the <code>PropertyName</code> class to avoid allocating a new <a class="xref" href="Godot.StringName.html">StringName</a> on each call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetIndexed(NodePath propertyPath, Variant value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyPath</code> <a class="xref" href="Godot.NodePath.html">NodePath</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_SetMessageTranslation_" data-uid="Godot.GodotObject.SetMessageTranslation*"></a>
+
+  <h3 id="Godot_GodotObject_SetMessageTranslation_System_Boolean_" data-uid="Godot.GodotObject.SetMessageTranslation(System.Boolean)">
+  SetMessageTranslation(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, allows the object to translate messages with <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">Tr(StringName, StringName)</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">TrN(StringName, StringName, int, StringName)</a>. Enabled by default. See also <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">CanTranslateMessages()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMessageTranslation(bool enable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>enable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_SetMeta_" data-uid="Godot.GodotObject.SetMeta*"></a>
+
+  <h3 id="Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_" data-uid="Godot.GodotObject.SetMeta(Godot.StringName,Godot.Variant)">
+  SetMeta(StringName, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds or changes the entry <code class="paramref">name</code> inside the object's metadata. The metadata <code class="paramref">value</code> can be any <a class="xref" href="Godot.Variant.html">Variant</a>, although some types cannot be serialized correctly.</p>
+<p>If <code class="paramref">value</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the entry is removed. This is the equivalent of using <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">RemoveMeta(StringName)</a>. See also <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">HasMeta(StringName)</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GetMeta(StringName, Variant)</a>.</p>
+<p>
+  <b>Note:</b> A metadata's name must be a valid identifier as per <code>StringName.is_valid_identifier</code> method.</p>
+<p>
+  <b>Note:</b> Metadata that has a name starting with an underscore (<code>_</code>) is considered editor-only. Editor-only metadata is not displayed in the Inspector and should not be edited, although it can still be found by this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMeta(StringName name, Variant value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_SetScript_" data-uid="Godot.GodotObject.SetScript*"></a>
+
+  <h3 id="Godot_GodotObject_SetScript_Godot_Variant_" data-uid="Godot.GodotObject.SetScript(Godot.Variant)">
+  SetScript(Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attaches <code class="paramref">script</code> to the object, and instantiates it. As a result, the script's <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ctor">GodotObject()</a> is called. A <a class="xref" href="Godot.Script.html">Script</a> is used to extend the object's functionality.</p>
+<p>If a script already exists, its instance is detached, and its property values and state are lost. Built-in property values are still kept.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetScript(Variant script)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_ToSignal_" data-uid="Godot.GodotObject.ToSignal*"></a>
+
+  <h3 id="Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_" data-uid="Godot.GodotObject.ToSignal(Godot.GodotObject,Godot.StringName)">
+  ToSignal(GodotObject, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/GodotObject.base.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="Godot.SignalAwaiter.html">SignalAwaiter</a> awaiter configured to complete when the instance
+<code class="paramref">source</code> emits the signal specified by the <code class="paramref">signal</code> parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SignalAwaiter ToSignal(GodotObject source, StringName signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Godot.GodotObject.html">GodotObject</a></dt>
+    <dd><p>The instance the awaiter will be listening to.</p>
+</dd>
+    <dt><code>signal</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd><p>The signal the awaiter will be waiting for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.SignalAwaiter.html">SignalAwaiter</a></dt>
+    <dd><p>A <a class="xref" href="Godot.SignalAwaiter.html">SignalAwaiter</a> that completes when
+<code class="paramref">source</code> emits the <code class="paramref">signal</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName__examples">Examples</h4>
+  <p>This sample prints a message once every frame up to 100 times.</p>
+<pre><code class="lang-csharp">public override void _Ready()
+{
+    for (int i = 0; i &lt; 100; i++)
+    {
+        await ToSignal(GetTree(), "process_frame");
+        GD.Print($"Frame {i}");
+    }
+}</code></pre>
+
+
+
+
+
+
+  <a id="Godot_GodotObject_ToString_" data-uid="Godot.GodotObject.ToString*"></a>
+
+  <h3 id="Godot_GodotObject_ToString" data-uid="Godot.GodotObject.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/GodotObject.base.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts this <a class="xref" href="Godot.GodotObject.html">GodotObject</a> to a string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string representation of this object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_Tr_" data-uid="Godot.GodotObject.Tr*"></a>
+
+  <h3 id="Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_" data-uid="Godot.GodotObject.Tr(Godot.StringName,Godot.StringName)">
+  Tr(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Translates a <code class="paramref">message</code>, using the translation catalogs configured in the Project Settings. Further <code class="paramref">context</code> can be specified to help with the translation. Note that most <a class="xref" href="Godot.Control.html">Control</a> nodes automatically translate their strings, so this method is mostly useful for formatted strings or custom drawn text.</p>
+<p>If <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">CanTranslateMessages()</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, or no translation is available, this method returns the <code class="paramref">message</code> without changes. See <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">SetMessageTranslation(bool)</a>.</p>
+<p>For detailed examples, see <a href="$DOCS_URL/tutorials/i18n/internationalizing_games.html">Internationalizing games</a>.</p>
+<p>
+  <b>Note:</b> This method can't be used without an <a class="xref" href="Godot.GodotObject.html">GodotObject</a> instance, as it requires the <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">CanTranslateMessages()</a> method. To translate strings in a static context, use <a class="xref" href="Godot.TranslationServer.html#Godot_TranslationServer_Translate_Godot_StringName_Godot_StringName_">Translate(StringName, StringName)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Tr(StringName message, StringName context = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>context</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_TrN_" data-uid="Godot.GodotObject.TrN*"></a>
+
+  <h3 id="Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_" data-uid="Godot.GodotObject.TrN(Godot.StringName,Godot.StringName,System.Int32,Godot.StringName)">
+  TrN(StringName, StringName, int, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Translates a <code class="paramref">message</code> or <code class="paramref">pluralMessage</code>, using the translation catalogs configured in the Project Settings. Further <code class="paramref">context</code> can be specified to help with the translation.</p>
+<p>If <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">CanTranslateMessages()</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, or no translation is available, this method returns <code class="paramref">message</code> or <code class="paramref">pluralMessage</code>, without changes. See <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">SetMessageTranslation(bool)</a>.</p>
+<p>The <code class="paramref">n</code> is the number, or amount, of the message's subject. It is used by the translation system to fetch the correct plural form for the current language.</p>
+<p>For detailed examples, see <a href="$DOCS_URL/tutorials/i18n/localization_using_gettext.html">Localization using gettext</a>.</p>
+<p>
+  <b>Note:</b> Negative and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> numbers may not properly apply to some countable subjects. It's recommended to handle these cases with <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">Tr(StringName, StringName)</a>.</p>
+<p>
+  <b>Note:</b> This method can't be used without an <a class="xref" href="Godot.GodotObject.html">GodotObject</a> instance, as it requires the <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">CanTranslateMessages()</a> method. To translate strings in a static context, use <a class="xref" href="Godot.TranslationServer.html#Godot_TranslationServer_TranslatePlural_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">TranslatePlural(StringName, StringName, int, StringName)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string TrN(StringName message, StringName pluralMessage, int n, StringName context = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>pluralMessage</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>context</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject_WeakRef_" data-uid="Godot.GodotObject.WeakRef*"></a>
+
+  <h3 id="Godot_GodotObject_WeakRef_Godot_GodotObject_" data-uid="Godot.GodotObject.WeakRef(Godot.GodotObject)">
+  WeakRef(GodotObject?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Extensions/GodotObjectExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a weak reference to an object, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>
+if the argument is invalid.
+A weak reference to an object is not enough to keep the object alive:
+when the only remaining references to a referent are weak references,
+garbage collection is free to destroy the referent and reuse its memory
+for something else. However, until the object is actually destroyed the
+weak reference may return the object even if there are no strong references
+to it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeakRef? WeakRef(GodotObject? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="Godot.GodotObject.html">GodotObject</a></dt>
+    <dd><p>The object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.WeakRef.html">WeakRef</a></dt>
+    <dd><p>The <a class="xref" href="Godot.WeakRef.html">WeakRef</a> reference to the object or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject__Get_" data-uid="Godot.GodotObject._Get*"></a>
+
+  <h3 id="Godot_GodotObject__Get_Godot_StringName_" data-uid="Godot.GodotObject._Get(Godot.StringName)">
+  _Get(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to customize the behavior of <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">Get(StringName)</a>. Should return the given <code class="paramref">property</code>'s value, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the <code class="paramref">property</code> should be handled normally.</p>
+<p>Combined with <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">_Set(StringName, Variant)</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">_GetPropertyList()</a>, this method allows defining custom properties, which is particularly useful for editor plugins. Note that a property must be present in <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GetPropertyList()</a>, otherwise this method will not be called.</p>
+<p>
+  <pre><code class="lang-csharp">public override Variant _Get(StringName property)
+  {
+      if (property == "FakeProperty")
+      {
+          GD.Print("Getting my property!");
+          return 4;
+      }
+      return default;
+  }
+<p>public override Godot.Collections.Array&lt;Godot.Collections.Dictionary&gt; _GetPropertyList()
+{
+return new Godot.Collections.Array&lt;Godot.Collections.Dictionary&gt;()
+{
+new Godot.Collections.Dictionary()
+{
+{ &quot;name&quot;, &quot;FakeProperty&quot; },
+{ &quot;type&quot;, (int)Variant.Type.Int }
+}
+};
+}</p></code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Variant _Get(StringName property)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject__GetPropertyList_" data-uid="Godot.GodotObject._GetPropertyList*"></a>
+
+  <h3 id="Godot_GodotObject__GetPropertyList" data-uid="Godot.GodotObject._GetPropertyList">
+  _GetPropertyList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to provide a custom list of additional properties to handle by the engine.</p>
+<p>Should return a property list, as an <a class="xref" href="Godot.Collections.Array.html">Array</a> of dictionaries. The result is added to the array of <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GetPropertyList()</a>, and should be formatted in the same way. Each <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a> must at least contain the <code>name</code> and <code>type</code> entries.</p>
+<p>You can use <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">_PropertyCanRevert(StringName)</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">_PropertyGetRevert(StringName)</a> to customize the default values of the properties added by this method.</p>
+<p>The example below displays a list of numbers shown as words going from <code>ZERO</code> to <code>FIVE</code>, with <code>number_count</code> controlling the size of the list:</p>
+<p>
+  <pre><code class="lang-csharp">[Tool]
+  public partial class MyNode : Node
+  {
+      private int _numberCount;
+<pre><code>  [Export]
+  public int NumberCount
+  {
+      get =&gt; _numberCount;
+      set
+      {
+          _numberCount = value;
+          _numbers.Resize(_numberCount);
+          NotifyPropertyListChanged();
+      }
+  }
+
+  private List&lt;int&gt; _numbers = new();
+
+  public override Godot.Collections.Array&lt;Godot.Collections.Dictionary&gt; _GetPropertyList()
+  {
+      var properties = new Godot.Collections.Array&lt;Godot.Collections.Dictionary&gt;();
+
+      for (int i = 0; i &lt; _numberCount; i++)
+      {
+          properties.Add(new Godot.Collections.Dictionary()
+          {
+              { &quot;name&quot;, $&quot;number_{i}&quot; },
+              { &quot;type&quot;, (int)Variant.Type.Int },
+              { &quot;hint&quot;, (int)PropertyHint.Enum },
+              { &quot;hint_string&quot;, &quot;Zero,One,Two,Three,Four,Five&quot; },
+          });
+      }
+
+      return properties;
+  }
+
+  public override Variant _Get(StringName property)
+  {
+      string propertyName = property.ToString();
+      if (propertyName.StartsWith(&quot;number_&quot;))
+      {
+          int index = int.Parse(propertyName.Substring(&quot;number_&quot;.Length));
+          return _numbers[index];
+      }
+      return default;
+  }
+
+  public override bool _Set(StringName property, Variant value)
+  {
+      string propertyName = property.ToString();
+      if (propertyName.StartsWith(&quot;number_&quot;))
+      {
+          int index = int.Parse(propertyName.Substring(&quot;number_&quot;.Length));
+          numbers[index] = value.As&lt;int&gt;();
+          return true;
+      }
+      return false;
+  }
+</code></pre>
+<p>}</p></code></pre>
+
+<p>
+  <b>Note:</b> This method is intended for advanced purposes. For most common use cases, the scripting languages offer easier ways to handle properties. See [annotation @GDScript.@export], [annotation @GDScript.@export_enum], [annotation @GDScript.@export_group], etc. If you want to customize exported properties, use <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">_ValidateProperty(Dictionary)</a>.</p>
+<p>
+  <b>Note:</b> If the object's script is not [annotation @GDScript.@tool], this method will not be called in the editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Array&lt;Dictionary&gt; _GetPropertyList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject__Notification_" data-uid="Godot.GodotObject._Notification*"></a>
+
+  <h3 id="Godot_GodotObject__Notification_System_Int32_" data-uid="Godot.GodotObject._Notification(System.Int32)">
+  _Notification(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the object receives a notification, which can be identified in <code class="paramref">what</code> by comparing it with a constant. See also <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">Notification(int, bool)</a>.</p>
+<p>
+  <pre><code class="lang-csharp">public override void _Notification(int what)
+  {
+      if (what == NotificationPredelete)
+      {
+          GD.Print("Goodbye!");
+      }
+  }</code></pre>
+
+<p>
+  <b>Note:</b> The base <a class="xref" href="Godot.GodotObject.html">GodotObject</a> defines a few notifications (<a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">NotificationPostinitialize</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">NotificationPredelete</a>). Inheriting classes such as <a class="xref" href="Godot.Node.html">Node</a> define a lot more notifications, which are also received by this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _Notification(int what)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>what</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject__PropertyCanRevert_" data-uid="Godot.GodotObject._PropertyCanRevert*"></a>
+
+  <h3 id="Godot_GodotObject__PropertyCanRevert_Godot_StringName_" data-uid="Godot.GodotObject._PropertyCanRevert(Godot.StringName)">
+  _PropertyCanRevert(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to customize the given <code class="paramref">property</code>'s revert behavior. Should return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <code class="paramref">property</code> has a custom default value and is revertible in the Inspector dock. Use <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">_PropertyGetRevert(StringName)</a> to specify the <code class="paramref">property</code>'s default value.</p>
+<p>
+  <b>Note:</b> This method must return consistently, regardless of the current value of the <code class="paramref">property</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool _PropertyCanRevert(StringName property)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject__PropertyGetRevert_" data-uid="Godot.GodotObject._PropertyGetRevert*"></a>
+
+  <h3 id="Godot_GodotObject__PropertyGetRevert_Godot_StringName_" data-uid="Godot.GodotObject._PropertyGetRevert(Godot.StringName)">
+  _PropertyGetRevert(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to customize the given <code class="paramref">property</code>'s revert behavior. Should return the default value for the <code class="paramref">property</code>. If the default value differs from the <code class="paramref">property</code>'s current value, a revert icon is displayed in the Inspector dock.</p>
+<p>
+  <b>Note:</b>
+  <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">_PropertyCanRevert(StringName)</a> must also be overridden for this method to be called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Variant _PropertyGetRevert(StringName property)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject__Set_" data-uid="Godot.GodotObject._Set*"></a>
+
+  <h3 id="Godot_GodotObject__Set_Godot_StringName_Godot_Variant_" data-uid="Godot.GodotObject._Set(Godot.StringName,Godot.Variant)">
+  _Set(StringName, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to customize the behavior of <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">Set(StringName, Variant)</a>. Should set the <code class="paramref">property</code> to <code class="paramref">value</code> and return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if the <code class="paramref">property</code> should be handled normally. The <i>exact</i> way to set the <code class="paramref">property</code> is up to this method's implementation.</p>
+<p>Combined with <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">_Get(StringName)</a> and <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">_GetPropertyList()</a>, this method allows defining custom properties, which is particularly useful for editor plugins. Note that a property <i>must</i> be present in <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GetPropertyList()</a>, otherwise this method will not be called.</p>
+<p>
+  <pre><code class="lang-csharp">private Godot.Collections.Dictionary _internalData = new Godot.Collections.Dictionary();
+<p>public override bool _Set(StringName property, Variant value)
+{
+if (property == &quot;FakeProperty&quot;)
+{
+// Storing the value in the fake property.
+_internalData[&quot;FakeProperty&quot;] = value;
+return true;
+}</p>
+<pre><code>  return false;
+</code></pre>
+<p>}</p>
+<p>public override Godot.Collections.Array&lt;Godot.Collections.Dictionary&gt; _GetPropertyList()
+{
+return new Godot.Collections.Array&lt;Godot.Collections.Dictionary&gt;()
+{
+new Godot.Collections.Dictionary()
+{
+{ &quot;name&quot;, &quot;FakeProperty&quot; },
+{ &quot;type&quot;, (int)Variant.Type.Int }
+}
+};
+}</p></code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool _Set(StringName property, Variant value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GodotObject__ValidateProperty_" data-uid="Godot.GodotObject._ValidateProperty*"></a>
+
+  <h3 id="Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_" data-uid="Godot.GodotObject._ValidateProperty(Godot.Collections.Dictionary)">
+  _ValidateProperty(Dictionary)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override this method to customize existing properties. Every property info goes through this method, except properties added with <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">_GetPropertyList()</a>. The dictionary contents is the same as in <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">_GetPropertyList()</a>.</p>
+<p>
+  <pre><code class="lang-csharp">[Tool]
+  public partial class MyNode : Node
+  {
+      private bool _isNumberEditable;
+<pre><code>  [Export]
+  public bool IsNumberEditable
+  {
+      get =&gt; _isNumberEditable;
+      set
+      {
+          _isNumberEditable = value;
+          NotifyPropertyListChanged();
+      }
+  }
+
+  [Export]
+  public int Number { get; set; }
+
+  public override void _ValidateProperty(Godot.Collections.Dictionary property)
+  {
+      if (property[&quot;name&quot;].AsStringName() == PropertyName.Number &amp;&amp; !IsNumberEditable)
+      {
+          var usage = property[&quot;usage&quot;].As&lt;PropertyUsageFlags&gt;() | PropertyUsageFlags.ReadOnly;
+          property[&quot;usage&quot;] = (int)usage;
+      }
+  }
+</code></pre>
+<p>}</p></code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _ValidateProperty(Dictionary property)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Godot_GodotObject_PropertyListChanged" data-uid="Godot.GodotObject.PropertyListChanged">
+  PropertyListChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">NotifyPropertyListChanged()</a> is called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action PropertyListChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_GodotObject_ScriptChanged" data-uid="Godot.GodotObject.ScriptChanged">
+  ScriptChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GodotObject.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when the object's script is changed.</p>
+<p>
+  <b>Note:</b> When this signal is emitted, the new script is not initialized yet. If you need to access the new script, defer connections to this signal with <a class="xref" href="Godot.GodotObject.ConnectFlags.html#Godot_GodotObject_ConnectFlags_Deferred">Deferred</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action ScriptChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Extensions/GodotObjectExtensions.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

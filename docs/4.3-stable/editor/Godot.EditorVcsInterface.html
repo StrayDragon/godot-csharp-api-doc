@@ -1,0 +1,1641 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class EditorVcsInterface | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class EditorVcsInterface | Godot4 C# API ">
+      
+      <meta name="description" content="Defines the API that the editor uses to extract information from the underlying VCS. The implementation of this API is included in VCS plugins, which are GDExtension plugins that inherit  and are attached (on demand) to the singleton instance of . Instead of performing the task themselves, all the virtual functions listed below are calling the internally overridden functions in the VCS plugins to provide a plug-n-play experience. A custom VCS plugin is supposed to inherit from  and override each of these virtual functions.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.EditorVcsInterface">
+
+
+
+  <h1 id="Godot_EditorVcsInterface" data-uid="Godot.EditorVcsInterface" class="text-break">
+Class EditorVcsInterface  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharpEditor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Defines the API that the editor uses to extract information from the underlying VCS. The implementation of this API is included in VCS plugins, which are GDExtension plugins that inherit <a class="xref" href="Godot.EditorVcsInterface.html">EditorVcsInterface</a> and are attached (on demand) to the singleton instance of <a class="xref" href="Godot.EditorVcsInterface.html">EditorVcsInterface</a>. Instead of performing the task themselves, all the virtual functions listed below are calling the internally overridden functions in the VCS plugins to provide a plug-n-play experience. A custom VCS plugin is supposed to inherit from <a class="xref" href="Godot.EditorVcsInterface.html">EditorVcsInterface</a> and override each of these virtual functions.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GodotClassName(&quot;EditorVCSInterface&quot;)]
+public class EditorVcsInterface : GodotObject, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="../main/Godot.GodotObject.html">GodotObject</a></div>
+      <div><span class="xref">EditorVcsInterface</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">GodotObject.RemoveUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_">GodotObject.GetMethodArgumentCount(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="../main/Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_EditorVcsInterface__ctor_" data-uid="Godot.EditorVcsInterface.#ctor*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__ctor" data-uid="Godot.EditorVcsInterface.#ctor">
+  EditorVcsInterface()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EditorVcsInterface()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_EditorVcsInterface_AddDiffHunksIntoDiffFile_" data-uid="Godot.EditorVcsInterface.AddDiffHunksIntoDiffFile*"></a>
+
+  <h3 id="Godot_EditorVcsInterface_AddDiffHunksIntoDiffFile_Godot_Collections_Dictionary_Godot_Collections_Array_Godot_Collections_Dictionary__" data-uid="Godot.EditorVcsInterface.AddDiffHunksIntoDiffFile(Godot.Collections.Dictionary,Godot.Collections.Array{Godot.Collections.Dictionary})">
+  AddDiffHunksIntoDiffFile(Dictionary, Array&lt;Dictionary&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Helper function to add an array of <code class="paramref">diffHunks</code> into a <code class="paramref">diffFile</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary AddDiffHunksIntoDiffFile(Dictionary diffFile, Array&lt;Dictionary&gt; diffHunks)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>diffFile</code> <a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+    <dt><code>diffHunks</code> <a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Array.cs">Array</a>&lt;<a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Dictionary.cs">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface_AddLineDiffsIntoDiffHunk_" data-uid="Godot.EditorVcsInterface.AddLineDiffsIntoDiffHunk*"></a>
+
+  <h3 id="Godot_EditorVcsInterface_AddLineDiffsIntoDiffHunk_Godot_Collections_Dictionary_Godot_Collections_Array_Godot_Collections_Dictionary__" data-uid="Godot.EditorVcsInterface.AddLineDiffsIntoDiffHunk(Godot.Collections.Dictionary,Godot.Collections.Array{Godot.Collections.Dictionary})">
+  AddLineDiffsIntoDiffHunk(Dictionary, Array&lt;Dictionary&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Helper function to add an array of <code class="paramref">lineDiffs</code> into a <code class="paramref">diffHunk</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary AddLineDiffsIntoDiffHunk(Dictionary diffHunk, Array&lt;Dictionary&gt; lineDiffs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>diffHunk</code> <a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+    <dt><code>lineDiffs</code> <a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Array.cs">Array</a>&lt;<a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Dictionary.cs">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface_CreateCommit_" data-uid="Godot.EditorVcsInterface.CreateCommit*"></a>
+
+  <h3 id="Godot_EditorVcsInterface_CreateCommit_System_String_System_String_System_String_System_Int64_System_Int64_" data-uid="Godot.EditorVcsInterface.CreateCommit(System.String,System.String,System.String,System.Int64,System.Int64)">
+  CreateCommit(string, string, string, long, long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Helper function to create a commit <a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a> item. <code class="paramref">msg</code> is the commit message of the commit. <code class="paramref">author</code> is a single human-readable string containing all the author's details, e.g. the email and name configured in the VCS. <code class="paramref">id</code> is the identifier of the commit, in whichever format your VCS may provide an identifier to commits. <code class="paramref">unixTimestamp</code> is the UTC Unix timestamp of when the commit was created. <code class="paramref">offsetMinutes</code> is the timezone offset in minutes, recorded from the system timezone where the commit was created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary CreateCommit(string msg, string author, string id, long unixTimestamp, long offsetMinutes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>msg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>author</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>unixTimestamp</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+    <dt><code>offsetMinutes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface_CreateDiffFile_" data-uid="Godot.EditorVcsInterface.CreateDiffFile*"></a>
+
+  <h3 id="Godot_EditorVcsInterface_CreateDiffFile_System_String_System_String_" data-uid="Godot.EditorVcsInterface.CreateDiffFile(System.String,System.String)">
+  CreateDiffFile(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Helper function to create a <a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a> for storing old and new diff file paths.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary CreateDiffFile(string newFile, string oldFile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newFile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>oldFile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface_CreateDiffHunk_" data-uid="Godot.EditorVcsInterface.CreateDiffHunk*"></a>
+
+  <h3 id="Godot_EditorVcsInterface_CreateDiffHunk_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="Godot.EditorVcsInterface.CreateDiffHunk(System.Int32,System.Int32,System.Int32,System.Int32)">
+  CreateDiffHunk(int, int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Helper function to create a <a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a> for storing diff hunk data. <code class="paramref">oldStart</code> is the starting line number in old file. <code class="paramref">newStart</code> is the starting line number in new file. <code class="paramref">oldLines</code> is the number of lines in the old file. <code class="paramref">newLines</code> is the number of lines in the new file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary CreateDiffHunk(int oldStart, int newStart, int oldLines, int newLines)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oldStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>newStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>oldLines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>newLines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface_CreateDiffLine_" data-uid="Godot.EditorVcsInterface.CreateDiffLine*"></a>
+
+  <h3 id="Godot_EditorVcsInterface_CreateDiffLine_System_Int32_System_Int32_System_String_System_String_" data-uid="Godot.EditorVcsInterface.CreateDiffLine(System.Int32,System.Int32,System.String,System.String)">
+  CreateDiffLine(int, int, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Helper function to create a <a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a> for storing a line diff. <code class="paramref">newLineNo</code> is the line number in the new file (can be <code>-1</code> if the line is deleted). <code class="paramref">oldLineNo</code> is the line number in the old file (can be <code>-1</code> if the line is added). <code class="paramref">content</code> is the diff text. <code class="paramref">status</code> is a single character string which stores the line origin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary CreateDiffLine(int newLineNo, int oldLineNo, string content, string status)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newLineNo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>oldLineNo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>content</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>status</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface_CreateStatusFile_" data-uid="Godot.EditorVcsInterface.CreateStatusFile*"></a>
+
+  <h3 id="Godot_EditorVcsInterface_CreateStatusFile_System_String_Godot_EditorVcsInterface_ChangeType_Godot_EditorVcsInterface_TreeArea_" data-uid="Godot.EditorVcsInterface.CreateStatusFile(System.String,Godot.EditorVcsInterface.ChangeType,Godot.EditorVcsInterface.TreeArea)">
+  CreateStatusFile(string, ChangeType, TreeArea)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Helper function to create a <a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a> used by editor to read the status of a file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary CreateStatusFile(string filePath, EditorVcsInterface.ChangeType changeType, EditorVcsInterface.TreeArea area)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>changeType</code> <a class="xref" href="Godot.EditorVcsInterface.html">EditorVcsInterface</a>.<a class="xref" href="Godot.EditorVcsInterface.ChangeType.html">ChangeType</a></dt>
+    <dd></dd>
+    <dt><code>area</code> <a class="xref" href="Godot.EditorVcsInterface.html">EditorVcsInterface</a>.<a class="xref" href="Godot.EditorVcsInterface.TreeArea.html">TreeArea</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface_HasGodotClassMethod_" data-uid="Godot.EditorVcsInterface.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_EditorVcsInterface_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.EditorVcsInterface.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="../main/Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface_HasGodotClassSignal_" data-uid="Godot.EditorVcsInterface.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_EditorVcsInterface_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.EditorVcsInterface.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="../main/Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface_InvokeGodotClassMethod_" data-uid="Godot.EditorVcsInterface.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_EditorVcsInterface_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.EditorVcsInterface.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="../main/Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="../main/Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="../main/Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface_PopupError_" data-uid="Godot.EditorVcsInterface.PopupError*"></a>
+
+  <h3 id="Godot_EditorVcsInterface_PopupError_System_String_" data-uid="Godot.EditorVcsInterface.PopupError(System.String)">
+  PopupError(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pops up an error message in the editor which is shown as coming from the underlying VCS. Use this to show VCS specific error messages.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PopupError(string msg)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>msg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__CheckoutBranch_" data-uid="Godot.EditorVcsInterface._CheckoutBranch*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__CheckoutBranch_System_String_" data-uid="Godot.EditorVcsInterface._CheckoutBranch(System.String)">
+  _CheckoutBranch(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks out a <code class="paramref">branchName</code> in the VCS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool _CheckoutBranch(string branchName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>branchName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__Commit_" data-uid="Godot.EditorVcsInterface._Commit*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__Commit_System_String_" data-uid="Godot.EditorVcsInterface._Commit(System.String)">
+  _Commit(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Commits the currently staged changes and applies the commit <code class="paramref">msg</code> to the resulting commit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _Commit(string msg)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>msg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__CreateBranch_" data-uid="Godot.EditorVcsInterface._CreateBranch*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__CreateBranch_System_String_" data-uid="Godot.EditorVcsInterface._CreateBranch(System.String)">
+  _CreateBranch(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new branch named <code class="paramref">branchName</code> in the VCS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _CreateBranch(string branchName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>branchName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__CreateRemote_" data-uid="Godot.EditorVcsInterface._CreateRemote*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__CreateRemote_System_String_System_String_" data-uid="Godot.EditorVcsInterface._CreateRemote(System.String,System.String)">
+  _CreateRemote(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new remote destination with name <code class="paramref">remoteName</code> and points it to <code class="paramref">remoteUrl</code>. This can be an HTTPS remote or an SSH remote.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _CreateRemote(string remoteName, string remoteUrl)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>remoteName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>remoteUrl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__DiscardFile_" data-uid="Godot.EditorVcsInterface._DiscardFile*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__DiscardFile_System_String_" data-uid="Godot.EditorVcsInterface._DiscardFile(System.String)">
+  _DiscardFile(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Discards the changes made in a file present at <code class="paramref">filePath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _DiscardFile(string filePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__Fetch_" data-uid="Godot.EditorVcsInterface._Fetch*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__Fetch_System_String_" data-uid="Godot.EditorVcsInterface._Fetch(System.String)">
+  _Fetch(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fetches new changes from the <code class="paramref">remote</code>, but doesn't write changes to the current working directory. Equivalent to <code>git fetch</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _Fetch(string remote)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>remote</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__GetBranchList_" data-uid="Godot.EditorVcsInterface._GetBranchList*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__GetBranchList" data-uid="Godot.EditorVcsInterface._GetBranchList">
+  _GetBranchList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an instance of an <a class="xref" href="../main/Godot.Collections.Array.html">Array</a> of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>s containing available branch names in the VCS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Array&lt;string&gt; _GetBranchList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Array.cs">Array</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__GetCurrentBranchName_" data-uid="Godot.EditorVcsInterface._GetCurrentBranchName*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__GetCurrentBranchName" data-uid="Godot.EditorVcsInterface._GetCurrentBranchName">
+  _GetCurrentBranchName()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current branch name defined in the VCS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string _GetCurrentBranchName()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__GetDiff_" data-uid="Godot.EditorVcsInterface._GetDiff*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__GetDiff_System_String_System_Int32_" data-uid="Godot.EditorVcsInterface._GetDiff(System.String,System.Int32)">
+  _GetDiff(string, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array of <a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a> items (see <a class="xref" href="Godot.EditorVcsInterface.html#Godot_EditorVcsInterface_CreateDiffFile_System_String_System_String_">CreateDiffFile(string, string)</a>, <a class="xref" href="Godot.EditorVcsInterface.html#Godot_EditorVcsInterface_CreateDiffHunk_System_Int32_System_Int32_System_Int32_System_Int32_">CreateDiffHunk(int, int, int, int)</a>, <a class="xref" href="Godot.EditorVcsInterface.html#Godot_EditorVcsInterface_CreateDiffLine_System_Int32_System_Int32_System_String_System_String_">CreateDiffLine(int, int, string, string)</a>, <a class="xref" href="Godot.EditorVcsInterface.html#Godot_EditorVcsInterface_AddLineDiffsIntoDiffHunk_Godot_Collections_Dictionary_Godot_Collections_Array_Godot_Collections_Dictionary__">AddLineDiffsIntoDiffHunk(Dictionary, Array&lt;Dictionary&gt;)</a> and <a class="xref" href="Godot.EditorVcsInterface.html#Godot_EditorVcsInterface_AddDiffHunksIntoDiffFile_Godot_Collections_Dictionary_Godot_Collections_Array_Godot_Collections_Dictionary__">AddDiffHunksIntoDiffFile(Dictionary, Array&lt;Dictionary&gt;)</a>), each containing information about a diff. If <code class="paramref">identifier</code> is a file path, returns a file diff, and if it is a commit identifier, then returns a commit diff.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Array&lt;Dictionary&gt; _GetDiff(string identifier, int area)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>area</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Array.cs">Array</a>&lt;<a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Dictionary.cs">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__GetLineDiff_" data-uid="Godot.EditorVcsInterface._GetLineDiff*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__GetLineDiff_System_String_System_String_" data-uid="Godot.EditorVcsInterface._GetLineDiff(System.String,System.String)">
+  _GetLineDiff(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="../main/Godot.Collections.Array.html">Array</a> of <a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a> items (see <a class="xref" href="Godot.EditorVcsInterface.html#Godot_EditorVcsInterface_CreateDiffHunk_System_Int32_System_Int32_System_Int32_System_Int32_">CreateDiffHunk(int, int, int, int)</a>), each containing a line diff between a file at <code class="paramref">filePath</code> and the <code class="paramref">text</code> which is passed in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Array&lt;Dictionary&gt; _GetLineDiff(string filePath, string text)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Array.cs">Array</a>&lt;<a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Dictionary.cs">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__GetModifiedFilesData_" data-uid="Godot.EditorVcsInterface._GetModifiedFilesData*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__GetModifiedFilesData" data-uid="Godot.EditorVcsInterface._GetModifiedFilesData">
+  _GetModifiedFilesData()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="../main/Godot.Collections.Array.html">Array</a> of <a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a> items (see <a class="xref" href="Godot.EditorVcsInterface.html#Godot_EditorVcsInterface_CreateStatusFile_System_String_Godot_EditorVcsInterface_ChangeType_Godot_EditorVcsInterface_TreeArea_">CreateStatusFile(string, ChangeType, TreeArea)</a>), each containing the status data of every modified file in the project folder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Array&lt;Dictionary&gt; _GetModifiedFilesData()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Array.cs">Array</a>&lt;<a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Dictionary.cs">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__GetPreviousCommits_" data-uid="Godot.EditorVcsInterface._GetPreviousCommits*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__GetPreviousCommits_System_Int32_" data-uid="Godot.EditorVcsInterface._GetPreviousCommits(System.Int32)">
+  _GetPreviousCommits(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="../main/Godot.Collections.Array.html">Array</a> of <a class="xref" href="../main/Godot.Collections.Dictionary.html">Dictionary</a> items (see <a class="xref" href="Godot.EditorVcsInterface.html#Godot_EditorVcsInterface_CreateCommit_System_String_System_String_System_String_System_Int64_System_Int64_">CreateCommit(string, string, string, long, long)</a>), each containing the data for a past commit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Array&lt;Dictionary&gt; _GetPreviousCommits(int maxCommits)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maxCommits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Array.cs">Array</a>&lt;<a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Dictionary.cs">Dictionary</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__GetRemotes_" data-uid="Godot.EditorVcsInterface._GetRemotes*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__GetRemotes" data-uid="Godot.EditorVcsInterface._GetRemotes">
+  _GetRemotes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="../main/Godot.Collections.Array.html">Array</a> of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>s, each containing the name of a remote configured in the VCS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Array&lt;string&gt; _GetRemotes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Array.cs">Array</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__GetVcsName_" data-uid="Godot.EditorVcsInterface._GetVcsName*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__GetVcsName" data-uid="Godot.EditorVcsInterface._GetVcsName">
+  _GetVcsName()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the name of the underlying VCS provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string _GetVcsName()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__Initialize_" data-uid="Godot.EditorVcsInterface._Initialize*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__Initialize_System_String_" data-uid="Godot.EditorVcsInterface._Initialize(System.String)">
+  _Initialize(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the VCS plugin when called from the editor. Returns whether or not the plugin was successfully initialized. A VCS project is initialized at <code class="paramref">projectPath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool _Initialize(string projectPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>projectPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__Pull_" data-uid="Godot.EditorVcsInterface._Pull*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__Pull_System_String_" data-uid="Godot.EditorVcsInterface._Pull(System.String)">
+  _Pull(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pulls changes from the remote. This can give rise to merge conflicts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _Pull(string remote)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>remote</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__Push_" data-uid="Godot.EditorVcsInterface._Push*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__Push_System_String_System_Boolean_" data-uid="Godot.EditorVcsInterface._Push(System.String,System.Boolean)">
+  _Push(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pushes changes to the <code class="paramref">remote</code>. If <code class="paramref">force</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, a force push will override the change history already present on the remote.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _Push(string remote, bool force)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>remote</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>force</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__RemoveBranch_" data-uid="Godot.EditorVcsInterface._RemoveBranch*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__RemoveBranch_System_String_" data-uid="Godot.EditorVcsInterface._RemoveBranch(System.String)">
+  _RemoveBranch(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove a branch from the local VCS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _RemoveBranch(string branchName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>branchName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__RemoveRemote_" data-uid="Godot.EditorVcsInterface._RemoveRemote*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__RemoveRemote_System_String_" data-uid="Godot.EditorVcsInterface._RemoveRemote(System.String)">
+  _RemoveRemote(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove a remote from the local VCS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _RemoveRemote(string remoteName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>remoteName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__SetCredentials_" data-uid="Godot.EditorVcsInterface._SetCredentials*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__SetCredentials_System_String_System_String_System_String_System_String_System_String_" data-uid="Godot.EditorVcsInterface._SetCredentials(System.String,System.String,System.String,System.String,System.String)">
+  _SetCredentials(string, string, string, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set user credentials in the underlying VCS. <code class="paramref">userName</code> and <code class="paramref">password</code> are used only during HTTPS authentication unless not already mentioned in the remote URL. <code class="paramref">sshPublicKeyPath</code>, <code class="paramref">sshPrivateKeyPath</code>, and <code class="paramref">sshPassphrase</code> are only used during SSH authentication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _SetCredentials(string userName, string password, string sshPublicKeyPath, string sshPrivateKeyPath, string sshPassphrase)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>password</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>sshPublicKeyPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>sshPrivateKeyPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>sshPassphrase</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__ShutDown_" data-uid="Godot.EditorVcsInterface._ShutDown*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__ShutDown" data-uid="Godot.EditorVcsInterface._ShutDown">
+  _ShutDown()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shuts down VCS plugin instance. Called when the user either closes the editor or shuts down the VCS plugin through the editor UI.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool _ShutDown()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__StageFile_" data-uid="Godot.EditorVcsInterface._StageFile*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__StageFile_System_String_" data-uid="Godot.EditorVcsInterface._StageFile(System.String)">
+  _StageFile(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stages the file present at <code class="paramref">filePath</code> to the staged area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _StageFile(string filePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_EditorVcsInterface__UnstageFile_" data-uid="Godot.EditorVcsInterface._UnstageFile*"></a>
+
+  <h3 id="Godot_EditorVcsInterface__UnstageFile_System_String_" data-uid="Godot.EditorVcsInterface._UnstageFile(System.String)">
+  _UnstageFile(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unstages the file present at <code class="paramref">filePath</code> from the staged area to the unstaged area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _UnstageFile(string filePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharpEditor/Generated/GodotObjects/EditorVcsInterface.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

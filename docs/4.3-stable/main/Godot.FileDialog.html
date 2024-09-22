@@ -1,0 +1,2630 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FileDialog | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FileDialog | Godot4 C# API ">
+      
+      <meta name="description" content="is a preset dialog used to choose files and directories in the filesystem. It supports filter masks.  automatically sets its window title according to the . If you want to use a custom title, disable this by setting  to false.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.FileDialog">
+
+
+
+  <h1 id="Godot_FileDialog" data-uid="Godot.FileDialog" class="text-break">
+Class FileDialog  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>
+  <a class="xref" href="Godot.FileDialog.html">FileDialog</a> is a preset dialog used to choose files and directories in the filesystem. It supports filter masks. <a class="xref" href="Godot.FileDialog.html">FileDialog</a> automatically sets its window title according to the <a class="xref" href="Godot.FileDialog.html#Godot_FileDialog_FileMode">FileMode</a>. If you want to use a custom title, disable this by setting <a class="xref" href="Godot.FileDialog.html#Godot_FileDialog_ModeOverridesTitle">ModeOverridesTitle</a> to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FileDialog : ConfirmationDialog, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.Node.html">Node</a></div>
+      <div><a class="xref" href="Godot.Viewport.html">Viewport</a></div>
+      <div><a class="xref" href="Godot.Window.html">Window</a></div>
+      <div><a class="xref" href="Godot.AcceptDialog.html">AcceptDialog</a></div>
+      <div><a class="xref" href="Godot.ConfirmationDialog.html">ConfirmationDialog</a></div>
+      <div><span class="xref">FileDialog</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.ConfirmationDialog.html#Godot_ConfirmationDialog_GetCancelButton">ConfirmationDialog.GetCancelButton()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.ConfirmationDialog.html#Godot_ConfirmationDialog_CancelButtonText">ConfirmationDialog.CancelButtonText</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_GetOkButton">AcceptDialog.GetOkButton()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_GetLabel">AcceptDialog.GetLabel()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_AddButton_System_String_System_Boolean_System_String_">AcceptDialog.AddButton(string, bool, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_AddCancelButton_System_String_">AcceptDialog.AddCancelButton(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_RemoveButton_Godot_Button_">AcceptDialog.RemoveButton(Button)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_RegisterTextEnter_Godot_LineEdit_">AcceptDialog.RegisterTextEnter(LineEdit)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_OkButtonText">AcceptDialog.OkButtonText</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_DialogText">AcceptDialog.DialogText</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_DialogHideOnOk">AcceptDialog.DialogHideOnOk</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_DialogCloseOnEscape">AcceptDialog.DialogCloseOnEscape</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_DialogAutowrap">AcceptDialog.DialogAutowrap</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_Confirmed">AcceptDialog.Confirmed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_Canceled">AcceptDialog.Canceled</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.AcceptDialog.html#Godot_AcceptDialog_CustomAction">AcceptDialog.CustomAction</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_NotificationVisibilityChanged">Window.NotificationVisibilityChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_NotificationThemeChanged">Window.NotificationThemeChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window__GetContentsMinimumSize">Window._GetContentsMinimumSize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetWindowId">Window.GetWindowId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_MoveToCenter">Window.MoveToCenter()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_ResetSize">Window.ResetSize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetPositionWithDecorations">Window.GetPositionWithDecorations()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetSizeWithDecorations">Window.GetSizeWithDecorations()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_IsMaximizeAllowed">Window.IsMaximizeAllowed()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_RequestAttention">Window.RequestAttention()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_MoveToForeground">Window.MoveToForeground()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Hide">Window.Hide()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Show">Window.Show()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_SetUnparentWhenInvisible_System_Boolean_">Window.SetUnparentWhenInvisible(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_CanDraw">Window.CanDraw()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasFocus">Window.HasFocus()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GrabFocus">Window.GrabFocus()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_SetImeActive_System_Boolean_">Window.SetImeActive(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_SetImePosition_Godot_Vector2I_">Window.SetImePosition(Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_IsEmbedded">Window.IsEmbedded()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetContentsMinimumSize">Window.GetContentsMinimumSize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_SetUseFontOversampling_System_Boolean_">Window.SetUseFontOversampling(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_IsUsingFontOversampling">Window.IsUsingFontOversampling()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_ChildControlsChanged">Window.ChildControlsChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_BeginBulkThemeOverride">Window.BeginBulkThemeOverride()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_EndBulkThemeOverride">Window.EndBulkThemeOverride()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_AddThemeIconOverride_Godot_StringName_Godot_Texture2D_">Window.AddThemeIconOverride(StringName, Texture2D)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_AddThemeStyleboxOverride_Godot_StringName_Godot_StyleBox_">Window.AddThemeStyleboxOverride(StringName, StyleBox)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_AddThemeFontOverride_Godot_StringName_Godot_Font_">Window.AddThemeFontOverride(StringName, Font)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_AddThemeFontSizeOverride_Godot_StringName_System_Int32_">Window.AddThemeFontSizeOverride(StringName, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_AddThemeColorOverride_Godot_StringName_Godot_Color_">Window.AddThemeColorOverride(StringName, Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_AddThemeConstantOverride_Godot_StringName_System_Int32_">Window.AddThemeConstantOverride(StringName, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_RemoveThemeIconOverride_Godot_StringName_">Window.RemoveThemeIconOverride(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_RemoveThemeStyleboxOverride_Godot_StringName_">Window.RemoveThemeStyleboxOverride(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_RemoveThemeFontOverride_Godot_StringName_">Window.RemoveThemeFontOverride(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_RemoveThemeFontSizeOverride_Godot_StringName_">Window.RemoveThemeFontSizeOverride(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_RemoveThemeColorOverride_Godot_StringName_">Window.RemoveThemeColorOverride(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_RemoveThemeConstantOverride_Godot_StringName_">Window.RemoveThemeConstantOverride(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetThemeIcon_Godot_StringName_Godot_StringName_">Window.GetThemeIcon(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetThemeStylebox_Godot_StringName_Godot_StringName_">Window.GetThemeStylebox(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetThemeFont_Godot_StringName_Godot_StringName_">Window.GetThemeFont(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetThemeFontSize_Godot_StringName_Godot_StringName_">Window.GetThemeFontSize(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetThemeColor_Godot_StringName_Godot_StringName_">Window.GetThemeColor(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetThemeConstant_Godot_StringName_Godot_StringName_">Window.GetThemeConstant(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasThemeIconOverride_Godot_StringName_">Window.HasThemeIconOverride(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasThemeStyleboxOverride_Godot_StringName_">Window.HasThemeStyleboxOverride(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasThemeFontOverride_Godot_StringName_">Window.HasThemeFontOverride(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasThemeFontSizeOverride_Godot_StringName_">Window.HasThemeFontSizeOverride(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasThemeColorOverride_Godot_StringName_">Window.HasThemeColorOverride(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasThemeConstantOverride_Godot_StringName_">Window.HasThemeConstantOverride(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasThemeIcon_Godot_StringName_Godot_StringName_">Window.HasThemeIcon(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasThemeStylebox_Godot_StringName_Godot_StringName_">Window.HasThemeStylebox(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasThemeFont_Godot_StringName_Godot_StringName_">Window.HasThemeFont(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasThemeFontSize_Godot_StringName_Godot_StringName_">Window.HasThemeFontSize(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasThemeColor_Godot_StringName_Godot_StringName_">Window.HasThemeColor(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_HasThemeConstant_Godot_StringName_Godot_StringName_">Window.HasThemeConstant(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetThemeDefaultBaseScale">Window.GetThemeDefaultBaseScale()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetThemeDefaultFont">Window.GetThemeDefaultFont()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetThemeDefaultFontSize">Window.GetThemeDefaultFontSize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_SetLayoutDirection_Godot_Window_LayoutDirection_">Window.SetLayoutDirection(Window.LayoutDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GetLayoutDirection">Window.GetLayoutDirection()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_IsLayoutRtl">Window.IsLayoutRtl()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Popup_System_Nullable_Godot_Rect2I__">Window.Popup(Rect2I?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_PopupOnParent_Godot_Rect2I_">Window.PopupOnParent(Rect2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_PopupCentered_System_Nullable_Godot_Vector2I__">Window.PopupCentered(Vector2I?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_PopupCenteredRatio_System_Single_">Window.PopupCenteredRatio(float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_PopupCenteredClamped_System_Nullable_Godot_Vector2I__System_Single_">Window.PopupCenteredClamped(Vector2I?, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_PopupExclusive_Godot_Node_System_Nullable_Godot_Rect2I__">Window.PopupExclusive(Node, Rect2I?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_PopupExclusiveOnParent_Godot_Node_Godot_Rect2I_">Window.PopupExclusiveOnParent(Node, Rect2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_PopupExclusiveCentered_Godot_Node_System_Nullable_Godot_Vector2I__">Window.PopupExclusiveCentered(Node, Vector2I?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_PopupExclusiveCenteredRatio_Godot_Node_System_Single_">Window.PopupExclusiveCenteredRatio(Node, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_PopupExclusiveCenteredClamped_Godot_Node_System_Nullable_Godot_Vector2I__System_Single_">Window.PopupExclusiveCenteredClamped(Node, Vector2I?, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Mode">Window.Mode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Title">Window.Title</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_InitialPosition">Window.InitialPosition</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Position">Window.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Size">Window.Size</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_CurrentScreen">Window.CurrentScreen</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_MousePassthroughPolygon">Window.MousePassthroughPolygon</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Visible">Window.Visible</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_WrapControls">Window.WrapControls</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Transient">Window.Transient</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_TransientToFocused">Window.TransientToFocused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Exclusive">Window.Exclusive</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Unresizable">Window.Unresizable</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Borderless">Window.Borderless</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_AlwaysOnTop">Window.AlwaysOnTop</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Transparent">Window.Transparent</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Unfocusable">Window.Unfocusable</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_PopupWindow">Window.PopupWindow</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_ExtendToTitle">Window.ExtendToTitle</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_MousePassthrough">Window.MousePassthrough</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_ForceNative">Window.ForceNative</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_MinSize">Window.MinSize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_MaxSize">Window.MaxSize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_KeepTitleVisible">Window.KeepTitleVisible</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_ContentScaleSize">Window.ContentScaleSize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_ContentScaleMode">Window.ContentScaleMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_ContentScaleAspect">Window.ContentScaleAspect</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_ContentScaleStretch">Window.ContentScaleStretch</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_ContentScaleFactor">Window.ContentScaleFactor</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_AutoTranslate">Window.AutoTranslate</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_Theme">Window.Theme</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_ThemeTypeVariation">Window.ThemeTypeVariation</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_WindowInput">Window.WindowInput</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_FilesDropped">Window.FilesDropped</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_MouseEntered">Window.MouseEntered</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_MouseExited">Window.MouseExited</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_FocusEntered">Window.FocusEntered</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_FocusExited">Window.FocusExited</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_CloseRequested">Window.CloseRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_GoBackRequested">Window.GoBackRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_VisibilityChanged">Window.VisibilityChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_AboutToPopup">Window.AboutToPopup</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_ThemeChanged">Window.ThemeChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_DpiChanged">Window.DpiChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Window.html#Godot_Window_TitlebarChanged">Window.TitlebarChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_FindWorld2D">Viewport.FindWorld2D()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GetFinalTransform">Viewport.GetFinalTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GetScreenTransform">Viewport.GetScreenTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GetVisibleRect">Viewport.GetVisibleRect()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GetRenderInfo_Godot_Viewport_RenderInfoType_Godot_Viewport_RenderInfo_">Viewport.GetRenderInfo(Viewport.RenderInfoType, Viewport.RenderInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GetTexture">Viewport.GetTexture()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GetViewportRid">Viewport.GetViewportRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_PushTextInput_System_String_">Viewport.PushTextInput(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_PushInput_Godot_InputEvent_System_Boolean_">Viewport.PushInput(InputEvent, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_PushUnhandledInput_Godot_InputEvent_System_Boolean_">Viewport.PushUnhandledInput(InputEvent, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GetMousePosition">Viewport.GetMousePosition()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_WarpMouse_Godot_Vector2_">Viewport.WarpMouse(Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_UpdateMouseCursorState">Viewport.UpdateMouseCursorState()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GuiGetDragData">Viewport.GuiGetDragData()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GuiIsDragging">Viewport.GuiIsDragging()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GuiIsDragSuccessful">Viewport.GuiIsDragSuccessful()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GuiReleaseFocus">Viewport.GuiReleaseFocus()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GuiGetFocusOwner">Viewport.GuiGetFocusOwner()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GuiGetHoveredControl">Viewport.GuiGetHoveredControl()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_SetInputAsHandled">Viewport.SetInputAsHandled()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_IsInputHandled">Viewport.IsInputHandled()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GetEmbeddedSubwindows">Viewport.GetEmbeddedSubwindows()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_SetCanvasCullMaskBit_System_UInt32_System_Boolean_">Viewport.SetCanvasCullMaskBit(uint, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GetCanvasCullMaskBit_System_UInt32_">Viewport.GetCanvasCullMaskBit(uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GetCamera2D">Viewport.GetCamera2D()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_FindWorld3D">Viewport.FindWorld3D()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GetCamera3D">Viewport.GetCamera3D()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_Disable3D">Viewport.Disable3D</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_UseXR">Viewport.UseXR</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_OwnWorld3D">Viewport.OwnWorld3D</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_World3D">Viewport.World3D</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_World2D">Viewport.World2D</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_TransparentBg">Viewport.TransparentBg</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_HandleInputLocally">Viewport.HandleInputLocally</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_Snap2DTransformsToPixel">Viewport.Snap2DTransformsToPixel</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_Snap2DVerticesToPixel">Viewport.Snap2DVerticesToPixel</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_Msaa2D">Viewport.Msaa2D</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_Msaa3D">Viewport.Msaa3D</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_ScreenSpaceAA">Viewport.ScreenSpaceAA</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_UseTaa">Viewport.UseTaa</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_UseDebanding">Viewport.UseDebanding</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_UseOcclusionCulling">Viewport.UseOcclusionCulling</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_MeshLodThreshold">Viewport.MeshLodThreshold</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_DebugDraw">Viewport.DebugDraw</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_UseHdr2D">Viewport.UseHdr2D</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_Scaling3DMode">Viewport.Scaling3DMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_Scaling3DScale">Viewport.Scaling3DScale</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_TextureMipmapBias">Viewport.TextureMipmapBias</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_FsrSharpness">Viewport.FsrSharpness</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_VrsMode">Viewport.VrsMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_VrsUpdateMode">Viewport.VrsUpdateMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_VrsTexture">Viewport.VrsTexture</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_CanvasItemDefaultTextureFilter">Viewport.CanvasItemDefaultTextureFilter</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_CanvasItemDefaultTextureRepeat">Viewport.CanvasItemDefaultTextureRepeat</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_AudioListenerEnable2D">Viewport.AudioListenerEnable2D</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_AudioListenerEnable3D">Viewport.AudioListenerEnable3D</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_PhysicsObjectPicking">Viewport.PhysicsObjectPicking</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_PhysicsObjectPickingSort">Viewport.PhysicsObjectPickingSort</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_PhysicsObjectPickingFirstOnly">Viewport.PhysicsObjectPickingFirstOnly</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GuiDisableInput">Viewport.GuiDisableInput</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GuiSnapControlsToPixels">Viewport.GuiSnapControlsToPixels</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GuiEmbedSubwindows">Viewport.GuiEmbedSubwindows</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_SdfOversize">Viewport.SdfOversize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_SdfScale">Viewport.SdfScale</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_PositionalShadowAtlasSize">Viewport.PositionalShadowAtlasSize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_PositionalShadowAtlas16Bits">Viewport.PositionalShadowAtlas16Bits</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_PositionalShadowAtlasQuad0">Viewport.PositionalShadowAtlasQuad0</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_PositionalShadowAtlasQuad1">Viewport.PositionalShadowAtlasQuad1</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_PositionalShadowAtlasQuad2">Viewport.PositionalShadowAtlasQuad2</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_PositionalShadowAtlasQuad3">Viewport.PositionalShadowAtlasQuad3</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_CanvasTransform">Viewport.CanvasTransform</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GlobalCanvasTransform">Viewport.GlobalCanvasTransform</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_CanvasCullMask">Viewport.CanvasCullMask</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_SizeChanged">Viewport.SizeChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Viewport.html#Godot_Viewport_GuiFocusChanged">Viewport.GuiFocusChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEnterTree">Node.NotificationEnterTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationExitTree">Node.NotificationExitTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationMovedInParent">Node.NotificationMovedInParent</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationReady">Node.NotificationReady</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPaused">Node.NotificationPaused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationUnpaused">Node.NotificationUnpaused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPhysicsProcess">Node.NotificationPhysicsProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationProcess">Node.NotificationProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationParented">Node.NotificationParented</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationUnparented">Node.NotificationUnparented</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationSceneInstantiated">Node.NotificationSceneInstantiated</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationDragBegin">Node.NotificationDragBegin</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationDragEnd">Node.NotificationDragEnd</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPathRenamed">Node.NotificationPathRenamed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationChildOrderChanged">Node.NotificationChildOrderChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationInternalProcess">Node.NotificationInternalProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationInternalPhysicsProcess">Node.NotificationInternalPhysicsProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPostEnterTree">Node.NotificationPostEnterTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationDisabled">Node.NotificationDisabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEnabled">Node.NotificationEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationResetPhysicsInterpolation">Node.NotificationResetPhysicsInterpolation</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEditorPreSave">Node.NotificationEditorPreSave</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEditorPostSave">Node.NotificationEditorPostSave</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMMouseEnter">Node.NotificationWMMouseEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMMouseExit">Node.NotificationWMMouseExit</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMWindowFocusIn">Node.NotificationWMWindowFocusIn</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMWindowFocusOut">Node.NotificationWMWindowFocusOut</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMCloseRequest">Node.NotificationWMCloseRequest</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMGoBackRequest">Node.NotificationWMGoBackRequest</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMSizeChanged">Node.NotificationWMSizeChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMDpiChange">Node.NotificationWMDpiChange</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationVpMouseEnter">Node.NotificationVpMouseEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationVpMouseExit">Node.NotificationVpMouseExit</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationOsMemoryWarning">Node.NotificationOsMemoryWarning</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationTranslationChanged">Node.NotificationTranslationChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMAbout">Node.NotificationWMAbout</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationCrash">Node.NotificationCrash</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationOsImeUpdate">Node.NotificationOsImeUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationResumed">Node.NotificationApplicationResumed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationPaused">Node.NotificationApplicationPaused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationFocusIn">Node.NotificationApplicationFocusIn</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationFocusOut">Node.NotificationApplicationFocusOut</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationTextServerChanged">Node.NotificationTextServerChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNode__1_Godot_NodePath_">Node.GetNode&lt;T&gt;(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeOrNull__1_Godot_NodePath_">Node.GetNodeOrNull&lt;T&gt;(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChild__1_System_Int32_System_Boolean_">Node.GetChild&lt;T&gt;(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChildOrNull__1_System_Int32_System_Boolean_">Node.GetChildOrNull&lt;T&gt;(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetOwner__1">Node.GetOwner&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetOwnerOrNull__1">Node.GetOwnerOrNull&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetParent__1">Node.GetParent&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetParentOrNull__1">Node.GetParentOrNull&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__EnterTree">Node._EnterTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__ExitTree">Node._ExitTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__GetConfigurationWarnings">Node._GetConfigurationWarnings()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__Input_Godot_InputEvent_">Node._Input(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__PhysicsProcess_System_Double_">Node._PhysicsProcess(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__Process_System_Double_">Node._Process(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__Ready">Node._Ready()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__ShortcutInput_Godot_InputEvent_">Node._ShortcutInput(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__UnhandledInput_Godot_InputEvent_">Node._UnhandledInput(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__UnhandledKeyInput_Godot_InputEvent_">Node._UnhandledKeyInput(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PrintOrphanNodes">Node.PrintOrphanNodes()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AddSibling_Godot_Node_System_Boolean_">Node.AddSibling(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AddChild_Godot_Node_System_Boolean_Godot_Node_InternalMode_">Node.AddChild(Node, bool, Node.InternalMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RemoveChild_Godot_Node_">Node.RemoveChild(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Reparent_Godot_Node_System_Boolean_">Node.Reparent(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChildCount_System_Boolean_">Node.GetChildCount(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChildren_System_Boolean_">Node.GetChildren(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChild_System_Int32_System_Boolean_">Node.GetChild(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_HasNode_Godot_NodePath_">Node.HasNode(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNode_Godot_NodePath_">Node.GetNode(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeOrNull_Godot_NodePath_">Node.GetNodeOrNull(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetParent">Node.GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_FindChild_System_String_System_Boolean_System_Boolean_">Node.FindChild(string, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_FindChildren_System_String_System_String_System_Boolean_System_Boolean_">Node.FindChildren(string, string, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_FindParent_System_String_">Node.FindParent(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_HasNodeAndResource_Godot_NodePath_">Node.HasNodeAndResource(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeAndResource_Godot_NodePath_">Node.GetNodeAndResource(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsInsideTree">Node.IsInsideTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPartOfEditedScene">Node.IsPartOfEditedScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsAncestorOf_Godot_Node_">Node.IsAncestorOf(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsGreaterThan_Godot_Node_">Node.IsGreaterThan(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetPath">Node.GetPath()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetPathTo_Godot_Node_System_Boolean_">Node.GetPathTo(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AddToGroup_Godot_StringName_System_Boolean_">Node.AddToGroup(StringName, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RemoveFromGroup_Godot_StringName_">Node.RemoveFromGroup(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsInGroup_Godot_StringName_">Node.IsInGroup(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_MoveChild_Godot_Node_System_Int32_">Node.MoveChild(Node, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetGroups">Node.GetGroups()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetIndex_System_Boolean_">Node.GetIndex(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PrintTree">Node.PrintTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PrintTreePretty">Node.PrintTreePretty()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetTreeString">Node.GetTreeString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetTreeStringPretty">Node.GetTreeStringPretty()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PropagateNotification_System_Int32_">Node.PropagateNotification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PropagateCall_Godot_StringName_Godot_Collections_Array_System_Boolean_">Node.PropagateCall(StringName, Array, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetPhysicsProcess_System_Boolean_">Node.SetPhysicsProcess(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetPhysicsProcessDeltaTime">Node.GetPhysicsProcessDeltaTime()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsProcessing">Node.IsPhysicsProcessing()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetProcessDeltaTime">Node.GetProcessDeltaTime()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcess_System_Boolean_">Node.SetProcess(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessing">Node.IsProcessing()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessInput_System_Boolean_">Node.SetProcessInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingInput">Node.IsProcessingInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessShortcutInput_System_Boolean_">Node.SetProcessShortcutInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingShortcutInput">Node.IsProcessingShortcutInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessUnhandledInput_System_Boolean_">Node.SetProcessUnhandledInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingUnhandledInput">Node.IsProcessingUnhandledInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessUnhandledKeyInput_System_Boolean_">Node.SetProcessUnhandledKeyInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingUnhandledKeyInput">Node.IsProcessingUnhandledKeyInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CanProcess">Node.CanProcess()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetDisplayFolded_System_Boolean_">Node.SetDisplayFolded(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsDisplayedFolded">Node.IsDisplayedFolded()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessInternal_System_Boolean_">Node.SetProcessInternal(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingInternal">Node.IsProcessingInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetPhysicsProcessInternal_System_Boolean_">Node.SetPhysicsProcessInternal(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsProcessingInternal">Node.IsPhysicsProcessingInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsInterpolated">Node.IsPhysicsInterpolated()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsInterpolatedAndEnabled">Node.IsPhysicsInterpolatedAndEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ResetPhysicsInterpolation">Node.ResetPhysicsInterpolation()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetWindow">Node.GetWindow()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetLastExclusiveWindow">Node.GetLastExclusiveWindow()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetTree">Node.GetTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CreateTween">Node.CreateTween()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Duplicate_System_Int32_">Node.Duplicate(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ReplaceBy_Godot_Node_System_Boolean_">Node.ReplaceBy(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetSceneInstanceLoadPlaceholder_System_Boolean_">Node.SetSceneInstanceLoadPlaceholder(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetSceneInstanceLoadPlaceholder">Node.GetSceneInstanceLoadPlaceholder()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetEditableInstance_Godot_Node_System_Boolean_">Node.SetEditableInstance(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsEditableInstance_Godot_Node_">Node.IsEditableInstance(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetViewport">Node.GetViewport()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_QueueFree">Node.QueueFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RequestReady">Node.RequestReady()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsNodeReady">Node.IsNodeReady()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetMultiplayerAuthority_System_Int32_System_Boolean_">Node.SetMultiplayerAuthority(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetMultiplayerAuthority">Node.GetMultiplayerAuthority()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsMultiplayerAuthority">Node.IsMultiplayerAuthority()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RpcConfig_Godot_StringName_Godot_Variant_">Node.RpcConfig(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Atr_System_String_Godot_StringName_">Node.Atr(string, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AtrN_System_String_Godot_StringName_System_Int32_Godot_StringName_">Node.AtrN(string, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Rpc_Godot_StringName_Godot_Variant___">Node.Rpc(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RpcId_System_Int64_Godot_StringName_Godot_Variant___">Node.RpcId(long, StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_UpdateConfigurationWarnings">Node.UpdateConfigurationWarnings()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CallDeferredThreadGroup_Godot_StringName_Godot_Variant___">Node.CallDeferredThreadGroup(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetDeferredThreadGroup_Godot_StringName_Godot_Variant_">Node.SetDeferredThreadGroup(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotifyDeferredThreadGroup_System_Int32_">Node.NotifyDeferredThreadGroup(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CallThreadSafe_Godot_StringName_Godot_Variant___">Node.CallThreadSafe(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetThreadSafe_Godot_StringName_Godot_Variant_">Node.SetThreadSafe(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotifyThreadSafe_System_Int32_">Node.NotifyThreadSafe(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Name">Node.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_UniqueNameInOwner">Node.UniqueNameInOwner</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SceneFilePath">Node.SceneFilePath</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Owner">Node.Owner</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Multiplayer">Node.Multiplayer</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessMode">Node.ProcessMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessPriority">Node.ProcessPriority</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessPhysicsPriority">Node.ProcessPhysicsPriority</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessThreadGroup">Node.ProcessThreadGroup</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessThreadGroupOrder">Node.ProcessThreadGroupOrder</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessThreadMessages">Node.ProcessThreadMessages</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PhysicsInterpolationMode">Node.PhysicsInterpolationMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AutoTranslateMode">Node.AutoTranslateMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EditorDescription">Node.EditorDescription</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Ready">Node.Ready</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Renamed">Node.Renamed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_TreeEntered">Node.TreeEntered</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_TreeExiting">Node.TreeExiting</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_TreeExited">Node.TreeExited</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ChildEnteredTree">Node.ChildEnteredTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ChildExitingTree">Node.ChildExitingTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ChildOrderChanged">Node.ChildOrderChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ReplacingBy">Node.ReplacingBy</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EditorDescriptionChanged">Node.EditorDescriptionChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">GodotObject.RemoveUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_">GodotObject.GetMethodArgumentCount(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_FileDialog__ctor_" data-uid="Godot.FileDialog.#ctor*"></a>
+
+  <h3 id="Godot_FileDialog__ctor" data-uid="Godot.FileDialog.#ctor">
+  FileDialog()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileDialog()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_FileDialog_Access_" data-uid="Godot.FileDialog.Access*"></a>
+
+  <h3 id="Godot_FileDialog_Access" data-uid="Godot.FileDialog.Access">
+  Access
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file system access scope. See <a class="xref" href="Godot.FileDialog.AccessEnum.html">FileDialog.AccessEnum</a> constants.</p>
+<p>
+  <b>Warning:</b> In Web builds, FileDialog cannot access the host file system. In sandboxed Linux and macOS environments, <a class="xref" href="Godot.FileDialog.html#Godot_FileDialog_UseNativeDialog">UseNativeDialog</a> is automatically used to allow limited access to host file system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileDialog.AccessEnum Access { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileDialog.html">FileDialog</a>.<a class="xref" href="Godot.FileDialog.AccessEnum.html">AccessEnum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_CurrentDir_" data-uid="Godot.FileDialog.CurrentDir*"></a>
+
+  <h3 id="Godot_FileDialog_CurrentDir" data-uid="Godot.FileDialog.CurrentDir">
+  CurrentDir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The current working directory of the file dialog.</p>
+<p>
+  <b>Note:</b> For native file dialogs, this property is only treated as a hint and may not be respected by specific OS implementations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CurrentDir { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_CurrentFile_" data-uid="Godot.FileDialog.CurrentFile*"></a>
+
+  <h3 id="Godot_FileDialog_CurrentFile" data-uid="Godot.FileDialog.CurrentFile">
+  CurrentFile
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The currently selected file of the file dialog.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CurrentFile { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_CurrentPath_" data-uid="Godot.FileDialog.CurrentPath*"></a>
+
+  <h3 id="Godot_FileDialog_CurrentPath" data-uid="Godot.FileDialog.CurrentPath">
+  CurrentPath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The currently selected file path of the file dialog.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CurrentPath { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_FileMode_" data-uid="Godot.FileDialog.FileMode*"></a>
+
+  <h3 id="Godot_FileDialog_FileMode" data-uid="Godot.FileDialog.FileMode">
+  FileMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The dialog's open or save mode, which affects the selection behavior. See <a class="xref" href="Godot.FileDialog.FileModeEnum.html">FileDialog.FileModeEnum</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FileDialog.FileModeEnum FileMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileDialog.html">FileDialog</a>.<a class="xref" href="Godot.FileDialog.FileModeEnum.html">FileModeEnum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_Filters_" data-uid="Godot.FileDialog.Filters*"></a>
+
+  <h3 id="Godot_FileDialog_Filters" data-uid="Godot.FileDialog.Filters">
+  Filters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The available file type filters. Each filter string in the array should be formatted like this: <code>*.txt,*.doc;Text Files</code>. The description text of the filter is optional and can be omitted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] Filters { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_ModeOverridesTitle_" data-uid="Godot.FileDialog.ModeOverridesTitle*"></a>
+
+  <h3 id="Godot_FileDialog_ModeOverridesTitle" data-uid="Godot.FileDialog.ModeOverridesTitle">
+  ModeOverridesTitle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, changing the <a class="xref" href="Godot.FileDialog.html#Godot_FileDialog_FileMode">FileMode</a> property will set the window title accordingly (e.g. setting <a class="xref" href="Godot.FileDialog.html#Godot_FileDialog_FileMode">FileMode</a> to <a class="xref" href="Godot.FileDialog.FileModeEnum.html#Godot_FileDialog_FileModeEnum_OpenFile">OpenFile</a> will change the window title to "Open a File").</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ModeOverridesTitle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_OptionCount_" data-uid="Godot.FileDialog.OptionCount*"></a>
+
+  <h3 id="Godot_FileDialog_OptionCount" data-uid="Godot.FileDialog.OptionCount">
+  OptionCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of additional <a class="xref" href="Godot.OptionButton.html">OptionButton</a>s and <a class="xref" href="Godot.CheckBox.html">CheckBox</a>es in the dialog.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int OptionCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_RootSubfolder_" data-uid="Godot.FileDialog.RootSubfolder*"></a>
+
+  <h3 id="Godot_FileDialog_RootSubfolder" data-uid="Godot.FileDialog.RootSubfolder">
+  RootSubfolder
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If non-empty, the given sub-folder will be "root" of this <a class="xref" href="Godot.FileDialog.html">FileDialog</a>, i.e. user won't be able to go to its parent directory.</p>
+<p>
+  <b>Note:</b> This property is ignored by native file dialogs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string RootSubfolder { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_ShowHiddenFiles_" data-uid="Godot.FileDialog.ShowHiddenFiles*"></a>
+
+  <h3 id="Godot_FileDialog_ShowHiddenFiles" data-uid="Godot.FileDialog.ShowHiddenFiles">
+  ShowHiddenFiles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the dialog will show hidden files.</p>
+<p>
+  <b>Note:</b> This property is ignored by native file dialogs on Linux.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShowHiddenFiles { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_UseNativeDialog_" data-uid="Godot.FileDialog.UseNativeDialog*"></a>
+
+  <h3 id="Godot_FileDialog_UseNativeDialog" data-uid="Godot.FileDialog.UseNativeDialog">
+  UseNativeDialog
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, <a class="xref" href="Godot.FileDialog.html#Godot_FileDialog_Access">Access</a> is set to <a class="xref" href="Godot.FileDialog.AccessEnum.html#Godot_FileDialog_AccessEnum_Filesystem">Filesystem</a>, and it is supported by the current <a class="xref" href="Godot.DisplayServer.html">DisplayServer</a>, OS native dialog will be used instead of custom one.</p>
+<p>
+  <b>Note:</b> On Linux and macOS, sandboxed apps always use native dialogs to access the host file system.</p>
+<p>
+  <b>Note:</b> On macOS, sandboxed apps will save security-scoped bookmarks to retain access to the opened folders across multiple sessions. Use <a class="xref" href="Godot.OS.html#Godot_OS_GetGrantedPermissions">GetGrantedPermissions()</a> to get a list of saved bookmarks.</p>
+<p>
+  <b>Note:</b> Native dialogs are isolated from the base process, file dialog properties can't be modified once the dialog is shown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UseNativeDialog { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_FileDialog_AddFilter_" data-uid="Godot.FileDialog.AddFilter*"></a>
+
+  <h3 id="Godot_FileDialog_AddFilter_System_String_System_String_" data-uid="Godot.FileDialog.AddFilter(System.String,System.String)">
+  AddFilter(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a comma-delimited file name <code class="paramref">filter</code> option to the <a class="xref" href="Godot.FileDialog.html">FileDialog</a> with an optional <code class="paramref">description</code>, which restricts what files can be picked.</p>
+<p>A <code class="paramref">filter</code> should be of the form <code>"filename.extension"</code>, where filename and extension can be <code>*</code> to match any string. Filters starting with <code>.</code> (i.e. empty filenames) are not allowed.</p>
+<p>For example, a <code class="paramref">filter</code> of <code>"*.png, *.jpg"</code> and a <code class="paramref">description</code> of <code>"Images"</code> results in filter text "Images (*.png, *.jpg)".</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddFilter(string filter, string description = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_AddOption_" data-uid="Godot.FileDialog.AddOption*"></a>
+
+  <h3 id="Godot_FileDialog_AddOption_System_String_System_String___System_Int32_" data-uid="Godot.FileDialog.AddOption(System.String,System.String[],System.Int32)">
+  AddOption(string, string[], int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an additional <a class="xref" href="Godot.OptionButton.html">OptionButton</a> to the file dialog. If <code class="paramref">values</code> is empty, a <a class="xref" href="Godot.CheckBox.html">CheckBox</a> is added instead.</p>
+<p>
+  <code class="paramref">defaultValueIndex</code> should be an index of the value in the <code class="paramref">values</code>. If <code class="paramref">values</code> is empty it should be either <code>1</code> (checked), or <code>0</code> (unchecked).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddOption(string name, string[] values, int defaultValueIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+    <dt><code>defaultValueIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_ClearFilters_" data-uid="Godot.FileDialog.ClearFilters*"></a>
+
+  <h3 id="Godot_FileDialog_ClearFilters" data-uid="Godot.FileDialog.ClearFilters">
+  ClearFilters()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clear all the added filters in the dialog.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearFilters()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_DeselectAll_" data-uid="Godot.FileDialog.DeselectAll*"></a>
+
+  <h3 id="Godot_FileDialog_DeselectAll" data-uid="Godot.FileDialog.DeselectAll">
+  DeselectAll()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clear all currently selected items in the dialog.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DeselectAll()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_GetLineEdit_" data-uid="Godot.FileDialog.GetLineEdit*"></a>
+
+  <h3 id="Godot_FileDialog_GetLineEdit" data-uid="Godot.FileDialog.GetLineEdit">
+  GetLineEdit()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the LineEdit for the selected file.</p>
+<p>
+  <b>Warning:</b> This is a required internal node, removing and freeing it may cause a crash. If you wish to hide it or any of its children, use their <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_Visible">Visible</a> property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LineEdit GetLineEdit()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.LineEdit.html">LineEdit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_GetOptionDefault_" data-uid="Godot.FileDialog.GetOptionDefault*"></a>
+
+  <h3 id="Godot_FileDialog_GetOptionDefault_System_Int32_" data-uid="Godot.FileDialog.GetOptionDefault(System.Int32)">
+  GetOptionDefault(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the default value index of the <a class="xref" href="Godot.OptionButton.html">OptionButton</a> or <a class="xref" href="Godot.CheckBox.html">CheckBox</a> with index <code class="paramref">option</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetOptionDefault(int option)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_GetOptionName_" data-uid="Godot.FileDialog.GetOptionName*"></a>
+
+  <h3 id="Godot_FileDialog_GetOptionName_System_Int32_" data-uid="Godot.FileDialog.GetOptionName(System.Int32)">
+  GetOptionName(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the name of the <a class="xref" href="Godot.OptionButton.html">OptionButton</a> or <a class="xref" href="Godot.CheckBox.html">CheckBox</a> with index <code class="paramref">option</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetOptionName(int option)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_GetOptionValues_" data-uid="Godot.FileDialog.GetOptionValues*"></a>
+
+  <h3 id="Godot_FileDialog_GetOptionValues_System_Int32_" data-uid="Godot.FileDialog.GetOptionValues(System.Int32)">
+  GetOptionValues(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array of values of the <a class="xref" href="Godot.OptionButton.html">OptionButton</a> with index <code class="paramref">option</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetOptionValues(int option)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_GetSelectedOptions_" data-uid="Godot.FileDialog.GetSelectedOptions*"></a>
+
+  <h3 id="Godot_FileDialog_GetSelectedOptions" data-uid="Godot.FileDialog.GetSelectedOptions">
+  GetSelectedOptions()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a> with the selected values of the additional <a class="xref" href="Godot.OptionButton.html">OptionButton</a>s and/or <a class="xref" href="Godot.CheckBox.html">CheckBox</a>es. <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a> keys are names and values are selected value indices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary GetSelectedOptions()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_GetVBox_" data-uid="Godot.FileDialog.GetVBox*"></a>
+
+  <h3 id="Godot_FileDialog_GetVBox" data-uid="Godot.FileDialog.GetVBox">
+  GetVBox()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the vertical box container of the dialog, custom controls can be added to it.</p>
+<p>
+  <b>Warning:</b> This is a required internal node, removing and freeing it may cause a crash. If you wish to hide it or any of its children, use their <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_Visible">Visible</a> property.</p>
+<p>
+  <b>Note:</b> Changes to this node are ignored by native file dialogs, use <a class="xref" href="Godot.FileDialog.html#Godot_FileDialog_AddOption_System_String_System_String___System_Int32_">AddOption(string, string[], int)</a> to add custom elements to the dialog instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VBoxContainer GetVBox()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.VBoxContainer.html">VBoxContainer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_HasGodotClassMethod_" data-uid="Godot.FileDialog.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_FileDialog_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.FileDialog.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_HasGodotClassSignal_" data-uid="Godot.FileDialog.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_FileDialog_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.FileDialog.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_Invalidate_" data-uid="Godot.FileDialog.Invalidate*"></a>
+
+  <h3 id="Godot_FileDialog_Invalidate" data-uid="Godot.FileDialog.Invalidate">
+  Invalidate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invalidate and update the current dialog content list.</p>
+<p>
+  <b>Note:</b> This method does nothing on native file dialogs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Invalidate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_InvokeGodotClassMethod_" data-uid="Godot.FileDialog.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_FileDialog_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.FileDialog.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_SetOptionDefault_" data-uid="Godot.FileDialog.SetOptionDefault*"></a>
+
+  <h3 id="Godot_FileDialog_SetOptionDefault_System_Int32_System_Int32_" data-uid="Godot.FileDialog.SetOptionDefault(System.Int32,System.Int32)">
+  SetOptionDefault(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the default value index of the <a class="xref" href="Godot.OptionButton.html">OptionButton</a> or <a class="xref" href="Godot.CheckBox.html">CheckBox</a> with index <code class="paramref">option</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetOptionDefault(int option, int defaultValueIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>defaultValueIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_SetOptionName_" data-uid="Godot.FileDialog.SetOptionName*"></a>
+
+  <h3 id="Godot_FileDialog_SetOptionName_System_Int32_System_String_" data-uid="Godot.FileDialog.SetOptionName(System.Int32,System.String)">
+  SetOptionName(int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the name of the <a class="xref" href="Godot.OptionButton.html">OptionButton</a> or <a class="xref" href="Godot.CheckBox.html">CheckBox</a> with index <code class="paramref">option</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetOptionName(int option, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileDialog_SetOptionValues_" data-uid="Godot.FileDialog.SetOptionValues*"></a>
+
+  <h3 id="Godot_FileDialog_SetOptionValues_System_Int32_System_String___" data-uid="Godot.FileDialog.SetOptionValues(System.Int32,System.String[])">
+  SetOptionValues(int, string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the option values of the <a class="xref" href="Godot.OptionButton.html">OptionButton</a> with index <code class="paramref">option</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetOptionValues(int option, string[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>option</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Godot_FileDialog_DirSelected" data-uid="Godot.FileDialog.DirSelected">
+  DirSelected
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when the user selects a directory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event FileDialog.DirSelectedEventHandler DirSelected</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileDialog.html">FileDialog</a>.<a class="xref" href="Godot.FileDialog.DirSelectedEventHandler.html">DirSelectedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_FileDialog_FileSelected" data-uid="Godot.FileDialog.FileSelected">
+  FileSelected
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when the user selects a file by double-clicking it or pressing the <b>OK</b> button.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event FileDialog.FileSelectedEventHandler FileSelected</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileDialog.html">FileDialog</a>.<a class="xref" href="Godot.FileDialog.FileSelectedEventHandler.html">FileSelectedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_FileDialog_FilesSelected" data-uid="Godot.FileDialog.FilesSelected">
+  FilesSelected
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when the user selects multiple files.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event FileDialog.FilesSelectedEventHandler FilesSelected</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileDialog.html">FileDialog</a>.<a class="xref" href="Godot.FileDialog.FilesSelectedEventHandler.html">FilesSelectedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileDialog.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

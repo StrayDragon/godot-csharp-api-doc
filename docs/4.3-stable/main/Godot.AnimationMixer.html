@@ -1,0 +1,2323 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AnimationMixer | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AnimationMixer | Godot4 C# API ">
+      
+      <meta name="description" content="Base class for  and  to manage animation lists. It also has general properties and methods for playback and blending. After instantiating the playback information data within the extended class, the blending is processed by the .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.AnimationMixer">
+
+
+
+  <h1 id="Godot_AnimationMixer" data-uid="Godot.AnimationMixer" class="text-break">
+Class AnimationMixer  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Base class for <a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a> and <a class="xref" href="Godot.AnimationTree.html">AnimationTree</a> to manage animation lists. It also has general properties and methods for playback and blending.</p>
+<p>After instantiating the playback information data within the extended class, the blending is processed by the <a class="xref" href="Godot.AnimationMixer.html">AnimationMixer</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AnimationMixer : Node, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.Node.html">Node</a></div>
+      <div><span class="xref">AnimationMixer</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a></div>
+      <div><a class="xref" href="Godot.AnimationTree.html">AnimationTree</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEnterTree">Node.NotificationEnterTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationExitTree">Node.NotificationExitTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationMovedInParent">Node.NotificationMovedInParent</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationReady">Node.NotificationReady</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPaused">Node.NotificationPaused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationUnpaused">Node.NotificationUnpaused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPhysicsProcess">Node.NotificationPhysicsProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationProcess">Node.NotificationProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationParented">Node.NotificationParented</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationUnparented">Node.NotificationUnparented</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationSceneInstantiated">Node.NotificationSceneInstantiated</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationDragBegin">Node.NotificationDragBegin</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationDragEnd">Node.NotificationDragEnd</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPathRenamed">Node.NotificationPathRenamed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationChildOrderChanged">Node.NotificationChildOrderChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationInternalProcess">Node.NotificationInternalProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationInternalPhysicsProcess">Node.NotificationInternalPhysicsProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPostEnterTree">Node.NotificationPostEnterTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationDisabled">Node.NotificationDisabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEnabled">Node.NotificationEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationResetPhysicsInterpolation">Node.NotificationResetPhysicsInterpolation</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEditorPreSave">Node.NotificationEditorPreSave</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEditorPostSave">Node.NotificationEditorPostSave</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMMouseEnter">Node.NotificationWMMouseEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMMouseExit">Node.NotificationWMMouseExit</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMWindowFocusIn">Node.NotificationWMWindowFocusIn</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMWindowFocusOut">Node.NotificationWMWindowFocusOut</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMCloseRequest">Node.NotificationWMCloseRequest</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMGoBackRequest">Node.NotificationWMGoBackRequest</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMSizeChanged">Node.NotificationWMSizeChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMDpiChange">Node.NotificationWMDpiChange</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationVpMouseEnter">Node.NotificationVpMouseEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationVpMouseExit">Node.NotificationVpMouseExit</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationOsMemoryWarning">Node.NotificationOsMemoryWarning</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationTranslationChanged">Node.NotificationTranslationChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMAbout">Node.NotificationWMAbout</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationCrash">Node.NotificationCrash</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationOsImeUpdate">Node.NotificationOsImeUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationResumed">Node.NotificationApplicationResumed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationPaused">Node.NotificationApplicationPaused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationFocusIn">Node.NotificationApplicationFocusIn</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationFocusOut">Node.NotificationApplicationFocusOut</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationTextServerChanged">Node.NotificationTextServerChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNode__1_Godot_NodePath_">Node.GetNode&lt;T&gt;(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeOrNull__1_Godot_NodePath_">Node.GetNodeOrNull&lt;T&gt;(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChild__1_System_Int32_System_Boolean_">Node.GetChild&lt;T&gt;(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChildOrNull__1_System_Int32_System_Boolean_">Node.GetChildOrNull&lt;T&gt;(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetOwner__1">Node.GetOwner&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetOwnerOrNull__1">Node.GetOwnerOrNull&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetParent__1">Node.GetParent&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetParentOrNull__1">Node.GetParentOrNull&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__EnterTree">Node._EnterTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__ExitTree">Node._ExitTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__GetConfigurationWarnings">Node._GetConfigurationWarnings()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__Input_Godot_InputEvent_">Node._Input(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__PhysicsProcess_System_Double_">Node._PhysicsProcess(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__Process_System_Double_">Node._Process(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__Ready">Node._Ready()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__ShortcutInput_Godot_InputEvent_">Node._ShortcutInput(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__UnhandledInput_Godot_InputEvent_">Node._UnhandledInput(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__UnhandledKeyInput_Godot_InputEvent_">Node._UnhandledKeyInput(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PrintOrphanNodes">Node.PrintOrphanNodes()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AddSibling_Godot_Node_System_Boolean_">Node.AddSibling(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AddChild_Godot_Node_System_Boolean_Godot_Node_InternalMode_">Node.AddChild(Node, bool, Node.InternalMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RemoveChild_Godot_Node_">Node.RemoveChild(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Reparent_Godot_Node_System_Boolean_">Node.Reparent(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChildCount_System_Boolean_">Node.GetChildCount(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChildren_System_Boolean_">Node.GetChildren(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChild_System_Int32_System_Boolean_">Node.GetChild(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_HasNode_Godot_NodePath_">Node.HasNode(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNode_Godot_NodePath_">Node.GetNode(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeOrNull_Godot_NodePath_">Node.GetNodeOrNull(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetParent">Node.GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_FindChild_System_String_System_Boolean_System_Boolean_">Node.FindChild(string, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_FindChildren_System_String_System_String_System_Boolean_System_Boolean_">Node.FindChildren(string, string, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_FindParent_System_String_">Node.FindParent(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_HasNodeAndResource_Godot_NodePath_">Node.HasNodeAndResource(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeAndResource_Godot_NodePath_">Node.GetNodeAndResource(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsInsideTree">Node.IsInsideTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPartOfEditedScene">Node.IsPartOfEditedScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsAncestorOf_Godot_Node_">Node.IsAncestorOf(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsGreaterThan_Godot_Node_">Node.IsGreaterThan(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetPath">Node.GetPath()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetPathTo_Godot_Node_System_Boolean_">Node.GetPathTo(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AddToGroup_Godot_StringName_System_Boolean_">Node.AddToGroup(StringName, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RemoveFromGroup_Godot_StringName_">Node.RemoveFromGroup(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsInGroup_Godot_StringName_">Node.IsInGroup(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_MoveChild_Godot_Node_System_Int32_">Node.MoveChild(Node, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetGroups">Node.GetGroups()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetIndex_System_Boolean_">Node.GetIndex(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PrintTree">Node.PrintTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PrintTreePretty">Node.PrintTreePretty()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetTreeString">Node.GetTreeString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetTreeStringPretty">Node.GetTreeStringPretty()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PropagateNotification_System_Int32_">Node.PropagateNotification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PropagateCall_Godot_StringName_Godot_Collections_Array_System_Boolean_">Node.PropagateCall(StringName, Array, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetPhysicsProcess_System_Boolean_">Node.SetPhysicsProcess(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetPhysicsProcessDeltaTime">Node.GetPhysicsProcessDeltaTime()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsProcessing">Node.IsPhysicsProcessing()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetProcessDeltaTime">Node.GetProcessDeltaTime()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcess_System_Boolean_">Node.SetProcess(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessing">Node.IsProcessing()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessInput_System_Boolean_">Node.SetProcessInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingInput">Node.IsProcessingInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessShortcutInput_System_Boolean_">Node.SetProcessShortcutInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingShortcutInput">Node.IsProcessingShortcutInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessUnhandledInput_System_Boolean_">Node.SetProcessUnhandledInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingUnhandledInput">Node.IsProcessingUnhandledInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessUnhandledKeyInput_System_Boolean_">Node.SetProcessUnhandledKeyInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingUnhandledKeyInput">Node.IsProcessingUnhandledKeyInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CanProcess">Node.CanProcess()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetDisplayFolded_System_Boolean_">Node.SetDisplayFolded(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsDisplayedFolded">Node.IsDisplayedFolded()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessInternal_System_Boolean_">Node.SetProcessInternal(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingInternal">Node.IsProcessingInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetPhysicsProcessInternal_System_Boolean_">Node.SetPhysicsProcessInternal(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsProcessingInternal">Node.IsPhysicsProcessingInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsInterpolated">Node.IsPhysicsInterpolated()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsInterpolatedAndEnabled">Node.IsPhysicsInterpolatedAndEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ResetPhysicsInterpolation">Node.ResetPhysicsInterpolation()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetWindow">Node.GetWindow()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetLastExclusiveWindow">Node.GetLastExclusiveWindow()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetTree">Node.GetTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CreateTween">Node.CreateTween()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Duplicate_System_Int32_">Node.Duplicate(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ReplaceBy_Godot_Node_System_Boolean_">Node.ReplaceBy(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetSceneInstanceLoadPlaceholder_System_Boolean_">Node.SetSceneInstanceLoadPlaceholder(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetSceneInstanceLoadPlaceholder">Node.GetSceneInstanceLoadPlaceholder()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetEditableInstance_Godot_Node_System_Boolean_">Node.SetEditableInstance(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsEditableInstance_Godot_Node_">Node.IsEditableInstance(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetViewport">Node.GetViewport()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_QueueFree">Node.QueueFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RequestReady">Node.RequestReady()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsNodeReady">Node.IsNodeReady()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetMultiplayerAuthority_System_Int32_System_Boolean_">Node.SetMultiplayerAuthority(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetMultiplayerAuthority">Node.GetMultiplayerAuthority()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsMultiplayerAuthority">Node.IsMultiplayerAuthority()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RpcConfig_Godot_StringName_Godot_Variant_">Node.RpcConfig(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Atr_System_String_Godot_StringName_">Node.Atr(string, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AtrN_System_String_Godot_StringName_System_Int32_Godot_StringName_">Node.AtrN(string, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Rpc_Godot_StringName_Godot_Variant___">Node.Rpc(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RpcId_System_Int64_Godot_StringName_Godot_Variant___">Node.RpcId(long, StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_UpdateConfigurationWarnings">Node.UpdateConfigurationWarnings()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CallDeferredThreadGroup_Godot_StringName_Godot_Variant___">Node.CallDeferredThreadGroup(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetDeferredThreadGroup_Godot_StringName_Godot_Variant_">Node.SetDeferredThreadGroup(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotifyDeferredThreadGroup_System_Int32_">Node.NotifyDeferredThreadGroup(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CallThreadSafe_Godot_StringName_Godot_Variant___">Node.CallThreadSafe(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetThreadSafe_Godot_StringName_Godot_Variant_">Node.SetThreadSafe(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotifyThreadSafe_System_Int32_">Node.NotifyThreadSafe(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Name">Node.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_UniqueNameInOwner">Node.UniqueNameInOwner</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SceneFilePath">Node.SceneFilePath</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Owner">Node.Owner</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Multiplayer">Node.Multiplayer</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessMode">Node.ProcessMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessPriority">Node.ProcessPriority</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessPhysicsPriority">Node.ProcessPhysicsPriority</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessThreadGroup">Node.ProcessThreadGroup</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessThreadGroupOrder">Node.ProcessThreadGroupOrder</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessThreadMessages">Node.ProcessThreadMessages</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PhysicsInterpolationMode">Node.PhysicsInterpolationMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AutoTranslateMode">Node.AutoTranslateMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EditorDescription">Node.EditorDescription</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Ready">Node.Ready</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Renamed">Node.Renamed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_TreeEntered">Node.TreeEntered</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_TreeExiting">Node.TreeExiting</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_TreeExited">Node.TreeExited</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ChildEnteredTree">Node.ChildEnteredTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ChildExitingTree">Node.ChildExitingTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ChildOrderChanged">Node.ChildOrderChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ReplacingBy">Node.ReplacingBy</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EditorDescriptionChanged">Node.EditorDescriptionChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">GodotObject.RemoveUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_">GodotObject.GetMethodArgumentCount(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_AnimationMixer_Active_" data-uid="Godot.AnimationMixer.Active*"></a>
+
+  <h3 id="Godot_AnimationMixer_Active" data-uid="Godot.AnimationMixer.Active">
+  Active
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the <a class="xref" href="Godot.AnimationMixer.html">AnimationMixer</a> will be processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Active { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_AudioMaxPolyphony_" data-uid="Godot.AnimationMixer.AudioMaxPolyphony*"></a>
+
+  <h3 id="Godot_AnimationMixer_AudioMaxPolyphony" data-uid="Godot.AnimationMixer.AudioMaxPolyphony">
+  AudioMaxPolyphony
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of possible simultaneous sounds for each of the assigned AudioStreamPlayers.</p>
+<p>For example, if this value is <code>32</code> and the animation has two audio tracks, the two <a class="xref" href="Godot.AudioStreamPlayer.html">AudioStreamPlayer</a>s assigned can play simultaneously up to <code>32</code> voices each.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AudioMaxPolyphony { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_CallbackModeDiscrete_" data-uid="Godot.AnimationMixer.CallbackModeDiscrete*"></a>
+
+  <h3 id="Godot_AnimationMixer_CallbackModeDiscrete" data-uid="Godot.AnimationMixer.CallbackModeDiscrete">
+  CallbackModeDiscrete
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ordinarily, tracks can be set to <a class="xref" href="Godot.Animation.UpdateMode.html#Godot_Animation_UpdateMode_Discrete">Discrete</a> to update infrequently, usually when using nearest interpolation.</p>
+<p>However, when blending with <a class="xref" href="Godot.Animation.UpdateMode.html#Godot_Animation_UpdateMode_Continuous">Continuous</a> several results are considered. The <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_CallbackModeDiscrete">CallbackModeDiscrete</a> specify it explicitly. See also <a class="xref" href="Godot.AnimationMixer.AnimationCallbackModeDiscrete.html">AnimationMixer.AnimationCallbackModeDiscrete</a>.</p>
+<p>To make the blended results look good, it is recommended to set this to <a class="xref" href="Godot.AnimationMixer.AnimationCallbackModeDiscrete.html#Godot_AnimationMixer_AnimationCallbackModeDiscrete_ForceContinuous">ForceContinuous</a> to update every frame during blending. Other values exist for compatibility and they are fine if there is no blending, but not so, may produce artifacts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnimationMixer.AnimationCallbackModeDiscrete CallbackModeDiscrete { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.AnimationMixer.html">AnimationMixer</a>.<a class="xref" href="Godot.AnimationMixer.AnimationCallbackModeDiscrete.html">AnimationCallbackModeDiscrete</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_CallbackModeMethod_" data-uid="Godot.AnimationMixer.CallbackModeMethod*"></a>
+
+  <h3 id="Godot_AnimationMixer_CallbackModeMethod" data-uid="Godot.AnimationMixer.CallbackModeMethod">
+  CallbackModeMethod
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The call mode used for "Call Method" tracks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnimationMixer.AnimationCallbackModeMethod CallbackModeMethod { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.AnimationMixer.html">AnimationMixer</a>.<a class="xref" href="Godot.AnimationMixer.AnimationCallbackModeMethod.html">AnimationCallbackModeMethod</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_CallbackModeProcess_" data-uid="Godot.AnimationMixer.CallbackModeProcess*"></a>
+
+  <h3 id="Godot_AnimationMixer_CallbackModeProcess" data-uid="Godot.AnimationMixer.CallbackModeProcess">
+  CallbackModeProcess
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The process notification in which to update animations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnimationMixer.AnimationCallbackModeProcess CallbackModeProcess { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.AnimationMixer.html">AnimationMixer</a>.<a class="xref" href="Godot.AnimationMixer.AnimationCallbackModeProcess.html">AnimationCallbackModeProcess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_Deterministic_" data-uid="Godot.AnimationMixer.Deterministic*"></a>
+
+  <h3 id="Godot_AnimationMixer_Deterministic" data-uid="Godot.AnimationMixer.Deterministic">
+  Deterministic
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the blending uses the deterministic algorithm. The total weight is not normalized and the result is accumulated with an initial value (<code>0</code> or a <code>"RESET"</code> animation if present).</p>
+<p>This means that if the total amount of blending is <code>0.0</code>, the result is equal to the <code>"RESET"</code> animation.</p>
+<p>If the number of tracks between the blended animations is different, the animation with the missing track is treated as if it had the initial value.</p>
+<p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, The blend does not use the deterministic algorithm. The total weight is normalized and always <code>1.0</code>. If the number of tracks between the blended animations is different, nothing is done about the animation that is missing a track.</p>
+<p>
+  <b>Note:</b> In <a class="xref" href="Godot.AnimationTree.html">AnimationTree</a>, the blending with <a class="xref" href="Godot.AnimationNodeAdd2.html">AnimationNodeAdd2</a>, <a class="xref" href="Godot.AnimationNodeAdd3.html">AnimationNodeAdd3</a>, <a class="xref" href="Godot.AnimationNodeSub2.html">AnimationNodeSub2</a> or the weight greater than <code>1.0</code> may produce unexpected results.</p>
+<p>For example, if <a class="xref" href="Godot.AnimationNodeAdd2.html">AnimationNodeAdd2</a> blends two nodes with the amount <code>1.0</code>, then total weight is <code>2.0</code> but it will be normalized to make the total amount <code>1.0</code> and the result will be equal to <a class="xref" href="Godot.AnimationNodeBlend2.html">AnimationNodeBlend2</a> with the amount <code>0.5</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Deterministic { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_ResetOnSave_" data-uid="Godot.AnimationMixer.ResetOnSave*"></a>
+
+  <h3 id="Godot_AnimationMixer_ResetOnSave" data-uid="Godot.AnimationMixer.ResetOnSave">
+  ResetOnSave
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is used by the editor. If set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the scene will be saved with the effects of the reset animation (the animation with the key <code>"RESET"</code>) applied as if it had been seeked to time 0, with the editor keeping the values that the scene had before saving.</p>
+<p>This makes it more convenient to preview and edit animations in the editor, as changes to the scene will not be saved as long as they are set in the reset animation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ResetOnSave { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_RootMotionTrack_" data-uid="Godot.AnimationMixer.RootMotionTrack*"></a>
+
+  <h3 id="Godot_AnimationMixer_RootMotionTrack" data-uid="Godot.AnimationMixer.RootMotionTrack">
+  RootMotionTrack
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The path to the Animation track used for root motion. Paths must be valid scene-tree paths to a node, and must be specified starting from the parent node of the node that will reproduce the animation. The <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> uses the same format as <a class="xref" href="Godot.Animation.html#Godot_Animation_TrackSetPath_System_Int32_Godot_NodePath_">TrackSetPath(int, NodePath)</a>, but note that a bone must be specified.</p>
+<p>If the track has type <a class="xref" href="Godot.Animation.TrackType.html#Godot_Animation_TrackType_Position3D">Position3D</a>, <a class="xref" href="Godot.Animation.TrackType.html#Godot_Animation_TrackType_Rotation3D">Rotation3D</a>, or <a class="xref" href="Godot.Animation.TrackType.html#Godot_Animation_TrackType_Scale3D">Scale3D</a> the transformation will be canceled visually, and the animation will appear to stay in place. See also <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_GetRootMotionPosition">GetRootMotionPosition()</a>, <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_GetRootMotionRotation">GetRootMotionRotation()</a>, <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_GetRootMotionScale">GetRootMotionScale()</a>, and <a class="xref" href="Godot.RootMotionView.html">RootMotionView</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NodePath RootMotionTrack { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.NodePath.html">NodePath</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_RootNode_" data-uid="Godot.AnimationMixer.RootNode*"></a>
+
+  <h3 id="Godot_AnimationMixer_RootNode" data-uid="Godot.AnimationMixer.RootNode">
+  RootNode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The node which node path references will travel from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NodePath RootNode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.NodePath.html">NodePath</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_AnimationMixer_AddAnimationLibrary_" data-uid="Godot.AnimationMixer.AddAnimationLibrary*"></a>
+
+  <h3 id="Godot_AnimationMixer_AddAnimationLibrary_Godot_StringName_Godot_AnimationLibrary_" data-uid="Godot.AnimationMixer.AddAnimationLibrary(Godot.StringName,Godot.AnimationLibrary)">
+  AddAnimationLibrary(StringName, AnimationLibrary)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds <code class="paramref">library</code> to the animation player, under the key <code class="paramref">name</code>.</p>
+<p>AnimationMixer has a global library by default with an empty string as key. For adding an animation to the global library:</p>
+<p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Error AddAnimationLibrary(StringName name, AnimationLibrary library)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>library</code> <a class="xref" href="Godot.AnimationLibrary.html">AnimationLibrary</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_Advance_" data-uid="Godot.AnimationMixer.Advance*"></a>
+
+  <h3 id="Godot_AnimationMixer_Advance_System_Double_" data-uid="Godot.AnimationMixer.Advance(System.Double)">
+  Advance(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Manually advance the animations by the specified time (in seconds).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Advance(double delta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_Capture_" data-uid="Godot.AnimationMixer.Capture*"></a>
+
+  <h3 id="Godot_AnimationMixer_Capture_Godot_StringName_System_Double_Godot_Tween_TransitionType_Godot_Tween_EaseType_" data-uid="Godot.AnimationMixer.Capture(Godot.StringName,System.Double,Godot.Tween.TransitionType,Godot.Tween.EaseType)">
+  Capture(StringName, double, TransitionType, EaseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If the animation track specified by <code class="paramref">name</code> has an option <a class="xref" href="Godot.Animation.UpdateMode.html#Godot_Animation_UpdateMode_Capture">Capture</a>, stores current values of the objects indicated by the track path as a cache. If there is already a captured cache, the old cache is discarded.</p>
+<p>After this it will interpolate with current animation blending result during the playback process for the time specified by <code class="paramref">duration</code>, working like a crossfade.</p>
+<p>You can specify <code class="paramref">transType</code> as the curve for the interpolation. For better results, it may be appropriate to specify <a class="xref" href="Godot.Tween.TransitionType.html#Godot_Tween_TransitionType_Linear">Linear</a> for cases where the first key of the track begins with a non-zero value or where the key value does not change, and <a class="xref" href="Godot.Tween.TransitionType.html#Godot_Tween_TransitionType_Quad">Quad</a> for cases where the key value changes linearly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Capture(StringName name, double duration, Tween.TransitionType transType = TransitionType.Linear, Tween.EaseType easeType = EaseType.In)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>transType</code> <a class="xref" href="Godot.Tween.html">Tween</a>.<a class="xref" href="Godot.Tween.TransitionType.html">TransitionType</a></dt>
+    <dd></dd>
+    <dt><code>easeType</code> <a class="xref" href="Godot.Tween.html">Tween</a>.<a class="xref" href="Godot.Tween.EaseType.html">EaseType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_ClearCaches_" data-uid="Godot.AnimationMixer.ClearCaches*"></a>
+
+  <h3 id="Godot_AnimationMixer_ClearCaches" data-uid="Godot.AnimationMixer.ClearCaches">
+  ClearCaches()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>
+  <a class="xref" href="Godot.AnimationMixer.html">AnimationMixer</a> caches animated nodes. It may not notice if a node disappears; <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_ClearCaches">ClearCaches()</a> forces it to update the cache again.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearCaches()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_FindAnimation_" data-uid="Godot.AnimationMixer.FindAnimation*"></a>
+
+  <h3 id="Godot_AnimationMixer_FindAnimation_Godot_Animation_" data-uid="Godot.AnimationMixer.FindAnimation(Godot.Animation)">
+  FindAnimation(Animation)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the key of <code class="paramref">animation</code> or an empty <a class="xref" href="Godot.StringName.html">StringName</a> if not found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringName FindAnimation(Animation animation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>animation</code> <a class="xref" href="Godot.Animation.html">Animation</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_FindAnimationLibrary_" data-uid="Godot.AnimationMixer.FindAnimationLibrary*"></a>
+
+  <h3 id="Godot_AnimationMixer_FindAnimationLibrary_Godot_Animation_" data-uid="Godot.AnimationMixer.FindAnimationLibrary(Godot.Animation)">
+  FindAnimationLibrary(Animation)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the key for the <a class="xref" href="Godot.AnimationLibrary.html">AnimationLibrary</a> that contains <code class="paramref">animation</code> or an empty <a class="xref" href="Godot.StringName.html">StringName</a> if not found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringName FindAnimationLibrary(Animation animation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>animation</code> <a class="xref" href="Godot.Animation.html">Animation</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_GetAnimation_" data-uid="Godot.AnimationMixer.GetAnimation*"></a>
+
+  <h3 id="Godot_AnimationMixer_GetAnimation_Godot_StringName_" data-uid="Godot.AnimationMixer.GetAnimation(Godot.StringName)">
+  GetAnimation(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.Animation.html">Animation</a> with the key <code class="paramref">name</code>. If the animation does not exist, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is returned and an error is logged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Animation GetAnimation(StringName name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Animation.html">Animation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_GetAnimationLibrary_" data-uid="Godot.AnimationMixer.GetAnimationLibrary*"></a>
+
+  <h3 id="Godot_AnimationMixer_GetAnimationLibrary_Godot_StringName_" data-uid="Godot.AnimationMixer.GetAnimationLibrary(Godot.StringName)">
+  GetAnimationLibrary(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the first <a class="xref" href="Godot.AnimationLibrary.html">AnimationLibrary</a> with key <code class="paramref">name</code> or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not found.</p>
+<p>To get the <a class="xref" href="Godot.AnimationMixer.html">AnimationMixer</a>'s global animation library, use <code>get_animation_library("")</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnimationLibrary GetAnimationLibrary(StringName name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.AnimationLibrary.html">AnimationLibrary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_GetAnimationLibraryList_" data-uid="Godot.AnimationMixer.GetAnimationLibraryList*"></a>
+
+  <h3 id="Godot_AnimationMixer_GetAnimationLibraryList" data-uid="Godot.AnimationMixer.GetAnimationLibraryList">
+  GetAnimationLibraryList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the list of stored library keys.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;StringName&gt; GetAnimationLibraryList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.StringName.html">StringName</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_GetAnimationList_" data-uid="Godot.AnimationMixer.GetAnimationList*"></a>
+
+  <h3 id="Godot_AnimationMixer_GetAnimationList" data-uid="Godot.AnimationMixer.GetAnimationList">
+  GetAnimationList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the list of stored animation keys.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetAnimationList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_GetRootMotionPosition_" data-uid="Godot.AnimationMixer.GetRootMotionPosition*"></a>
+
+  <h3 id="Godot_AnimationMixer_GetRootMotionPosition" data-uid="Godot.AnimationMixer.GetRootMotionPosition">
+  GetRootMotionPosition()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieve the motion delta of position with the <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> as a <a class="xref" href="Godot.Vector3.html">Vector3</a> that can be used elsewhere.</p>
+<p>If <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> is not a path to a track of type <a class="xref" href="Godot.Animation.TrackType.html#Godot_Animation_TrackType_Position3D">Position3D</a>, returns <code>Vector3(0, 0, 0)</code>.</p>
+<p>See also <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> and <a class="xref" href="Godot.RootMotionView.html">RootMotionView</a>.</p>
+<p>The most basic example is applying position to <a class="xref" href="Godot.CharacterBody3D.html">CharacterBody3D</a>:</p>
+<p></p>
+<p>By using this in combination with <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_GetRootMotionRotationAccumulator">GetRootMotionRotationAccumulator()</a>, you can apply the root motion position more correctly to account for the rotation of the node.</p>
+<p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetRootMotionPosition()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_GetRootMotionPositionAccumulator_" data-uid="Godot.AnimationMixer.GetRootMotionPositionAccumulator*"></a>
+
+  <h3 id="Godot_AnimationMixer_GetRootMotionPositionAccumulator" data-uid="Godot.AnimationMixer.GetRootMotionPositionAccumulator">
+  GetRootMotionPositionAccumulator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieve the blended value of the position tracks with the <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> as a <a class="xref" href="Godot.Vector3.html">Vector3</a> that can be used elsewhere.</p>
+<p>This is useful in cases where you want to respect the initial key values of the animation.</p>
+<p>For example, if an animation with only one key <code>Vector3(0, 0, 0)</code> is played in the previous frame and then an animation with only one key <code>Vector3(1, 0, 1)</code> is played in the next frame, the difference can be calculated as follows:</p>
+<p></p>
+<p>However, if the animation loops, an unintended discrete change may occur, so this is only useful for some simple use cases.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetRootMotionPositionAccumulator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_GetRootMotionRotation_" data-uid="Godot.AnimationMixer.GetRootMotionRotation*"></a>
+
+  <h3 id="Godot_AnimationMixer_GetRootMotionRotation" data-uid="Godot.AnimationMixer.GetRootMotionRotation">
+  GetRootMotionRotation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieve the motion delta of rotation with the <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> as a <a class="xref" href="Godot.Quaternion.html">Quaternion</a> that can be used elsewhere.</p>
+<p>If <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> is not a path to a track of type <a class="xref" href="Godot.Animation.TrackType.html#Godot_Animation_TrackType_Rotation3D">Rotation3D</a>, returns <code>Quaternion(0, 0, 0, 1)</code>.</p>
+<p>See also <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> and <a class="xref" href="Godot.RootMotionView.html">RootMotionView</a>.</p>
+<p>The most basic example is applying rotation to <a class="xref" href="Godot.CharacterBody3D.html">CharacterBody3D</a>:</p>
+<p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion GetRootMotionRotation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_GetRootMotionRotationAccumulator_" data-uid="Godot.AnimationMixer.GetRootMotionRotationAccumulator*"></a>
+
+  <h3 id="Godot_AnimationMixer_GetRootMotionRotationAccumulator" data-uid="Godot.AnimationMixer.GetRootMotionRotationAccumulator">
+  GetRootMotionRotationAccumulator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieve the blended value of the rotation tracks with the <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> as a <a class="xref" href="Godot.Quaternion.html">Quaternion</a> that can be used elsewhere.</p>
+<p>This is necessary to apply the root motion position correctly, taking rotation into account. See also <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_GetRootMotionPosition">GetRootMotionPosition()</a>.</p>
+<p>Also, this is useful in cases where you want to respect the initial key values of the animation.</p>
+<p>For example, if an animation with only one key <code>Quaternion(0, 0, 0, 1)</code> is played in the previous frame and then an animation with only one key <code>Quaternion(0, 0.707, 0, 0.707)</code> is played in the next frame, the difference can be calculated as follows:</p>
+<p></p>
+<p>However, if the animation loops, an unintended discrete change may occur, so this is only useful for some simple use cases.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion GetRootMotionRotationAccumulator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_GetRootMotionScale_" data-uid="Godot.AnimationMixer.GetRootMotionScale*"></a>
+
+  <h3 id="Godot_AnimationMixer_GetRootMotionScale" data-uid="Godot.AnimationMixer.GetRootMotionScale">
+  GetRootMotionScale()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieve the motion delta of scale with the <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> as a <a class="xref" href="Godot.Vector3.html">Vector3</a> that can be used elsewhere.</p>
+<p>If <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> is not a path to a track of type <a class="xref" href="Godot.Animation.TrackType.html#Godot_Animation_TrackType_Scale3D">Scale3D</a>, returns <code>Vector3(0, 0, 0)</code>.</p>
+<p>See also <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> and <a class="xref" href="Godot.RootMotionView.html">RootMotionView</a>.</p>
+<p>The most basic example is applying scale to <a class="xref" href="Godot.CharacterBody3D.html">CharacterBody3D</a>:</p>
+<p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetRootMotionScale()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_GetRootMotionScaleAccumulator_" data-uid="Godot.AnimationMixer.GetRootMotionScaleAccumulator*"></a>
+
+  <h3 id="Godot_AnimationMixer_GetRootMotionScaleAccumulator" data-uid="Godot.AnimationMixer.GetRootMotionScaleAccumulator">
+  GetRootMotionScaleAccumulator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieve the blended value of the scale tracks with the <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_RootMotionTrack">RootMotionTrack</a> as a <a class="xref" href="Godot.Vector3.html">Vector3</a> that can be used elsewhere.</p>
+<p>For example, if an animation with only one key <code>Vector3(1, 1, 1)</code> is played in the previous frame and then an animation with only one key <code>Vector3(2, 2, 2)</code> is played in the next frame, the difference can be calculated as follows:</p>
+<p></p>
+<p>However, if the animation loops, an unintended discrete change may occur, so this is only useful for some simple use cases.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetRootMotionScaleAccumulator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_HasAnimation_" data-uid="Godot.AnimationMixer.HasAnimation*"></a>
+
+  <h3 id="Godot_AnimationMixer_HasAnimation_Godot_StringName_" data-uid="Godot.AnimationMixer.HasAnimation(Godot.StringName)">
+  HasAnimation(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <a class="xref" href="Godot.AnimationMixer.html">AnimationMixer</a> stores an <a class="xref" href="Godot.Animation.html">Animation</a> with key <code class="paramref">name</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasAnimation(StringName name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_HasAnimationLibrary_" data-uid="Godot.AnimationMixer.HasAnimationLibrary*"></a>
+
+  <h3 id="Godot_AnimationMixer_HasAnimationLibrary_Godot_StringName_" data-uid="Godot.AnimationMixer.HasAnimationLibrary(Godot.StringName)">
+  HasAnimationLibrary(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <a class="xref" href="Godot.AnimationMixer.html">AnimationMixer</a> stores an <a class="xref" href="Godot.AnimationLibrary.html">AnimationLibrary</a> with key <code class="paramref">name</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasAnimationLibrary(StringName name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_HasGodotClassMethod_" data-uid="Godot.AnimationMixer.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_AnimationMixer_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.AnimationMixer.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_HasGodotClassSignal_" data-uid="Godot.AnimationMixer.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_AnimationMixer_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.AnimationMixer.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_InvokeGodotClassMethod_" data-uid="Godot.AnimationMixer.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_AnimationMixer_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.AnimationMixer.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_RemoveAnimationLibrary_" data-uid="Godot.AnimationMixer.RemoveAnimationLibrary*"></a>
+
+  <h3 id="Godot_AnimationMixer_RemoveAnimationLibrary_Godot_StringName_" data-uid="Godot.AnimationMixer.RemoveAnimationLibrary(Godot.StringName)">
+  RemoveAnimationLibrary(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the <a class="xref" href="Godot.AnimationLibrary.html">AnimationLibrary</a> associated with the key <code class="paramref">name</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAnimationLibrary(StringName name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer_RenameAnimationLibrary_" data-uid="Godot.AnimationMixer.RenameAnimationLibrary*"></a>
+
+  <h3 id="Godot_AnimationMixer_RenameAnimationLibrary_Godot_StringName_Godot_StringName_" data-uid="Godot.AnimationMixer.RenameAnimationLibrary(Godot.StringName,Godot.StringName)">
+  RenameAnimationLibrary(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves the <a class="xref" href="Godot.AnimationLibrary.html">AnimationLibrary</a> associated with the key <code class="paramref">name</code> to the key <code class="paramref">newname</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenameAnimationLibrary(StringName name, StringName newname)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>newname</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_AnimationMixer__PostProcessKeyValue_" data-uid="Godot.AnimationMixer._PostProcessKeyValue*"></a>
+
+  <h3 id="Godot_AnimationMixer__PostProcessKeyValue_Godot_Animation_System_Int32_Godot_Variant_System_UInt64_System_Int32_" data-uid="Godot.AnimationMixer._PostProcessKeyValue(Godot.Animation,System.Int32,Godot.Variant,System.UInt64,System.Int32)">
+  _PostProcessKeyValue(Animation, int, Variant, ulong, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A virtual function for processing after getting a key during playback.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Variant _PostProcessKeyValue(Animation animation, int track, Variant value, ulong objectId, int objectSubIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>animation</code> <a class="xref" href="Godot.Animation.html">Animation</a></dt>
+    <dd></dd>
+    <dt><code>track</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>objectId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>objectSubIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Godot_AnimationMixer_AnimationFinished" data-uid="Godot.AnimationMixer.AnimationFinished">
+  AnimationFinished
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Notifies when an animation finished playing.</p>
+<p>
+  <b>Note:</b> This signal is not emitted if an animation is looping.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AnimationMixer.AnimationFinishedEventHandler AnimationFinished</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.AnimationMixer.html">AnimationMixer</a>.<a class="xref" href="Godot.AnimationMixer.AnimationFinishedEventHandler.html">AnimationFinishedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_AnimationMixer_AnimationLibrariesUpdated" data-uid="Godot.AnimationMixer.AnimationLibrariesUpdated">
+  AnimationLibrariesUpdated
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Notifies when the animation libraries have changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action AnimationLibrariesUpdated</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_AnimationMixer_AnimationListChanged" data-uid="Godot.AnimationMixer.AnimationListChanged">
+  AnimationListChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Notifies when an animation list is changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action AnimationListChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_AnimationMixer_AnimationStarted" data-uid="Godot.AnimationMixer.AnimationStarted">
+  AnimationStarted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Notifies when an animation starts playing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AnimationMixer.AnimationStartedEventHandler AnimationStarted</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.AnimationMixer.html">AnimationMixer</a>.<a class="xref" href="Godot.AnimationMixer.AnimationStartedEventHandler.html">AnimationStartedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_AnimationMixer_CachesCleared" data-uid="Godot.AnimationMixer.CachesCleared">
+  CachesCleared
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Notifies when the caches have been cleared, either automatically, or manually via <a class="xref" href="Godot.AnimationMixer.html#Godot_AnimationMixer_ClearCaches">ClearCaches()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action CachesCleared</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_AnimationMixer_MixerApplied" data-uid="Godot.AnimationMixer.MixerApplied">
+  MixerApplied
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Notifies when the blending result related have been applied to the target objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action MixerApplied</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_AnimationMixer_MixerUpdated" data-uid="Godot.AnimationMixer.MixerUpdated">
+  MixerUpdated
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Notifies when the property related process have been updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action MixerUpdated</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/AnimationMixer.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

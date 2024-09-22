@@ -1,0 +1,1662 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Tween | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Tween | Godot4 C# API ">
+      
+      <meta name="description" content="Tweens are mostly useful for animations requiring a numerical property to be interpolated over a range of values. The name tween comes from in-betweening, an animation technique where you specify keyframes and the computer interpolates the frames that appear between them. Animating something with a  is called tweening.     is more suited than  for animations where you don&#39;t know the final values in advance. For example, interpolating a dynamically-chosen camera zoom value is best done with a ; it would be difficult to do the same thing with an  node. Tweens are also more light-weight than , so they are very much suited for simple animations or general tasks that don&#39;t require visual tweaking provided by the editor. They can be used in a &quot;fire-and-forget&quot; manner for some logic that normally would be done by code. You can e.g. make something shoot periodically by using a looped  with a delay. A  can be created by using either  or . s created manually (i.e. by using Tween.new()) are invalid and can&#39;t be used for tweening values. A tween animation is created by adding s to the  object, using , ,  or :    Tween tween = GetTree().CreateTween();   tween.TweenProperty(GetNode(&quot;Sprite&quot;), &quot;modulate&quot;, Colors.Red, 1.0f);   tween.TweenProperty(GetNode(&quot;Sprite&quot;), &quot;scale&quot;, Vector2.Zero, 1.0f);   tween.TweenCallback(Callable.From(GetNode(&quot;Sprite&quot;).QueueFree));  This sequence will make the $Sprite node turn red, then shrink, before finally calling  to free the sprite. s are executed one after another by default. This behavior can be changed using  and . When a  is created with one of the tween_* methods, a chained method call can be used to tweak the properties of this . For example, if you want to set a different transition type in the above example, you can use :    Tween tween = GetTree().CreateTween();   tween.TweenProperty(GetNode(&quot;Sprite&quot;), &quot;modulate&quot;, Colors.Red, 1.0f).SetTrans(Tween.TransitionType.Sine);   tween.TweenProperty(GetNode(&quot;Sprite&quot;), &quot;scale&quot;, Vector2.Zero, 1.0f).SetTrans(Tween.TransitionType.Bounce);   tween.TweenCallback(Callable.From(GetNode(&quot;Sprite&quot;).QueueFree));  Most of the  methods can be chained this way too. In the following example the  is bound to the running script&#39;s node and a default transition is set for its s:    var tween = GetTree().CreateTween().BindNode(this).SetTrans(Tween.TransitionType.Elastic);   tween.TweenProperty(GetNode(&quot;Sprite&quot;), &quot;modulate&quot;, Colors.Red, 1.0f);   tween.TweenProperty(GetNode(&quot;Sprite&quot;), &quot;scale&quot;, Vector2.Zero, 1.0f);   tween.TweenCallback(Callable.From(GetNode(&quot;Sprite&quot;).QueueFree));  Another interesting use for s is animating arbitrary sets of objects:    Tween tween = CreateTween();   foreach (Node sprite in GetChildren())       tween.TweenProperty(sprite, &quot;position&quot;, Vector2.Zero, 1.0f);  In the example above, all children of a node are moved one after another to position (0, 0). You should avoid using more than one  per object&#39;s property. If two or more tweens animate one property at the same time, the last one created will take priority and assign the final value. If you want to interrupt and restart an animation, consider assigning the  to a variable:    private Tween _tween; public void Animate() { if (_tween != null) _tween.Kill(); // Abort the previous animation _tween = CreateTween(); }  Some s use transitions and eases. The first accepts a  constant, and refers to the way the timing of the animation is handled (see easings.net for some examples). The second accepts an  constant, and controls where the trans_type is applied to the interpolation (in the beginning, the end, or both). If you don&#39;t know which transition and easing to pick, you can try different  constants with , and use the one that looks best.    Tween easing and transition types cheatsheet     Note: Tweens are not designed to be re-used and trying to do so results in an undefined behavior. Create a new Tween for each animation and every time you replay an animation from start. Keep in mind that Tweens start immediately, so only create a Tween when you want to start animating.    Note: The tween is processed after all of the nodes in the current frame, i.e. node&#39;s  method would be called before the tween (or  depending on the value passed to ).">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.Tween">
+
+
+
+  <h1 id="Godot_Tween" data-uid="Godot.Tween" class="text-break">
+Class Tween  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Tweens are mostly useful for animations requiring a numerical property to be interpolated over a range of values. The name <i>tween</i> comes from <i>in-betweening</i>, an animation technique where you specify <i>keyframes</i> and the computer interpolates the frames that appear between them. Animating something with a <a class="xref" href="Godot.Tween.html">Tween</a> is called tweening.</p>
+<p>
+  <a class="xref" href="Godot.Tween.html">Tween</a> is more suited than <a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a> for animations where you don't know the final values in advance. For example, interpolating a dynamically-chosen camera zoom value is best done with a <a class="xref" href="Godot.Tween.html">Tween</a>; it would be difficult to do the same thing with an <a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a> node. Tweens are also more light-weight than <a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a>, so they are very much suited for simple animations or general tasks that don't require visual tweaking provided by the editor. They can be used in a "fire-and-forget" manner for some logic that normally would be done by code. You can e.g. make something shoot periodically by using a looped <a class="xref" href="Godot.CallbackTweener.html">CallbackTweener</a> with a delay.</p>
+<p>A <a class="xref" href="Godot.Tween.html">Tween</a> can be created by using either <a class="xref" href="Godot.SceneTree.html#Godot_SceneTree_CreateTween">CreateTween()</a> or <a class="xref" href="Godot.Node.html#Godot_Node_CreateTween">CreateTween()</a>. <a class="xref" href="Godot.Tween.html">Tween</a>s created manually (i.e. by using <code>Tween.new()</code>) are invalid and can't be used for tweening values.</p>
+<p>A tween animation is created by adding <a class="xref" href="Godot.Tweener.html">Tweener</a>s to the <a class="xref" href="Godot.Tween.html">Tween</a> object, using <a class="xref" href="Godot.Tween.html#Godot_Tween_TweenProperty_Godot_GodotObject_Godot_NodePath_Godot_Variant_System_Double_">TweenProperty(GodotObject, NodePath, Variant, double)</a>, <a class="xref" href="Godot.Tween.html#Godot_Tween_TweenInterval_System_Double_">TweenInterval(double)</a>, <a class="xref" href="Godot.Tween.html#Godot_Tween_TweenCallback_Godot_Callable_">TweenCallback(Callable)</a> or <a class="xref" href="Godot.Tween.html#Godot_Tween_TweenMethod_Godot_Callable_Godot_Variant_Godot_Variant_System_Double_">TweenMethod(Callable, Variant, Variant, double)</a>:</p>
+<p>
+  <pre><code class="lang-csharp">Tween tween = GetTree().CreateTween();
+  tween.TweenProperty(GetNode("Sprite"), "modulate", Colors.Red, 1.0f);
+  tween.TweenProperty(GetNode("Sprite"), "scale", Vector2.Zero, 1.0f);
+  tween.TweenCallback(Callable.From(GetNode("Sprite").QueueFree));</code></pre>
+
+<p>This sequence will make the <code>$Sprite</code> node turn red, then shrink, before finally calling <a class="xref" href="Godot.Node.html#Godot_Node_QueueFree">QueueFree()</a> to free the sprite. <a class="xref" href="Godot.Tweener.html">Tweener</a>s are executed one after another by default. This behavior can be changed using <a class="xref" href="Godot.Tween.html#Godot_Tween_Parallel">Parallel()</a> and <a class="xref" href="Godot.Tween.html#Godot_Tween_SetParallel_System_Boolean_">SetParallel(bool)</a>.</p>
+<p>When a <a class="xref" href="Godot.Tweener.html">Tweener</a> is created with one of the <code>tween_*</code> methods, a chained method call can be used to tweak the properties of this <a class="xref" href="Godot.Tweener.html">Tweener</a>. For example, if you want to set a different transition type in the above example, you can use <a class="xref" href="Godot.Tween.html#Godot_Tween_SetTrans_Godot_Tween_TransitionType_">SetTrans(TransitionType)</a>:</p>
+<p>
+  <pre><code class="lang-csharp">Tween tween = GetTree().CreateTween();
+  tween.TweenProperty(GetNode("Sprite"), "modulate", Colors.Red, 1.0f).SetTrans(Tween.TransitionType.Sine);
+  tween.TweenProperty(GetNode("Sprite"), "scale", Vector2.Zero, 1.0f).SetTrans(Tween.TransitionType.Bounce);
+  tween.TweenCallback(Callable.From(GetNode("Sprite").QueueFree));</code></pre>
+
+<p>Most of the <a class="xref" href="Godot.Tween.html">Tween</a> methods can be chained this way too. In the following example the <a class="xref" href="Godot.Tween.html">Tween</a> is bound to the running script's node and a default transition is set for its <a class="xref" href="Godot.Tweener.html">Tweener</a>s:</p>
+<p>
+  <pre><code class="lang-csharp">var tween = GetTree().CreateTween().BindNode(this).SetTrans(Tween.TransitionType.Elastic);
+  tween.TweenProperty(GetNode("Sprite"), "modulate", Colors.Red, 1.0f);
+  tween.TweenProperty(GetNode("Sprite"), "scale", Vector2.Zero, 1.0f);
+  tween.TweenCallback(Callable.From(GetNode("Sprite").QueueFree));</code></pre>
+
+<p>Another interesting use for <a class="xref" href="Godot.Tween.html">Tween</a>s is animating arbitrary sets of objects:</p>
+<p>
+  <pre><code class="lang-csharp">Tween tween = CreateTween();
+  foreach (Node sprite in GetChildren())
+      tween.TweenProperty(sprite, "position", Vector2.Zero, 1.0f);</code></pre>
+
+<p>In the example above, all children of a node are moved one after another to position (0, 0).</p>
+<p>You should avoid using more than one <a class="xref" href="Godot.Tween.html">Tween</a> per object's property. If two or more tweens animate one property at the same time, the last one created will take priority and assign the final value. If you want to interrupt and restart an animation, consider assigning the <a class="xref" href="Godot.Tween.html">Tween</a> to a variable:</p>
+<p>
+  <pre><code class="lang-csharp">private Tween _tween;
+<p>public void Animate()
+{
+if (_tween != null)
+_tween.Kill(); // Abort the previous animation
+_tween = CreateTween();
+}</p></code></pre>
+
+<p>Some <a class="xref" href="Godot.Tweener.html">Tweener</a>s use transitions and eases. The first accepts a <a class="xref" href="Godot.Tween.TransitionType.html">Tween.TransitionType</a> constant, and refers to the way the timing of the animation is handled (see <a href="https://easings.net/">easings.net</a> for some examples). The second accepts an <a class="xref" href="Godot.Tween.EaseType.html">Tween.EaseType</a> constant, and controls where the <code>trans_type</code> is applied to the interpolation (in the beginning, the end, or both). If you don't know which transition and easing to pick, you can try different <a class="xref" href="Godot.Tween.TransitionType.html">Tween.TransitionType</a> constants with <a class="xref" href="Godot.Tween.EaseType.html#Godot_Tween_EaseType_InOut">InOut</a>, and use the one that looks best.</p>
+<p>
+  <a href="https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.webp">Tween easing and transition types cheatsheet</a>
+</p>
+<p>
+  <b>Note:</b> Tweens are not designed to be re-used and trying to do so results in an undefined behavior. Create a new Tween for each animation and every time you replay an animation from start. Keep in mind that Tweens start immediately, so only create a Tween when you want to start animating.</p>
+<p>
+  <b>Note:</b> The tween is processed after all of the nodes in the current frame, i.e. node's <a class="xref" href="Godot.Node.html#Godot_Node__Process_System_Double_">_Process(double)</a> method would be called before the tween (or <a class="xref" href="Godot.Node.html#Godot_Node__PhysicsProcess_System_Double_">_PhysicsProcess(double)</a> depending on the value passed to <a class="xref" href="Godot.Tween.html#Godot_Tween_SetProcessMode_Godot_Tween_TweenProcessMode_">SetProcessMode(TweenProcessMode)</a>).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Tween : RefCounted, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><span class="xref">Tween</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_InitRef">RefCounted.InitRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Reference">RefCounted.Reference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Unreference">RefCounted.Unreference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_GetReferenceCount">RefCounted.GetReferenceCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">GodotObject.RemoveUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_">GodotObject.GetMethodArgumentCount(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_Tween__ctor_" data-uid="Godot.Tween.#ctor*"></a>
+
+  <h3 id="Godot_Tween__ctor" data-uid="Godot.Tween.#ctor">
+  Tween()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tween()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_Tween_BindNode_" data-uid="Godot.Tween.BindNode*"></a>
+
+  <h3 id="Godot_Tween_BindNode_Godot_Node_" data-uid="Godot.Tween.BindNode(Godot.Node)">
+  BindNode(Node)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Binds this <a class="xref" href="Godot.Tween.html">Tween</a> with the given <code class="paramref">node</code>. <a class="xref" href="Godot.Tween.html">Tween</a>s are processed directly by the <a class="xref" href="Godot.SceneTree.html">SceneTree</a>, so they run independently of the animated nodes. When you bind a <a class="xref" href="Godot.Node.html">Node</a> with the <a class="xref" href="Godot.Tween.html">Tween</a>, the <a class="xref" href="Godot.Tween.html">Tween</a> will halt the animation when the object is not inside tree and the <a class="xref" href="Godot.Tween.html">Tween</a> will be automatically killed when the bound object is freed. Also <a class="xref" href="Godot.Tween.TweenPauseMode.html#Godot_Tween_TweenPauseMode_Bound">Bound</a> will make the pausing behavior dependent on the bound node.</p>
+<p>For a shorter way to create and bind a <a class="xref" href="Godot.Tween.html">Tween</a>, you can use <a class="xref" href="Godot.Node.html#Godot_Node_CreateTween">CreateTween()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tween BindNode(Node node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="Godot.Node.html">Node</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Tween.html">Tween</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_Chain_" data-uid="Godot.Tween.Chain*"></a>
+
+  <h3 id="Godot_Tween_Chain" data-uid="Godot.Tween.Chain">
+  Chain()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Used to chain two <a class="xref" href="Godot.Tweener.html">Tweener</a>s after <a class="xref" href="Godot.Tween.html#Godot_Tween_SetParallel_System_Boolean_">SetParallel(bool)</a> is called with <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+<p>
+  <pre><code class="lang-csharp">Tween tween = CreateTween().SetParallel(true);
+  tween.TweenProperty(...);
+  tween.TweenProperty(...); // Will run parallelly with above.
+  tween.Chain().TweenProperty(...); // Will run after two above are finished.</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tween Chain()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Tween.html">Tween</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_CustomStep_" data-uid="Godot.Tween.CustomStep*"></a>
+
+  <h3 id="Godot_Tween_CustomStep_System_Double_" data-uid="Godot.Tween.CustomStep(System.Double)">
+  CustomStep(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Processes the <a class="xref" href="Godot.Tween.html">Tween</a> by the given <code class="paramref">delta</code> value, in seconds. This is mostly useful for manual control when the <a class="xref" href="Godot.Tween.html">Tween</a> is paused. It can also be used to end the <a class="xref" href="Godot.Tween.html">Tween</a> animation immediately, by setting <code class="paramref">delta</code> longer than the whole duration of the <a class="xref" href="Godot.Tween.html">Tween</a> animation.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <a class="xref" href="Godot.Tween.html">Tween</a> still has <a class="xref" href="Godot.Tweener.html">Tweener</a>s that haven't finished.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CustomStep(double delta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_GetLoopsLeft_" data-uid="Godot.Tween.GetLoopsLeft*"></a>
+
+  <h3 id="Godot_Tween_GetLoopsLeft" data-uid="Godot.Tween.GetLoopsLeft">
+  GetLoopsLeft()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of remaining loops for this <a class="xref" href="Godot.Tween.html">Tween</a> (see <a class="xref" href="Godot.Tween.html#Godot_Tween_SetLoops_System_Int32_">SetLoops(int)</a>). A return value of <code>-1</code> indicates an infinitely looping <a class="xref" href="Godot.Tween.html">Tween</a>, and a return value of <code>0</code> indicates that the <a class="xref" href="Godot.Tween.html">Tween</a> has already finished.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetLoopsLeft()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_GetTotalElapsedTime_" data-uid="Godot.Tween.GetTotalElapsedTime*"></a>
+
+  <h3 id="Godot_Tween_GetTotalElapsedTime" data-uid="Godot.Tween.GetTotalElapsedTime">
+  GetTotalElapsedTime()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the total time in seconds the <a class="xref" href="Godot.Tween.html">Tween</a> has been animating (i.e. the time since it started, not counting pauses etc.). The time is affected by <a class="xref" href="Godot.Tween.html#Godot_Tween_SetSpeedScale_System_Single_">SetSpeedScale(float)</a>, and <a class="xref" href="Godot.Tween.html#Godot_Tween_Stop">Stop()</a> will reset it to <code>0</code>.</p>
+<p>
+  <b>Note:</b> As it results from accumulating frame deltas, the time returned after the <a class="xref" href="Godot.Tween.html">Tween</a> has finished animating will be slightly greater than the actual <a class="xref" href="Godot.Tween.html">Tween</a> duration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GetTotalElapsedTime()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_HasGodotClassMethod_" data-uid="Godot.Tween.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_Tween_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.Tween.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_HasGodotClassSignal_" data-uid="Godot.Tween.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_Tween_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.Tween.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_InterpolateValue_" data-uid="Godot.Tween.InterpolateValue*"></a>
+
+  <h3 id="Godot_Tween_InterpolateValue_Godot_Variant_Godot_Variant_System_Double_System_Double_Godot_Tween_TransitionType_Godot_Tween_EaseType_" data-uid="Godot.Tween.InterpolateValue(Godot.Variant,Godot.Variant,System.Double,System.Double,Godot.Tween.TransitionType,Godot.Tween.EaseType)">
+  InterpolateValue(Variant, Variant, double, double, TransitionType, EaseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This method can be used for manual interpolation of a value, when you don't want <a class="xref" href="Godot.Tween.html">Tween</a> to do animating for you. It's similar to <code>@GlobalScope.lerp</code>, but with support for custom transition and easing.</p>
+<p>
+  <code class="paramref">initialValue</code> is the starting value of the interpolation.</p>
+<p>
+  <code class="paramref">deltaValue</code> is the change of the value in the interpolation, i.e. it's equal to <code>final_value - initial_value</code>.</p>
+<p>
+  <code class="paramref">elapsedTime</code> is the time in seconds that passed after the interpolation started and it's used to control the position of the interpolation. E.g. when it's equal to half of the <code class="paramref">duration</code>, the interpolated value will be halfway between initial and final values. This value can also be greater than <code class="paramref">duration</code> or lower than 0, which will extrapolate the value.</p>
+<p>
+  <code class="paramref">duration</code> is the total time of the interpolation.</p>
+<p>
+  <b>Note:</b> If <code class="paramref">duration</code> is equal to <code>0</code>, the method will always return the final value, regardless of <code class="paramref">elapsedTime</code> provided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Variant InterpolateValue(Variant initialValue, Variant deltaValue, double elapsedTime, double duration, Tween.TransitionType transType, Tween.EaseType easeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>initialValue</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>deltaValue</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>elapsedTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>transType</code> <a class="xref" href="Godot.Tween.html">Tween</a>.<a class="xref" href="Godot.Tween.TransitionType.html">TransitionType</a></dt>
+    <dd></dd>
+    <dt><code>easeType</code> <a class="xref" href="Godot.Tween.html">Tween</a>.<a class="xref" href="Godot.Tween.EaseType.html">EaseType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_InvokeGodotClassMethod_" data-uid="Godot.Tween.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_Tween_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.Tween.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_IsRunning_" data-uid="Godot.Tween.IsRunning*"></a>
+
+  <h3 id="Godot_Tween_IsRunning" data-uid="Godot.Tween.IsRunning">
+  IsRunning()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether the <a class="xref" href="Godot.Tween.html">Tween</a> is currently running, i.e. it wasn't paused and it's not finished.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRunning()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_IsValid_" data-uid="Godot.Tween.IsValid*"></a>
+
+  <h3 id="Godot_Tween_IsValid" data-uid="Godot.Tween.IsValid">
+  IsValid()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether the <a class="xref" href="Godot.Tween.html">Tween</a> is valid. A valid <a class="xref" href="Godot.Tween.html">Tween</a> is a <a class="xref" href="Godot.Tween.html">Tween</a> contained by the scene tree (i.e. the array from <a class="xref" href="Godot.SceneTree.html#Godot_SceneTree_GetProcessedTweens">GetProcessedTweens()</a> will contain this <a class="xref" href="Godot.Tween.html">Tween</a>). A <a class="xref" href="Godot.Tween.html">Tween</a> might become invalid when it has finished tweening, is killed, or when created with <code>Tween.new()</code>. Invalid <a class="xref" href="Godot.Tween.html">Tween</a>s can't have <a class="xref" href="Godot.Tweener.html">Tweener</a>s appended.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsValid()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_Kill_" data-uid="Godot.Tween.Kill*"></a>
+
+  <h3 id="Godot_Tween_Kill" data-uid="Godot.Tween.Kill">
+  Kill()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Aborts all tweening operations and invalidates the <a class="xref" href="Godot.Tween.html">Tween</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Kill()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_Parallel_" data-uid="Godot.Tween.Parallel*"></a>
+
+  <h3 id="Godot_Tween_Parallel" data-uid="Godot.Tween.Parallel">
+  Parallel()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Makes the next <a class="xref" href="Godot.Tweener.html">Tweener</a> run parallelly to the previous one.</p>
+<p>
+  <b>Example:</b>
+</p>
+<p>
+  <pre><code class="lang-csharp">Tween tween = CreateTween();
+  tween.TweenProperty(...);
+  tween.Parallel().TweenProperty(...);
+  tween.Parallel().TweenProperty(...);</code></pre>
+
+<p>All <a class="xref" href="Godot.Tweener.html">Tweener</a>s in the example will run at the same time.</p>
+<p>You can make the <a class="xref" href="Godot.Tween.html">Tween</a> parallel by default by using <a class="xref" href="Godot.Tween.html#Godot_Tween_SetParallel_System_Boolean_">SetParallel(bool)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tween Parallel()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Tween.html">Tween</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_Pause_" data-uid="Godot.Tween.Pause*"></a>
+
+  <h3 id="Godot_Tween_Pause" data-uid="Godot.Tween.Pause">
+  Pause()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pauses the tweening. The animation can be resumed by using <a class="xref" href="Godot.Tween.html#Godot_Tween_Play">Play()</a>.</p>
+<p>
+  <b>Note:</b> If a Tween is paused and not bound to any node, it will exist indefinitely until manually started or invalidated. If you lose a reference to such Tween, you can retrieve it using <a class="xref" href="Godot.SceneTree.html#Godot_SceneTree_GetProcessedTweens">GetProcessedTweens()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Pause()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_Play_" data-uid="Godot.Tween.Play*"></a>
+
+  <h3 id="Godot_Tween_Play" data-uid="Godot.Tween.Play">
+  Play()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resumes a paused or stopped <a class="xref" href="Godot.Tween.html">Tween</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Play()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_SetEase_" data-uid="Godot.Tween.SetEase*"></a>
+
+  <h3 id="Godot_Tween_SetEase_Godot_Tween_EaseType_" data-uid="Godot.Tween.SetEase(Godot.Tween.EaseType)">
+  SetEase(EaseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the default ease type for <a class="xref" href="Godot.PropertyTweener.html">PropertyTweener</a>s and <a class="xref" href="Godot.MethodTweener.html">MethodTweener</a>s animated by this <a class="xref" href="Godot.Tween.html">Tween</a>.</p>
+<p>If not specified, the default value is <a class="xref" href="Godot.Tween.EaseType.html#Godot_Tween_EaseType_InOut">InOut</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tween SetEase(Tween.EaseType ease)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ease</code> <a class="xref" href="Godot.Tween.html">Tween</a>.<a class="xref" href="Godot.Tween.EaseType.html">EaseType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Tween.html">Tween</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_SetLoops_" data-uid="Godot.Tween.SetLoops*"></a>
+
+  <h3 id="Godot_Tween_SetLoops_System_Int32_" data-uid="Godot.Tween.SetLoops(System.Int32)">
+  SetLoops(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the number of times the tweening sequence will be repeated, i.e. <code>set_loops(2)</code> will run the animation twice.</p>
+<p>Calling this method without arguments will make the <a class="xref" href="Godot.Tween.html">Tween</a> run infinitely, until either it is killed with <a class="xref" href="Godot.Tween.html#Godot_Tween_Kill">Kill()</a>, the <a class="xref" href="Godot.Tween.html">Tween</a>'s bound node is freed, or all the animated objects have been freed (which makes further animation impossible).</p>
+<p>
+  <b>Warning:</b> Make sure to always add some duration/delay when using infinite loops. To prevent the game freezing, 0-duration looped animations (e.g. a single <a class="xref" href="Godot.CallbackTweener.html">CallbackTweener</a> with no delay) are stopped after a small number of loops, which may produce unexpected results. If a <a class="xref" href="Godot.Tween.html">Tween</a>'s lifetime depends on some node, always use <a class="xref" href="Godot.Tween.html#Godot_Tween_BindNode_Godot_Node_">BindNode(Node)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tween SetLoops(int loops = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>loops</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Tween.html">Tween</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_SetParallel_" data-uid="Godot.Tween.SetParallel*"></a>
+
+  <h3 id="Godot_Tween_SetParallel_System_Boolean_" data-uid="Godot.Tween.SetParallel(System.Boolean)">
+  SetParallel(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <code class="paramref">parallel</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the <a class="xref" href="Godot.Tweener.html">Tweener</a>s appended after this method will by default run simultaneously, as opposed to sequentially.</p>
+<p>
+  <b>Note:</b> Just like with <a class="xref" href="Godot.Tween.html#Godot_Tween_Parallel">Parallel()</a>, the tweener added right before this method will also be part of the parallel step.</p>
+<p>
+  <pre><code class="lang-csharp">tween.tween_property(self, "position", Vector2(300, 0), 0.5)
+  tween.set_parallel()
+  tween.tween_property(self, "modulate", Color.GREEN, 0.5) # Runs together with the position tweener.</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tween SetParallel(bool parallel = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parallel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Tween.html">Tween</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_SetPauseMode_" data-uid="Godot.Tween.SetPauseMode*"></a>
+
+  <h3 id="Godot_Tween_SetPauseMode_Godot_Tween_TweenPauseMode_" data-uid="Godot.Tween.SetPauseMode(Godot.Tween.TweenPauseMode)">
+  SetPauseMode(TweenPauseMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the behavior of the <a class="xref" href="Godot.Tween.html">Tween</a> when the <a class="xref" href="Godot.SceneTree.html">SceneTree</a> is paused. Check <a class="xref" href="Godot.Tween.TweenPauseMode.html">Tween.TweenPauseMode</a> for options.</p>
+<p>Default value is <a class="xref" href="Godot.Tween.TweenPauseMode.html#Godot_Tween_TweenPauseMode_Bound">Bound</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tween SetPauseMode(Tween.TweenPauseMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="Godot.Tween.html">Tween</a>.<a class="xref" href="Godot.Tween.TweenPauseMode.html">TweenPauseMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Tween.html">Tween</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_SetProcessMode_" data-uid="Godot.Tween.SetProcessMode*"></a>
+
+  <h3 id="Godot_Tween_SetProcessMode_Godot_Tween_TweenProcessMode_" data-uid="Godot.Tween.SetProcessMode(Godot.Tween.TweenProcessMode)">
+  SetProcessMode(TweenProcessMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the <a class="xref" href="Godot.Tween.html">Tween</a> should run after process frames (see <a class="xref" href="Godot.Node.html#Godot_Node__Process_System_Double_">_Process(double)</a>) or physics frames (see <a class="xref" href="Godot.Node.html#Godot_Node__PhysicsProcess_System_Double_">_PhysicsProcess(double)</a>).</p>
+<p>Default value is <a class="xref" href="Godot.Tween.TweenProcessMode.html#Godot_Tween_TweenProcessMode_Idle">Idle</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tween SetProcessMode(Tween.TweenProcessMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="Godot.Tween.html">Tween</a>.<a class="xref" href="Godot.Tween.TweenProcessMode.html">TweenProcessMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Tween.html">Tween</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_SetSpeedScale_" data-uid="Godot.Tween.SetSpeedScale*"></a>
+
+  <h3 id="Godot_Tween_SetSpeedScale_System_Single_" data-uid="Godot.Tween.SetSpeedScale(System.Single)">
+  SetSpeedScale(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales the speed of tweening. This affects all <a class="xref" href="Godot.Tweener.html">Tweener</a>s and their delays.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tween SetSpeedScale(float speed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>speed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Tween.html">Tween</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_SetTrans_" data-uid="Godot.Tween.SetTrans*"></a>
+
+  <h3 id="Godot_Tween_SetTrans_Godot_Tween_TransitionType_" data-uid="Godot.Tween.SetTrans(Godot.Tween.TransitionType)">
+  SetTrans(TransitionType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the default transition type for <a class="xref" href="Godot.PropertyTweener.html">PropertyTweener</a>s and <a class="xref" href="Godot.MethodTweener.html">MethodTweener</a>s animated by this <a class="xref" href="Godot.Tween.html">Tween</a>.</p>
+<p>If not specified, the default value is <a class="xref" href="Godot.Tween.TransitionType.html#Godot_Tween_TransitionType_Linear">Linear</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tween SetTrans(Tween.TransitionType trans)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>trans</code> <a class="xref" href="Godot.Tween.html">Tween</a>.<a class="xref" href="Godot.Tween.TransitionType.html">TransitionType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Tween.html">Tween</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_Stop_" data-uid="Godot.Tween.Stop*"></a>
+
+  <h3 id="Godot_Tween_Stop" data-uid="Godot.Tween.Stop">
+  Stop()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stops the tweening and resets the <a class="xref" href="Godot.Tween.html">Tween</a> to its initial state. This will not remove any appended <a class="xref" href="Godot.Tweener.html">Tweener</a>s.</p>
+<p>
+  <b>Note:</b> If a Tween is stopped and not bound to any node, it will exist indefinitely until manually started or invalidated. If you lose a reference to such Tween, you can retrieve it using <a class="xref" href="Godot.SceneTree.html#Godot_SceneTree_GetProcessedTweens">GetProcessedTweens()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_TweenCallback_" data-uid="Godot.Tween.TweenCallback*"></a>
+
+  <h3 id="Godot_Tween_TweenCallback_Godot_Callable_" data-uid="Godot.Tween.TweenCallback(Godot.Callable)">
+  TweenCallback(Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and appends a <a class="xref" href="Godot.CallbackTweener.html">CallbackTweener</a>. This method can be used to call an arbitrary method in any object. Use <code>Callable.bind</code> to bind additional arguments for the call.</p>
+<p>
+  <b>Example:</b> Object that keeps shooting every 1 second:</p>
+<p>
+  <pre><code class="lang-csharp">Tween tween = GetTree().CreateTween().SetLoops();
+  tween.TweenCallback(Callable.From(Shoot)).SetDelay(1.0f);</code></pre>
+
+<p>
+  <b>Example:</b> Turning a sprite red and then blue, with 2 second delay:</p>
+<p>
+  <pre><code class="lang-csharp">Tween tween = GetTree().CreateTween();
+  Sprite2D sprite = GetNode&lt;Sprite2D&gt;("Sprite");
+  tween.TweenCallback(Callable.From(() =&gt; sprite.Modulate = Colors.Red)).SetDelay(2.0f);
+  tween.TweenCallback(Callable.From(() =&gt; sprite.Modulate = Colors.Blue)).SetDelay(2.0f);</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CallbackTweener TweenCallback(Callable callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.CallbackTweener.html">CallbackTweener</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_TweenInterval_" data-uid="Godot.Tween.TweenInterval*"></a>
+
+  <h3 id="Godot_Tween_TweenInterval_System_Double_" data-uid="Godot.Tween.TweenInterval(System.Double)">
+  TweenInterval(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and appends an <a class="xref" href="Godot.IntervalTweener.html">IntervalTweener</a>. This method can be used to create delays in the tween animation, as an alternative to using the delay in other <a class="xref" href="Godot.Tweener.html">Tweener</a>s, or when there's no animation (in which case the <a class="xref" href="Godot.Tween.html">Tween</a> acts as a timer). <code class="paramref">time</code> is the length of the interval, in seconds.</p>
+<p>
+  <b>Example:</b> Creating an interval in code execution:</p>
+<p>
+  <pre><code class="lang-csharp">// ... some code
+  await ToSignal(CreateTween().TweenInterval(2.0f), Tween.SignalName.Finished);
+  // ... more code</code></pre>
+
+<p>
+  <b>Example:</b> Creating an object that moves back and forth and jumps every few seconds:</p>
+<p>
+  <pre><code class="lang-csharp">Tween tween = CreateTween().SetLoops();
+  tween.TweenProperty(GetNode("Sprite"), "position:x", 200.0f, 1.0f).AsRelative();
+  tween.TweenCallback(Callable.From(Jump));
+  tween.TweenInterval(2.0f);
+  tween.TweenProperty(GetNode("Sprite"), "position:x", -200.0f, 1.0f).AsRelative();
+  tween.TweenCallback(Callable.From(Jump));
+  tween.TweenInterval(2.0f);</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntervalTweener TweenInterval(double time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.IntervalTweener.html">IntervalTweener</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_TweenMethod_" data-uid="Godot.Tween.TweenMethod*"></a>
+
+  <h3 id="Godot_Tween_TweenMethod_Godot_Callable_Godot_Variant_Godot_Variant_System_Double_" data-uid="Godot.Tween.TweenMethod(Godot.Callable,Godot.Variant,Godot.Variant,System.Double)">
+  TweenMethod(Callable, Variant, Variant, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and appends a <a class="xref" href="Godot.MethodTweener.html">MethodTweener</a>. This method is similar to a combination of <a class="xref" href="Godot.Tween.html#Godot_Tween_TweenCallback_Godot_Callable_">TweenCallback(Callable)</a> and <a class="xref" href="Godot.Tween.html#Godot_Tween_TweenProperty_Godot_GodotObject_Godot_NodePath_Godot_Variant_System_Double_">TweenProperty(GodotObject, NodePath, Variant, double)</a>. It calls a method over time with a tweened value provided as an argument. The value is tweened between <code class="paramref">from</code> and <code class="paramref">to</code> over the time specified by <code class="paramref">duration</code>, in seconds. Use <code>Callable.bind</code> to bind additional arguments for the call. You can use <a class="xref" href="Godot.MethodTweener.html#Godot_MethodTweener_SetEase_Godot_Tween_EaseType_">SetEase(EaseType)</a> and <a class="xref" href="Godot.MethodTweener.html#Godot_MethodTweener_SetTrans_Godot_Tween_TransitionType_">SetTrans(TransitionType)</a> to tweak the easing and transition of the value or <a class="xref" href="Godot.MethodTweener.html#Godot_MethodTweener_SetDelay_System_Double_">SetDelay(double)</a> to delay the tweening.</p>
+<p>
+  <b>Example:</b> Making a 3D object look from one point to another point:</p>
+<p>
+  <pre><code class="lang-csharp">Tween tween = CreateTween();
+  tween.TweenMethod(Callable.From((Vector3 target) =&gt; LookAt(target, Vector3.Up)), new Vector3(-1.0f, 0.0f, -1.0f), new Vector3(1.0f, 0.0f, -1.0f), 1.0f); // Use lambdas to bind additional arguments for the call.</code></pre>
+
+<p>
+  <b>Example:</b> Setting the text of a <a class="xref" href="Godot.Label.html">Label</a>, using an intermediate method and after a delay:</p>
+<p>
+  <pre><code class="lang-csharp">public override void _Ready()
+  {
+      base._Ready();
+<pre><code>  Tween tween = CreateTween();
+  tween.TweenMethod(Callable.From&lt;int&gt;(SetLabelText), 0.0f, 10.0f, 1.0f).SetDelay(1.0f);
+</code></pre>
+<p>}</p>
+<p>private void SetLabelText(int value)
+{
+GetNode&lt;Label&gt;(&quot;Label&quot;).Text = $&quot;Counting {value}&quot;;
+}</p></code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MethodTweener TweenMethod(Callable method, Variant from, Variant to, double duration)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>from</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>to</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.MethodTweener.html">MethodTweener</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Tween_TweenProperty_" data-uid="Godot.Tween.TweenProperty*"></a>
+
+  <h3 id="Godot_Tween_TweenProperty_Godot_GodotObject_Godot_NodePath_Godot_Variant_System_Double_" data-uid="Godot.Tween.TweenProperty(Godot.GodotObject,Godot.NodePath,Godot.Variant,System.Double)">
+  TweenProperty(GodotObject, NodePath, Variant, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and appends a <a class="xref" href="Godot.PropertyTweener.html">PropertyTweener</a>. This method tweens a <code class="paramref">property</code> of an <code class="paramref">object</code> between an initial value and <code class="paramref">finalVal</code> in a span of time equal to <code class="paramref">duration</code>, in seconds. The initial value by default is the property's value at the time the tweening of the <a class="xref" href="Godot.PropertyTweener.html">PropertyTweener</a> starts.</p>
+<p>
+  <b>Example:</b>
+</p>
+<p>
+  <pre><code class="lang-csharp">Tween tween = CreateTween();
+  tween.TweenProperty(GetNode("Sprite"), "position", new Vector2(100.0f, 200.0f), 1.0f);
+  tween.TweenProperty(GetNode("Sprite"), "position", new Vector2(200.0f, 300.0f), 1.0f);</code></pre>
+
+<p>will move the sprite to position (100, 200) and then to (200, 300). If you use <a class="xref" href="Godot.PropertyTweener.html#Godot_PropertyTweener_From_Godot_Variant_">From(Variant)</a> or <a class="xref" href="Godot.PropertyTweener.html#Godot_PropertyTweener_FromCurrent">FromCurrent()</a>, the starting position will be overwritten by the given value instead. See other methods in <a class="xref" href="Godot.PropertyTweener.html">PropertyTweener</a> to see how the tweening can be tweaked further.</p>
+<p>
+  <b>Note:</b> You can find the correct property name by hovering over the property in the Inspector. You can also provide the components of a property directly by using <code>"property:component"</code> (eg. <code>position:x</code>), where it would only apply to that particular component.</p>
+<p>
+  <b>Example:</b> Moving an object twice from the same position, with different transition types:</p>
+<p>
+  <pre><code class="lang-csharp">Tween tween = CreateTween();
+  tween.TweenProperty(GetNode("Sprite"), "position", Vector2.Right * 300.0f, 1.0f).AsRelative().SetTrans(Tween.TransitionType.Sine);
+  tween.TweenProperty(GetNode("Sprite"), "position", Vector2.Right * 300.0f, 1.0f).AsRelative().FromCurrent().SetTrans(Tween.TransitionType.Expo);</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropertyTweener TweenProperty(GodotObject @object, NodePath property, Variant finalVal, double duration)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>object</code> <a class="xref" href="Godot.GodotObject.html">GodotObject</a></dt>
+    <dd></dd>
+    <dt><code>property</code> <a class="xref" href="Godot.NodePath.html">NodePath</a></dt>
+    <dd></dd>
+    <dt><code>finalVal</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.PropertyTweener.html">PropertyTweener</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Godot_Tween_Finished" data-uid="Godot.Tween.Finished">
+  Finished
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when the <a class="xref" href="Godot.Tween.html">Tween</a> has finished all tweening. Never emitted when the <a class="xref" href="Godot.Tween.html">Tween</a> is set to infinite looping (see <a class="xref" href="Godot.Tween.html#Godot_Tween_SetLoops_System_Int32_">SetLoops(int)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action Finished</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_Tween_LoopFinished" data-uid="Godot.Tween.LoopFinished">
+  LoopFinished
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when a full loop is complete (see <a class="xref" href="Godot.Tween.html#Godot_Tween_SetLoops_System_Int32_">SetLoops(int)</a>), providing the loop index. This signal is not emitted after the final loop, use <a class="xref" href="Godot.Tween.html#Godot_Tween_Finished">Finished</a> instead for this case.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Tween.LoopFinishedEventHandler LoopFinished</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Tween.html">Tween</a>.<a class="xref" href="Godot.Tween.LoopFinishedEventHandler.html">LoopFinishedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Godot_Tween_StepFinished" data-uid="Godot.Tween.StepFinished">
+  StepFinished
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when one step of the <a class="xref" href="Godot.Tween.html">Tween</a> is complete, providing the step index. One step is either a single <a class="xref" href="Godot.Tweener.html">Tweener</a> or a group of <a class="xref" href="Godot.Tweener.html">Tweener</a>s running in parallel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Tween.StepFinishedEventHandler StepFinished</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Tween.html">Tween</a>.<a class="xref" href="Godot.Tween.StepFinishedEventHandler.html">StepFinishedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Tween.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

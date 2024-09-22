@@ -1,0 +1,2976 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class NativeMenu | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NativeMenu | Godot4 C# API ">
+      
+      <meta name="description" content="handles low-level access to the OS native global menu bar and popup menus.    Note: This is low-level API, consider using  with  set to true, and  with  set to true. To create a menu, use , add menu items using add_*_item methods. To remove a menu, use .    var menu func _menu_callback(item_id): if item_id == &amp;quot;ITEM_CUT&amp;quot;: cut() elif item_id == &amp;quot;ITEM_COPY&amp;quot;: copy() elif item_id == &amp;quot;ITEM_PASTE&amp;quot;: paste() func _enter_tree(): # Create new menu and add items: menu = NativeMenu.create_menu() NativeMenu.add_item(menu, &amp;quot;Cut&amp;quot;, _menu_callback, Callable(), &amp;quot;ITEM_CUT&amp;quot;) NativeMenu.add_item(menu, &amp;quot;Copy&amp;quot;, _menu_callback, Callable(), &amp;quot;ITEM_COPY&amp;quot;) NativeMenu.add_separator(menu) NativeMenu.add_item(menu, &amp;quot;Paste&amp;quot;, _menu_callback, Callable(), &amp;quot;ITEM_PASTE&amp;quot;) func _on_button_pressed(): # Show popup menu at mouse position: NativeMenu.popup(menu, DisplayServer.mouse_get_position()) func _exit_tree(): # Remove menu when it&#39;s no longer needed: NativeMenu.free_menu(menu)">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.NativeMenu">
+
+
+
+  <h1 id="Godot_NativeMenu" data-uid="Godot.NativeMenu" class="text-break">
+Class NativeMenu  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>
+  <a class="xref" href="Godot.NativeMenu.html">NativeMenu</a> handles low-level access to the OS native global menu bar and popup menus.</p>
+<p>
+  <b>Note:</b> This is low-level API, consider using <a class="xref" href="Godot.MenuBar.html">MenuBar</a> with <a class="xref" href="Godot.MenuBar.html#Godot_MenuBar_PreferGlobalMenu">PreferGlobalMenu</a> set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, and <a class="xref" href="Godot.PopupMenu.html">PopupMenu</a> with <a class="xref" href="Godot.PopupMenu.html#Godot_PopupMenu_PreferNativeMenu">PreferNativeMenu</a> set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+<p>To create a menu, use <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_CreateMenu">CreateMenu()</a>, add menu items using <code>add_*_item</code> methods. To remove a menu, use <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_FreeMenu_Godot_Rid_">FreeMenu(Rid)</a>.</p>
+<p>
+  <pre><code class="lang-csharp">var menu
+<p>func _menu_callback(item_id):
+if item_id == &quot;ITEM_CUT&quot;:
+cut()
+elif item_id == &quot;ITEM_COPY&quot;:
+copy()
+elif item_id == &quot;ITEM_PASTE&quot;:
+paste()</p>
+<p>func _enter_tree():
+# Create new menu and add items:
+menu = NativeMenu.create_menu()
+NativeMenu.add_item(menu, &quot;Cut&quot;, _menu_callback, Callable(), &quot;ITEM_CUT&quot;)
+NativeMenu.add_item(menu, &quot;Copy&quot;, _menu_callback, Callable(), &quot;ITEM_COPY&quot;)
+NativeMenu.add_separator(menu)
+NativeMenu.add_item(menu, &quot;Paste&quot;, _menu_callback, Callable(), &quot;ITEM_PASTE&quot;)</p>
+<p>func _on_button_pressed():
+# Show popup menu at mouse position:
+NativeMenu.popup(menu, DisplayServer.mouse_get_position())</p>
+<p>func _exit_tree():
+# Remove menu when it's no longer needed:
+NativeMenu.free_menu(menu)</p></code></pre>
+
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class NativeMenu</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">NativeMenu</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_NativeMenu_Singleton_" data-uid="Godot.NativeMenu.Singleton*"></a>
+
+  <h3 id="Godot_NativeMenu_Singleton" data-uid="Godot.NativeMenu.Singleton">
+  Singleton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NativeMenuInstance Singleton { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.NativeMenuInstance.html">NativeMenuInstance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_NativeMenu_AddCheckItem_" data-uid="Godot.NativeMenu.AddCheckItem*"></a>
+
+  <h3 id="Godot_NativeMenu_AddCheckItem_Godot_Rid_System_String_Godot_Callable_Godot_Callable_Godot_Variant_Godot_Key_System_Int32_" data-uid="Godot.NativeMenu.AddCheckItem(Godot.Rid,System.String,Godot.Callable,Godot.Callable,Godot.Variant,Godot.Key,System.Int32)">
+  AddCheckItem(Rid, string, Callable, Callable, Variant, Key, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new checkable item with text <code class="paramref">label</code> to the global menu <code class="paramref">rid</code>.</p>
+<p>Returns index of the inserted item, it's not guaranteed to be the same as <code class="paramref">index</code> value.</p>
+<p>An <code class="paramref">accelerator</code> can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The <code class="paramref">accelerator</code> is generally a combination of <a class="xref" href="Godot.KeyModifierMask.html">KeyModifierMask</a>s and <a class="xref" href="Godot.Key.html">Key</a>s using bitwise OR such as <code>KEY_MASK_CTRL | KEY_A</code> (Ctrl + A).</p>
+<p>
+  <b>Note:</b> The <code class="paramref">callback</code> and <code class="paramref">keyCallback</code> Callables need to accept exactly one Variant parameter, the parameter passed to the Callables will be the value passed to <code class="paramref">tag</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+<p>
+  <b>Note:</b> On Windows, <code class="paramref">accelerator</code> and <code class="paramref">keyCallback</code> are ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int AddCheckItem(Rid rid, string label, Callable callback = default, Callable keyCallback = default, Variant tag = default, Key accelerator = Key.None, int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>keyCallback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>tag</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>accelerator</code> <a class="xref" href="Godot.Key.html">Key</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_AddIconCheckItem_" data-uid="Godot.NativeMenu.AddIconCheckItem*"></a>
+
+  <h3 id="Godot_NativeMenu_AddIconCheckItem_Godot_Rid_Godot_Texture2D_System_String_Godot_Callable_Godot_Callable_Godot_Variant_Godot_Key_System_Int32_" data-uid="Godot.NativeMenu.AddIconCheckItem(Godot.Rid,Godot.Texture2D,System.String,Godot.Callable,Godot.Callable,Godot.Variant,Godot.Key,System.Int32)">
+  AddIconCheckItem(Rid, Texture2D, string, Callable, Callable, Variant, Key, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new checkable item with text <code class="paramref">label</code> and icon <code class="paramref">icon</code> to the global menu <code class="paramref">rid</code>.</p>
+<p>Returns index of the inserted item, it's not guaranteed to be the same as <code class="paramref">index</code> value.</p>
+<p>An <code class="paramref">accelerator</code> can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The <code class="paramref">accelerator</code> is generally a combination of <a class="xref" href="Godot.KeyModifierMask.html">KeyModifierMask</a>s and <a class="xref" href="Godot.Key.html">Key</a>s using bitwise OR such as <code>KEY_MASK_CTRL | KEY_A</code> (Ctrl + A).</p>
+<p>
+  <b>Note:</b> The <code class="paramref">callback</code> and <code class="paramref">keyCallback</code> Callables need to accept exactly one Variant parameter, the parameter passed to the Callables will be the value passed to <code class="paramref">tag</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+<p>
+  <b>Note:</b> On Windows, <code class="paramref">accelerator</code> and <code class="paramref">keyCallback</code> are ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int AddIconCheckItem(Rid rid, Texture2D icon, string label, Callable callback = default, Callable keyCallback = default, Variant tag = default, Key accelerator = Key.None, int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>icon</code> <a class="xref" href="Godot.Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>keyCallback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>tag</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>accelerator</code> <a class="xref" href="Godot.Key.html">Key</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_AddIconItem_" data-uid="Godot.NativeMenu.AddIconItem*"></a>
+
+  <h3 id="Godot_NativeMenu_AddIconItem_Godot_Rid_Godot_Texture2D_System_String_Godot_Callable_Godot_Callable_Godot_Variant_Godot_Key_System_Int32_" data-uid="Godot.NativeMenu.AddIconItem(Godot.Rid,Godot.Texture2D,System.String,Godot.Callable,Godot.Callable,Godot.Variant,Godot.Key,System.Int32)">
+  AddIconItem(Rid, Texture2D, string, Callable, Callable, Variant, Key, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new item with text <code class="paramref">label</code> and icon <code class="paramref">icon</code> to the global menu <code class="paramref">rid</code>.</p>
+<p>Returns index of the inserted item, it's not guaranteed to be the same as <code class="paramref">index</code> value.</p>
+<p>An <code class="paramref">accelerator</code> can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The <code class="paramref">accelerator</code> is generally a combination of <a class="xref" href="Godot.KeyModifierMask.html">KeyModifierMask</a>s and <a class="xref" href="Godot.Key.html">Key</a>s using bitwise OR such as <code>KEY_MASK_CTRL | KEY_A</code> (Ctrl + A).</p>
+<p>
+  <b>Note:</b> The <code class="paramref">callback</code> and <code class="paramref">keyCallback</code> Callables need to accept exactly one Variant parameter, the parameter passed to the Callables will be the value passed to <code class="paramref">tag</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+<p>
+  <b>Note:</b> On Windows, <code class="paramref">accelerator</code> and <code class="paramref">keyCallback</code> are ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int AddIconItem(Rid rid, Texture2D icon, string label, Callable callback = default, Callable keyCallback = default, Variant tag = default, Key accelerator = Key.None, int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>icon</code> <a class="xref" href="Godot.Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>keyCallback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>tag</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>accelerator</code> <a class="xref" href="Godot.Key.html">Key</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_AddIconRadioCheckItem_" data-uid="Godot.NativeMenu.AddIconRadioCheckItem*"></a>
+
+  <h3 id="Godot_NativeMenu_AddIconRadioCheckItem_Godot_Rid_Godot_Texture2D_System_String_Godot_Callable_Godot_Callable_Godot_Variant_Godot_Key_System_Int32_" data-uid="Godot.NativeMenu.AddIconRadioCheckItem(Godot.Rid,Godot.Texture2D,System.String,Godot.Callable,Godot.Callable,Godot.Variant,Godot.Key,System.Int32)">
+  AddIconRadioCheckItem(Rid, Texture2D, string, Callable, Callable, Variant, Key, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new radio-checkable item with text <code class="paramref">label</code> and icon <code class="paramref">icon</code> to the global menu <code class="paramref">rid</code>.</p>
+<p>Returns index of the inserted item, it's not guaranteed to be the same as <code class="paramref">index</code> value.</p>
+<p>An <code class="paramref">accelerator</code> can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The <code class="paramref">accelerator</code> is generally a combination of <a class="xref" href="Godot.KeyModifierMask.html">KeyModifierMask</a>s and <a class="xref" href="Godot.Key.html">Key</a>s using bitwise OR such as <code>KEY_MASK_CTRL | KEY_A</code> (Ctrl + A).</p>
+<p>
+  <b>Note:</b> Radio-checkable items just display a checkmark, but don't have any built-in checking behavior and must be checked/unchecked manually. See <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_SetItemChecked_Godot_Rid_System_Int32_System_Boolean_">SetItemChecked(Rid, int, bool)</a> for more info on how to control it.</p>
+<p>
+  <b>Note:</b> The <code class="paramref">callback</code> and <code class="paramref">keyCallback</code> Callables need to accept exactly one Variant parameter, the parameter passed to the Callables will be the value passed to <code class="paramref">tag</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+<p>
+  <b>Note:</b> On Windows, <code class="paramref">accelerator</code> and <code class="paramref">keyCallback</code> are ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int AddIconRadioCheckItem(Rid rid, Texture2D icon, string label, Callable callback = default, Callable keyCallback = default, Variant tag = default, Key accelerator = Key.None, int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>icon</code> <a class="xref" href="Godot.Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>keyCallback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>tag</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>accelerator</code> <a class="xref" href="Godot.Key.html">Key</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_AddItem_" data-uid="Godot.NativeMenu.AddItem*"></a>
+
+  <h3 id="Godot_NativeMenu_AddItem_Godot_Rid_System_String_Godot_Callable_Godot_Callable_Godot_Variant_Godot_Key_System_Int32_" data-uid="Godot.NativeMenu.AddItem(Godot.Rid,System.String,Godot.Callable,Godot.Callable,Godot.Variant,Godot.Key,System.Int32)">
+  AddItem(Rid, string, Callable, Callable, Variant, Key, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new item with text <code class="paramref">label</code> to the global menu <code class="paramref">rid</code>.</p>
+<p>Returns index of the inserted item, it's not guaranteed to be the same as <code class="paramref">index</code> value.</p>
+<p>An <code class="paramref">accelerator</code> can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The <code class="paramref">accelerator</code> is generally a combination of <a class="xref" href="Godot.KeyModifierMask.html">KeyModifierMask</a>s and <a class="xref" href="Godot.Key.html">Key</a>s using bitwise OR such as <code>KEY_MASK_CTRL | KEY_A</code> (Ctrl + A).</p>
+<p>
+  <b>Note:</b> The <code class="paramref">callback</code> and <code class="paramref">keyCallback</code> Callables need to accept exactly one Variant parameter, the parameter passed to the Callables will be the value passed to <code class="paramref">tag</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+<p>
+  <b>Note:</b> On Windows, <code class="paramref">accelerator</code> and <code class="paramref">keyCallback</code> are ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int AddItem(Rid rid, string label, Callable callback = default, Callable keyCallback = default, Variant tag = default, Key accelerator = Key.None, int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>keyCallback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>tag</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>accelerator</code> <a class="xref" href="Godot.Key.html">Key</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_AddMultistateItem_" data-uid="Godot.NativeMenu.AddMultistateItem*"></a>
+
+  <h3 id="Godot_NativeMenu_AddMultistateItem_Godot_Rid_System_String_System_Int32_System_Int32_Godot_Callable_Godot_Callable_Godot_Variant_Godot_Key_System_Int32_" data-uid="Godot.NativeMenu.AddMultistateItem(Godot.Rid,System.String,System.Int32,System.Int32,Godot.Callable,Godot.Callable,Godot.Variant,Godot.Key,System.Int32)">
+  AddMultistateItem(Rid, string, int, int, Callable, Callable, Variant, Key, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new item with text <code class="paramref">label</code> to the global menu <code class="paramref">rid</code>.</p>
+<p>Contrarily to normal binary items, multistate items can have more than two states, as defined by <code class="paramref">maxStates</code>. Each press or activate of the item will increase the state by one. The default value is defined by <code class="paramref">defaultState</code>.</p>
+<p>Returns index of the inserted item, it's not guaranteed to be the same as <code class="paramref">index</code> value.</p>
+<p>An <code class="paramref">accelerator</code> can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The <code class="paramref">accelerator</code> is generally a combination of <a class="xref" href="Godot.KeyModifierMask.html">KeyModifierMask</a>s and <a class="xref" href="Godot.Key.html">Key</a>s using bitwise OR such as <code>KEY_MASK_CTRL | KEY_A</code> (Ctrl + A).</p>
+<p>
+  <b>Note:</b> By default, there's no indication of the current item state, it should be changed manually.</p>
+<p>
+  <b>Note:</b> The <code class="paramref">callback</code> and <code class="paramref">keyCallback</code> Callables need to accept exactly one Variant parameter, the parameter passed to the Callables will be the value passed to <code class="paramref">tag</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+<p>
+  <b>Note:</b> On Windows, <code class="paramref">accelerator</code> and <code class="paramref">keyCallback</code> are ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int AddMultistateItem(Rid rid, string label, int maxStates, int defaultState, Callable callback = default, Callable keyCallback = default, Variant tag = default, Key accelerator = Key.None, int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>maxStates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>defaultState</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>keyCallback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>tag</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>accelerator</code> <a class="xref" href="Godot.Key.html">Key</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_AddRadioCheckItem_" data-uid="Godot.NativeMenu.AddRadioCheckItem*"></a>
+
+  <h3 id="Godot_NativeMenu_AddRadioCheckItem_Godot_Rid_System_String_Godot_Callable_Godot_Callable_Godot_Variant_Godot_Key_System_Int32_" data-uid="Godot.NativeMenu.AddRadioCheckItem(Godot.Rid,System.String,Godot.Callable,Godot.Callable,Godot.Variant,Godot.Key,System.Int32)">
+  AddRadioCheckItem(Rid, string, Callable, Callable, Variant, Key, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new radio-checkable item with text <code class="paramref">label</code> to the global menu <code class="paramref">rid</code>.</p>
+<p>Returns index of the inserted item, it's not guaranteed to be the same as <code class="paramref">index</code> value.</p>
+<p>An <code class="paramref">accelerator</code> can optionally be defined, which is a keyboard shortcut that can be pressed to trigger the menu button even if it's not currently open. The <code class="paramref">accelerator</code> is generally a combination of <a class="xref" href="Godot.KeyModifierMask.html">KeyModifierMask</a>s and <a class="xref" href="Godot.Key.html">Key</a>s using bitwise OR such as <code>KEY_MASK_CTRL | KEY_A</code> (Ctrl + A).</p>
+<p>
+  <b>Note:</b> Radio-checkable items just display a checkmark, but don't have any built-in checking behavior and must be checked/unchecked manually. See <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_SetItemChecked_Godot_Rid_System_Int32_System_Boolean_">SetItemChecked(Rid, int, bool)</a> for more info on how to control it.</p>
+<p>
+  <b>Note:</b> The <code class="paramref">callback</code> and <code class="paramref">keyCallback</code> Callables need to accept exactly one Variant parameter, the parameter passed to the Callables will be the value passed to <code class="paramref">tag</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+<p>
+  <b>Note:</b> On Windows, <code class="paramref">accelerator</code> and <code class="paramref">keyCallback</code> are ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int AddRadioCheckItem(Rid rid, string label, Callable callback = default, Callable keyCallback = default, Variant tag = default, Key accelerator = Key.None, int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>keyCallback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>tag</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>accelerator</code> <a class="xref" href="Godot.Key.html">Key</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_AddSeparator_" data-uid="Godot.NativeMenu.AddSeparator*"></a>
+
+  <h3 id="Godot_NativeMenu_AddSeparator_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.AddSeparator(Godot.Rid,System.Int32)">
+  AddSeparator(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a separator between items to the global menu <code class="paramref">rid</code>. Separators also occupy an index.</p>
+<p>Returns index of the inserted item, it's not guaranteed to be the same as <code class="paramref">index</code> value.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int AddSeparator(Rid rid, int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_AddSubmenuItem_" data-uid="Godot.NativeMenu.AddSubmenuItem*"></a>
+
+  <h3 id="Godot_NativeMenu_AddSubmenuItem_Godot_Rid_System_String_Godot_Rid_Godot_Variant_System_Int32_" data-uid="Godot.NativeMenu.AddSubmenuItem(Godot.Rid,System.String,Godot.Rid,Godot.Variant,System.Int32)">
+  AddSubmenuItem(Rid, string, Rid, Variant, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an item that will act as a submenu of the global menu <code class="paramref">rid</code>. The <code class="paramref">submenuRid</code> argument is the RID of the global menu that will be shown when the item is clicked.</p>
+<p>Returns index of the inserted item, it's not guaranteed to be the same as <code class="paramref">index</code> value.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int AddSubmenuItem(Rid rid, string label, Rid submenuRid, Variant tag = default, int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>submenuRid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>tag</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_Clear_" data-uid="Godot.NativeMenu.Clear*"></a>
+
+  <h3 id="Godot_NativeMenu_Clear_Godot_Rid_" data-uid="Godot.NativeMenu.Clear(Godot.Rid)">
+  Clear(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all items from the global menu <code class="paramref">rid</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Clear(Rid rid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_CreateMenu_" data-uid="Godot.NativeMenu.CreateMenu*"></a>
+
+  <h3 id="Godot_NativeMenu_CreateMenu" data-uid="Godot.NativeMenu.CreateMenu">
+  CreateMenu()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new global menu object.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid CreateMenu()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_FindItemIndexWithSubmenu_" data-uid="Godot.NativeMenu.FindItemIndexWithSubmenu*"></a>
+
+  <h3 id="Godot_NativeMenu_FindItemIndexWithSubmenu_Godot_Rid_Godot_Rid_" data-uid="Godot.NativeMenu.FindItemIndexWithSubmenu(Godot.Rid,Godot.Rid)">
+  FindItemIndexWithSubmenu(Rid, Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the index of the item with the submenu specified by <code class="paramref">submenuRid</code>. Indices are automatically assigned to each item by the engine, and cannot be set manually.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int FindItemIndexWithSubmenu(Rid rid, Rid submenuRid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>submenuRid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_FindItemIndexWithTag_" data-uid="Godot.NativeMenu.FindItemIndexWithTag*"></a>
+
+  <h3 id="Godot_NativeMenu_FindItemIndexWithTag_Godot_Rid_Godot_Variant_" data-uid="Godot.NativeMenu.FindItemIndexWithTag(Godot.Rid,Godot.Variant)">
+  FindItemIndexWithTag(Rid, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the index of the item with the specified <code class="paramref">tag</code>. Indices are automatically assigned to each item by the engine, and cannot be set manually.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int FindItemIndexWithTag(Rid rid, Variant tag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>tag</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_FindItemIndexWithText_" data-uid="Godot.NativeMenu.FindItemIndexWithText*"></a>
+
+  <h3 id="Godot_NativeMenu_FindItemIndexWithText_Godot_Rid_System_String_" data-uid="Godot.NativeMenu.FindItemIndexWithText(Godot.Rid,System.String)">
+  FindItemIndexWithText(Rid, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the index of the item with the specified <code class="paramref">text</code>. Indices are automatically assigned to each item by the engine, and cannot be set manually.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int FindItemIndexWithText(Rid rid, string text)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_FreeMenu_" data-uid="Godot.NativeMenu.FreeMenu*"></a>
+
+  <h3 id="Godot_NativeMenu_FreeMenu_Godot_Rid_" data-uid="Godot.NativeMenu.FreeMenu(Godot.Rid)">
+  FreeMenu(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Frees a global menu object created by this <a class="xref" href="Godot.NativeMenu.html">NativeMenu</a>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FreeMenu(Rid rid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetItemAccelerator_" data-uid="Godot.NativeMenu.GetItemAccelerator*"></a>
+
+  <h3 id="Godot_NativeMenu_GetItemAccelerator_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.GetItemAccelerator(Godot.Rid,System.Int32)">
+  GetItemAccelerator(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the accelerator of the item at index <code class="paramref">idx</code>. Accelerators are special combinations of keys that activate the item, no matter which control is focused.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Key GetItemAccelerator(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Key.html">Key</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetItemCallback_" data-uid="Godot.NativeMenu.GetItemCallback*"></a>
+
+  <h3 id="Godot_NativeMenu_GetItemCallback_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.GetItemCallback(Godot.Rid,System.Int32)">
+  GetItemCallback(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the callback of the item at index <code class="paramref">idx</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Callable GetItemCallback(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetItemCount_" data-uid="Godot.NativeMenu.GetItemCount*"></a>
+
+  <h3 id="Godot_NativeMenu_GetItemCount_Godot_Rid_" data-uid="Godot.NativeMenu.GetItemCount(Godot.Rid)">
+  GetItemCount(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns number of items in the global menu <code class="paramref">rid</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetItemCount(Rid rid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetItemIcon_" data-uid="Godot.NativeMenu.GetItemIcon*"></a>
+
+  <h3 id="Godot_NativeMenu_GetItemIcon_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.GetItemIcon(Godot.Rid,System.Int32)">
+  GetItemIcon(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the icon of the item at index <code class="paramref">idx</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture2D GetItemIcon(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetItemIndentationLevel_" data-uid="Godot.NativeMenu.GetItemIndentationLevel*"></a>
+
+  <h3 id="Godot_NativeMenu_GetItemIndentationLevel_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.GetItemIndentationLevel(Godot.Rid,System.Int32)">
+  GetItemIndentationLevel(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the horizontal offset of the item at the given <code class="paramref">idx</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetItemIndentationLevel(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetItemKeyCallback_" data-uid="Godot.NativeMenu.GetItemKeyCallback*"></a>
+
+  <h3 id="Godot_NativeMenu_GetItemKeyCallback_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.GetItemKeyCallback(Godot.Rid,System.Int32)">
+  GetItemKeyCallback(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the callback of the item accelerator at index <code class="paramref">idx</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Callable GetItemKeyCallback(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetItemMaxStates_" data-uid="Godot.NativeMenu.GetItemMaxStates*"></a>
+
+  <h3 id="Godot_NativeMenu_GetItemMaxStates_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.GetItemMaxStates(Godot.Rid,System.Int32)">
+  GetItemMaxStates(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns number of states of a multistate item. See <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_AddMultistateItem_Godot_Rid_System_String_System_Int32_System_Int32_Godot_Callable_Godot_Callable_Godot_Variant_Godot_Key_System_Int32_">AddMultistateItem(Rid, string, int, int, Callable, Callable, Variant, Key, int)</a> for details.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetItemMaxStates(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetItemState_" data-uid="Godot.NativeMenu.GetItemState*"></a>
+
+  <h3 id="Godot_NativeMenu_GetItemState_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.GetItemState(Godot.Rid,System.Int32)">
+  GetItemState(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the state of a multistate item. See <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_AddMultistateItem_Godot_Rid_System_String_System_Int32_System_Int32_Godot_Callable_Godot_Callable_Godot_Variant_Godot_Key_System_Int32_">AddMultistateItem(Rid, string, int, int, Callable, Callable, Variant, Key, int)</a> for details.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetItemState(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetItemSubmenu_" data-uid="Godot.NativeMenu.GetItemSubmenu*"></a>
+
+  <h3 id="Godot_NativeMenu_GetItemSubmenu_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.GetItemSubmenu(Godot.Rid,System.Int32)">
+  GetItemSubmenu(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the submenu ID of the item at index <code class="paramref">idx</code>. See <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_AddSubmenuItem_Godot_Rid_System_String_Godot_Rid_Godot_Variant_System_Int32_">AddSubmenuItem(Rid, string, Rid, Variant, int)</a> for more info on how to add a submenu.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid GetItemSubmenu(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetItemTag_" data-uid="Godot.NativeMenu.GetItemTag*"></a>
+
+  <h3 id="Godot_NativeMenu_GetItemTag_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.GetItemTag(Godot.Rid,System.Int32)">
+  GetItemTag(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the metadata of the specified item, which might be of any type. You can set it with <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_SetItemTag_Godot_Rid_System_Int32_Godot_Variant_">SetItemTag(Rid, int, Variant)</a>, which provides a simple way of assigning context data to items.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Variant GetItemTag(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetItemText_" data-uid="Godot.NativeMenu.GetItemText*"></a>
+
+  <h3 id="Godot_NativeMenu_GetItemText_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.GetItemText(Godot.Rid,System.Int32)">
+  GetItemText(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the text of the item at index <code class="paramref">idx</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetItemText(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetItemTooltip_" data-uid="Godot.NativeMenu.GetItemTooltip*"></a>
+
+  <h3 id="Godot_NativeMenu_GetItemTooltip_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.GetItemTooltip(Godot.Rid,System.Int32)">
+  GetItemTooltip(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the tooltip associated with the specified index <code class="paramref">idx</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetItemTooltip(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetMinimumWidth_" data-uid="Godot.NativeMenu.GetMinimumWidth*"></a>
+
+  <h3 id="Godot_NativeMenu_GetMinimumWidth_Godot_Rid_" data-uid="Godot.NativeMenu.GetMinimumWidth(Godot.Rid)">
+  GetMinimumWidth(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns global menu minimum width.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float GetMinimumWidth(Rid rid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetPopupCloseCallback_" data-uid="Godot.NativeMenu.GetPopupCloseCallback*"></a>
+
+  <h3 id="Godot_NativeMenu_GetPopupCloseCallback_Godot_Rid_" data-uid="Godot.NativeMenu.GetPopupCloseCallback(Godot.Rid)">
+  GetPopupCloseCallback(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns global menu close callback.</p>
+<p>b]Note:[/b] This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Callable GetPopupCloseCallback(Rid rid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetPopupOpenCallback_" data-uid="Godot.NativeMenu.GetPopupOpenCallback*"></a>
+
+  <h3 id="Godot_NativeMenu_GetPopupOpenCallback_Godot_Rid_" data-uid="Godot.NativeMenu.GetPopupOpenCallback(Godot.Rid)">
+  GetPopupOpenCallback(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns global menu open callback.</p>
+<p>b]Note:[/b] This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Callable GetPopupOpenCallback(Rid rid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetSize_" data-uid="Godot.NativeMenu.GetSize*"></a>
+
+  <h3 id="Godot_NativeMenu_GetSize_Godot_Rid_" data-uid="Godot.NativeMenu.GetSize(Godot.Rid)">
+  GetSize(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns global menu size.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 GetSize(Rid rid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetSystemMenu_" data-uid="Godot.NativeMenu.GetSystemMenu*"></a>
+
+  <h3 id="Godot_NativeMenu_GetSystemMenu_Godot_NativeMenu_SystemMenus_" data-uid="Godot.NativeMenu.GetSystemMenu(Godot.NativeMenu.SystemMenus)">
+  GetSystemMenu(SystemMenus)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns RID of a special system menu.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid GetSystemMenu(NativeMenu.SystemMenus menuId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>menuId</code> <a class="xref" href="Godot.NativeMenu.html">NativeMenu</a>.<a class="xref" href="Godot.NativeMenu.SystemMenus.html">SystemMenus</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_GetSystemMenuName_" data-uid="Godot.NativeMenu.GetSystemMenuName*"></a>
+
+  <h3 id="Godot_NativeMenu_GetSystemMenuName_Godot_NativeMenu_SystemMenus_" data-uid="Godot.NativeMenu.GetSystemMenuName(Godot.NativeMenu.SystemMenus)">
+  GetSystemMenuName(SystemMenus)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns readable name of a special system menu.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetSystemMenuName(NativeMenu.SystemMenus menuId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>menuId</code> <a class="xref" href="Godot.NativeMenu.html">NativeMenu</a>.<a class="xref" href="Godot.NativeMenu.SystemMenus.html">SystemMenus</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_HasFeature_" data-uid="Godot.NativeMenu.HasFeature*"></a>
+
+  <h3 id="Godot_NativeMenu_HasFeature_Godot_NativeMenu_Feature_" data-uid="Godot.NativeMenu.HasFeature(Godot.NativeMenu.Feature)">
+  HasFeature(Feature)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified <code class="paramref">feature</code> is supported by the current <a class="xref" href="Godot.NativeMenu.html">NativeMenu</a>, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasFeature(NativeMenu.Feature feature)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feature</code> <a class="xref" href="Godot.NativeMenu.html">NativeMenu</a>.<a class="xref" href="Godot.NativeMenu.Feature.html">Feature</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_HasMenu_" data-uid="Godot.NativeMenu.HasMenu*"></a>
+
+  <h3 id="Godot_NativeMenu_HasMenu_Godot_Rid_" data-uid="Godot.NativeMenu.HasMenu(Godot.Rid)">
+  HasMenu(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">rid</code> is valid global menu.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasMenu(Rid rid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_HasSystemMenu_" data-uid="Godot.NativeMenu.HasSystemMenu*"></a>
+
+  <h3 id="Godot_NativeMenu_HasSystemMenu_Godot_NativeMenu_SystemMenus_" data-uid="Godot.NativeMenu.HasSystemMenu(Godot.NativeMenu.SystemMenus)">
+  HasSystemMenu(SystemMenus)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a special system menu is supported.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasSystemMenu(NativeMenu.SystemMenus menuId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>menuId</code> <a class="xref" href="Godot.NativeMenu.html">NativeMenu</a>.<a class="xref" href="Godot.NativeMenu.SystemMenus.html">SystemMenus</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_IsItemCheckable_" data-uid="Godot.NativeMenu.IsItemCheckable*"></a>
+
+  <h3 id="Godot_NativeMenu_IsItemCheckable_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.IsItemCheckable(Godot.Rid,System.Int32)">
+  IsItemCheckable(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the item at index <code class="paramref">idx</code> is checkable in some way, i.e. if it has a checkbox or radio button.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsItemCheckable(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_IsItemChecked_" data-uid="Godot.NativeMenu.IsItemChecked*"></a>
+
+  <h3 id="Godot_NativeMenu_IsItemChecked_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.IsItemChecked(Godot.Rid,System.Int32)">
+  IsItemChecked(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the item at index <code class="paramref">idx</code> is checked.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsItemChecked(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_IsItemDisabled_" data-uid="Godot.NativeMenu.IsItemDisabled*"></a>
+
+  <h3 id="Godot_NativeMenu_IsItemDisabled_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.IsItemDisabled(Godot.Rid,System.Int32)">
+  IsItemDisabled(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the item at index <code class="paramref">idx</code> is disabled. When it is disabled it can't be selected, or its action invoked.</p>
+<p>See <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_SetItemDisabled_Godot_Rid_System_Int32_System_Boolean_">SetItemDisabled(Rid, int, bool)</a> for more info on how to disable an item.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsItemDisabled(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_IsItemHidden_" data-uid="Godot.NativeMenu.IsItemHidden*"></a>
+
+  <h3 id="Godot_NativeMenu_IsItemHidden_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.IsItemHidden(Godot.Rid,System.Int32)">
+  IsItemHidden(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the item at index <code class="paramref">idx</code> is hidden.</p>
+<p>See <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_SetItemHidden_Godot_Rid_System_Int32_System_Boolean_">SetItemHidden(Rid, int, bool)</a> for more info on how to hide an item.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsItemHidden(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_IsItemRadioCheckable_" data-uid="Godot.NativeMenu.IsItemRadioCheckable*"></a>
+
+  <h3 id="Godot_NativeMenu_IsItemRadioCheckable_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.IsItemRadioCheckable(Godot.Rid,System.Int32)">
+  IsItemRadioCheckable(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the item at index <code class="paramref">idx</code> has radio button-style checkability.</p>
+<p>
+  <b>Note:</b> This is purely cosmetic; you must add the logic for checking/unchecking items in radio groups.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsItemRadioCheckable(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_IsOpened_" data-uid="Godot.NativeMenu.IsOpened*"></a>
+
+  <h3 id="Godot_NativeMenu_IsOpened_Godot_Rid_" data-uid="Godot.NativeMenu.IsOpened(Godot.Rid)">
+  IsOpened(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the menu is currently opened.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsOpened(Rid rid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_IsSystemMenu_" data-uid="Godot.NativeMenu.IsSystemMenu*"></a>
+
+  <h3 id="Godot_NativeMenu_IsSystemMenu_Godot_Rid_" data-uid="Godot.NativeMenu.IsSystemMenu(Godot.Rid)">
+  IsSystemMenu(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> is global menu is a special system menu.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsSystemMenu(Rid rid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_Popup_" data-uid="Godot.NativeMenu.Popup*"></a>
+
+  <h3 id="Godot_NativeMenu_Popup_Godot_Rid_Godot_Vector2I_" data-uid="Godot.NativeMenu.Popup(Godot.Rid,Godot.Vector2I)">
+  Popup(Rid, Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shows the global menu at <code class="paramref">position</code> in the screen coordinates.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Popup(Rid rid, Vector2I position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_RemoveItem_" data-uid="Godot.NativeMenu.RemoveItem*"></a>
+
+  <h3 id="Godot_NativeMenu_RemoveItem_Godot_Rid_System_Int32_" data-uid="Godot.NativeMenu.RemoveItem(Godot.Rid,System.Int32)">
+  RemoveItem(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the item at index <code class="paramref">idx</code> from the global menu <code class="paramref">rid</code>.</p>
+<p>
+  <b>Note:</b> The indices of items after the removed item will be shifted by one.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemoveItem(Rid rid, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetInterfaceDirection_" data-uid="Godot.NativeMenu.SetInterfaceDirection*"></a>
+
+  <h3 id="Godot_NativeMenu_SetInterfaceDirection_Godot_Rid_System_Boolean_" data-uid="Godot.NativeMenu.SetInterfaceDirection(Godot.Rid,System.Boolean)">
+  SetInterfaceDirection(Rid, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the menu text layout direction from right-to-left if <code class="paramref">isRtl</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetInterfaceDirection(Rid rid, bool isRtl)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>isRtl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemAccelerator_" data-uid="Godot.NativeMenu.SetItemAccelerator*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemAccelerator_Godot_Rid_System_Int32_Godot_Key_" data-uid="Godot.NativeMenu.SetItemAccelerator(Godot.Rid,System.Int32,Godot.Key)">
+  SetItemAccelerator(Rid, int, Key)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the accelerator of the item at index <code class="paramref">idx</code>. <code class="paramref">keycode</code> can be a single <a class="xref" href="Godot.Key.html">Key</a>, or a combination of <a class="xref" href="Godot.KeyModifierMask.html">KeyModifierMask</a>s and <a class="xref" href="Godot.Key.html">Key</a>s using bitwise OR such as <code>KEY_MASK_CTRL | KEY_A</code> (Ctrl + A).</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemAccelerator(Rid rid, int idx, Key keycode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>keycode</code> <a class="xref" href="Godot.Key.html">Key</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemCallback_" data-uid="Godot.NativeMenu.SetItemCallback*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemCallback_Godot_Rid_System_Int32_Godot_Callable_" data-uid="Godot.NativeMenu.SetItemCallback(Godot.Rid,System.Int32,Godot.Callable)">
+  SetItemCallback(Rid, int, Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the callback of the item at index <code class="paramref">idx</code>. Callback is emitted when an item is pressed.</p>
+<p>
+  <b>Note:</b> The <code class="paramref">callback</code> Callable needs to accept exactly one Variant parameter, the parameter passed to the Callable will be the value passed to the <code>tag</code> parameter when the menu item was created.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemCallback(Rid rid, int idx, Callable callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemCheckable_" data-uid="Godot.NativeMenu.SetItemCheckable*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemCheckable_Godot_Rid_System_Int32_System_Boolean_" data-uid="Godot.NativeMenu.SetItemCheckable(Godot.Rid,System.Int32,System.Boolean)">
+  SetItemCheckable(Rid, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the item at index <code class="paramref">idx</code> has a checkbox. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, sets the type of the item to plain text.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemCheckable(Rid rid, int idx, bool checkable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>checkable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemChecked_" data-uid="Godot.NativeMenu.SetItemChecked*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemChecked_Godot_Rid_System_Int32_System_Boolean_" data-uid="Godot.NativeMenu.SetItemChecked(Godot.Rid,System.Int32,System.Boolean)">
+  SetItemChecked(Rid, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the checkstate status of the item at index <code class="paramref">idx</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemChecked(Rid rid, int idx, bool @checked)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>checked</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemDisabled_" data-uid="Godot.NativeMenu.SetItemDisabled*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemDisabled_Godot_Rid_System_Int32_System_Boolean_" data-uid="Godot.NativeMenu.SetItemDisabled(Godot.Rid,System.Int32,System.Boolean)">
+  SetItemDisabled(Rid, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enables/disables the item at index <code class="paramref">idx</code>. When it is disabled, it can't be selected and its action can't be invoked.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemDisabled(Rid rid, int idx, bool disabled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>disabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemHidden_" data-uid="Godot.NativeMenu.SetItemHidden*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemHidden_Godot_Rid_System_Int32_System_Boolean_" data-uid="Godot.NativeMenu.SetItemHidden(Godot.Rid,System.Int32,System.Boolean)">
+  SetItemHidden(Rid, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hides/shows the item at index <code class="paramref">idx</code>. When it is hidden, an item does not appear in a menu and its action cannot be invoked.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemHidden(Rid rid, int idx, bool hidden)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>hidden</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemHoverCallbacks_" data-uid="Godot.NativeMenu.SetItemHoverCallbacks*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemHoverCallbacks_Godot_Rid_System_Int32_Godot_Callable_" data-uid="Godot.NativeMenu.SetItemHoverCallbacks(Godot.Rid,System.Int32,Godot.Callable)">
+  SetItemHoverCallbacks(Rid, int, Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the callback of the item at index <code class="paramref">idx</code>. The callback is emitted when an item is hovered.</p>
+<p>
+  <b>Note:</b> The <code class="paramref">callback</code> Callable needs to accept exactly one Variant parameter, the parameter passed to the Callable will be the value passed to the <code>tag</code> parameter when the menu item was created.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemHoverCallbacks(Rid rid, int idx, Callable callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemIcon_" data-uid="Godot.NativeMenu.SetItemIcon*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemIcon_Godot_Rid_System_Int32_Godot_Texture2D_" data-uid="Godot.NativeMenu.SetItemIcon(Godot.Rid,System.Int32,Godot.Texture2D)">
+  SetItemIcon(Rid, int, Texture2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Replaces the <a class="xref" href="Godot.Texture2D.html">Texture2D</a> icon of the specified <code class="paramref">idx</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+<p>
+  <b>Note:</b> This method is not supported by macOS Dock menu items.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemIcon(Rid rid, int idx, Texture2D icon)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>icon</code> <a class="xref" href="Godot.Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemIndentationLevel_" data-uid="Godot.NativeMenu.SetItemIndentationLevel*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemIndentationLevel_Godot_Rid_System_Int32_System_Int32_" data-uid="Godot.NativeMenu.SetItemIndentationLevel(Godot.Rid,System.Int32,System.Int32)">
+  SetItemIndentationLevel(Rid, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the horizontal offset of the item at the given <code class="paramref">idx</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemIndentationLevel(Rid rid, int idx, int level)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>level</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemKeyCallback_" data-uid="Godot.NativeMenu.SetItemKeyCallback*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemKeyCallback_Godot_Rid_System_Int32_Godot_Callable_" data-uid="Godot.NativeMenu.SetItemKeyCallback(Godot.Rid,System.Int32,Godot.Callable)">
+  SetItemKeyCallback(Rid, int, Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the callback of the item at index <code class="paramref">idx</code>. Callback is emitted when its accelerator is activated.</p>
+<p>
+  <b>Note:</b> The <code class="paramref">keyCallback</code> Callable needs to accept exactly one Variant parameter, the parameter passed to the Callable will be the value passed to the <code>tag</code> parameter when the menu item was created.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemKeyCallback(Rid rid, int idx, Callable keyCallback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>keyCallback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemMaxStates_" data-uid="Godot.NativeMenu.SetItemMaxStates*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemMaxStates_Godot_Rid_System_Int32_System_Int32_" data-uid="Godot.NativeMenu.SetItemMaxStates(Godot.Rid,System.Int32,System.Int32)">
+  SetItemMaxStates(Rid, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets number of state of a multistate item. See <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_AddMultistateItem_Godot_Rid_System_String_System_Int32_System_Int32_Godot_Callable_Godot_Callable_Godot_Variant_Godot_Key_System_Int32_">AddMultistateItem(Rid, string, int, int, Callable, Callable, Variant, Key, int)</a> for details.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemMaxStates(Rid rid, int idx, int maxStates)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>maxStates</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemRadioCheckable_" data-uid="Godot.NativeMenu.SetItemRadioCheckable*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemRadioCheckable_Godot_Rid_System_Int32_System_Boolean_" data-uid="Godot.NativeMenu.SetItemRadioCheckable(Godot.Rid,System.Int32,System.Boolean)">
+  SetItemRadioCheckable(Rid, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the type of the item at the specified index <code class="paramref">idx</code> to radio button. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, sets the type of the item to plain text.</p>
+<p>
+  <b>Note:</b> This is purely cosmetic; you must add the logic for checking/unchecking items in radio groups.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemRadioCheckable(Rid rid, int idx, bool checkable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>checkable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemState_" data-uid="Godot.NativeMenu.SetItemState*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemState_Godot_Rid_System_Int32_System_Int32_" data-uid="Godot.NativeMenu.SetItemState(Godot.Rid,System.Int32,System.Int32)">
+  SetItemState(Rid, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the state of a multistate item. See <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_AddMultistateItem_Godot_Rid_System_String_System_Int32_System_Int32_Godot_Callable_Godot_Callable_Godot_Variant_Godot_Key_System_Int32_">AddMultistateItem(Rid, string, int, int, Callable, Callable, Variant, Key, int)</a> for details.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemState(Rid rid, int idx, int state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemSubmenu_" data-uid="Godot.NativeMenu.SetItemSubmenu*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemSubmenu_Godot_Rid_System_Int32_Godot_Rid_" data-uid="Godot.NativeMenu.SetItemSubmenu(Godot.Rid,System.Int32,Godot.Rid)">
+  SetItemSubmenu(Rid, int, Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the submenu RID of the item at index <code class="paramref">idx</code>. The submenu is a global menu that would be shown when the item is clicked.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemSubmenu(Rid rid, int idx, Rid submenuRid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>submenuRid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemTag_" data-uid="Godot.NativeMenu.SetItemTag*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemTag_Godot_Rid_System_Int32_Godot_Variant_" data-uid="Godot.NativeMenu.SetItemTag(Godot.Rid,System.Int32,Godot.Variant)">
+  SetItemTag(Rid, int, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the metadata of an item, which may be of any type. You can later get it with <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_GetItemTag_Godot_Rid_System_Int32_">GetItemTag(Rid, int)</a>, which provides a simple way of assigning context data to items.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemTag(Rid rid, int idx, Variant tag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>tag</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemText_" data-uid="Godot.NativeMenu.SetItemText*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemText_Godot_Rid_System_Int32_System_String_" data-uid="Godot.NativeMenu.SetItemText(Godot.Rid,System.Int32,System.String)">
+  SetItemText(Rid, int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the text of the item at index <code class="paramref">idx</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented on macOS and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemText(Rid rid, int idx, string text)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetItemTooltip_" data-uid="Godot.NativeMenu.SetItemTooltip*"></a>
+
+  <h3 id="Godot_NativeMenu_SetItemTooltip_Godot_Rid_System_Int32_System_String_" data-uid="Godot.NativeMenu.SetItemTooltip(Godot.Rid,System.Int32,System.String)">
+  SetItemTooltip(Rid, int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> tooltip of the item at the specified index <code class="paramref">idx</code>.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetItemTooltip(Rid rid, int idx, string tooltip)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>tooltip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetMinimumWidth_" data-uid="Godot.NativeMenu.SetMinimumWidth*"></a>
+
+  <h3 id="Godot_NativeMenu_SetMinimumWidth_Godot_Rid_System_Single_" data-uid="Godot.NativeMenu.SetMinimumWidth(Godot.Rid,System.Single)">
+  SetMinimumWidth(Rid, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the minimum width of the global menu.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetMinimumWidth(Rid rid, float width)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetPopupCloseCallback_" data-uid="Godot.NativeMenu.SetPopupCloseCallback*"></a>
+
+  <h3 id="Godot_NativeMenu_SetPopupCloseCallback_Godot_Rid_Godot_Callable_" data-uid="Godot.NativeMenu.SetPopupCloseCallback(Godot.Rid,Godot.Callable)">
+  SetPopupCloseCallback(Rid, Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Registers callable to emit when the menu is about to show.</p>
+<p>
+  <b>Note:</b> The OS can simulate menu opening to track menu item changes and global shortcuts, in which case the corresponding close callback is not triggered. Use <a class="xref" href="Godot.NativeMenu.html#Godot_NativeMenu_IsOpened_Godot_Rid_">IsOpened(Rid)</a> to check if the menu is currently opened.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetPopupCloseCallback(Rid rid, Callable callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_NativeMenu_SetPopupOpenCallback_" data-uid="Godot.NativeMenu.SetPopupOpenCallback*"></a>
+
+  <h3 id="Godot_NativeMenu_SetPopupOpenCallback_Godot_Rid_Godot_Callable_" data-uid="Godot.NativeMenu.SetPopupOpenCallback(Godot.Rid,Godot.Callable)">
+  SetPopupOpenCallback(Rid, Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Registers callable to emit after the menu is closed.</p>
+<p>
+  <b>Note:</b> This method is implemented only on macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetPopupOpenCallback(Rid rid, Callable callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/NativeMenu.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

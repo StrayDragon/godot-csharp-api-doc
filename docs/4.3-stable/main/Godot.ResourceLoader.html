@@ -1,0 +1,754 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ResourceLoader | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ResourceLoader | Godot4 C# API ">
+      
+      <meta name="description" content="A singleton used to load resource files from the filesystem. It uses the many  classes registered in the engine (either built-in or from a plugin) to load files into memory and convert them to a format that can be used by the engine.    Note: You have to import the files into the engine first to load them using . If you want to load s at run-time, you may use . If you want to import audio files, you can use the snippet described in .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.ResourceLoader">
+
+
+
+  <h1 id="Godot_ResourceLoader" data-uid="Godot.ResourceLoader" class="text-break">
+Class ResourceLoader  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Extensions/ResourceLoaderExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A singleton used to load resource files from the filesystem.</p>
+<p>It uses the many <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a> classes registered in the engine (either built-in or from a plugin) to load files into memory and convert them to a format that can be used by the engine.</p>
+<p>
+  <b>Note:</b> You have to import the files into the engine first to load them using <a class="xref" href="Godot.ResourceLoader.html#Godot_ResourceLoader_Load_System_String_System_String_Godot_ResourceLoader_CacheMode_">Load(string, string, CacheMode)</a>. If you want to load <a class="xref" href="Godot.Image.html">Image</a>s at run-time, you may use <a class="xref" href="Godot.Image.html#Godot_Image_Load_System_String_">Load(string)</a>. If you want to import audio files, you can use the snippet described in <a class="xref" href="Godot.AudioStreamMP3.html#Godot_AudioStreamMP3_Data">Data</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ResourceLoader</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ResourceLoader</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_ResourceLoader_Singleton_" data-uid="Godot.ResourceLoader.Singleton*"></a>
+
+  <h3 id="Godot_ResourceLoader_Singleton" data-uid="Godot.ResourceLoader.Singleton">
+  Singleton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ResourceLoaderInstance Singleton { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.ResourceLoaderInstance.html">ResourceLoaderInstance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_ResourceLoader_AddResourceFormatLoader_" data-uid="Godot.ResourceLoader.AddResourceFormatLoader*"></a>
+
+  <h3 id="Godot_ResourceLoader_AddResourceFormatLoader_Godot_ResourceFormatLoader_System_Boolean_" data-uid="Godot.ResourceLoader.AddResourceFormatLoader(Godot.ResourceFormatLoader,System.Boolean)">
+  AddResourceFormatLoader(ResourceFormatLoader, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Registers a new <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a>. The ResourceLoader will use the ResourceFormatLoader as described in <a class="xref" href="Godot.ResourceLoader.html#Godot_ResourceLoader_Load_System_String_System_String_Godot_ResourceLoader_CacheMode_">Load(string, string, CacheMode)</a>.</p>
+<p>This method is performed implicitly for ResourceFormatLoaders written in GDScript (see <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a> for more information).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddResourceFormatLoader(ResourceFormatLoader formatLoader, bool atFront = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>formatLoader</code> <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a></dt>
+    <dd></dd>
+    <dt><code>atFront</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ResourceLoader_Exists_" data-uid="Godot.ResourceLoader.Exists*"></a>
+
+  <h3 id="Godot_ResourceLoader_Exists_System_String_System_String_" data-uid="Godot.ResourceLoader.Exists(System.String,System.String)">
+  Exists(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether a recognized resource exists for the given <code class="paramref">path</code>.</p>
+<p>An optional <code class="paramref">typeHint</code> can be used to further specify the <a class="xref" href="Godot.Resource.html">Resource</a> type that should be handled by the <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a>. Anything that inherits from <a class="xref" href="Godot.Resource.html">Resource</a> can be used as a type hint, for example <a class="xref" href="Godot.Image.html">Image</a>.</p>
+<p>
+  <b>Note:</b> If you use <a class="xref" href="Godot.Resource.html#Godot_Resource_TakeOverPath_System_String_">TakeOverPath(string)</a>, this method will return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> for the taken path even if the resource wasn't saved (i.e. exists only in resource cache).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Exists(string path, string typeHint = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>typeHint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ResourceLoader_GetDependencies_" data-uid="Godot.ResourceLoader.GetDependencies*"></a>
+
+  <h3 id="Godot_ResourceLoader_GetDependencies_System_String_" data-uid="Godot.ResourceLoader.GetDependencies(System.String)">
+  GetDependencies(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the dependencies for the resource at the given <code class="paramref">path</code>.</p>
+<p>
+  <b>Note:</b> The dependencies are returned with slices separated by <code>::</code>. You can use <code>String.get_slice</code> to get their components.</p>
+<p>
+  <pre><code class="lang-csharp">for dep in ResourceLoader.get_dependencies(path):
+      print(dep.get_slice("::", 0)) # Prints UID.
+      print(dep.get_slice("::", 2)) # Prints path.</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string[] GetDependencies(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ResourceLoader_GetRecognizedExtensionsForType_" data-uid="Godot.ResourceLoader.GetRecognizedExtensionsForType*"></a>
+
+  <h3 id="Godot_ResourceLoader_GetRecognizedExtensionsForType_System_String_" data-uid="Godot.ResourceLoader.GetRecognizedExtensionsForType(System.String)">
+  GetRecognizedExtensionsForType(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the list of recognized extensions for a resource type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string[] GetRecognizedExtensionsForType(string type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ResourceLoader_GetResourceUid_" data-uid="Godot.ResourceLoader.GetResourceUid*"></a>
+
+  <h3 id="Godot_ResourceLoader_GetResourceUid_System_String_" data-uid="Godot.ResourceLoader.GetResourceUid(System.String)">
+  GetResourceUid(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the ID associated with a given resource path, or <code>-1</code> when no such ID exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static long GetResourceUid(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ResourceLoader_HasCached_" data-uid="Godot.ResourceLoader.HasCached*"></a>
+
+  <h3 id="Godot_ResourceLoader_HasCached_System_String_" data-uid="Godot.ResourceLoader.HasCached(System.String)">
+  HasCached(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether a cached resource is available for the given <code class="paramref">path</code>.</p>
+<p>Once a resource has been loaded by the engine, it is cached in memory for faster access, and future calls to the <a class="xref" href="Godot.ResourceLoader.html#Godot_ResourceLoader_Load_System_String_System_String_Godot_ResourceLoader_CacheMode_">Load(string, string, CacheMode)</a> method will use the cached version. The cached resource can be overridden by using <a class="xref" href="Godot.Resource.html#Godot_Resource_TakeOverPath_System_String_">TakeOverPath(string)</a> on a new resource for that same path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasCached(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ResourceLoader_Load_" data-uid="Godot.ResourceLoader.Load*"></a>
+
+  <h3 id="Godot_ResourceLoader_Load_System_String_System_String_Godot_ResourceLoader_CacheMode_" data-uid="Godot.ResourceLoader.Load(System.String,System.String,Godot.ResourceLoader.CacheMode)">
+  Load(string, string, CacheMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads a resource at the given <code class="paramref">path</code>, caching the result for further access.</p>
+<p>The registered <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a>s are queried sequentially to find the first one which can handle the file's extension, and then attempt loading. If loading fails, the remaining ResourceFormatLoaders are also attempted.</p>
+<p>An optional <code class="paramref">typeHint</code> can be used to further specify the <a class="xref" href="Godot.Resource.html">Resource</a> type that should be handled by the <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a>. Anything that inherits from <a class="xref" href="Godot.Resource.html">Resource</a> can be used as a type hint, for example <a class="xref" href="Godot.Image.html">Image</a>.</p>
+<p>The <code class="paramref">cacheMode</code> property defines whether and how the cache should be used or updated when loading the resource. See <a class="xref" href="Godot.ResourceLoader.CacheMode.html">ResourceLoader.CacheMode</a> for details.</p>
+<p>Returns an empty resource if no <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a> could handle the file, and prints an error if no file is found at the specified path.</p>
+<p>GDScript has a simplified <code>@GDScript.load</code> built-in method which can be used in most situations, leaving the use of <a class="xref" href="Godot.ResourceLoader.html">ResourceLoader</a> for more advanced scenarios.</p>
+<p>
+  <b>Note:</b> If <code>ProjectSettings.editor/export/convert_text_resources_to_binary</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, <code>@GDScript.load</code> will not be able to read converted files in an exported project. If you rely on run-time loading of files present within the PCK, set <code>ProjectSettings.editor/export/convert_text_resources_to_binary</code> to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+<p>
+  <b>Note:</b> Relative paths will be prefixed with <code>"res://"</code> before loading, to avoid unexpected results make sure your paths are absolute.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Resource Load(string path, string typeHint = &quot;&quot;, ResourceLoader.CacheMode cacheMode = CacheMode.Reuse)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>typeHint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cacheMode</code> <a class="xref" href="Godot.ResourceLoader.html">ResourceLoader</a>.<a class="xref" href="Godot.ResourceLoader.CacheMode.html">CacheMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Resource.html">Resource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ResourceLoader_LoadThreadedGet_" data-uid="Godot.ResourceLoader.LoadThreadedGet*"></a>
+
+  <h3 id="Godot_ResourceLoader_LoadThreadedGet_System_String_" data-uid="Godot.ResourceLoader.LoadThreadedGet(System.String)">
+  LoadThreadedGet(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the resource loaded by <a class="xref" href="Godot.ResourceLoader.html#Godot_ResourceLoader_LoadThreadedRequest_System_String_System_String_System_Boolean_Godot_ResourceLoader_CacheMode_">LoadThreadedRequest(string, string, bool, CacheMode)</a>.</p>
+<p>If this is called before the loading thread is done (i.e. <a class="xref" href="Godot.ResourceLoader.html#Godot_ResourceLoader_LoadThreadedGetStatus_System_String_Godot_Collections_Array_">LoadThreadedGetStatus(string, Array)</a> is not <a class="xref" href="Godot.ResourceLoader.ThreadLoadStatus.html#Godot_ResourceLoader_ThreadLoadStatus_Loaded">Loaded</a>), the calling thread will be blocked until the resource has finished loading. However, it's recommended to use <a class="xref" href="Godot.ResourceLoader.html#Godot_ResourceLoader_LoadThreadedGetStatus_System_String_Godot_Collections_Array_">LoadThreadedGetStatus(string, Array)</a> to known when the load has actually completed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Resource LoadThreadedGet(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Resource.html">Resource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ResourceLoader_LoadThreadedGetStatus_" data-uid="Godot.ResourceLoader.LoadThreadedGetStatus*"></a>
+
+  <h3 id="Godot_ResourceLoader_LoadThreadedGetStatus_System_String_Godot_Collections_Array_" data-uid="Godot.ResourceLoader.LoadThreadedGetStatus(System.String,Godot.Collections.Array)">
+  LoadThreadedGetStatus(string, Array)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the status of a threaded loading operation started with <a class="xref" href="Godot.ResourceLoader.html#Godot_ResourceLoader_LoadThreadedRequest_System_String_System_String_System_Boolean_Godot_ResourceLoader_CacheMode_">LoadThreadedRequest(string, string, bool, CacheMode)</a> for the resource at <code class="paramref">path</code>. See <a class="xref" href="Godot.ResourceLoader.ThreadLoadStatus.html">ResourceLoader.ThreadLoadStatus</a> for possible return values.</p>
+<p>An array variable can optionally be passed via <code class="paramref">progress</code>, and will return a one-element array containing the percentage of completion of the threaded loading.</p>
+<p>
+  <b>Note:</b> The recommended way of using this method is to call it during different frames (e.g., in <a class="xref" href="Godot.Node.html#Godot_Node__Process_System_Double_">_Process(double)</a>, instead of a loop).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ResourceLoader.ThreadLoadStatus LoadThreadedGetStatus(string path, Array progress = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>progress</code> <a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.ResourceLoader.html">ResourceLoader</a>.<a class="xref" href="Godot.ResourceLoader.ThreadLoadStatus.html">ThreadLoadStatus</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ResourceLoader_LoadThreadedRequest_" data-uid="Godot.ResourceLoader.LoadThreadedRequest*"></a>
+
+  <h3 id="Godot_ResourceLoader_LoadThreadedRequest_System_String_System_String_System_Boolean_Godot_ResourceLoader_CacheMode_" data-uid="Godot.ResourceLoader.LoadThreadedRequest(System.String,System.String,System.Boolean,Godot.ResourceLoader.CacheMode)">
+  LoadThreadedRequest(string, string, bool, CacheMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads the resource using threads. If <code class="paramref">useSubThreads</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, multiple threads will be used to load the resource, which makes loading faster, but may affect the main thread (and thus cause game slowdowns).</p>
+<p>The <code class="paramref">cacheMode</code> property defines whether and how the cache should be used or updated when loading the resource. See <a class="xref" href="Godot.ResourceLoader.CacheMode.html">ResourceLoader.CacheMode</a> for details.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Error LoadThreadedRequest(string path, string typeHint = &quot;&quot;, bool useSubThreads = false, ResourceLoader.CacheMode cacheMode = CacheMode.Reuse)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>typeHint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>useSubThreads</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>cacheMode</code> <a class="xref" href="Godot.ResourceLoader.html">ResourceLoader</a>.<a class="xref" href="Godot.ResourceLoader.CacheMode.html">CacheMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ResourceLoader_Load_" data-uid="Godot.ResourceLoader.Load*"></a>
+
+  <h3 id="Godot_ResourceLoader_Load__1_System_String_System_String_Godot_ResourceLoader_CacheMode_" data-uid="Godot.ResourceLoader.Load``1(System.String,System.String,Godot.ResourceLoader.CacheMode)">
+  Load&lt;T&gt;(string, string, CacheMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Extensions/ResourceLoaderExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads a resource at the given <code class="paramref">path</code>, caching the result
+for further access.
+The registered <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a> instances are queried sequentially
+to find the first one which can handle the file's extension, and then attempt
+loading. If loading fails, the remaining ResourceFormatLoaders are also attempted.
+An optional <code class="paramref">typeHint</code> can be used to further specify the
+<a class="xref" href="Godot.Resource.html">Resource</a> type that should be handled by the <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a>.
+Anything that inherits from <a class="xref" href="Godot.Resource.html">Resource</a> can be used as a type hint,
+for example <a class="xref" href="Godot.Image.html">Image</a>.
+The <code class="paramref">cacheMode</code> property defines whether and how the cache should
+be used or updated when loading the resource. See <a class="xref" href="Godot.ResourceLoader.CacheMode.html">ResourceLoader.CacheMode</a> for details.
+Returns an empty resource if no <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a> could handle the file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Load&lt;T&gt;(string path, string typeHint = null, ResourceLoader.CacheMode cacheMode = CacheMode.Reuse) where T : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>typeHint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cacheMode</code> <a class="xref" href="Godot.ResourceLoader.html">ResourceLoader</a>.<a class="xref" href="Godot.ResourceLoader.CacheMode.html">CacheMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type to cast to. Should be a descendant of <a class="xref" href="Godot.Resource.html">Resource</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidcastexception">InvalidCastException</a></dt>
+    <dd><p>The loaded resource can't be casted to the given type <code class="typeparamref">T</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Godot_ResourceLoader_RemoveResourceFormatLoader_" data-uid="Godot.ResourceLoader.RemoveResourceFormatLoader*"></a>
+
+  <h3 id="Godot_ResourceLoader_RemoveResourceFormatLoader_Godot_ResourceFormatLoader_" data-uid="Godot.ResourceLoader.RemoveResourceFormatLoader(Godot.ResourceFormatLoader)">
+  RemoveResourceFormatLoader(ResourceFormatLoader)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unregisters the given <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemoveResourceFormatLoader(ResourceFormatLoader formatLoader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>formatLoader</code> <a class="xref" href="Godot.ResourceFormatLoader.html">ResourceFormatLoader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_ResourceLoader_SetAbortOnMissingResources_" data-uid="Godot.ResourceLoader.SetAbortOnMissingResources*"></a>
+
+  <h3 id="Godot_ResourceLoader_SetAbortOnMissingResources_System_Boolean_" data-uid="Godot.ResourceLoader.SetAbortOnMissingResources(System.Boolean)">
+  SetAbortOnMissingResources(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/ResourceLoader.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes the behavior on missing sub-resources. The default behavior is to abort loading.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetAbortOnMissingResources(bool abort)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>abort</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Core/Extensions/ResourceLoaderExtensions.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

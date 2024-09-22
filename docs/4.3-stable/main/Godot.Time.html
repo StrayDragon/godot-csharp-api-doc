@@ -1,0 +1,1015 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Time | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Time | Godot4 C# API ">
+      
+      <meta name="description" content="The Time singleton allows converting time between various formats and also getting time information from the system. This class conforms with as many of the ISO 8601 standards as possible. All dates follow the Proleptic Gregorian calendar. As such, the day before 1582-10-15 is 1582-10-14, not 1582-10-04. The year before 1 AD (aka 1 BC) is number 0, with the year before that (2 BC) being -1, etc. Conversion methods assume &quot;the same timezone&quot;, and do not handle timezone conversions or DST automatically. Leap seconds are also not handled, they must be done manually if desired. Suffixes such as &quot;Z&quot; are not handled, you need to strip them away manually. When getting time information from the system, the time can either be in the local timezone or UTC depending on the utc parameter. However, the  method always uses UTC as it returns the seconds passed since the Unix epoch.    Important: The _from_system methods use the system clock that the user can manually set. Never use this method for precise time calculation since its results are subject to automatic adjustments by the user or the operating system. Always use or  for precise time calculation instead, since they are guaranteed to be monotonic (i.e. never decrease).">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.Time">
+
+
+
+  <h1 id="Godot_Time" data-uid="Godot.Time" class="text-break">
+Class Time  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Time singleton allows converting time between various formats and also getting time information from the system.</p>
+<p>This class conforms with as many of the ISO 8601 standards as possible. All dates follow the Proleptic Gregorian calendar. As such, the day before <code>1582-10-15</code> is <code>1582-10-14</code>, not <code>1582-10-04</code>. The year before 1 AD (aka 1 BC) is number <code>0</code>, with the year before that (2 BC) being <code>-1</code>, etc.</p>
+<p>Conversion methods assume "the same timezone", and do not handle timezone conversions or DST automatically. Leap seconds are also not handled, they must be done manually if desired. Suffixes such as "Z" are not handled, you need to strip them away manually.</p>
+<p>When getting time information from the system, the time can either be in the local timezone or UTC depending on the <code>utc</code> parameter. However, the <a class="xref" href="Godot.Time.html#Godot_Time_GetUnixTimeFromSystem">GetUnixTimeFromSystem()</a> method always uses UTC as it returns the seconds passed since the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix epoch</a>.</p>
+<p>
+  <b>Important:</b> The <code>_from_system</code> methods use the system clock that the user can manually set. <b>Never use</b> this method for precise time calculation since its results are subject to automatic adjustments by the user or the operating system. <b>Always use</b><a class="xref" href="Godot.Time.html#Godot_Time_GetTicksUsec">GetTicksUsec()</a> or <a class="xref" href="Godot.Time.html#Godot_Time_GetTicksMsec">GetTicksMsec()</a> for precise time calculation instead, since they are guaranteed to be monotonic (i.e. never decrease).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Time</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Time</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_Time_Singleton_" data-uid="Godot.Time.Singleton*"></a>
+
+  <h3 id="Godot_Time_Singleton" data-uid="Godot.Time.Singleton">
+  Singleton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TimeInstance Singleton { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.TimeInstance.html">TimeInstance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_Time_GetDateDictFromSystem_" data-uid="Godot.Time.GetDateDictFromSystem*"></a>
+
+  <h3 id="Godot_Time_GetDateDictFromSystem_System_Boolean_" data-uid="Godot.Time.GetDateDictFromSystem(System.Boolean)">
+  GetDateDictFromSystem(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current date as a dictionary of keys: <code>year</code>, <code>month</code>, <code>day</code>, and <code>weekday</code>.</p>
+<p>The returned values are in the system's local time when <code class="paramref">utc</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, otherwise they are in UTC.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary GetDateDictFromSystem(bool utc = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>utc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetDateDictFromUnixTime_" data-uid="Godot.Time.GetDateDictFromUnixTime*"></a>
+
+  <h3 id="Godot_Time_GetDateDictFromUnixTime_System_Int64_" data-uid="Godot.Time.GetDateDictFromUnixTime(System.Int64)">
+  GetDateDictFromUnixTime(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the given Unix timestamp to a dictionary of keys: <code>year</code>, <code>month</code>, <code>day</code>, and <code>weekday</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary GetDateDictFromUnixTime(long unixTimeVal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unixTimeVal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetDateStringFromSystem_" data-uid="Godot.Time.GetDateStringFromSystem*"></a>
+
+  <h3 id="Godot_Time_GetDateStringFromSystem_System_Boolean_" data-uid="Godot.Time.GetDateStringFromSystem(System.Boolean)">
+  GetDateStringFromSystem(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current date as an ISO 8601 date string (YYYY-MM-DD).</p>
+<p>The returned values are in the system's local time when <code class="paramref">utc</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, otherwise they are in UTC.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetDateStringFromSystem(bool utc = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>utc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetDateStringFromUnixTime_" data-uid="Godot.Time.GetDateStringFromUnixTime*"></a>
+
+  <h3 id="Godot_Time_GetDateStringFromUnixTime_System_Int64_" data-uid="Godot.Time.GetDateStringFromUnixTime(System.Int64)">
+  GetDateStringFromUnixTime(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the given Unix timestamp to an ISO 8601 date string (YYYY-MM-DD).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetDateStringFromUnixTime(long unixTimeVal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unixTimeVal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetDatetimeDictFromDatetimeString_" data-uid="Godot.Time.GetDatetimeDictFromDatetimeString*"></a>
+
+  <h3 id="Godot_Time_GetDatetimeDictFromDatetimeString_System_String_System_Boolean_" data-uid="Godot.Time.GetDatetimeDictFromDatetimeString(System.String,System.Boolean)">
+  GetDatetimeDictFromDatetimeString(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the given ISO 8601 date and time string (YYYY-MM-DDTHH:MM:SS) to a dictionary of keys: <code>year</code>, <code>month</code>, <code>day</code>, <code>weekday</code>, <code>hour</code>, <code>minute</code>, and <code>second</code>.</p>
+<p>If <code class="paramref">weekday</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, then the <code>weekday</code> entry is excluded (the calculation is relatively expensive).</p>
+<p>
+  <b>Note:</b> Any decimal fraction in the time string will be ignored silently.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary GetDatetimeDictFromDatetimeString(string datetime, bool weekday)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>datetime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>weekday</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetDatetimeDictFromSystem_" data-uid="Godot.Time.GetDatetimeDictFromSystem*"></a>
+
+  <h3 id="Godot_Time_GetDatetimeDictFromSystem_System_Boolean_" data-uid="Godot.Time.GetDatetimeDictFromSystem(System.Boolean)">
+  GetDatetimeDictFromSystem(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current date as a dictionary of keys: <code>year</code>, <code>month</code>, <code>day</code>, <code>weekday</code>, <code>hour</code>, <code>minute</code>, <code>second</code>, and <code>dst</code> (Daylight Savings Time).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary GetDatetimeDictFromSystem(bool utc = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>utc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetDatetimeDictFromUnixTime_" data-uid="Godot.Time.GetDatetimeDictFromUnixTime*"></a>
+
+  <h3 id="Godot_Time_GetDatetimeDictFromUnixTime_System_Int64_" data-uid="Godot.Time.GetDatetimeDictFromUnixTime(System.Int64)">
+  GetDatetimeDictFromUnixTime(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the given Unix timestamp to a dictionary of keys: <code>year</code>, <code>month</code>, <code>day</code>, <code>weekday</code>, <code>hour</code>, <code>minute</code>, and <code>second</code>.</p>
+<p>The returned Dictionary's values will be the same as the <a class="xref" href="Godot.Time.html#Godot_Time_GetDatetimeDictFromSystem_System_Boolean_">GetDatetimeDictFromSystem(bool)</a> if the Unix timestamp is the current time, with the exception of Daylight Savings Time as it cannot be determined from the epoch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary GetDatetimeDictFromUnixTime(long unixTimeVal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unixTimeVal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetDatetimeStringFromDatetimeDict_" data-uid="Godot.Time.GetDatetimeStringFromDatetimeDict*"></a>
+
+  <h3 id="Godot_Time_GetDatetimeStringFromDatetimeDict_Godot_Collections_Dictionary_System_Boolean_" data-uid="Godot.Time.GetDatetimeStringFromDatetimeDict(Godot.Collections.Dictionary,System.Boolean)">
+  GetDatetimeStringFromDatetimeDict(Dictionary, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the given dictionary of keys to an ISO 8601 date and time string (YYYY-MM-DDTHH:MM:SS).</p>
+<p>The given dictionary can be populated with the following keys: <code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, and <code>second</code>. Any other entries (including <code>dst</code>) are ignored.</p>
+<p>If the dictionary is empty, <code>0</code> is returned. If some keys are omitted, they default to the equivalent values for the Unix epoch timestamp 0 (1970-01-01 at 00:00:00).</p>
+<p>If <code class="paramref">useSpace</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the date and time bits are separated by an empty space character instead of the letter T.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetDatetimeStringFromDatetimeDict(Dictionary datetime, bool useSpace)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>datetime</code> <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+    <dt><code>useSpace</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetDatetimeStringFromSystem_" data-uid="Godot.Time.GetDatetimeStringFromSystem*"></a>
+
+  <h3 id="Godot_Time_GetDatetimeStringFromSystem_System_Boolean_System_Boolean_" data-uid="Godot.Time.GetDatetimeStringFromSystem(System.Boolean,System.Boolean)">
+  GetDatetimeStringFromSystem(bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current date and time as an ISO 8601 date and time string (YYYY-MM-DDTHH:MM:SS).</p>
+<p>The returned values are in the system's local time when <code class="paramref">utc</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, otherwise they are in UTC.</p>
+<p>If <code class="paramref">useSpace</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the date and time bits are separated by an empty space character instead of the letter T.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetDatetimeStringFromSystem(bool utc = false, bool useSpace = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>utc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>useSpace</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetDatetimeStringFromUnixTime_" data-uid="Godot.Time.GetDatetimeStringFromUnixTime*"></a>
+
+  <h3 id="Godot_Time_GetDatetimeStringFromUnixTime_System_Int64_System_Boolean_" data-uid="Godot.Time.GetDatetimeStringFromUnixTime(System.Int64,System.Boolean)">
+  GetDatetimeStringFromUnixTime(long, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the given Unix timestamp to an ISO 8601 date and time string (YYYY-MM-DDTHH:MM:SS).</p>
+<p>If <code class="paramref">useSpace</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the date and time bits are separated by an empty space character instead of the letter T.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetDatetimeStringFromUnixTime(long unixTimeVal, bool useSpace = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unixTimeVal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+    <dt><code>useSpace</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetOffsetStringFromOffsetMinutes_" data-uid="Godot.Time.GetOffsetStringFromOffsetMinutes*"></a>
+
+  <h3 id="Godot_Time_GetOffsetStringFromOffsetMinutes_System_Int64_" data-uid="Godot.Time.GetOffsetStringFromOffsetMinutes(System.Int64)">
+  GetOffsetStringFromOffsetMinutes(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the given timezone offset in minutes to a timezone offset string. For example, -480 returns "-08:00", 345 returns "+05:45", and 0 returns "+00:00".</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetOffsetStringFromOffsetMinutes(long offsetMinutes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>offsetMinutes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetTicksMsec_" data-uid="Godot.Time.GetTicksMsec*"></a>
+
+  <h3 id="Godot_Time_GetTicksMsec" data-uid="Godot.Time.GetTicksMsec">
+  GetTicksMsec()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the amount of time passed in milliseconds since the engine started.</p>
+<p>Will always be positive or 0 and uses a 64-bit value (it will wrap after roughly 500 million years).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong GetTicksMsec()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetTicksUsec_" data-uid="Godot.Time.GetTicksUsec*"></a>
+
+  <h3 id="Godot_Time_GetTicksUsec" data-uid="Godot.Time.GetTicksUsec">
+  GetTicksUsec()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the amount of time passed in microseconds since the engine started.</p>
+<p>Will always be positive or 0 and uses a 64-bit value (it will wrap after roughly half a million years).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong GetTicksUsec()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetTimeDictFromSystem_" data-uid="Godot.Time.GetTimeDictFromSystem*"></a>
+
+  <h3 id="Godot_Time_GetTimeDictFromSystem_System_Boolean_" data-uid="Godot.Time.GetTimeDictFromSystem(System.Boolean)">
+  GetTimeDictFromSystem(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current time as a dictionary of keys: <code>hour</code>, <code>minute</code>, and <code>second</code>.</p>
+<p>The returned values are in the system's local time when <code class="paramref">utc</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, otherwise they are in UTC.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary GetTimeDictFromSystem(bool utc = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>utc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetTimeDictFromUnixTime_" data-uid="Godot.Time.GetTimeDictFromUnixTime*"></a>
+
+  <h3 id="Godot_Time_GetTimeDictFromUnixTime_System_Int64_" data-uid="Godot.Time.GetTimeDictFromUnixTime(System.Int64)">
+  GetTimeDictFromUnixTime(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the given time to a dictionary of keys: <code>hour</code>, <code>minute</code>, and <code>second</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary GetTimeDictFromUnixTime(long unixTimeVal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unixTimeVal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetTimeStringFromSystem_" data-uid="Godot.Time.GetTimeStringFromSystem*"></a>
+
+  <h3 id="Godot_Time_GetTimeStringFromSystem_System_Boolean_" data-uid="Godot.Time.GetTimeStringFromSystem(System.Boolean)">
+  GetTimeStringFromSystem(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current time as an ISO 8601 time string (HH:MM:SS).</p>
+<p>The returned values are in the system's local time when <code class="paramref">utc</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, otherwise they are in UTC.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetTimeStringFromSystem(bool utc = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>utc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetTimeStringFromUnixTime_" data-uid="Godot.Time.GetTimeStringFromUnixTime*"></a>
+
+  <h3 id="Godot_Time_GetTimeStringFromUnixTime_System_Int64_" data-uid="Godot.Time.GetTimeStringFromUnixTime(System.Int64)">
+  GetTimeStringFromUnixTime(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the given Unix timestamp to an ISO 8601 time string (HH:MM:SS).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetTimeStringFromUnixTime(long unixTimeVal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unixTimeVal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetTimeZoneFromSystem_" data-uid="Godot.Time.GetTimeZoneFromSystem*"></a>
+
+  <h3 id="Godot_Time_GetTimeZoneFromSystem" data-uid="Godot.Time.GetTimeZoneFromSystem">
+  GetTimeZoneFromSystem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current time zone as a dictionary of keys: <code>bias</code> and <code>name</code>.</p>
+<p>- <code>bias</code> is the offset from UTC in minutes, since not all time zones are multiples of an hour from UTC.</p>
+<p>- <code>name</code> is the localized name of the time zone, according to the OS locale settings of the current user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary GetTimeZoneFromSystem()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetUnixTimeFromDatetimeDict_" data-uid="Godot.Time.GetUnixTimeFromDatetimeDict*"></a>
+
+  <h3 id="Godot_Time_GetUnixTimeFromDatetimeDict_Godot_Collections_Dictionary_" data-uid="Godot.Time.GetUnixTimeFromDatetimeDict(Godot.Collections.Dictionary)">
+  GetUnixTimeFromDatetimeDict(Dictionary)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a dictionary of time values to a Unix timestamp.</p>
+<p>The given dictionary can be populated with the following keys: <code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, and <code>second</code>. Any other entries (including <code>dst</code>) are ignored.</p>
+<p>If the dictionary is empty, <code>0</code> is returned. If some keys are omitted, they default to the equivalent values for the Unix epoch timestamp 0 (1970-01-01 at 00:00:00).</p>
+<p>You can pass the output from <a class="xref" href="Godot.Time.html#Godot_Time_GetDatetimeDictFromUnixTime_System_Int64_">GetDatetimeDictFromUnixTime(long)</a> directly into this function and get the same as what was put in.</p>
+<p>
+  <b>Note:</b> Unix timestamps are often in UTC. This method does not do any timezone conversion, so the timestamp will be in the same timezone as the given datetime dictionary.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static long GetUnixTimeFromDatetimeDict(Dictionary datetime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>datetime</code> <a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetUnixTimeFromDatetimeString_" data-uid="Godot.Time.GetUnixTimeFromDatetimeString*"></a>
+
+  <h3 id="Godot_Time_GetUnixTimeFromDatetimeString_System_String_" data-uid="Godot.Time.GetUnixTimeFromDatetimeString(System.String)">
+  GetUnixTimeFromDatetimeString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the given ISO 8601 date and/or time string to a Unix timestamp. The string can contain a date only, a time only, or both.</p>
+<p>
+  <b>Note:</b> Unix timestamps are often in UTC. This method does not do any timezone conversion, so the timestamp will be in the same timezone as the given datetime string.</p>
+<p>
+  <b>Note:</b> Any decimal fraction in the time string will be ignored silently.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static long GetUnixTimeFromDatetimeString(string datetime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>datetime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Time_GetUnixTimeFromSystem_" data-uid="Godot.Time.GetUnixTimeFromSystem*"></a>
+
+  <h3 id="Godot_Time_GetUnixTimeFromSystem" data-uid="Godot.Time.GetUnixTimeFromSystem">
+  GetUnixTimeFromSystem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current Unix timestamp in seconds based on the system time in UTC. This method is implemented by the operating system and always returns the time in UTC. The Unix timestamp is the number of seconds passed since 1970-01-01 at 00:00:00, the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix epoch</a>.</p>
+<p>
+  <b>Note:</b> Unlike other methods that use integer timestamps, this method returns the timestamp as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> for sub-second precision.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double GetUnixTimeFromSystem()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Time.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

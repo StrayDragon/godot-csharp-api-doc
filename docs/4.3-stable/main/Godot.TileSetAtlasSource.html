@@ -1,0 +1,2032 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TileSetAtlasSource | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TileSetAtlasSource | Godot4 C# API ">
+      
+      <meta name="description" content="An atlas is a grid of tiles laid out on a texture. Each tile in the grid must be exposed using . Those tiles are then indexed using their coordinates in the grid. Each tile can also have a size in the grid coordinates, making it more or less cells in the atlas. Alternatives version of a tile can be created using , which are then indexed using an alternative ID. The main tile (the one in the grid), is accessed with an alternative ID equal to 0. Each tile alternate has a set of properties that is defined by the source&#39;s  layers. Those properties are stored in a TileData object that can be accessed and modified using . As TileData properties are stored directly in the TileSetAtlasSource resource, their properties might also be set using TileSetAtlasSource.set(&quot;&amp;lt;coords_x&amp;gt;:&amp;lt;coords_y&amp;gt;/&amp;lt;alternative_id&amp;gt;/&amp;lt;tile_data_property&amp;gt;&quot;).">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.TileSetAtlasSource">
+
+
+
+  <h1 id="Godot_TileSetAtlasSource" data-uid="Godot.TileSetAtlasSource" class="text-break">
+Class TileSetAtlasSource  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An atlas is a grid of tiles laid out on a texture. Each tile in the grid must be exposed using <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_CreateTile_Godot_Vector2I_System_Nullable_Godot_Vector2I__">CreateTile(Vector2I, Vector2I?)</a>. Those tiles are then indexed using their coordinates in the grid.</p>
+<p>Each tile can also have a size in the grid coordinates, making it more or less cells in the atlas.</p>
+<p>Alternatives version of a tile can be created using <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_CreateAlternativeTile_Godot_Vector2I_System_Int32_">CreateAlternativeTile(Vector2I, int)</a>, which are then indexed using an alternative ID. The main tile (the one in the grid), is accessed with an alternative ID equal to 0.</p>
+<p>Each tile alternate has a set of properties that is defined by the source's <a class="xref" href="Godot.TileSet.html">TileSet</a> layers. Those properties are stored in a TileData object that can be accessed and modified using <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_GetTileData_Godot_Vector2I_System_Int32_">GetTileData(Vector2I, int)</a>.</p>
+<p>As TileData properties are stored directly in the TileSetAtlasSource resource, their properties might also be set using <code>TileSetAtlasSource.set("&lt;coords_x&gt;:&lt;coords_y&gt;/&lt;alternative_id&gt;/&lt;tile_data_property&gt;")</code>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TileSetAtlasSource : TileSetSource, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><a class="xref" href="Godot.Resource.html">Resource</a></div>
+      <div><a class="xref" href="Godot.TileSetSource.html">TileSetSource</a></div>
+      <div><span class="xref">TileSetAtlasSource</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.TileSetSource.html#Godot_TileSetSource_GetTilesCount">TileSetSource.GetTilesCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TileSetSource.html#Godot_TileSetSource_GetTileId_System_Int32_">TileSetSource.GetTileId(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TileSetSource.html#Godot_TileSetSource_HasTile_Godot_Vector2I_">TileSetSource.HasTile(Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TileSetSource.html#Godot_TileSetSource_GetAlternativeTilesCount_Godot_Vector2I_">TileSetSource.GetAlternativeTilesCount(Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TileSetSource.html#Godot_TileSetSource_GetAlternativeTileId_Godot_Vector2I_System_Int32_">TileSetSource.GetAlternativeTileId(Vector2I, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TileSetSource.html#Godot_TileSetSource_HasAlternativeTile_Godot_Vector2I_System_Int32_">TileSetSource.HasAlternativeTile(Vector2I, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__GetRid">Resource._GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__SetupLocalToScene">Resource._SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_TakeOverPath_System_String_">Resource.TakeOverPath(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetRid">Resource.GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetLocalScene">Resource.GetLocalScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToScene">Resource.SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GenerateSceneUniqueId">Resource.GenerateSceneUniqueId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitChanged">Resource.EmitChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Duplicate_System_Boolean_">Resource.Duplicate(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceLocalToScene">Resource.ResourceLocalToScene</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourcePath">Resource.ResourcePath</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceName">Resource.ResourceName</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceSceneUniqueId">Resource.ResourceSceneUniqueId</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Changed">Resource.Changed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToSceneRequested">Resource.SetupLocalToSceneRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_InitRef">RefCounted.InitRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Reference">RefCounted.Reference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Unreference">RefCounted.Unreference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_GetReferenceCount">RefCounted.GetReferenceCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">GodotObject.RemoveUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_">GodotObject.GetMethodArgumentCount(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_TileSetAtlasSource__ctor_" data-uid="Godot.TileSetAtlasSource.#ctor*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource__ctor" data-uid="Godot.TileSetAtlasSource.#ctor">
+  TileSetAtlasSource()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileSetAtlasSource()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Godot_TileSetAtlasSource_TransformFlipH" data-uid="Godot.TileSetAtlasSource.TransformFlipH">
+  TransformFlipH
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents cell's horizontal flip flag. Should be used directly with <a class="xref" href="Godot.TileMap.html">TileMap</a> to flip placed tiles by altering their alternative IDs.</p>
+<p>
+  <pre><code class="lang-csharp">var alternate_id = $TileMap.get_cell_alternative_tile(0, Vector2i(2, 2))
+  if not alternate_id &amp; TileSetAtlasSource.TRANSFORM_FLIP_H:
+      # If tile is not already flipped, flip it.
+      $TileMap.set_cell(0, Vector2i(2, 2), source_id, atlas_coords, alternate_id | TileSetAtlasSource.TRANSFORM_FLIP_H)</code></pre>
+
+<p>
+  <b>Note:</b> These transformations can be combined to do the equivalent of 0, 90, 180, and 270 degree rotations, as shown below:</p>
+<p>
+  <pre><code class="lang-csharp">enum TileTransform {
+      ROTATE_0 = 0,
+      ROTATE_90 = TileSetAtlasSource.TRANSFORM_TRANSPOSE | TileSetAtlasSource.TRANSFORM_FLIP_H,
+      ROTATE_180 = TileSetAtlasSource.TRANSFORM_FLIP_H | TileSetAtlasSource.TRANSFORM_FLIP_V,
+      ROTATE_270 = TileSetAtlasSource.TRANSFORM_TRANSPOSE | TileSetAtlasSource.TRANSFORM_FLIP_V,
+  }</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long TransformFlipH = 4096</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Godot_TileSetAtlasSource_TransformFlipV" data-uid="Godot.TileSetAtlasSource.TransformFlipV">
+  TransformFlipV
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents cell's vertical flip flag. See <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_TransformFlipH">TransformFlipH</a> for usage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long TransformFlipV = 8192</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Godot_TileSetAtlasSource_TransformTranspose" data-uid="Godot.TileSetAtlasSource.TransformTranspose">
+  TransformTranspose
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents cell's transposed flag. See <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_TransformFlipH">TransformFlipH</a> for usage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long TransformTranspose = 16384</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_TileSetAtlasSource_Margins_" data-uid="Godot.TileSetAtlasSource.Margins*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_Margins" data-uid="Godot.TileSetAtlasSource.Margins">
+  Margins
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Margins, in pixels, to offset the origin of the grid in the texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2I Margins { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_Separation_" data-uid="Godot.TileSetAtlasSource.Separation*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_Separation" data-uid="Godot.TileSetAtlasSource.Separation">
+  Separation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Separation, in pixels, between each tile texture region of the grid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2I Separation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_Texture_" data-uid="Godot.TileSetAtlasSource.Texture*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_Texture" data-uid="Godot.TileSetAtlasSource.Texture">
+  Texture
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The atlas texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture2D Texture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_TextureRegionSize_" data-uid="Godot.TileSetAtlasSource.TextureRegionSize*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_TextureRegionSize" data-uid="Godot.TileSetAtlasSource.TextureRegionSize">
+  TextureRegionSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The base tile size in the texture (in pixel). This size must be bigger than the TileSet's <code>tile_size</code> value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2I TextureRegionSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_UseTexturePadding_" data-uid="Godot.TileSetAtlasSource.UseTexturePadding*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_UseTexturePadding" data-uid="Godot.TileSetAtlasSource.UseTexturePadding">
+  UseTexturePadding
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, generates an internal texture with an additional one pixel padding around each tile. Texture padding avoids a common artifact where lines appear between tiles.</p>
+<p>Disabling this setting might lead a small performance improvement, as generating the internal texture requires both memory and processing time when the TileSetAtlasSource resource is modified.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UseTexturePadding { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_TileSetAtlasSource_ClearTilesOutsideTexture_" data-uid="Godot.TileSetAtlasSource.ClearTilesOutsideTexture*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_ClearTilesOutsideTexture" data-uid="Godot.TileSetAtlasSource.ClearTilesOutsideTexture">
+  ClearTilesOutsideTexture()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all tiles that don't fit the available texture area. This method iterates over all the source's tiles, so it's advised to use <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_HasTilesOutsideTexture">HasTilesOutsideTexture()</a> beforehand.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearTilesOutsideTexture()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_CreateAlternativeTile_" data-uid="Godot.TileSetAtlasSource.CreateAlternativeTile*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_CreateAlternativeTile_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSetAtlasSource.CreateAlternativeTile(Godot.Vector2I,System.Int32)">
+  CreateAlternativeTile(Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an alternative tile for the tile at coordinates <code class="paramref">atlasCoords</code>. If <code class="paramref">alternativeIdOverride</code> is -1, give it an automatically generated unique ID, or assigns it the given ID otherwise.</p>
+<p>Returns the new alternative identifier, or -1 if the alternative could not be created with a provided <code class="paramref">alternativeIdOverride</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CreateAlternativeTile(Vector2I atlasCoords, int alternativeIdOverride = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>alternativeIdOverride</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_CreateTile_" data-uid="Godot.TileSetAtlasSource.CreateTile*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_CreateTile_Godot_Vector2I_System_Nullable_Godot_Vector2I__" data-uid="Godot.TileSetAtlasSource.CreateTile(Godot.Vector2I,System.Nullable{Godot.Vector2I})">
+  CreateTile(Vector2I, Vector2I?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new tile at coordinates <code class="paramref">atlasCoords</code> with the given <code class="paramref">size</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateTile(Vector2I atlasCoords, Vector2I? size = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Vector2I(1, 1)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetAtlasGridSize_" data-uid="Godot.TileSetAtlasSource.GetAtlasGridSize*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetAtlasGridSize" data-uid="Godot.TileSetAtlasSource.GetAtlasGridSize">
+  GetAtlasGridSize()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the atlas grid size, which depends on how many tiles can fit in the texture. It thus depends on the <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_Texture">Texture</a>'s size, the atlas <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_Margins">Margins</a>, and the tiles' <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_TextureRegionSize">TextureRegionSize</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2I GetAtlasGridSize()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetNextAlternativeTileId_" data-uid="Godot.TileSetAtlasSource.GetNextAlternativeTileId*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetNextAlternativeTileId_Godot_Vector2I_" data-uid="Godot.TileSetAtlasSource.GetNextAlternativeTileId(Godot.Vector2I)">
+  GetNextAlternativeTileId(Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the alternative ID a following call to <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_CreateAlternativeTile_Godot_Vector2I_System_Int32_">CreateAlternativeTile(Vector2I, int)</a> would return.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetNextAlternativeTileId(Vector2I atlasCoords)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetRuntimeTexture_" data-uid="Godot.TileSetAtlasSource.GetRuntimeTexture*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetRuntimeTexture" data-uid="Godot.TileSetAtlasSource.GetRuntimeTexture">
+  GetRuntimeTexture()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_UseTexturePadding">UseTexturePadding</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, returns <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_Texture">Texture</a>. Otherwise, returns and internal <a class="xref" href="Godot.ImageTexture.html">ImageTexture</a> created that includes the padding.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture2D GetRuntimeTexture()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetRuntimeTileTextureRegion_" data-uid="Godot.TileSetAtlasSource.GetRuntimeTileTextureRegion*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetRuntimeTileTextureRegion_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSetAtlasSource.GetRuntimeTileTextureRegion(Godot.Vector2I,System.Int32)">
+  GetRuntimeTileTextureRegion(Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the region of the tile at coordinates <code class="paramref">atlasCoords</code> for the given <code class="paramref">frame</code> inside the texture returned by <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_GetRuntimeTexture">GetRuntimeTexture()</a>.</p>
+<p>
+  <b>Note:</b> If <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_UseTexturePadding">UseTexturePadding</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, returns the same as <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_GetTileTextureRegion_Godot_Vector2I_System_Int32_">GetTileTextureRegion(Vector2I, int)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rect2I GetRuntimeTileTextureRegion(Vector2I atlasCoords, int frame)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rect2I.html">Rect2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetTileAnimationColumns_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationColumns*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetTileAnimationColumns_Godot_Vector2I_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationColumns(Godot.Vector2I)">
+  GetTileAnimationColumns(Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns how many columns the tile at <code class="paramref">atlasCoords</code> has in its animation layout.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetTileAnimationColumns(Vector2I atlasCoords)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetTileAnimationFrameDuration_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationFrameDuration*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetTileAnimationFrameDuration_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationFrameDuration(Godot.Vector2I,System.Int32)">
+  GetTileAnimationFrameDuration(Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the animation frame duration of frame <code class="paramref">frameIndex</code> for the tile at coordinates <code class="paramref">atlasCoords</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetTileAnimationFrameDuration(Vector2I atlasCoords, int frameIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>frameIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetTileAnimationFramesCount_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationFramesCount*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetTileAnimationFramesCount_Godot_Vector2I_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationFramesCount(Godot.Vector2I)">
+  GetTileAnimationFramesCount(Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns how many animation frames has the tile at coordinates <code class="paramref">atlasCoords</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetTileAnimationFramesCount(Vector2I atlasCoords)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetTileAnimationMode_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationMode*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetTileAnimationMode_Godot_Vector2I_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationMode(Godot.Vector2I)">
+  GetTileAnimationMode(Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the tile animation mode of the tile at <code class="paramref">atlasCoords</code>. See also <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_SetTileAnimationMode_Godot_Vector2I_Godot_TileSetAtlasSource_TileAnimationMode_">SetTileAnimationMode(Vector2I, TileAnimationMode)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileSetAtlasSource.TileAnimationMode GetTileAnimationMode(Vector2I atlasCoords)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.TileSetAtlasSource.html">TileSetAtlasSource</a>.<a class="xref" href="Godot.TileSetAtlasSource.TileAnimationMode.html">TileAnimationMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetTileAnimationSeparation_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationSeparation*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetTileAnimationSeparation_Godot_Vector2I_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationSeparation(Godot.Vector2I)">
+  GetTileAnimationSeparation(Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the separation (as in the atlas grid) between each frame of an animated tile at coordinates <code class="paramref">atlasCoords</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2I GetTileAnimationSeparation(Vector2I atlasCoords)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetTileAnimationSpeed_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationSpeed*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetTileAnimationSpeed_Godot_Vector2I_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationSpeed(Godot.Vector2I)">
+  GetTileAnimationSpeed(Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the animation speed of the tile at coordinates <code class="paramref">atlasCoords</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetTileAnimationSpeed(Vector2I atlasCoords)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetTileAnimationTotalDuration_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationTotalDuration*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetTileAnimationTotalDuration_Godot_Vector2I_" data-uid="Godot.TileSetAtlasSource.GetTileAnimationTotalDuration(Godot.Vector2I)">
+  GetTileAnimationTotalDuration(Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the sum of the sum of the frame durations of the tile at coordinates <code class="paramref">atlasCoords</code>. This value needs to be divided by the animation speed to get the actual animation loop duration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetTileAnimationTotalDuration(Vector2I atlasCoords)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetTileAtCoords_" data-uid="Godot.TileSetAtlasSource.GetTileAtCoords*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetTileAtCoords_Godot_Vector2I_" data-uid="Godot.TileSetAtlasSource.GetTileAtCoords(Godot.Vector2I)">
+  GetTileAtCoords(Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If there is a tile covering the <code class="paramref">atlasCoords</code> coordinates, returns the top-left coordinates of the tile (thus its coordinate ID). Returns <code>Vector2i(-1, -1)</code> otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2I GetTileAtCoords(Vector2I atlasCoords)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetTileData_" data-uid="Godot.TileSetAtlasSource.GetTileData*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetTileData_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSetAtlasSource.GetTileData(Godot.Vector2I,System.Int32)">
+  GetTileData(Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.TileData.html">TileData</a> object for the given atlas coordinates and alternative ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileData GetTileData(Vector2I atlasCoords, int alternativeTile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>alternativeTile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.TileData.html">TileData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetTileSizeInAtlas_" data-uid="Godot.TileSetAtlasSource.GetTileSizeInAtlas*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetTileSizeInAtlas_Godot_Vector2I_" data-uid="Godot.TileSetAtlasSource.GetTileSizeInAtlas(Godot.Vector2I)">
+  GetTileSizeInAtlas(Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the size of the tile (in the grid coordinates system) at coordinates <code class="paramref">atlasCoords</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2I GetTileSizeInAtlas(Vector2I atlasCoords)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetTileTextureRegion_" data-uid="Godot.TileSetAtlasSource.GetTileTextureRegion*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetTileTextureRegion_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSetAtlasSource.GetTileTextureRegion(Godot.Vector2I,System.Int32)">
+  GetTileTextureRegion(Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a tile's texture region in the atlas texture. For animated tiles, a <code class="paramref">frame</code> argument might be provided for the different frames of the animation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rect2I GetTileTextureRegion(Vector2I atlasCoords, int frame = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rect2I.html">Rect2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_GetTilesToBeRemovedOnChange_" data-uid="Godot.TileSetAtlasSource.GetTilesToBeRemovedOnChange*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_GetTilesToBeRemovedOnChange_Godot_Texture2D_Godot_Vector2I_Godot_Vector2I_Godot_Vector2I_" data-uid="Godot.TileSetAtlasSource.GetTilesToBeRemovedOnChange(Godot.Texture2D,Godot.Vector2I,Godot.Vector2I,Godot.Vector2I)">
+  GetTilesToBeRemovedOnChange(Texture2D, Vector2I, Vector2I, Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array of tiles coordinates ID that will be automatically removed when modifying one or several of those properties: <code class="paramref">texture</code>, <code class="paramref">margins</code>, <code class="paramref">separation</code> or <code class="paramref">textureRegionSize</code>. This can be used to undo changes that would have caused tiles data loss.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2[] GetTilesToBeRemovedOnChange(Texture2D texture, Vector2I margins, Vector2I separation, Vector2I textureRegionSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Godot.Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+    <dt><code>margins</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>separation</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>textureRegionSize</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_HasGodotClassMethod_" data-uid="Godot.TileSetAtlasSource.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.TileSetAtlasSource.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_HasGodotClassSignal_" data-uid="Godot.TileSetAtlasSource.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.TileSetAtlasSource.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_HasRoomForTile_" data-uid="Godot.TileSetAtlasSource.HasRoomForTile*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_HasRoomForTile_Godot_Vector2I_Godot_Vector2I_System_Int32_Godot_Vector2I_System_Int32_System_Nullable_Godot_Vector2I__" data-uid="Godot.TileSetAtlasSource.HasRoomForTile(Godot.Vector2I,Godot.Vector2I,System.Int32,Godot.Vector2I,System.Int32,System.Nullable{Godot.Vector2I})">
+  HasRoomForTile(Vector2I, Vector2I, int, Vector2I, int, Vector2I?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether there is enough room in an atlas to create/modify a tile with the given properties. If <code class="paramref">ignoredTile</code> is provided, act as is the given tile was not present in the atlas. This may be used when you want to modify a tile's properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasRoomForTile(Vector2I atlasCoords, Vector2I size, int animationColumns, Vector2I animationSeparation, int framesCount, Vector2I? ignoredTile = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>animationColumns</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>animationSeparation</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>framesCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>ignoredTile</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Vector2I(-1, -1)</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_HasTilesOutsideTexture_" data-uid="Godot.TileSetAtlasSource.HasTilesOutsideTexture*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_HasTilesOutsideTexture" data-uid="Godot.TileSetAtlasSource.HasTilesOutsideTexture">
+  HasTilesOutsideTexture()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks if the source has any tiles that don't fit the texture area (either partially or completely).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasTilesOutsideTexture()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_InvokeGodotClassMethod_" data-uid="Godot.TileSetAtlasSource.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.TileSetAtlasSource.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_MoveTileInAtlas_" data-uid="Godot.TileSetAtlasSource.MoveTileInAtlas*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_MoveTileInAtlas_Godot_Vector2I_System_Nullable_Godot_Vector2I__System_Nullable_Godot_Vector2I__" data-uid="Godot.TileSetAtlasSource.MoveTileInAtlas(Godot.Vector2I,System.Nullable{Godot.Vector2I},System.Nullable{Godot.Vector2I})">
+  MoveTileInAtlas(Vector2I, Vector2I?, Vector2I?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Move the tile and its alternatives at the <code class="paramref">atlasCoords</code> coordinates to the <code class="paramref">newAtlasCoords</code> coordinates with the <code class="paramref">newSize</code> size. This functions will fail if a tile is already present in the given area.</p>
+<p>If <code class="paramref">newAtlasCoords</code> is <code>Vector2i(-1, -1)</code>, keeps the tile's coordinates. If <code class="paramref">newSize</code> is <code>Vector2i(-1, -1)</code>, keeps the tile's size.</p>
+<p>To avoid an error, first check if a move is possible using <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_HasRoomForTile_Godot_Vector2I_Godot_Vector2I_System_Int32_Godot_Vector2I_System_Int32_System_Nullable_Godot_Vector2I__">HasRoomForTile(Vector2I, Vector2I, int, Vector2I, int, Vector2I?)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveTileInAtlas(Vector2I atlasCoords, Vector2I? newAtlasCoords = null, Vector2I? newSize = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>newAtlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Vector2I(-1, -1)</code>.</p>
+</dd>
+    <dt><code>newSize</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Vector2I(-1, -1)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_RemoveAlternativeTile_" data-uid="Godot.TileSetAtlasSource.RemoveAlternativeTile*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_RemoveAlternativeTile_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSetAtlasSource.RemoveAlternativeTile(Godot.Vector2I,System.Int32)">
+  RemoveAlternativeTile(Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove a tile's alternative with alternative ID <code class="paramref">alternativeTile</code>.</p>
+<p>Calling this function with <code class="paramref">alternativeTile</code> equals to 0 will fail, as the base tile alternative cannot be removed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAlternativeTile(Vector2I atlasCoords, int alternativeTile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>alternativeTile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_RemoveTile_" data-uid="Godot.TileSetAtlasSource.RemoveTile*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_RemoveTile_Godot_Vector2I_" data-uid="Godot.TileSetAtlasSource.RemoveTile(Godot.Vector2I)">
+  RemoveTile(Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove a tile and its alternative at coordinates <code class="paramref">atlasCoords</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveTile(Vector2I atlasCoords)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_SetAlternativeTileId_" data-uid="Godot.TileSetAtlasSource.SetAlternativeTileId*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_SetAlternativeTileId_Godot_Vector2I_System_Int32_System_Int32_" data-uid="Godot.TileSetAtlasSource.SetAlternativeTileId(Godot.Vector2I,System.Int32,System.Int32)">
+  SetAlternativeTileId(Vector2I, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Change a tile's alternative ID from <code class="paramref">alternativeTile</code> to <code class="paramref">newId</code>.</p>
+<p>Calling this function with <code class="paramref">newId</code> of 0 will fail, as the base tile alternative cannot be moved.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetAlternativeTileId(Vector2I atlasCoords, int alternativeTile, int newId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>alternativeTile</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>newId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_SetTileAnimationColumns_" data-uid="Godot.TileSetAtlasSource.SetTileAnimationColumns*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_SetTileAnimationColumns_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSetAtlasSource.SetTileAnimationColumns(Godot.Vector2I,System.Int32)">
+  SetTileAnimationColumns(Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the number of columns in the animation layout of the tile at coordinates <code class="paramref">atlasCoords</code>. If set to 0, then the different frames of the animation are laid out as a single horizontal line in the atlas.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTileAnimationColumns(Vector2I atlasCoords, int frameColumns)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>frameColumns</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_SetTileAnimationFrameDuration_" data-uid="Godot.TileSetAtlasSource.SetTileAnimationFrameDuration*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_SetTileAnimationFrameDuration_Godot_Vector2I_System_Int32_System_Single_" data-uid="Godot.TileSetAtlasSource.SetTileAnimationFrameDuration(Godot.Vector2I,System.Int32,System.Single)">
+  SetTileAnimationFrameDuration(Vector2I, int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the animation frame <code class="paramref">duration</code> of frame <code class="paramref">frameIndex</code> for the tile at coordinates <code class="paramref">atlasCoords</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTileAnimationFrameDuration(Vector2I atlasCoords, int frameIndex, float duration)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>frameIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_SetTileAnimationFramesCount_" data-uid="Godot.TileSetAtlasSource.SetTileAnimationFramesCount*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_SetTileAnimationFramesCount_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSetAtlasSource.SetTileAnimationFramesCount(Godot.Vector2I,System.Int32)">
+  SetTileAnimationFramesCount(Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets how many animation frames the tile at coordinates <code class="paramref">atlasCoords</code> has.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTileAnimationFramesCount(Vector2I atlasCoords, int framesCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>framesCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_SetTileAnimationMode_" data-uid="Godot.TileSetAtlasSource.SetTileAnimationMode*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_SetTileAnimationMode_Godot_Vector2I_Godot_TileSetAtlasSource_TileAnimationMode_" data-uid="Godot.TileSetAtlasSource.SetTileAnimationMode(Godot.Vector2I,Godot.TileSetAtlasSource.TileAnimationMode)">
+  SetTileAnimationMode(Vector2I, TileAnimationMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the tile animation mode of the tile at <code class="paramref">atlasCoords</code> to <code class="paramref">mode</code>. See also <a class="xref" href="Godot.TileSetAtlasSource.html#Godot_TileSetAtlasSource_GetTileAnimationMode_Godot_Vector2I_">GetTileAnimationMode(Vector2I)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTileAnimationMode(Vector2I atlasCoords, TileSetAtlasSource.TileAnimationMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>mode</code> <a class="xref" href="Godot.TileSetAtlasSource.html">TileSetAtlasSource</a>.<a class="xref" href="Godot.TileSetAtlasSource.TileAnimationMode.html">TileAnimationMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_SetTileAnimationSeparation_" data-uid="Godot.TileSetAtlasSource.SetTileAnimationSeparation*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_SetTileAnimationSeparation_Godot_Vector2I_Godot_Vector2I_" data-uid="Godot.TileSetAtlasSource.SetTileAnimationSeparation(Godot.Vector2I,Godot.Vector2I)">
+  SetTileAnimationSeparation(Vector2I, Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the margin (in grid tiles) between each tile in the animation layout of the tile at coordinates <code class="paramref">atlasCoords</code> has.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTileAnimationSeparation(Vector2I atlasCoords, Vector2I separation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>separation</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSetAtlasSource_SetTileAnimationSpeed_" data-uid="Godot.TileSetAtlasSource.SetTileAnimationSpeed*"></a>
+
+  <h3 id="Godot_TileSetAtlasSource_SetTileAnimationSpeed_Godot_Vector2I_System_Single_" data-uid="Godot.TileSetAtlasSource.SetTileAnimationSpeed(Godot.Vector2I,System.Single)">
+  SetTileAnimationSpeed(Vector2I, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the animation speed of the tile at coordinates <code class="paramref">atlasCoords</code> has.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTileAnimationSpeed(Vector2I atlasCoords, float speed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>atlasCoords</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>speed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSetAtlasSource.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

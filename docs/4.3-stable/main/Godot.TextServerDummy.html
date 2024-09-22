@@ -1,0 +1,1841 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TextServerDummy | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TextServerDummy | Godot4 C# API ">
+      
+      <meta name="description" content="A dummy  interface that doesn&#39;t do anything. Useful for freeing up memory when rendering text is not needed, as text servers are resource-intensive. It can also be used for performance comparisons in complex GUIs to check the impact of text rendering. A dummy text server is always available at the start of a project. Here&#39;s how to access it:    var dummy_text_server = TextServerManager.find_interface(&quot;Dummy&quot;)   if dummy_text_server != null:       TextServerManager.set_primary_interface(dummy_text_server)       # If the other text servers are unneeded, they can be removed:       for i in TextServerManager.get_interface_count():           var text_server = TextServerManager.get_interface(i)           if text_server != dummy_text_server:               TextServerManager.remove_interface(text_server)  The command line argument --text-driver Dummy (case-sensitive) can be used to force the &quot;Dummy&quot;  on any project.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.TextServerDummy">
+
+
+
+  <h1 id="Godot_TextServerDummy" data-uid="Godot.TextServerDummy" class="text-break">
+Class TextServerDummy  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TextServerDummy.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A dummy <a class="xref" href="Godot.TextServer.html">TextServer</a> interface that doesn't do anything. Useful for freeing up memory when rendering text is not needed, as text servers are resource-intensive. It can also be used for performance comparisons in complex GUIs to check the impact of text rendering.</p>
+<p>A dummy text server is always available at the start of a project. Here's how to access it:</p>
+<p>
+  <pre><code class="lang-csharp">var dummy_text_server = TextServerManager.find_interface("Dummy")
+  if dummy_text_server != null:
+      TextServerManager.set_primary_interface(dummy_text_server)
+      # If the other text servers are unneeded, they can be removed:
+      for i in TextServerManager.get_interface_count():
+          var text_server = TextServerManager.get_interface(i)
+          if text_server != dummy_text_server:
+              TextServerManager.remove_interface(text_server)</code></pre>
+
+<p>The command line argument <code>--text-driver Dummy</code> (case-sensitive) can be used to force the "Dummy" <a class="xref" href="Godot.TextServer.html">TextServer</a> on any project.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TextServerDummy : TextServerExtension, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><a class="xref" href="Godot.TextServer.html">TextServer</a></div>
+      <div><a class="xref" href="Godot.TextServerExtension.html">TextServerExtension</a></div>
+      <div><span class="xref">TextServerDummy</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__Cleanup">TextServerExtension._Cleanup()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__CreateFont">TextServerExtension._CreateFont()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__CreateFontLinkedVariation_Godot_Rid_">TextServerExtension._CreateFontLinkedVariation(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__CreateShapedText_Godot_TextServer_Direction_Godot_TextServer_Orientation_">TextServerExtension._CreateShapedText(TextServer.Direction, TextServer.Orientation)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__DrawHexCodeBox_Godot_Rid_System_Int64_Godot_Vector2_System_Int64_Godot_Color_">TextServerExtension._DrawHexCodeBox(Rid, long, Vector2, long, Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontClearGlyphs_Godot_Rid_Godot_Vector2I_">TextServerExtension._FontClearGlyphs(Rid, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontClearKerningMap_Godot_Rid_System_Int64_">TextServerExtension._FontClearKerningMap(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontClearSizeCache_Godot_Rid_">TextServerExtension._FontClearSizeCache(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontClearTextures_Godot_Rid_Godot_Vector2I_">TextServerExtension._FontClearTextures(Rid, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontDrawGlyph_Godot_Rid_Godot_Rid_System_Int64_Godot_Vector2_System_Int64_Godot_Color_">TextServerExtension._FontDrawGlyph(Rid, Rid, long, Vector2, long, Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontDrawGlyphOutline_Godot_Rid_Godot_Rid_System_Int64_System_Int64_Godot_Vector2_System_Int64_Godot_Color_">TextServerExtension._FontDrawGlyphOutline(Rid, Rid, long, long, Vector2, long, Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetAntialiasing_Godot_Rid_">TextServerExtension._FontGetAntialiasing(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetAscent_Godot_Rid_System_Int64_">TextServerExtension._FontGetAscent(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetBaselineOffset_Godot_Rid_">TextServerExtension._FontGetBaselineOffset(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetCharFromGlyphIndex_Godot_Rid_System_Int64_System_Int64_">TextServerExtension._FontGetCharFromGlyphIndex(Rid, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetDescent_Godot_Rid_System_Int64_">TextServerExtension._FontGetDescent(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetDisableEmbeddedBitmaps_Godot_Rid_">TextServerExtension._FontGetDisableEmbeddedBitmaps(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetEmbolden_Godot_Rid_">TextServerExtension._FontGetEmbolden(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetFaceCount_Godot_Rid_">TextServerExtension._FontGetFaceCount(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetFaceIndex_Godot_Rid_">TextServerExtension._FontGetFaceIndex(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetFixedSize_Godot_Rid_">TextServerExtension._FontGetFixedSize(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetFixedSizeScaleMode_Godot_Rid_">TextServerExtension._FontGetFixedSizeScaleMode(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetGenerateMipmaps_Godot_Rid_">TextServerExtension._FontGetGenerateMipmaps(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetGlobalOversampling">TextServerExtension._FontGetGlobalOversampling()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetGlyphAdvance_Godot_Rid_System_Int64_System_Int64_">TextServerExtension._FontGetGlyphAdvance(Rid, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetGlyphContours_Godot_Rid_System_Int64_System_Int64_">TextServerExtension._FontGetGlyphContours(Rid, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetGlyphIndex_Godot_Rid_System_Int64_System_Int64_System_Int64_">TextServerExtension._FontGetGlyphIndex(Rid, long, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetGlyphList_Godot_Rid_Godot_Vector2I_">TextServerExtension._FontGetGlyphList(Rid, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetGlyphOffset_Godot_Rid_Godot_Vector2I_System_Int64_">TextServerExtension._FontGetGlyphOffset(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetGlyphSize_Godot_Rid_Godot_Vector2I_System_Int64_">TextServerExtension._FontGetGlyphSize(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetGlyphTextureIdx_Godot_Rid_Godot_Vector2I_System_Int64_">TextServerExtension._FontGetGlyphTextureIdx(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetGlyphTextureRid_Godot_Rid_Godot_Vector2I_System_Int64_">TextServerExtension._FontGetGlyphTextureRid(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetGlyphTextureSize_Godot_Rid_Godot_Vector2I_System_Int64_">TextServerExtension._FontGetGlyphTextureSize(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetGlyphUVRect_Godot_Rid_Godot_Vector2I_System_Int64_">TextServerExtension._FontGetGlyphUVRect(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetHinting_Godot_Rid_">TextServerExtension._FontGetHinting(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetKerning_Godot_Rid_System_Int64_Godot_Vector2I_">TextServerExtension._FontGetKerning(Rid, long, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetKerningList_Godot_Rid_System_Int64_">TextServerExtension._FontGetKerningList(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetLanguageSupportOverride_Godot_Rid_System_String_">TextServerExtension._FontGetLanguageSupportOverride(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetLanguageSupportOverrides_Godot_Rid_">TextServerExtension._FontGetLanguageSupportOverrides(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetMsdfPixelRange_Godot_Rid_">TextServerExtension._FontGetMsdfPixelRange(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetMsdfSize_Godot_Rid_">TextServerExtension._FontGetMsdfSize(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetName_Godot_Rid_">TextServerExtension._FontGetName(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetOpentypeFeatureOverrides_Godot_Rid_">TextServerExtension._FontGetOpentypeFeatureOverrides(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetOtNameStrings_Godot_Rid_">TextServerExtension._FontGetOtNameStrings(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetOversampling_Godot_Rid_">TextServerExtension._FontGetOversampling(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetScale_Godot_Rid_System_Int64_">TextServerExtension._FontGetScale(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetScriptSupportOverride_Godot_Rid_System_String_">TextServerExtension._FontGetScriptSupportOverride(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetScriptSupportOverrides_Godot_Rid_">TextServerExtension._FontGetScriptSupportOverrides(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetSizeCacheList_Godot_Rid_">TextServerExtension._FontGetSizeCacheList(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetSpacing_Godot_Rid_Godot_TextServer_SpacingType_">TextServerExtension._FontGetSpacing(Rid, TextServer.SpacingType)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetStretch_Godot_Rid_">TextServerExtension._FontGetStretch(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetStyle_Godot_Rid_">TextServerExtension._FontGetStyle(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetStyleName_Godot_Rid_">TextServerExtension._FontGetStyleName(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetSubpixelPositioning_Godot_Rid_">TextServerExtension._FontGetSubpixelPositioning(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetSupportedChars_Godot_Rid_">TextServerExtension._FontGetSupportedChars(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetTextureCount_Godot_Rid_Godot_Vector2I_">TextServerExtension._FontGetTextureCount(Rid, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetTextureImage_Godot_Rid_Godot_Vector2I_System_Int64_">TextServerExtension._FontGetTextureImage(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetTextureOffsets_Godot_Rid_Godot_Vector2I_System_Int64_">TextServerExtension._FontGetTextureOffsets(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetTransform_Godot_Rid_">TextServerExtension._FontGetTransform(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetUnderlinePosition_Godot_Rid_System_Int64_">TextServerExtension._FontGetUnderlinePosition(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetUnderlineThickness_Godot_Rid_System_Int64_">TextServerExtension._FontGetUnderlineThickness(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetVariationCoordinates_Godot_Rid_">TextServerExtension._FontGetVariationCoordinates(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontGetWeight_Godot_Rid_">TextServerExtension._FontGetWeight(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontHasChar_Godot_Rid_System_Int64_">TextServerExtension._FontHasChar(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontIsAllowSystemFallback_Godot_Rid_">TextServerExtension._FontIsAllowSystemFallback(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontIsForceAutohinter_Godot_Rid_">TextServerExtension._FontIsForceAutohinter(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontIsLanguageSupported_Godot_Rid_System_String_">TextServerExtension._FontIsLanguageSupported(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontIsMultichannelSignedDistanceField_Godot_Rid_">TextServerExtension._FontIsMultichannelSignedDistanceField(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontIsScriptSupported_Godot_Rid_System_String_">TextServerExtension._FontIsScriptSupported(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontRemoveGlyph_Godot_Rid_Godot_Vector2I_System_Int64_">TextServerExtension._FontRemoveGlyph(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontRemoveKerning_Godot_Rid_System_Int64_Godot_Vector2I_">TextServerExtension._FontRemoveKerning(Rid, long, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontRemoveLanguageSupportOverride_Godot_Rid_System_String_">TextServerExtension._FontRemoveLanguageSupportOverride(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontRemoveScriptSupportOverride_Godot_Rid_System_String_">TextServerExtension._FontRemoveScriptSupportOverride(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontRemoveSizeCache_Godot_Rid_Godot_Vector2I_">TextServerExtension._FontRemoveSizeCache(Rid, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontRemoveTexture_Godot_Rid_Godot_Vector2I_System_Int64_">TextServerExtension._FontRemoveTexture(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontRenderGlyph_Godot_Rid_Godot_Vector2I_System_Int64_">TextServerExtension._FontRenderGlyph(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontRenderRange_Godot_Rid_Godot_Vector2I_System_Int64_System_Int64_">TextServerExtension._FontRenderRange(Rid, Vector2I, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetAllowSystemFallback_Godot_Rid_System_Boolean_">TextServerExtension._FontSetAllowSystemFallback(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetAntialiasing_Godot_Rid_Godot_TextServer_FontAntialiasing_">TextServerExtension._FontSetAntialiasing(Rid, TextServer.FontAntialiasing)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetAscent_Godot_Rid_System_Int64_System_Double_">TextServerExtension._FontSetAscent(Rid, long, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetBaselineOffset_Godot_Rid_System_Double_">TextServerExtension._FontSetBaselineOffset(Rid, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetData_Godot_Rid_System_Byte___">TextServerExtension._FontSetData(Rid, byte[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetDescent_Godot_Rid_System_Int64_System_Double_">TextServerExtension._FontSetDescent(Rid, long, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetDisableEmbeddedBitmaps_Godot_Rid_System_Boolean_">TextServerExtension._FontSetDisableEmbeddedBitmaps(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetEmbolden_Godot_Rid_System_Double_">TextServerExtension._FontSetEmbolden(Rid, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetFaceIndex_Godot_Rid_System_Int64_">TextServerExtension._FontSetFaceIndex(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetFixedSize_Godot_Rid_System_Int64_">TextServerExtension._FontSetFixedSize(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetFixedSizeScaleMode_Godot_Rid_Godot_TextServer_FixedSizeScaleMode_">TextServerExtension._FontSetFixedSizeScaleMode(Rid, TextServer.FixedSizeScaleMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetForceAutohinter_Godot_Rid_System_Boolean_">TextServerExtension._FontSetForceAutohinter(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetGenerateMipmaps_Godot_Rid_System_Boolean_">TextServerExtension._FontSetGenerateMipmaps(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetGlobalOversampling_System_Double_">TextServerExtension._FontSetGlobalOversampling(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetGlyphAdvance_Godot_Rid_System_Int64_System_Int64_Godot_Vector2_">TextServerExtension._FontSetGlyphAdvance(Rid, long, long, Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetGlyphOffset_Godot_Rid_Godot_Vector2I_System_Int64_Godot_Vector2_">TextServerExtension._FontSetGlyphOffset(Rid, Vector2I, long, Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetGlyphSize_Godot_Rid_Godot_Vector2I_System_Int64_Godot_Vector2_">TextServerExtension._FontSetGlyphSize(Rid, Vector2I, long, Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetGlyphTextureIdx_Godot_Rid_Godot_Vector2I_System_Int64_System_Int64_">TextServerExtension._FontSetGlyphTextureIdx(Rid, Vector2I, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetGlyphUVRect_Godot_Rid_Godot_Vector2I_System_Int64_Godot_Rect2_">TextServerExtension._FontSetGlyphUVRect(Rid, Vector2I, long, Rect2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetHinting_Godot_Rid_Godot_TextServer_Hinting_">TextServerExtension._FontSetHinting(Rid, TextServer.Hinting)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetKerning_Godot_Rid_System_Int64_Godot_Vector2I_Godot_Vector2_">TextServerExtension._FontSetKerning(Rid, long, Vector2I, Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetLanguageSupportOverride_Godot_Rid_System_String_System_Boolean_">TextServerExtension._FontSetLanguageSupportOverride(Rid, string, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetMsdfPixelRange_Godot_Rid_System_Int64_">TextServerExtension._FontSetMsdfPixelRange(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetMsdfSize_Godot_Rid_System_Int64_">TextServerExtension._FontSetMsdfSize(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetMultichannelSignedDistanceField_Godot_Rid_System_Boolean_">TextServerExtension._FontSetMultichannelSignedDistanceField(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetName_Godot_Rid_System_String_">TextServerExtension._FontSetName(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetOpentypeFeatureOverrides_Godot_Rid_Godot_Collections_Dictionary_">TextServerExtension._FontSetOpentypeFeatureOverrides(Rid, Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetOversampling_Godot_Rid_System_Double_">TextServerExtension._FontSetOversampling(Rid, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetScale_Godot_Rid_System_Int64_System_Double_">TextServerExtension._FontSetScale(Rid, long, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetScriptSupportOverride_Godot_Rid_System_String_System_Boolean_">TextServerExtension._FontSetScriptSupportOverride(Rid, string, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetSpacing_Godot_Rid_Godot_TextServer_SpacingType_System_Int64_">TextServerExtension._FontSetSpacing(Rid, TextServer.SpacingType, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetStretch_Godot_Rid_System_Int64_">TextServerExtension._FontSetStretch(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetStyle_Godot_Rid_Godot_TextServer_FontStyle_">TextServerExtension._FontSetStyle(Rid, TextServer.FontStyle)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetStyleName_Godot_Rid_System_String_">TextServerExtension._FontSetStyleName(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetSubpixelPositioning_Godot_Rid_Godot_TextServer_SubpixelPositioning_">TextServerExtension._FontSetSubpixelPositioning(Rid, TextServer.SubpixelPositioning)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetTextureImage_Godot_Rid_Godot_Vector2I_System_Int64_Godot_Image_">TextServerExtension._FontSetTextureImage(Rid, Vector2I, long, Image)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetTextureOffsets_Godot_Rid_Godot_Vector2I_System_Int64_System_Int32___">TextServerExtension._FontSetTextureOffsets(Rid, Vector2I, long, int[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetTransform_Godot_Rid_Godot_Transform2D_">TextServerExtension._FontSetTransform(Rid, Transform2D)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetUnderlinePosition_Godot_Rid_System_Int64_System_Double_">TextServerExtension._FontSetUnderlinePosition(Rid, long, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetUnderlineThickness_Godot_Rid_System_Int64_System_Double_">TextServerExtension._FontSetUnderlineThickness(Rid, long, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetVariationCoordinates_Godot_Rid_Godot_Collections_Dictionary_">TextServerExtension._FontSetVariationCoordinates(Rid, Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSetWeight_Godot_Rid_System_Int64_">TextServerExtension._FontSetWeight(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSupportedFeatureList_Godot_Rid_">TextServerExtension._FontSupportedFeatureList(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FontSupportedVariationList_Godot_Rid_">TextServerExtension._FontSupportedVariationList(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FormatNumber_System_String_System_String_">TextServerExtension._FormatNumber(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__FreeRid_Godot_Rid_">TextServerExtension._FreeRid(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__GetFeatures">TextServerExtension._GetFeatures()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__GetHexCodeBoxSize_System_Int64_System_Int64_">TextServerExtension._GetHexCodeBoxSize(long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__GetName">TextServerExtension._GetName()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__GetSupportDataFileName">TextServerExtension._GetSupportDataFileName()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__GetSupportDataInfo">TextServerExtension._GetSupportDataInfo()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__Has_Godot_Rid_">TextServerExtension._Has(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__HasFeature_Godot_TextServer_Feature_">TextServerExtension._HasFeature(TextServer.Feature)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__IsConfusable_System_String_System_String___">TextServerExtension._IsConfusable(string, string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__IsLocaleRightToLeft_System_String_">TextServerExtension._IsLocaleRightToLeft(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__IsValidIdentifier_System_String_">TextServerExtension._IsValidIdentifier(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__IsValidLetter_System_UInt64_">TextServerExtension._IsValidLetter(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__LoadSupportData_System_String_">TextServerExtension._LoadSupportData(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__NameToTag_System_String_">TextServerExtension._NameToTag(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ParseNumber_System_String_System_String_">TextServerExtension._ParseNumber(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ParseStructuredText_Godot_TextServer_StructuredTextParser_Godot_Collections_Array_System_String_">TextServerExtension._ParseStructuredText(TextServer.StructuredTextParser, Array, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__PercentSign_System_String_">TextServerExtension._PercentSign(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__SaveSupportData_System_String_">TextServerExtension._SaveSupportData(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedGetSpanCount_Godot_Rid_">TextServerExtension._ShapedGetSpanCount(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedGetSpanMeta_Godot_Rid_System_Int64_">TextServerExtension._ShapedGetSpanMeta(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedSetSpanUpdateFont_Godot_Rid_System_Int64_Godot_Collections_Array_Godot_Rid__System_Int64_Godot_Collections_Dictionary_">TextServerExtension._ShapedSetSpanUpdateFont(Rid, long, Array&lt;Rid&gt;, long, Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextAddObject_Godot_Rid_Godot_Variant_Godot_Vector2_Godot_InlineAlignment_System_Int64_System_Double_">TextServerExtension._ShapedTextAddObject(Rid, Variant, Vector2, InlineAlignment, long, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextAddString_Godot_Rid_System_String_Godot_Collections_Array_Godot_Rid__System_Int64_Godot_Collections_Dictionary_System_String_Godot_Variant_">TextServerExtension._ShapedTextAddString(Rid, string, Array&lt;Rid&gt;, long, Dictionary, string, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextClear_Godot_Rid_">TextServerExtension._ShapedTextClear(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextClosestCharacterPos_Godot_Rid_System_Int64_">TextServerExtension._ShapedTextClosestCharacterPos(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextDraw_Godot_Rid_Godot_Rid_Godot_Vector2_System_Double_System_Double_Godot_Color_">TextServerExtension._ShapedTextDraw(Rid, Rid, Vector2, double, double, Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextDrawOutline_Godot_Rid_Godot_Rid_Godot_Vector2_System_Double_System_Double_System_Int64_Godot_Color_">TextServerExtension._ShapedTextDrawOutline(Rid, Rid, Vector2, double, double, long, Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextFitToWidth_Godot_Rid_System_Double_Godot_TextServer_JustificationFlag_">TextServerExtension._ShapedTextFitToWidth(Rid, double, TextServer.JustificationFlag)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetAscent_Godot_Rid_">TextServerExtension._ShapedTextGetAscent(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetCharacterBreaks_Godot_Rid_">TextServerExtension._ShapedTextGetCharacterBreaks(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetCustomEllipsis_Godot_Rid_">TextServerExtension._ShapedTextGetCustomEllipsis(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetCustomPunctuation_Godot_Rid_">TextServerExtension._ShapedTextGetCustomPunctuation(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetDescent_Godot_Rid_">TextServerExtension._ShapedTextGetDescent(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetDirection_Godot_Rid_">TextServerExtension._ShapedTextGetDirection(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetDominantDirectionInRange_Godot_Rid_System_Int64_System_Int64_">TextServerExtension._ShapedTextGetDominantDirectionInRange(Rid, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetEllipsisGlyphCount_Godot_Rid_">TextServerExtension._ShapedTextGetEllipsisGlyphCount(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetEllipsisPos_Godot_Rid_">TextServerExtension._ShapedTextGetEllipsisPos(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetGlyphCount_Godot_Rid_">TextServerExtension._ShapedTextGetGlyphCount(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetGraphemeBounds_Godot_Rid_System_Int64_">TextServerExtension._ShapedTextGetGraphemeBounds(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetInferredDirection_Godot_Rid_">TextServerExtension._ShapedTextGetInferredDirection(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetLineBreaks_Godot_Rid_System_Double_System_Int64_Godot_TextServer_LineBreakFlag_">TextServerExtension._ShapedTextGetLineBreaks(Rid, double, long, TextServer.LineBreakFlag)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetLineBreaksAdv_Godot_Rid_System_Single___System_Int64_System_Boolean_Godot_TextServer_LineBreakFlag_">TextServerExtension._ShapedTextGetLineBreaksAdv(Rid, float[], long, bool, TextServer.LineBreakFlag)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetObjectGlyph_Godot_Rid_Godot_Variant_">TextServerExtension._ShapedTextGetObjectGlyph(Rid, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetObjectRange_Godot_Rid_Godot_Variant_">TextServerExtension._ShapedTextGetObjectRange(Rid, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetObjectRect_Godot_Rid_Godot_Variant_">TextServerExtension._ShapedTextGetObjectRect(Rid, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetObjects_Godot_Rid_">TextServerExtension._ShapedTextGetObjects(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetOrientation_Godot_Rid_">TextServerExtension._ShapedTextGetOrientation(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetParent_Godot_Rid_">TextServerExtension._ShapedTextGetParent(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetPreserveControl_Godot_Rid_">TextServerExtension._ShapedTextGetPreserveControl(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetPreserveInvalid_Godot_Rid_">TextServerExtension._ShapedTextGetPreserveInvalid(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetRange_Godot_Rid_">TextServerExtension._ShapedTextGetRange(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetSelection_Godot_Rid_System_Int64_System_Int64_">TextServerExtension._ShapedTextGetSelection(Rid, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetSize_Godot_Rid_">TextServerExtension._ShapedTextGetSize(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetSpacing_Godot_Rid_Godot_TextServer_SpacingType_">TextServerExtension._ShapedTextGetSpacing(Rid, TextServer.SpacingType)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetTrimPos_Godot_Rid_">TextServerExtension._ShapedTextGetTrimPos(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetUnderlinePosition_Godot_Rid_">TextServerExtension._ShapedTextGetUnderlinePosition(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetUnderlineThickness_Godot_Rid_">TextServerExtension._ShapedTextGetUnderlineThickness(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetWidth_Godot_Rid_">TextServerExtension._ShapedTextGetWidth(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextGetWordBreaks_Godot_Rid_Godot_TextServer_GraphemeFlag_Godot_TextServer_GraphemeFlag_">TextServerExtension._ShapedTextGetWordBreaks(Rid, TextServer.GraphemeFlag, TextServer.GraphemeFlag)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextHitTestGrapheme_Godot_Rid_System_Double_">TextServerExtension._ShapedTextHitTestGrapheme(Rid, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextHitTestPosition_Godot_Rid_System_Double_">TextServerExtension._ShapedTextHitTestPosition(Rid, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextIsReady_Godot_Rid_">TextServerExtension._ShapedTextIsReady(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextNextCharacterPos_Godot_Rid_System_Int64_">TextServerExtension._ShapedTextNextCharacterPos(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextNextGraphemePos_Godot_Rid_System_Int64_">TextServerExtension._ShapedTextNextGraphemePos(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextOverrunTrimToWidth_Godot_Rid_System_Double_Godot_TextServer_TextOverrunFlag_">TextServerExtension._ShapedTextOverrunTrimToWidth(Rid, double, TextServer.TextOverrunFlag)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextPrevCharacterPos_Godot_Rid_System_Int64_">TextServerExtension._ShapedTextPrevCharacterPos(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextPrevGraphemePos_Godot_Rid_System_Int64_">TextServerExtension._ShapedTextPrevGraphemePos(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextResizeObject_Godot_Rid_Godot_Variant_Godot_Vector2_Godot_InlineAlignment_System_Double_">TextServerExtension._ShapedTextResizeObject(Rid, Variant, Vector2, InlineAlignment, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextSetBidiOverride_Godot_Rid_Godot_Collections_Array_">TextServerExtension._ShapedTextSetBidiOverride(Rid, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextSetCustomEllipsis_Godot_Rid_System_Int64_">TextServerExtension._ShapedTextSetCustomEllipsis(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextSetCustomPunctuation_Godot_Rid_System_String_">TextServerExtension._ShapedTextSetCustomPunctuation(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextSetDirection_Godot_Rid_Godot_TextServer_Direction_">TextServerExtension._ShapedTextSetDirection(Rid, TextServer.Direction)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextSetOrientation_Godot_Rid_Godot_TextServer_Orientation_">TextServerExtension._ShapedTextSetOrientation(Rid, TextServer.Orientation)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextSetPreserveControl_Godot_Rid_System_Boolean_">TextServerExtension._ShapedTextSetPreserveControl(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextSetPreserveInvalid_Godot_Rid_System_Boolean_">TextServerExtension._ShapedTextSetPreserveInvalid(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextSetSpacing_Godot_Rid_Godot_TextServer_SpacingType_System_Int64_">TextServerExtension._ShapedTextSetSpacing(Rid, TextServer.SpacingType, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextShape_Godot_Rid_">TextServerExtension._ShapedTextShape(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextSubstr_Godot_Rid_System_Int64_System_Int64_">TextServerExtension._ShapedTextSubstr(Rid, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextTabAlign_Godot_Rid_System_Single___">TextServerExtension._ShapedTextTabAlign(Rid, float[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextUpdateBreaks_Godot_Rid_">TextServerExtension._ShapedTextUpdateBreaks(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__ShapedTextUpdateJustificationOps_Godot_Rid_">TextServerExtension._ShapedTextUpdateJustificationOps(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__SpoofCheck_System_String_">TextServerExtension._SpoofCheck(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__StringGetCharacterBreaks_System_String_System_String_">TextServerExtension._StringGetCharacterBreaks(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__StringGetWordBreaks_System_String_System_String_System_Int64_">TextServerExtension._StringGetWordBreaks(string, string, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__StringToLower_System_String_System_String_">TextServerExtension._StringToLower(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__StringToTitle_System_String_System_String_">TextServerExtension._StringToTitle(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__StringToUpper_System_String_System_String_">TextServerExtension._StringToUpper(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__StripDiacritics_System_String_">TextServerExtension._StripDiacritics(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServerExtension.html#Godot_TextServerExtension__TagToName_System_Int64_">TextServerExtension._TagToName(long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_HasFeature_Godot_TextServer_Feature_">TextServer.HasFeature(TextServer.Feature)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_GetName">TextServer.GetName()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_GetFeatures">TextServer.GetFeatures()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_LoadSupportData_System_String_">TextServer.LoadSupportData(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_GetSupportDataFileName">TextServer.GetSupportDataFileName()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_GetSupportDataInfo">TextServer.GetSupportDataInfo()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_SaveSupportData_System_String_">TextServer.SaveSupportData(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_IsLocaleRightToLeft_System_String_">TextServer.IsLocaleRightToLeft(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_NameToTag_System_String_">TextServer.NameToTag(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_TagToName_System_Int64_">TextServer.TagToName(long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_Has_Godot_Rid_">TextServer.Has(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FreeRid_Godot_Rid_">TextServer.FreeRid(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_CreateFont">TextServer.CreateFont()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_CreateFontLinkedVariation_Godot_Rid_">TextServer.CreateFontLinkedVariation(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetData_Godot_Rid_System_Byte___">TextServer.FontSetData(Rid, byte[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetFaceIndex_Godot_Rid_System_Int64_">TextServer.FontSetFaceIndex(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetFaceIndex_Godot_Rid_">TextServer.FontGetFaceIndex(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetFaceCount_Godot_Rid_">TextServer.FontGetFaceCount(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetStyle_Godot_Rid_Godot_TextServer_FontStyle_">TextServer.FontSetStyle(Rid, TextServer.FontStyle)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetStyle_Godot_Rid_">TextServer.FontGetStyle(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetName_Godot_Rid_System_String_">TextServer.FontSetName(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetName_Godot_Rid_">TextServer.FontGetName(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetOtNameStrings_Godot_Rid_">TextServer.FontGetOtNameStrings(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetStyleName_Godot_Rid_System_String_">TextServer.FontSetStyleName(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetStyleName_Godot_Rid_">TextServer.FontGetStyleName(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetWeight_Godot_Rid_System_Int64_">TextServer.FontSetWeight(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetWeight_Godot_Rid_">TextServer.FontGetWeight(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetStretch_Godot_Rid_System_Int64_">TextServer.FontSetStretch(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetStretch_Godot_Rid_">TextServer.FontGetStretch(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetAntialiasing_Godot_Rid_Godot_TextServer_FontAntialiasing_">TextServer.FontSetAntialiasing(Rid, TextServer.FontAntialiasing)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetAntialiasing_Godot_Rid_">TextServer.FontGetAntialiasing(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetDisableEmbeddedBitmaps_Godot_Rid_System_Boolean_">TextServer.FontSetDisableEmbeddedBitmaps(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetDisableEmbeddedBitmaps_Godot_Rid_">TextServer.FontGetDisableEmbeddedBitmaps(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetGenerateMipmaps_Godot_Rid_System_Boolean_">TextServer.FontSetGenerateMipmaps(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetGenerateMipmaps_Godot_Rid_">TextServer.FontGetGenerateMipmaps(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetMultichannelSignedDistanceField_Godot_Rid_System_Boolean_">TextServer.FontSetMultichannelSignedDistanceField(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontIsMultichannelSignedDistanceField_Godot_Rid_">TextServer.FontIsMultichannelSignedDistanceField(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetMsdfPixelRange_Godot_Rid_System_Int64_">TextServer.FontSetMsdfPixelRange(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetMsdfPixelRange_Godot_Rid_">TextServer.FontGetMsdfPixelRange(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetMsdfSize_Godot_Rid_System_Int64_">TextServer.FontSetMsdfSize(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetMsdfSize_Godot_Rid_">TextServer.FontGetMsdfSize(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetFixedSize_Godot_Rid_System_Int64_">TextServer.FontSetFixedSize(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetFixedSize_Godot_Rid_">TextServer.FontGetFixedSize(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetFixedSizeScaleMode_Godot_Rid_Godot_TextServer_FixedSizeScaleMode_">TextServer.FontSetFixedSizeScaleMode(Rid, TextServer.FixedSizeScaleMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetFixedSizeScaleMode_Godot_Rid_">TextServer.FontGetFixedSizeScaleMode(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetAllowSystemFallback_Godot_Rid_System_Boolean_">TextServer.FontSetAllowSystemFallback(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontIsAllowSystemFallback_Godot_Rid_">TextServer.FontIsAllowSystemFallback(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetForceAutohinter_Godot_Rid_System_Boolean_">TextServer.FontSetForceAutohinter(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontIsForceAutohinter_Godot_Rid_">TextServer.FontIsForceAutohinter(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetHinting_Godot_Rid_Godot_TextServer_Hinting_">TextServer.FontSetHinting(Rid, TextServer.Hinting)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetHinting_Godot_Rid_">TextServer.FontGetHinting(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetSubpixelPositioning_Godot_Rid_Godot_TextServer_SubpixelPositioning_">TextServer.FontSetSubpixelPositioning(Rid, TextServer.SubpixelPositioning)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetSubpixelPositioning_Godot_Rid_">TextServer.FontGetSubpixelPositioning(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetEmbolden_Godot_Rid_System_Double_">TextServer.FontSetEmbolden(Rid, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetEmbolden_Godot_Rid_">TextServer.FontGetEmbolden(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetSpacing_Godot_Rid_Godot_TextServer_SpacingType_System_Int64_">TextServer.FontSetSpacing(Rid, TextServer.SpacingType, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetSpacing_Godot_Rid_Godot_TextServer_SpacingType_">TextServer.FontGetSpacing(Rid, TextServer.SpacingType)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetBaselineOffset_Godot_Rid_System_Double_">TextServer.FontSetBaselineOffset(Rid, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetBaselineOffset_Godot_Rid_">TextServer.FontGetBaselineOffset(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetTransform_Godot_Rid_Godot_Transform2D_">TextServer.FontSetTransform(Rid, Transform2D)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetTransform_Godot_Rid_">TextServer.FontGetTransform(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetVariationCoordinates_Godot_Rid_Godot_Collections_Dictionary_">TextServer.FontSetVariationCoordinates(Rid, Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetVariationCoordinates_Godot_Rid_">TextServer.FontGetVariationCoordinates(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetOversampling_Godot_Rid_System_Double_">TextServer.FontSetOversampling(Rid, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetOversampling_Godot_Rid_">TextServer.FontGetOversampling(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetSizeCacheList_Godot_Rid_">TextServer.FontGetSizeCacheList(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontClearSizeCache_Godot_Rid_">TextServer.FontClearSizeCache(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontRemoveSizeCache_Godot_Rid_Godot_Vector2I_">TextServer.FontRemoveSizeCache(Rid, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetAscent_Godot_Rid_System_Int64_System_Double_">TextServer.FontSetAscent(Rid, long, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetAscent_Godot_Rid_System_Int64_">TextServer.FontGetAscent(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetDescent_Godot_Rid_System_Int64_System_Double_">TextServer.FontSetDescent(Rid, long, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetDescent_Godot_Rid_System_Int64_">TextServer.FontGetDescent(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetUnderlinePosition_Godot_Rid_System_Int64_System_Double_">TextServer.FontSetUnderlinePosition(Rid, long, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetUnderlinePosition_Godot_Rid_System_Int64_">TextServer.FontGetUnderlinePosition(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetUnderlineThickness_Godot_Rid_System_Int64_System_Double_">TextServer.FontSetUnderlineThickness(Rid, long, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetUnderlineThickness_Godot_Rid_System_Int64_">TextServer.FontGetUnderlineThickness(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetScale_Godot_Rid_System_Int64_System_Double_">TextServer.FontSetScale(Rid, long, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetScale_Godot_Rid_System_Int64_">TextServer.FontGetScale(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetTextureCount_Godot_Rid_Godot_Vector2I_">TextServer.FontGetTextureCount(Rid, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontClearTextures_Godot_Rid_Godot_Vector2I_">TextServer.FontClearTextures(Rid, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontRemoveTexture_Godot_Rid_Godot_Vector2I_System_Int64_">TextServer.FontRemoveTexture(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetTextureImage_Godot_Rid_Godot_Vector2I_System_Int64_Godot_Image_">TextServer.FontSetTextureImage(Rid, Vector2I, long, Image)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetTextureImage_Godot_Rid_Godot_Vector2I_System_Int64_">TextServer.FontGetTextureImage(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetTextureOffsets_Godot_Rid_Godot_Vector2I_System_Int64_System_Int32___">TextServer.FontSetTextureOffsets(Rid, Vector2I, long, int[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetTextureOffsets_Godot_Rid_Godot_Vector2I_System_Int64_">TextServer.FontGetTextureOffsets(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetGlyphList_Godot_Rid_Godot_Vector2I_">TextServer.FontGetGlyphList(Rid, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontClearGlyphs_Godot_Rid_Godot_Vector2I_">TextServer.FontClearGlyphs(Rid, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontRemoveGlyph_Godot_Rid_Godot_Vector2I_System_Int64_">TextServer.FontRemoveGlyph(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetGlyphAdvance_Godot_Rid_System_Int64_System_Int64_">TextServer.FontGetGlyphAdvance(Rid, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetGlyphAdvance_Godot_Rid_System_Int64_System_Int64_Godot_Vector2_">TextServer.FontSetGlyphAdvance(Rid, long, long, Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetGlyphOffset_Godot_Rid_Godot_Vector2I_System_Int64_">TextServer.FontGetGlyphOffset(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetGlyphOffset_Godot_Rid_Godot_Vector2I_System_Int64_Godot_Vector2_">TextServer.FontSetGlyphOffset(Rid, Vector2I, long, Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetGlyphSize_Godot_Rid_Godot_Vector2I_System_Int64_">TextServer.FontGetGlyphSize(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetGlyphSize_Godot_Rid_Godot_Vector2I_System_Int64_Godot_Vector2_">TextServer.FontSetGlyphSize(Rid, Vector2I, long, Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetGlyphUVRect_Godot_Rid_Godot_Vector2I_System_Int64_">TextServer.FontGetGlyphUVRect(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetGlyphUVRect_Godot_Rid_Godot_Vector2I_System_Int64_Godot_Rect2_">TextServer.FontSetGlyphUVRect(Rid, Vector2I, long, Rect2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetGlyphTextureIdx_Godot_Rid_Godot_Vector2I_System_Int64_">TextServer.FontGetGlyphTextureIdx(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetGlyphTextureIdx_Godot_Rid_Godot_Vector2I_System_Int64_System_Int64_">TextServer.FontSetGlyphTextureIdx(Rid, Vector2I, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetGlyphTextureRid_Godot_Rid_Godot_Vector2I_System_Int64_">TextServer.FontGetGlyphTextureRid(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetGlyphTextureSize_Godot_Rid_Godot_Vector2I_System_Int64_">TextServer.FontGetGlyphTextureSize(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetGlyphContours_Godot_Rid_System_Int64_System_Int64_">TextServer.FontGetGlyphContours(Rid, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetKerningList_Godot_Rid_System_Int64_">TextServer.FontGetKerningList(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontClearKerningMap_Godot_Rid_System_Int64_">TextServer.FontClearKerningMap(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontRemoveKerning_Godot_Rid_System_Int64_Godot_Vector2I_">TextServer.FontRemoveKerning(Rid, long, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetKerning_Godot_Rid_System_Int64_Godot_Vector2I_Godot_Vector2_">TextServer.FontSetKerning(Rid, long, Vector2I, Vector2)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetKerning_Godot_Rid_System_Int64_Godot_Vector2I_">TextServer.FontGetKerning(Rid, long, Vector2I)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetGlyphIndex_Godot_Rid_System_Int64_System_Int64_System_Int64_">TextServer.FontGetGlyphIndex(Rid, long, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetCharFromGlyphIndex_Godot_Rid_System_Int64_System_Int64_">TextServer.FontGetCharFromGlyphIndex(Rid, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontHasChar_Godot_Rid_System_Int64_">TextServer.FontHasChar(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetSupportedChars_Godot_Rid_">TextServer.FontGetSupportedChars(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontRenderRange_Godot_Rid_Godot_Vector2I_System_Int64_System_Int64_">TextServer.FontRenderRange(Rid, Vector2I, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontRenderGlyph_Godot_Rid_Godot_Vector2I_System_Int64_">TextServer.FontRenderGlyph(Rid, Vector2I, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontDrawGlyph_Godot_Rid_Godot_Rid_System_Int64_Godot_Vector2_System_Int64_System_Nullable_Godot_Color__">TextServer.FontDrawGlyph(Rid, Rid, long, Vector2, long, Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontDrawGlyphOutline_Godot_Rid_Godot_Rid_System_Int64_System_Int64_Godot_Vector2_System_Int64_System_Nullable_Godot_Color__">TextServer.FontDrawGlyphOutline(Rid, Rid, long, long, Vector2, long, Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontIsLanguageSupported_Godot_Rid_System_String_">TextServer.FontIsLanguageSupported(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetLanguageSupportOverride_Godot_Rid_System_String_System_Boolean_">TextServer.FontSetLanguageSupportOverride(Rid, string, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetLanguageSupportOverride_Godot_Rid_System_String_">TextServer.FontGetLanguageSupportOverride(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontRemoveLanguageSupportOverride_Godot_Rid_System_String_">TextServer.FontRemoveLanguageSupportOverride(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetLanguageSupportOverrides_Godot_Rid_">TextServer.FontGetLanguageSupportOverrides(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontIsScriptSupported_Godot_Rid_System_String_">TextServer.FontIsScriptSupported(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetScriptSupportOverride_Godot_Rid_System_String_System_Boolean_">TextServer.FontSetScriptSupportOverride(Rid, string, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetScriptSupportOverride_Godot_Rid_System_String_">TextServer.FontGetScriptSupportOverride(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontRemoveScriptSupportOverride_Godot_Rid_System_String_">TextServer.FontRemoveScriptSupportOverride(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetScriptSupportOverrides_Godot_Rid_">TextServer.FontGetScriptSupportOverrides(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetOpentypeFeatureOverrides_Godot_Rid_Godot_Collections_Dictionary_">TextServer.FontSetOpentypeFeatureOverrides(Rid, Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetOpentypeFeatureOverrides_Godot_Rid_">TextServer.FontGetOpentypeFeatureOverrides(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSupportedFeatureList_Godot_Rid_">TextServer.FontSupportedFeatureList(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSupportedVariationList_Godot_Rid_">TextServer.FontSupportedVariationList(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontGetGlobalOversampling">TextServer.FontGetGlobalOversampling()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FontSetGlobalOversampling_System_Double_">TextServer.FontSetGlobalOversampling(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_GetHexCodeBoxSize_System_Int64_System_Int64_">TextServer.GetHexCodeBoxSize(long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_DrawHexCodeBox_Godot_Rid_System_Int64_Godot_Vector2_System_Int64_Godot_Color_">TextServer.DrawHexCodeBox(Rid, long, Vector2, long, Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_CreateShapedText_Godot_TextServer_Direction_Godot_TextServer_Orientation_">TextServer.CreateShapedText(TextServer.Direction, TextServer.Orientation)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextClear_Godot_Rid_">TextServer.ShapedTextClear(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextSetDirection_Godot_Rid_Godot_TextServer_Direction_">TextServer.ShapedTextSetDirection(Rid, TextServer.Direction)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetDirection_Godot_Rid_">TextServer.ShapedTextGetDirection(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetInferredDirection_Godot_Rid_">TextServer.ShapedTextGetInferredDirection(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextSetBidiOverride_Godot_Rid_Godot_Collections_Array_">TextServer.ShapedTextSetBidiOverride(Rid, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextSetCustomPunctuation_Godot_Rid_System_String_">TextServer.ShapedTextSetCustomPunctuation(Rid, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetCustomPunctuation_Godot_Rid_">TextServer.ShapedTextGetCustomPunctuation(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextSetCustomEllipsis_Godot_Rid_System_Int64_">TextServer.ShapedTextSetCustomEllipsis(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetCustomEllipsis_Godot_Rid_">TextServer.ShapedTextGetCustomEllipsis(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextSetOrientation_Godot_Rid_Godot_TextServer_Orientation_">TextServer.ShapedTextSetOrientation(Rid, TextServer.Orientation)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetOrientation_Godot_Rid_">TextServer.ShapedTextGetOrientation(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextSetPreserveInvalid_Godot_Rid_System_Boolean_">TextServer.ShapedTextSetPreserveInvalid(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetPreserveInvalid_Godot_Rid_">TextServer.ShapedTextGetPreserveInvalid(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextSetPreserveControl_Godot_Rid_System_Boolean_">TextServer.ShapedTextSetPreserveControl(Rid, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetPreserveControl_Godot_Rid_">TextServer.ShapedTextGetPreserveControl(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextSetSpacing_Godot_Rid_Godot_TextServer_SpacingType_System_Int64_">TextServer.ShapedTextSetSpacing(Rid, TextServer.SpacingType, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetSpacing_Godot_Rid_Godot_TextServer_SpacingType_">TextServer.ShapedTextGetSpacing(Rid, TextServer.SpacingType)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextAddString_Godot_Rid_System_String_Godot_Collections_Array_Godot_Rid__System_Int64_Godot_Collections_Dictionary_System_String_Godot_Variant_">TextServer.ShapedTextAddString(Rid, string, Array&lt;Rid&gt;, long, Dictionary, string, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextAddObject_Godot_Rid_Godot_Variant_Godot_Vector2_Godot_InlineAlignment_System_Int64_System_Double_">TextServer.ShapedTextAddObject(Rid, Variant, Vector2, InlineAlignment, long, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextResizeObject_Godot_Rid_Godot_Variant_Godot_Vector2_Godot_InlineAlignment_System_Double_">TextServer.ShapedTextResizeObject(Rid, Variant, Vector2, InlineAlignment, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedGetSpanCount_Godot_Rid_">TextServer.ShapedGetSpanCount(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedGetSpanMeta_Godot_Rid_System_Int64_">TextServer.ShapedGetSpanMeta(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedSetSpanUpdateFont_Godot_Rid_System_Int64_Godot_Collections_Array_Godot_Rid__System_Int64_Godot_Collections_Dictionary_">TextServer.ShapedSetSpanUpdateFont(Rid, long, Array&lt;Rid&gt;, long, Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextSubstr_Godot_Rid_System_Int64_System_Int64_">TextServer.ShapedTextSubstr(Rid, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetParent_Godot_Rid_">TextServer.ShapedTextGetParent(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextFitToWidth_Godot_Rid_System_Double_Godot_TextServer_JustificationFlag_">TextServer.ShapedTextFitToWidth(Rid, double, TextServer.JustificationFlag)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextTabAlign_Godot_Rid_System_Single___">TextServer.ShapedTextTabAlign(Rid, float[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextShape_Godot_Rid_">TextServer.ShapedTextShape(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextIsReady_Godot_Rid_">TextServer.ShapedTextIsReady(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextHasVisibleChars_Godot_Rid_">TextServer.ShapedTextHasVisibleChars(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetGlyphs_Godot_Rid_">TextServer.ShapedTextGetGlyphs(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextSortLogical_Godot_Rid_">TextServer.ShapedTextSortLogical(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetGlyphCount_Godot_Rid_">TextServer.ShapedTextGetGlyphCount(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetRange_Godot_Rid_">TextServer.ShapedTextGetRange(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetLineBreaksAdv_Godot_Rid_System_Single___System_Int64_System_Boolean_Godot_TextServer_LineBreakFlag_">TextServer.ShapedTextGetLineBreaksAdv(Rid, float[], long, bool, TextServer.LineBreakFlag)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetLineBreaks_Godot_Rid_System_Double_System_Int64_Godot_TextServer_LineBreakFlag_">TextServer.ShapedTextGetLineBreaks(Rid, double, long, TextServer.LineBreakFlag)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetWordBreaks_Godot_Rid_Godot_TextServer_GraphemeFlag_Godot_TextServer_GraphemeFlag_">TextServer.ShapedTextGetWordBreaks(Rid, TextServer.GraphemeFlag, TextServer.GraphemeFlag)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetTrimPos_Godot_Rid_">TextServer.ShapedTextGetTrimPos(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetEllipsisPos_Godot_Rid_">TextServer.ShapedTextGetEllipsisPos(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetEllipsisGlyphs_Godot_Rid_">TextServer.ShapedTextGetEllipsisGlyphs(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetEllipsisGlyphCount_Godot_Rid_">TextServer.ShapedTextGetEllipsisGlyphCount(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextOverrunTrimToWidth_Godot_Rid_System_Double_Godot_TextServer_TextOverrunFlag_">TextServer.ShapedTextOverrunTrimToWidth(Rid, double, TextServer.TextOverrunFlag)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetObjects_Godot_Rid_">TextServer.ShapedTextGetObjects(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetObjectRect_Godot_Rid_Godot_Variant_">TextServer.ShapedTextGetObjectRect(Rid, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetObjectRange_Godot_Rid_Godot_Variant_">TextServer.ShapedTextGetObjectRange(Rid, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetObjectGlyph_Godot_Rid_Godot_Variant_">TextServer.ShapedTextGetObjectGlyph(Rid, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetSize_Godot_Rid_">TextServer.ShapedTextGetSize(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetAscent_Godot_Rid_">TextServer.ShapedTextGetAscent(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetDescent_Godot_Rid_">TextServer.ShapedTextGetDescent(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetWidth_Godot_Rid_">TextServer.ShapedTextGetWidth(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetUnderlinePosition_Godot_Rid_">TextServer.ShapedTextGetUnderlinePosition(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetUnderlineThickness_Godot_Rid_">TextServer.ShapedTextGetUnderlineThickness(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetCarets_Godot_Rid_System_Int64_">TextServer.ShapedTextGetCarets(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetSelection_Godot_Rid_System_Int64_System_Int64_">TextServer.ShapedTextGetSelection(Rid, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextHitTestGrapheme_Godot_Rid_System_Double_">TextServer.ShapedTextHitTestGrapheme(Rid, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextHitTestPosition_Godot_Rid_System_Double_">TextServer.ShapedTextHitTestPosition(Rid, double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetGraphemeBounds_Godot_Rid_System_Int64_">TextServer.ShapedTextGetGraphemeBounds(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextNextGraphemePos_Godot_Rid_System_Int64_">TextServer.ShapedTextNextGraphemePos(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextPrevGraphemePos_Godot_Rid_System_Int64_">TextServer.ShapedTextPrevGraphemePos(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetCharacterBreaks_Godot_Rid_">TextServer.ShapedTextGetCharacterBreaks(Rid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextNextCharacterPos_Godot_Rid_System_Int64_">TextServer.ShapedTextNextCharacterPos(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextPrevCharacterPos_Godot_Rid_System_Int64_">TextServer.ShapedTextPrevCharacterPos(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextClosestCharacterPos_Godot_Rid_System_Int64_">TextServer.ShapedTextClosestCharacterPos(Rid, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextDraw_Godot_Rid_Godot_Rid_Godot_Vector2_System_Double_System_Double_System_Nullable_Godot_Color__">TextServer.ShapedTextDraw(Rid, Rid, Vector2, double, double, Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextDrawOutline_Godot_Rid_Godot_Rid_Godot_Vector2_System_Double_System_Double_System_Int64_System_Nullable_Godot_Color__">TextServer.ShapedTextDrawOutline(Rid, Rid, Vector2, double, double, long, Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ShapedTextGetDominantDirectionInRange_Godot_Rid_System_Int64_System_Int64_">TextServer.ShapedTextGetDominantDirectionInRange(Rid, long, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_FormatNumber_System_String_System_String_">TextServer.FormatNumber(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ParseNumber_System_String_System_String_">TextServer.ParseNumber(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_PercentSign_System_String_">TextServer.PercentSign(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_StringGetWordBreaks_System_String_System_String_System_Int64_">TextServer.StringGetWordBreaks(string, string, long)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_StringGetCharacterBreaks_System_String_System_String_">TextServer.StringGetCharacterBreaks(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_IsConfusable_System_String_System_String___">TextServer.IsConfusable(string, string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_SpoofCheck_System_String_">TextServer.SpoofCheck(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_StripDiacritics_System_String_">TextServer.StripDiacritics(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_IsValidIdentifier_System_String_">TextServer.IsValidIdentifier(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_IsValidLetter_System_UInt64_">TextServer.IsValidLetter(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_StringToUpper_System_String_System_String_">TextServer.StringToUpper(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_StringToLower_System_String_System_String_">TextServer.StringToLower(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_StringToTitle_System_String_System_String_">TextServer.StringToTitle(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.TextServer.html#Godot_TextServer_ParseStructuredText_Godot_TextServer_StructuredTextParser_Godot_Collections_Array_System_String_">TextServer.ParseStructuredText(TextServer.StructuredTextParser, Array, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_InitRef">RefCounted.InitRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Reference">RefCounted.Reference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Unreference">RefCounted.Unreference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_GetReferenceCount">RefCounted.GetReferenceCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">GodotObject.RemoveUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_">GodotObject.GetMethodArgumentCount(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_TextServerDummy__ctor_" data-uid="Godot.TextServerDummy.#ctor*"></a>
+
+  <h3 id="Godot_TextServerDummy__ctor" data-uid="Godot.TextServerDummy.#ctor">
+  TextServerDummy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TextServerDummy.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextServerDummy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_TextServerDummy_HasGodotClassMethod_" data-uid="Godot.TextServerDummy.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_TextServerDummy_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.TextServerDummy.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TextServerDummy.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TextServerDummy_HasGodotClassSignal_" data-uid="Godot.TextServerDummy.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_TextServerDummy_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.TextServerDummy.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TextServerDummy.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TextServerDummy_InvokeGodotClassMethod_" data-uid="Godot.TextServerDummy.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_TextServerDummy_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.TextServerDummy.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TextServerDummy.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TextServerDummy.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

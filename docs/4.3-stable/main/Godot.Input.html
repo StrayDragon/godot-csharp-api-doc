@@ -1,0 +1,2105 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Input | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Input | Godot4 C# API ">
+      
+      <meta name="description" content="The  singleton handles key presses, mouse buttons and movement, gamepads, and input actions. Actions and their events can be set in the Input Map tab in Project &amp;gt; Project Settings, or with the  class.    Note:   &#39;s methods reflect the global input state and are not affected by  or , as those methods only deal with the way input is propagated in the .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.Input">
+
+
+
+  <h1 id="Godot_Input" data-uid="Godot.Input" class="text-break">
+Class Input  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The <a class="xref" href="Godot.Input.html">Input</a> singleton handles key presses, mouse buttons and movement, gamepads, and input actions. Actions and their events can be set in the <b>Input Map</b> tab in <b>Project &gt; Project Settings</b>, or with the <a class="xref" href="Godot.InputMap.html">InputMap</a> class.</p>
+<p>
+  <b>Note:</b>
+  <a class="xref" href="Godot.Input.html">Input</a>'s methods reflect the global input state and are not affected by <a class="xref" href="Godot.Control.html#Godot_Control_AcceptEvent">AcceptEvent()</a> or <a class="xref" href="Godot.Viewport.html#Godot_Viewport_SetInputAsHandled">SetInputAsHandled()</a>, as those methods only deal with the way input is propagated in the <a class="xref" href="Godot.SceneTree.html">SceneTree</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Input</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Input</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_Input_EmulateMouseFromTouch_" data-uid="Godot.Input.EmulateMouseFromTouch*"></a>
+
+  <h3 id="Godot_Input_EmulateMouseFromTouch" data-uid="Godot.Input.EmulateMouseFromTouch">
+  EmulateMouseFromTouch
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, sends mouse input events when tapping or swiping on the touchscreen. See also <code>ProjectSettings.input_devices/pointing/emulate_mouse_from_touch</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool EmulateMouseFromTouch { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_EmulateTouchFromMouse_" data-uid="Godot.Input.EmulateTouchFromMouse*"></a>
+
+  <h3 id="Godot_Input_EmulateTouchFromMouse" data-uid="Godot.Input.EmulateTouchFromMouse">
+  EmulateTouchFromMouse
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, sends touch input events when clicking or dragging the mouse. See also <code>ProjectSettings.input_devices/pointing/emulate_touch_from_mouse</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool EmulateTouchFromMouse { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_MouseMode_" data-uid="Godot.Input.MouseMode*"></a>
+
+  <h3 id="Godot_Input_MouseMode" data-uid="Godot.Input.MouseMode">
+  MouseMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Controls the mouse mode. See <a class="xref" href="Godot.Input.MouseModeEnum.html">Input.MouseModeEnum</a> for more information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Input.MouseModeEnum MouseMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Input.html">Input</a>.<a class="xref" href="Godot.Input.MouseModeEnum.html">MouseModeEnum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_Singleton_" data-uid="Godot.Input.Singleton*"></a>
+
+  <h3 id="Godot_Input_Singleton" data-uid="Godot.Input.Singleton">
+  Singleton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static InputInstance Singleton { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.InputInstance.html">InputInstance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_UseAccumulatedInput_" data-uid="Godot.Input.UseAccumulatedInput*"></a>
+
+  <h3 id="Godot_Input_UseAccumulatedInput" data-uid="Godot.Input.UseAccumulatedInput">
+  UseAccumulatedInput
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, similar input events sent by the operating system are accumulated. When input accumulation is enabled, all input events generated during a frame will be merged and emitted when the frame is done rendering. Therefore, this limits the number of input method calls per second to the rendering FPS.</p>
+<p>Input accumulation can be disabled to get slightly more precise/reactive input at the cost of increased CPU usage. In applications where drawing freehand lines is required, input accumulation should generally be disabled while the user is drawing the line to get results that closely follow the actual input.</p>
+<p>
+  <b>Note:</b> Input accumulation is <i>enabled</i> by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool UseAccumulatedInput { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_Input_ActionPress_" data-uid="Godot.Input.ActionPress*"></a>
+
+  <h3 id="Godot_Input_ActionPress_Godot_StringName_System_Single_" data-uid="Godot.Input.ActionPress(Godot.StringName,System.Single)">
+  ActionPress(StringName, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This will simulate pressing the specified action.</p>
+<p>The strength can be used for non-boolean actions, it's ranged between 0 and 1 representing the intensity of the given action.</p>
+<p>
+  <b>Note:</b> This method will not cause any <a class="xref" href="Godot.Node.html#Godot_Node__Input_Godot_InputEvent_">_Input(InputEvent)</a> calls. It is intended to be used with <a class="xref" href="Godot.Input.html#Godot_Input_IsActionPressed_Godot_StringName_System_Boolean_">IsActionPressed(StringName, bool)</a> and <a class="xref" href="Godot.Input.html#Godot_Input_IsActionJustPressed_Godot_StringName_System_Boolean_">IsActionJustPressed(StringName, bool)</a>. If you want to simulate <code>_input</code>, use <a class="xref" href="Godot.Input.html#Godot_Input_ParseInputEvent_Godot_InputEvent_">ParseInputEvent(InputEvent)</a> instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ActionPress(StringName action, float strength = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>strength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_ActionRelease_" data-uid="Godot.Input.ActionRelease*"></a>
+
+  <h3 id="Godot_Input_ActionRelease_Godot_StringName_" data-uid="Godot.Input.ActionRelease(Godot.StringName)">
+  ActionRelease(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If the specified action is already pressed, this will release it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ActionRelease(StringName action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_AddJoyMapping_" data-uid="Godot.Input.AddJoyMapping*"></a>
+
+  <h3 id="Godot_Input_AddJoyMapping_System_String_System_Boolean_" data-uid="Godot.Input.AddJoyMapping(System.String,System.Boolean)">
+  AddJoyMapping(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new mapping entry (in SDL2 format) to the mapping database. Optionally update already connected devices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddJoyMapping(string mapping, bool updateExisting = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mapping</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>updateExisting</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_FlushBufferedEvents_" data-uid="Godot.Input.FlushBufferedEvents*"></a>
+
+  <h3 id="Godot_Input_FlushBufferedEvents" data-uid="Godot.Input.FlushBufferedEvents">
+  FlushBufferedEvents()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends all input events which are in the current buffer to the game loop. These events may have been buffered as a result of accumulated input (<a class="xref" href="Godot.Input.html#Godot_Input_UseAccumulatedInput">UseAccumulatedInput</a>) or agile input flushing (<code>ProjectSettings.input_devices/buffering/agile_event_flushing</code>).</p>
+<p>The engine will already do this itself at key execution points (at least once per frame). However, this can be useful in advanced cases where you want precise control over the timing of event handling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FlushBufferedEvents()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetAccelerometer_" data-uid="Godot.Input.GetAccelerometer*"></a>
+
+  <h3 id="Godot_Input_GetAccelerometer" data-uid="Godot.Input.GetAccelerometer">
+  GetAccelerometer()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the acceleration in m/s² of the device's accelerometer sensor, if the device has one. Otherwise, the method returns <code>Vector3.ZERO</code>.</p>
+<p>Note this method returns an empty <a class="xref" href="Godot.Vector3.html">Vector3</a> when running from the editor even when your device has an accelerometer. You must export your project to a supported device to read values from the accelerometer.</p>
+<p>
+  <b>Note:</b> This method only works on Android and iOS. On other platforms, it always returns <code>Vector3.ZERO</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 GetAccelerometer()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetActionRawStrength_" data-uid="Godot.Input.GetActionRawStrength*"></a>
+
+  <h3 id="Godot_Input_GetActionRawStrength_Godot_StringName_System_Boolean_" data-uid="Godot.Input.GetActionRawStrength(Godot.StringName,System.Boolean)">
+  GetActionRawStrength(StringName, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a value between 0 and 1 representing the raw intensity of the given action, ignoring the action's deadzone. In most cases, you should use <a class="xref" href="Godot.Input.html#Godot_Input_GetActionStrength_Godot_StringName_System_Boolean_">GetActionStrength(StringName, bool)</a> instead.</p>
+<p>If <code class="paramref">exactMatch</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, it ignores additional input modifiers for <a class="xref" href="Godot.InputEventKey.html">InputEventKey</a> and <a class="xref" href="Godot.InputEventMouseButton.html">InputEventMouseButton</a> events, and the direction for <a class="xref" href="Godot.InputEventJoypadMotion.html">InputEventJoypadMotion</a> events.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float GetActionRawStrength(StringName action, bool exactMatch = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>exactMatch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetActionStrength_" data-uid="Godot.Input.GetActionStrength*"></a>
+
+  <h3 id="Godot_Input_GetActionStrength_Godot_StringName_System_Boolean_" data-uid="Godot.Input.GetActionStrength(Godot.StringName,System.Boolean)">
+  GetActionStrength(StringName, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a value between 0 and 1 representing the intensity of the given action. In a joypad, for example, the further away the axis (analog sticks or L2, R2 triggers) is from the dead zone, the closer the value will be to 1. If the action is mapped to a control that has no axis such as the keyboard, the value returned will be 0 or 1.</p>
+<p>If <code class="paramref">exactMatch</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, it ignores additional input modifiers for <a class="xref" href="Godot.InputEventKey.html">InputEventKey</a> and <a class="xref" href="Godot.InputEventMouseButton.html">InputEventMouseButton</a> events, and the direction for <a class="xref" href="Godot.InputEventJoypadMotion.html">InputEventJoypadMotion</a> events.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float GetActionStrength(StringName action, bool exactMatch = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>exactMatch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetAxis_" data-uid="Godot.Input.GetAxis*"></a>
+
+  <h3 id="Godot_Input_GetAxis_Godot_StringName_Godot_StringName_" data-uid="Godot.Input.GetAxis(Godot.StringName,Godot.StringName)">
+  GetAxis(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get axis input by specifying two actions, one negative and one positive.</p>
+<p>This is a shorthand for writing <code>Input.get_action_strength("positive_action") - Input.get_action_strength("negative_action")</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float GetAxis(StringName negativeAction, StringName positiveAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>negativeAction</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>positiveAction</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetConnectedJoypads_" data-uid="Godot.Input.GetConnectedJoypads*"></a>
+
+  <h3 id="Godot_Input_GetConnectedJoypads" data-uid="Godot.Input.GetConnectedJoypads">
+  GetConnectedJoypads()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="Godot.Collections.Array.html">Array</a> containing the device IDs of all currently connected joypads.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Array&lt;int&gt; GetConnectedJoypads()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetCurrentCursorShape_" data-uid="Godot.Input.GetCurrentCursorShape*"></a>
+
+  <h3 id="Godot_Input_GetCurrentCursorShape" data-uid="Godot.Input.GetCurrentCursorShape">
+  GetCurrentCursorShape()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the currently assigned cursor shape (see <a class="xref" href="Godot.Input.CursorShape.html">Input.CursorShape</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Input.CursorShape GetCurrentCursorShape()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Input.html">Input</a>.<a class="xref" href="Godot.Input.CursorShape.html">CursorShape</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetGravity_" data-uid="Godot.Input.GetGravity*"></a>
+
+  <h3 id="Godot_Input_GetGravity" data-uid="Godot.Input.GetGravity">
+  GetGravity()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the gravity in m/s² of the device's accelerometer sensor, if the device has one. Otherwise, the method returns <code>Vector3.ZERO</code>.</p>
+<p>
+  <b>Note:</b> This method only works on Android and iOS. On other platforms, it always returns <code>Vector3.ZERO</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 GetGravity()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetGyroscope_" data-uid="Godot.Input.GetGyroscope*"></a>
+
+  <h3 id="Godot_Input_GetGyroscope" data-uid="Godot.Input.GetGyroscope">
+  GetGyroscope()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the rotation rate in rad/s around a device's X, Y, and Z axes of the gyroscope sensor, if the device has one. Otherwise, the method returns <code>Vector3.ZERO</code>.</p>
+<p>
+  <b>Note:</b> This method only works on Android and iOS. On other platforms, it always returns <code>Vector3.ZERO</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 GetGyroscope()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetJoyAxis_" data-uid="Godot.Input.GetJoyAxis*"></a>
+
+  <h3 id="Godot_Input_GetJoyAxis_System_Int32_Godot_JoyAxis_" data-uid="Godot.Input.GetJoyAxis(System.Int32,Godot.JoyAxis)">
+  GetJoyAxis(int, JoyAxis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current value of the joypad axis at given index (see <a class="xref" href="Godot.JoyAxis.html">JoyAxis</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float GetJoyAxis(int device, JoyAxis axis)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>axis</code> <a class="xref" href="Godot.JoyAxis.html">JoyAxis</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetJoyGuid_" data-uid="Godot.Input.GetJoyGuid*"></a>
+
+  <h3 id="Godot_Input_GetJoyGuid_System_Int32_" data-uid="Godot.Input.GetJoyGuid(System.Int32)">
+  GetJoyGuid(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an SDL2-compatible device GUID on platforms that use gamepad remapping, e.g. <code>030000004c050000c405000000010000</code>. Returns <code>"Default Gamepad"</code> otherwise. Godot uses the <a href="https://github.com/gabomdq/SDL_GameControllerDB">SDL2 game controller database</a> to determine gamepad names and mappings based on this GUID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetJoyGuid(int device)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetJoyInfo_" data-uid="Godot.Input.GetJoyInfo*"></a>
+
+  <h3 id="Godot_Input_GetJoyInfo_System_Int32_" data-uid="Godot.Input.GetJoyInfo(System.Int32)">
+  GetJoyInfo(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a dictionary with extra platform-specific information about the device, e.g. the raw gamepad name from the OS or the Steam Input index.</p>
+<p>On Windows the dictionary contains the following fields:</p>
+<p>
+  <code>xinput_index</code>: The index of the controller in the XInput system.</p>
+<p>On Linux:</p>
+<p>
+  <code>raw_name</code>: The name of the controller as it came from the OS, before getting renamed by the godot controller database.</p>
+<p>
+  <code>vendor_id</code>: The USB vendor ID of the device.</p>
+<p>
+  <code>product_id</code>: The USB product ID of the device.</p>
+<p>
+  <code>steam_input_index</code>: The Steam Input gamepad index, if the device is not a Steam Input device this key won't be present.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary GetJoyInfo(int device)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetJoyName_" data-uid="Godot.Input.GetJoyName*"></a>
+
+  <h3 id="Godot_Input_GetJoyName_System_Int32_" data-uid="Godot.Input.GetJoyName(System.Int32)">
+  GetJoyName(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the name of the joypad at the specified device index, e.g. <code>PS4 Controller</code>. Godot uses the <a href="https://github.com/gabomdq/SDL_GameControllerDB">SDL2 game controller database</a> to determine gamepad names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetJoyName(int device)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetJoyVibrationDuration_" data-uid="Godot.Input.GetJoyVibrationDuration*"></a>
+
+  <h3 id="Godot_Input_GetJoyVibrationDuration_System_Int32_" data-uid="Godot.Input.GetJoyVibrationDuration(System.Int32)">
+  GetJoyVibrationDuration(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the duration of the current vibration effect in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float GetJoyVibrationDuration(int device)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetJoyVibrationStrength_" data-uid="Godot.Input.GetJoyVibrationStrength*"></a>
+
+  <h3 id="Godot_Input_GetJoyVibrationStrength_System_Int32_" data-uid="Godot.Input.GetJoyVibrationStrength(System.Int32)">
+  GetJoyVibrationStrength(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the strength of the joypad vibration: x is the strength of the weak motor, and y is the strength of the strong motor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 GetJoyVibrationStrength(int device)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetLastMouseScreenVelocity_" data-uid="Godot.Input.GetLastMouseScreenVelocity*"></a>
+
+  <h3 id="Godot_Input_GetLastMouseScreenVelocity" data-uid="Godot.Input.GetLastMouseScreenVelocity">
+  GetLastMouseScreenVelocity()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the last mouse velocity in screen coordinates. To provide a precise and jitter-free velocity, mouse velocity is only calculated every 0.1s. Therefore, mouse velocity will lag mouse movements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 GetLastMouseScreenVelocity()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetLastMouseVelocity_" data-uid="Godot.Input.GetLastMouseVelocity*"></a>
+
+  <h3 id="Godot_Input_GetLastMouseVelocity" data-uid="Godot.Input.GetLastMouseVelocity">
+  GetLastMouseVelocity()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the last mouse velocity. To provide a precise and jitter-free velocity, mouse velocity is only calculated every 0.1s. Therefore, mouse velocity will lag mouse movements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 GetLastMouseVelocity()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetMagnetometer_" data-uid="Godot.Input.GetMagnetometer*"></a>
+
+  <h3 id="Godot_Input_GetMagnetometer" data-uid="Godot.Input.GetMagnetometer">
+  GetMagnetometer()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the magnetic field strength in micro-Tesla for all axes of the device's magnetometer sensor, if the device has one. Otherwise, the method returns <code>Vector3.ZERO</code>.</p>
+<p>
+  <b>Note:</b> This method only works on Android and iOS. On other platforms, it always returns <code>Vector3.ZERO</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 GetMagnetometer()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetMouseButtonMask_" data-uid="Godot.Input.GetMouseButtonMask*"></a>
+
+  <h3 id="Godot_Input_GetMouseButtonMask" data-uid="Godot.Input.GetMouseButtonMask">
+  GetMouseButtonMask()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns mouse buttons as a bitmask. If multiple mouse buttons are pressed at the same time, the bits are added together. Equivalent to <a class="xref" href="Godot.DisplayServer.html#Godot_DisplayServer_MouseGetButtonState">MouseGetButtonState()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MouseButtonMask GetMouseButtonMask()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.MouseButtonMask.html">MouseButtonMask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_GetVector_" data-uid="Godot.Input.GetVector*"></a>
+
+  <h3 id="Godot_Input_GetVector_Godot_StringName_Godot_StringName_Godot_StringName_Godot_StringName_System_Single_" data-uid="Godot.Input.GetVector(Godot.StringName,Godot.StringName,Godot.StringName,Godot.StringName,System.Single)">
+  GetVector(StringName, StringName, StringName, StringName, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an input vector by specifying four actions for the positive and negative X and Y axes.</p>
+<p>This method is useful when getting vector input, such as from a joystick, directional pad, arrows, or WASD. The vector has its length limited to 1 and has a circular deadzone, which is useful for using vector input as movement.</p>
+<p>By default, the deadzone is automatically calculated from the average of the action deadzones. However, you can override the deadzone to be whatever you want (on the range of 0 to 1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 GetVector(StringName negativeX, StringName positiveX, StringName negativeY, StringName positiveY, float deadzone = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>negativeX</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>positiveX</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>negativeY</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>positiveY</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>deadzone</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_IsActionJustPressed_" data-uid="Godot.Input.IsActionJustPressed*"></a>
+
+  <h3 id="Godot_Input_IsActionJustPressed_Godot_StringName_System_Boolean_" data-uid="Godot.Input.IsActionJustPressed(Godot.StringName,System.Boolean)">
+  IsActionJustPressed(StringName, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the user has <i>started</i> pressing the action event in the current frame or physics tick. It will only return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> on the frame or tick that the user pressed down the button.</p>
+<p>This is useful for code that needs to run only once when an action is pressed, instead of every frame while it's pressed.</p>
+<p>If <code class="paramref">exactMatch</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, it ignores additional input modifiers for <a class="xref" href="Godot.InputEventKey.html">InputEventKey</a> and <a class="xref" href="Godot.InputEventMouseButton.html">InputEventMouseButton</a> events, and the direction for <a class="xref" href="Godot.InputEventJoypadMotion.html">InputEventJoypadMotion</a> events.</p>
+<p>
+  <b>Note:</b> Returning <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> does not imply that the action is <i>still</i> pressed. An action can be pressed and released again rapidly, and <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> will still be returned so as not to miss input.</p>
+<p>
+  <b>Note:</b> Due to keyboard ghosting, <a class="xref" href="Godot.Input.html#Godot_Input_IsActionJustPressed_Godot_StringName_System_Boolean_">IsActionJustPressed(StringName, bool)</a> may return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> even if one of the action's keys is pressed. See <a href="$DOCS_URL/tutorials/inputs/input_examples.html#keyboard-events">Input examples</a> in the documentation for more information.</p>
+<p>
+  <b>Note:</b> During input handling (e.g. <a class="xref" href="Godot.Node.html#Godot_Node__Input_Godot_InputEvent_">_Input(InputEvent)</a>), use <a class="xref" href="Godot.InputEvent.html#Godot_InputEvent_IsActionPressed_Godot_StringName_System_Boolean_System_Boolean_">IsActionPressed(StringName, bool, bool)</a> instead to query the action state of the current event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsActionJustPressed(StringName action, bool exactMatch = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>exactMatch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_IsActionJustReleased_" data-uid="Godot.Input.IsActionJustReleased*"></a>
+
+  <h3 id="Godot_Input_IsActionJustReleased_Godot_StringName_System_Boolean_" data-uid="Godot.Input.IsActionJustReleased(Godot.StringName,System.Boolean)">
+  IsActionJustReleased(StringName, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the user <i>stops</i> pressing the action event in the current frame or physics tick. It will only return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> on the frame or tick that the user releases the button.</p>
+<p>
+  <b>Note:</b> Returning <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> does not imply that the action is <i>still</i> not pressed. An action can be released and pressed again rapidly, and <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> will still be returned so as not to miss input.</p>
+<p>If <code class="paramref">exactMatch</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, it ignores additional input modifiers for <a class="xref" href="Godot.InputEventKey.html">InputEventKey</a> and <a class="xref" href="Godot.InputEventMouseButton.html">InputEventMouseButton</a> events, and the direction for <a class="xref" href="Godot.InputEventJoypadMotion.html">InputEventJoypadMotion</a> events.</p>
+<p>
+  <b>Note:</b> During input handling (e.g. <a class="xref" href="Godot.Node.html#Godot_Node__Input_Godot_InputEvent_">_Input(InputEvent)</a>), use <a class="xref" href="Godot.InputEvent.html#Godot_InputEvent_IsActionReleased_Godot_StringName_System_Boolean_">IsActionReleased(StringName, bool)</a> instead to query the action state of the current event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsActionJustReleased(StringName action, bool exactMatch = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>exactMatch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_IsActionPressed_" data-uid="Godot.Input.IsActionPressed*"></a>
+
+  <h3 id="Godot_Input_IsActionPressed_Godot_StringName_System_Boolean_" data-uid="Godot.Input.IsActionPressed(Godot.StringName,System.Boolean)">
+  IsActionPressed(StringName, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if you are pressing the action event.</p>
+<p>If <code class="paramref">exactMatch</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, it ignores additional input modifiers for <a class="xref" href="Godot.InputEventKey.html">InputEventKey</a> and <a class="xref" href="Godot.InputEventMouseButton.html">InputEventMouseButton</a> events, and the direction for <a class="xref" href="Godot.InputEventJoypadMotion.html">InputEventJoypadMotion</a> events.</p>
+<p>
+  <b>Note:</b> Due to keyboard ghosting, <a class="xref" href="Godot.Input.html#Godot_Input_IsActionPressed_Godot_StringName_System_Boolean_">IsActionPressed(StringName, bool)</a> may return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> even if one of the action's keys is pressed. See <a href="$DOCS_URL/tutorials/inputs/input_examples.html#keyboard-events">Input examples</a> in the documentation for more information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsActionPressed(StringName action, bool exactMatch = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>exactMatch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_IsAnythingPressed_" data-uid="Godot.Input.IsAnythingPressed*"></a>
+
+  <h3 id="Godot_Input_IsAnythingPressed" data-uid="Godot.Input.IsAnythingPressed">
+  IsAnythingPressed()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if any action, key, joypad button, or mouse button is being pressed. This will also return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if any action is simulated via code by calling <a class="xref" href="Godot.Input.html#Godot_Input_ActionPress_Godot_StringName_System_Single_">ActionPress(StringName, float)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsAnythingPressed()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_IsJoyButtonPressed_" data-uid="Godot.Input.IsJoyButtonPressed*"></a>
+
+  <h3 id="Godot_Input_IsJoyButtonPressed_System_Int32_Godot_JoyButton_" data-uid="Godot.Input.IsJoyButtonPressed(System.Int32,Godot.JoyButton)">
+  IsJoyButtonPressed(int, JoyButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if you are pressing the joypad button (see <a class="xref" href="Godot.JoyButton.html">JoyButton</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsJoyButtonPressed(int device, JoyButton button)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>button</code> <a class="xref" href="Godot.JoyButton.html">JoyButton</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_IsJoyKnown_" data-uid="Godot.Input.IsJoyKnown*"></a>
+
+  <h3 id="Godot_Input_IsJoyKnown_System_Int32_" data-uid="Godot.Input.IsJoyKnown(System.Int32)">
+  IsJoyKnown(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the system knows the specified device. This means that it sets all button and axis indices. Unknown joypads are not expected to match these constants, but you can still retrieve events from them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsJoyKnown(int device)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_IsKeyLabelPressed_" data-uid="Godot.Input.IsKeyLabelPressed*"></a>
+
+  <h3 id="Godot_Input_IsKeyLabelPressed_Godot_Key_" data-uid="Godot.Input.IsKeyLabelPressed(Godot.Key)">
+  IsKeyLabelPressed(Key)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if you are pressing the key with the <code class="paramref">keycode</code> printed on it. You can pass a <a class="xref" href="Godot.Key.html">Key</a> constant or any Unicode character code.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsKeyLabelPressed(Key keycode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keycode</code> <a class="xref" href="Godot.Key.html">Key</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_IsKeyPressed_" data-uid="Godot.Input.IsKeyPressed*"></a>
+
+  <h3 id="Godot_Input_IsKeyPressed_Godot_Key_" data-uid="Godot.Input.IsKeyPressed(Godot.Key)">
+  IsKeyPressed(Key)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if you are pressing the Latin key in the current keyboard layout. You can pass a <a class="xref" href="Godot.Key.html">Key</a> constant.</p>
+<p>
+  <a class="xref" href="Godot.Input.html#Godot_Input_IsKeyPressed_Godot_Key_">IsKeyPressed(Key)</a> is only recommended over <a class="xref" href="Godot.Input.html#Godot_Input_IsPhysicalKeyPressed_Godot_Key_">IsPhysicalKeyPressed(Key)</a> in non-game applications. This ensures that shortcut keys behave as expected depending on the user's keyboard layout, as keyboard shortcuts are generally dependent on the keyboard layout in non-game applications. If in doubt, use <a class="xref" href="Godot.Input.html#Godot_Input_IsPhysicalKeyPressed_Godot_Key_">IsPhysicalKeyPressed(Key)</a>.</p>
+<p>
+  <b>Note:</b> Due to keyboard ghosting, <a class="xref" href="Godot.Input.html#Godot_Input_IsKeyPressed_Godot_Key_">IsKeyPressed(Key)</a> may return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> even if one of the action's keys is pressed. See <a href="$DOCS_URL/tutorials/inputs/input_examples.html#keyboard-events">Input examples</a> in the documentation for more information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsKeyPressed(Key keycode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keycode</code> <a class="xref" href="Godot.Key.html">Key</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_IsMouseButtonPressed_" data-uid="Godot.Input.IsMouseButtonPressed*"></a>
+
+  <h3 id="Godot_Input_IsMouseButtonPressed_Godot_MouseButton_" data-uid="Godot.Input.IsMouseButtonPressed(Godot.MouseButton)">
+  IsMouseButtonPressed(MouseButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if you are pressing the mouse button specified with <a class="xref" href="Godot.MouseButton.html">MouseButton</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsMouseButtonPressed(MouseButton button)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>button</code> <a class="xref" href="Godot.MouseButton.html">MouseButton</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_IsPhysicalKeyPressed_" data-uid="Godot.Input.IsPhysicalKeyPressed*"></a>
+
+  <h3 id="Godot_Input_IsPhysicalKeyPressed_Godot_Key_" data-uid="Godot.Input.IsPhysicalKeyPressed(Godot.Key)">
+  IsPhysicalKeyPressed(Key)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if you are pressing the key in the physical location on the 101/102-key US QWERTY keyboard. You can pass a <a class="xref" href="Godot.Key.html">Key</a> constant.</p>
+<p>
+  <a class="xref" href="Godot.Input.html#Godot_Input_IsPhysicalKeyPressed_Godot_Key_">IsPhysicalKeyPressed(Key)</a> is recommended over <a class="xref" href="Godot.Input.html#Godot_Input_IsKeyPressed_Godot_Key_">IsKeyPressed(Key)</a> for in-game actions, as it will make W/A/S/D layouts work regardless of the user's keyboard layout. <a class="xref" href="Godot.Input.html#Godot_Input_IsPhysicalKeyPressed_Godot_Key_">IsPhysicalKeyPressed(Key)</a> will also ensure that the top row number keys work on any keyboard layout. If in doubt, use <a class="xref" href="Godot.Input.html#Godot_Input_IsPhysicalKeyPressed_Godot_Key_">IsPhysicalKeyPressed(Key)</a>.</p>
+<p>
+  <b>Note:</b> Due to keyboard ghosting, <a class="xref" href="Godot.Input.html#Godot_Input_IsPhysicalKeyPressed_Godot_Key_">IsPhysicalKeyPressed(Key)</a> may return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> even if one of the action's keys is pressed. See <a href="$DOCS_URL/tutorials/inputs/input_examples.html#keyboard-events">Input examples</a> in the documentation for more information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsPhysicalKeyPressed(Key keycode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keycode</code> <a class="xref" href="Godot.Key.html">Key</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_ParseInputEvent_" data-uid="Godot.Input.ParseInputEvent*"></a>
+
+  <h3 id="Godot_Input_ParseInputEvent_Godot_InputEvent_" data-uid="Godot.Input.ParseInputEvent(Godot.InputEvent)">
+  ParseInputEvent(InputEvent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Feeds an <a class="xref" href="Godot.InputEvent.html">InputEvent</a> to the game. Can be used to artificially trigger input events from code. Also generates <a class="xref" href="Godot.Node.html#Godot_Node__Input_Godot_InputEvent_">_Input(InputEvent)</a> calls.</p>
+<p>
+  <b>Example:</b>
+</p>
+<p>
+  <pre><code class="lang-csharp">var cancelEvent = new InputEventAction();
+  cancelEvent.Action = "ui_cancel";
+  cancelEvent.Pressed = true;
+  Input.ParseInputEvent(cancelEvent);</code></pre>
+
+<p>
+  <b>Note:</b> Calling this function has no influence on the operating system. So for example sending an <a class="xref" href="Godot.InputEventMouseMotion.html">InputEventMouseMotion</a> will not move the OS mouse cursor to the specified position (use <a class="xref" href="Godot.Input.html#Godot_Input_WarpMouse_Godot_Vector2_">WarpMouse(Vector2)</a> instead) and sending Alt/Cmd + Tab as <a class="xref" href="Godot.InputEventKey.html">InputEventKey</a> won't toggle between active windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ParseInputEvent(InputEvent @event)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>event</code> <a class="xref" href="Godot.InputEvent.html">InputEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_RemoveJoyMapping_" data-uid="Godot.Input.RemoveJoyMapping*"></a>
+
+  <h3 id="Godot_Input_RemoveJoyMapping_System_String_" data-uid="Godot.Input.RemoveJoyMapping(System.String)">
+  RemoveJoyMapping(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all mappings from the internal database that match the given GUID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemoveJoyMapping(string guid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>guid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_SetAccelerometer_" data-uid="Godot.Input.SetAccelerometer*"></a>
+
+  <h3 id="Godot_Input_SetAccelerometer_Godot_Vector3_" data-uid="Godot.Input.SetAccelerometer(Godot.Vector3)">
+  SetAccelerometer(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the acceleration value of the accelerometer sensor. Can be used for debugging on devices without a hardware sensor, for example in an editor on a PC.</p>
+<p>
+  <b>Note:</b> This value can be immediately overwritten by the hardware sensor value on Android and iOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetAccelerometer(Vector3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_SetCustomMouseCursor_" data-uid="Godot.Input.SetCustomMouseCursor*"></a>
+
+  <h3 id="Godot_Input_SetCustomMouseCursor_Godot_Resource_Godot_Input_CursorShape_System_Nullable_Godot_Vector2__" data-uid="Godot.Input.SetCustomMouseCursor(Godot.Resource,Godot.Input.CursorShape,System.Nullable{Godot.Vector2})">
+  SetCustomMouseCursor(Resource, CursorShape, Vector2?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a custom mouse cursor image, which is only visible inside the game window. The hotspot can also be specified. Passing <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to the image parameter resets to the system cursor. See <a class="xref" href="Godot.Input.CursorShape.html">Input.CursorShape</a> for the list of shapes.</p>
+<p>
+  <code class="paramref">image</code> can be either <a class="xref" href="Godot.Texture2D.html">Texture2D</a> or <a class="xref" href="Godot.Image.html">Image</a> and its size must be lower than or equal to 256×256. To avoid rendering issues, sizes lower than or equal to 128×128 are recommended.</p>
+<p>
+  <code class="paramref">hotspot</code> must be within <code class="paramref">image</code>'s size.</p>
+<p>
+  <b>Note:</b>
+  <a class="xref" href="Godot.AnimatedTexture.html">AnimatedTexture</a>s aren't supported as custom mouse cursors. If using an <a class="xref" href="Godot.AnimatedTexture.html">AnimatedTexture</a>, only the first frame will be displayed.</p>
+<p>
+  <b>Note:</b> The <b>Lossless</b>, <b>Lossy</b> or <b>Uncompressed</b> compression modes are recommended. The <b>Video RAM</b> compression mode can be used, but it will be decompressed on the CPU, which means loading times are slowed down and no memory is saved compared to lossless modes.</p>
+<p>
+  <b>Note:</b> On the web platform, the maximum allowed cursor image size is 128×128. Cursor images larger than 32×32 will also only be displayed if the mouse cursor image is entirely located within the page for <a href="https://chromestatus.com/feature/5825971391299584">security reasons</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetCustomMouseCursor(Resource image, Input.CursorShape shape = CursorShape.Arrow, Vector2? hotspot = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>image</code> <a class="xref" href="Godot.Resource.html">Resource</a></dt>
+    <dd></dd>
+    <dt><code>shape</code> <a class="xref" href="Godot.Input.html">Input</a>.<a class="xref" href="Godot.Input.CursorShape.html">CursorShape</a></dt>
+    <dd></dd>
+    <dt><code>hotspot</code> <a class="xref" href="Godot.Vector2.html">Vector2</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Vector2(0, 0)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_SetDefaultCursorShape_" data-uid="Godot.Input.SetDefaultCursorShape*"></a>
+
+  <h3 id="Godot_Input_SetDefaultCursorShape_Godot_Input_CursorShape_" data-uid="Godot.Input.SetDefaultCursorShape(Godot.Input.CursorShape)">
+  SetDefaultCursorShape(CursorShape)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the default cursor shape to be used in the viewport instead of <a class="xref" href="Godot.Input.CursorShape.html#Godot_Input_CursorShape_Arrow">Arrow</a>.</p>
+<p>
+  <b>Note:</b> If you want to change the default cursor shape for <a class="xref" href="Godot.Control.html">Control</a>'s nodes, use <a class="xref" href="Godot.Control.html#Godot_Control_MouseDefaultCursorShape">MouseDefaultCursorShape</a> instead.</p>
+<p>
+  <b>Note:</b> This method generates an <a class="xref" href="Godot.InputEventMouseMotion.html">InputEventMouseMotion</a> to update cursor immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetDefaultCursorShape(Input.CursorShape shape = CursorShape.Arrow)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shape</code> <a class="xref" href="Godot.Input.html">Input</a>.<a class="xref" href="Godot.Input.CursorShape.html">CursorShape</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_SetGravity_" data-uid="Godot.Input.SetGravity*"></a>
+
+  <h3 id="Godot_Input_SetGravity_Godot_Vector3_" data-uid="Godot.Input.SetGravity(Godot.Vector3)">
+  SetGravity(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the gravity value of the accelerometer sensor. Can be used for debugging on devices without a hardware sensor, for example in an editor on a PC.</p>
+<p>
+  <b>Note:</b> This value can be immediately overwritten by the hardware sensor value on Android and iOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetGravity(Vector3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_SetGyroscope_" data-uid="Godot.Input.SetGyroscope*"></a>
+
+  <h3 id="Godot_Input_SetGyroscope_Godot_Vector3_" data-uid="Godot.Input.SetGyroscope(Godot.Vector3)">
+  SetGyroscope(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the value of the rotation rate of the gyroscope sensor. Can be used for debugging on devices without a hardware sensor, for example in an editor on a PC.</p>
+<p>
+  <b>Note:</b> This value can be immediately overwritten by the hardware sensor value on Android and iOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetGyroscope(Vector3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_SetMagnetometer_" data-uid="Godot.Input.SetMagnetometer*"></a>
+
+  <h3 id="Godot_Input_SetMagnetometer_Godot_Vector3_" data-uid="Godot.Input.SetMagnetometer(Godot.Vector3)">
+  SetMagnetometer(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the value of the magnetic field of the magnetometer sensor. Can be used for debugging on devices without a hardware sensor, for example in an editor on a PC.</p>
+<p>
+  <b>Note:</b> This value can be immediately overwritten by the hardware sensor value on Android and iOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetMagnetometer(Vector3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_ShouldIgnoreDevice_" data-uid="Godot.Input.ShouldIgnoreDevice*"></a>
+
+  <h3 id="Godot_Input_ShouldIgnoreDevice_System_Int32_System_Int32_" data-uid="Godot.Input.ShouldIgnoreDevice(System.Int32,System.Int32)">
+  ShouldIgnoreDevice(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Queries whether an input device should be ignored or not. Devices can be ignored by setting the environment variable <code>SDL_GAMECONTROLLER_IGNORE_DEVICES</code>. Read the <a href="https://wiki.libsdl.org/SDL2">SDL documentation</a> for more information.</p>
+<p>
+  <b>Note:</b> Some 3rd party tools can contribute to the list of ignored devices. For example, <i>SteamInput</i> creates virtual devices from physical devices for remapping purposes. To avoid handling the same input device twice, the original device is added to the ignore list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ShouldIgnoreDevice(int vendorId, int productId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vendorId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>productId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_StartJoyVibration_" data-uid="Godot.Input.StartJoyVibration*"></a>
+
+  <h3 id="Godot_Input_StartJoyVibration_System_Int32_System_Single_System_Single_System_Single_" data-uid="Godot.Input.StartJoyVibration(System.Int32,System.Single,System.Single,System.Single)">
+  StartJoyVibration(int, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts to vibrate the joypad. Joypads usually come with two rumble motors, a strong and a weak one. <code class="paramref">weakMagnitude</code> is the strength of the weak motor (between 0 and 1) and <code class="paramref">strongMagnitude</code> is the strength of the strong motor (between 0 and 1). <code class="paramref">duration</code> is the duration of the effect in seconds (a duration of 0 will try to play the vibration indefinitely). The vibration can be stopped early by calling <a class="xref" href="Godot.Input.html#Godot_Input_StopJoyVibration_System_Int32_">StopJoyVibration(int)</a>.</p>
+<p>
+  <b>Note:</b> Not every hardware is compatible with long effect durations; it is recommended to restart an effect if it has to be played for more than a few seconds.</p>
+<p>
+  <b>Note:</b> For macOS, vibration is only supported in macOS 11 and later.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void StartJoyVibration(int device, float weakMagnitude, float strongMagnitude, float duration = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>weakMagnitude</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>strongMagnitude</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_StopJoyVibration_" data-uid="Godot.Input.StopJoyVibration*"></a>
+
+  <h3 id="Godot_Input_StopJoyVibration_System_Int32_" data-uid="Godot.Input.StopJoyVibration(System.Int32)">
+  StopJoyVibration(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stops the vibration of the joypad started with <a class="xref" href="Godot.Input.html#Godot_Input_StartJoyVibration_System_Int32_System_Single_System_Single_System_Single_">StartJoyVibration(int, float, float, float)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void StopJoyVibration(int device)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_VibrateHandheld_" data-uid="Godot.Input.VibrateHandheld*"></a>
+
+  <h3 id="Godot_Input_VibrateHandheld_System_Int32_System_Single_" data-uid="Godot.Input.VibrateHandheld(System.Int32,System.Single)">
+  VibrateHandheld(int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Vibrate the handheld device for the specified duration in milliseconds.</p>
+<p>
+  <code class="paramref">amplitude</code> is the strength of the vibration, as a value between <code>0.0</code> and <code>1.0</code>. If set to <code>-1.0</code>, the default vibration strength of the device is used.</p>
+<p>
+  <b>Note:</b> This method is implemented on Android, iOS, and Web. It has no effect on other platforms.</p>
+<p>
+  <b>Note:</b> For Android, <a class="xref" href="Godot.Input.html#Godot_Input_VibrateHandheld_System_Int32_System_Single_">VibrateHandheld(int, float)</a> requires enabling the <code>VIBRATE</code> permission in the export preset. Otherwise, <a class="xref" href="Godot.Input.html#Godot_Input_VibrateHandheld_System_Int32_System_Single_">VibrateHandheld(int, float)</a> will have no effect.</p>
+<p>
+  <b>Note:</b> For iOS, specifying the duration is only supported in iOS 13 and later.</p>
+<p>
+  <b>Note:</b> For Web, the amplitude cannot be changed.</p>
+<p>
+  <b>Note:</b> Some web browsers such as Safari and Firefox for Android do not support <a class="xref" href="Godot.Input.html#Godot_Input_VibrateHandheld_System_Int32_System_Single_">VibrateHandheld(int, float)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void VibrateHandheld(int durationMs = 500, float amplitude = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>durationMs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>amplitude</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Input_WarpMouse_" data-uid="Godot.Input.WarpMouse*"></a>
+
+  <h3 id="Godot_Input_WarpMouse_Godot_Vector2_" data-uid="Godot.Input.WarpMouse(Godot.Vector2)">
+  WarpMouse(Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the mouse position to the specified vector, provided in pixels and relative to an origin at the upper left corner of the currently focused Window Manager game window.</p>
+<p>Mouse position is clipped to the limits of the screen resolution, or to the limits of the game window if <a class="xref" href="Godot.Input.MouseModeEnum.html">Input.MouseModeEnum</a> is set to <a class="xref" href="Godot.Input.MouseModeEnum.html#Godot_Input_MouseModeEnum_Confined">Confined</a> or <a class="xref" href="Godot.Input.MouseModeEnum.html#Godot_Input_MouseModeEnum_ConfinedHidden">ConfinedHidden</a>.</p>
+<p>
+  <b>Note:</b>
+  <a class="xref" href="Godot.Input.html#Godot_Input_WarpMouse_Godot_Vector2_">WarpMouse(Vector2)</a> is only supported on Windows, macOS and Linux. It has no effect on Android, iOS and Web.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WarpMouse(Vector2 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Godot_Input_JoyConnectionChanged" data-uid="Godot.Input.JoyConnectionChanged">
+  JoyConnectionChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Emitted when a joypad device has been connected or disconnected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static event Input.JoyConnectionChangedEventHandler JoyConnectionChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Input.html">Input</a>.<a class="xref" href="Godot.Input.JoyConnectionChangedEventHandler.html">JoyConnectionChangedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/77dcf97d82cbfe4e4615475fa52ca03da645dbd8/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Input.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
