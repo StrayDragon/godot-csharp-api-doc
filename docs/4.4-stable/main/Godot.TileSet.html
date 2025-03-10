@@ -1,0 +1,3613 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TileSet | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TileSet | Godot4 C# API ">
+      
+      <meta name="description" content="A TileSet is a library of tiles for a . A TileSet handles a list of , each of them storing a set of tiles. Tiles can either be from a , which renders tiles out of a texture with support for physics, navigation, etc., or from a , which exposes scene-based tiles. Tiles are referenced by using three IDs: their source ID, their atlas coordinates ID, and their alternative tile ID. A TileSet can be configured so that its tiles expose more or fewer properties. To do so, the TileSet resources use property layers, which you can add or remove depending on your needs. For example, adding a physics layer allows giving collision shapes to your tiles. Each layer has dedicated properties (physics layer and mask), so you may add several TileSet physics layers for each type of collision you need. See the functions to add new layers for more information.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.TileSet">
+
+
+
+  <h1 id="Godot_TileSet" data-uid="Godot.TileSet" class="text-break">
+Class TileSet  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A TileSet is a library of tiles for a <a class="xref" href="Godot.TileMapLayer.html">TileMapLayer</a>. A TileSet handles a list of <a class="xref" href="Godot.TileSetSource.html">TileSetSource</a>, each of them storing a set of tiles.</p>
+<p>Tiles can either be from a <a class="xref" href="Godot.TileSetAtlasSource.html">TileSetAtlasSource</a>, which renders tiles out of a texture with support for physics, navigation, etc., or from a <a class="xref" href="Godot.TileSetScenesCollectionSource.html">TileSetScenesCollectionSource</a>, which exposes scene-based tiles.</p>
+<p>Tiles are referenced by using three IDs: their source ID, their atlas coordinates ID, and their alternative tile ID.</p>
+<p>A TileSet can be configured so that its tiles expose more or fewer properties. To do so, the TileSet resources use property layers, which you can add or remove depending on your needs.</p>
+<p>For example, adding a physics layer allows giving collision shapes to your tiles. Each layer has dedicated properties (physics layer and mask), so you may add several TileSet physics layers for each type of collision you need.</p>
+<p>See the functions to add new layers for more information.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TileSet : Resource, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><a class="xref" href="Godot.Resource.html">Resource</a></div>
+      <div><span class="xref">TileSet</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__GetRid">Resource._GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__ResetState">Resource._ResetState()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__SetPathCache_System_String_">Resource._SetPathCache(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__SetupLocalToScene">Resource._SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_TakeOverPath_System_String_">Resource.TakeOverPath(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetPathCache_System_String_">Resource.SetPathCache(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetRid">Resource.GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetLocalScene">Resource.GetLocalScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToScene">Resource.SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResetState">Resource.ResetState()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetIdForPath_System_String_System_String_">Resource.SetIdForPath(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetIdForPath_System_String_">Resource.GetIdForPath(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_IsBuiltIn">Resource.IsBuiltIn()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GenerateSceneUniqueId">Resource.GenerateSceneUniqueId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitChanged">Resource.EmitChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Duplicate_System_Boolean_">Resource.Duplicate(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitSignalChanged">Resource.EmitSignalChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitSignalSetupLocalToSceneRequested">Resource.EmitSignalSetupLocalToSceneRequested()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceLocalToScene">Resource.ResourceLocalToScene</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourcePath">Resource.ResourcePath</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceName">Resource.ResourceName</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceSceneUniqueId">Resource.ResourceSceneUniqueId</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Changed">Resource.Changed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToSceneRequested">Resource.SetupLocalToSceneRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_InitRef">RefCounted.InitRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Reference">RefCounted.Reference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Unreference">RefCounted.Unreference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_GetReferenceCount">RefCounted.GetReferenceCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterGet_Godot_Variant_">GodotObject._IterGet(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterInit_Godot_Collections_Array_">GodotObject._IterInit(Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterNext_Godot_Collections_Array_">GodotObject._IterNext(Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">GodotObject.RemoveUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.EmitSignal(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.Call(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.CallDeferred(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_">GodotObject.GetMethodArgumentCount(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasConnections_Godot_StringName_">GodotObject.HasConnections(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetTranslationDomain">GodotObject.GetTranslationDomain()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetTranslationDomain_Godot_StringName_">GodotObject.SetTranslationDomain(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignalScriptChanged">GodotObject.EmitSignalScriptChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignalPropertyListChanged">GodotObject.EmitSignalPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_TileSet__ctor_" data-uid="Godot.TileSet.#ctor*"></a>
+
+  <h3 id="Godot_TileSet__ctor" data-uid="Godot.TileSet.#ctor">
+  TileSet()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileSet()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_TileSet_TileLayout_" data-uid="Godot.TileSet.TileLayout*"></a>
+
+  <h3 id="Godot_TileSet_TileLayout" data-uid="Godot.TileSet.TileLayout">
+  TileLayout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>For all half-offset shapes (Isometric, Hexagonal and Half-Offset square), changes the way tiles are indexed in the TileMap grid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileSet.TileLayoutEnum TileLayout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.TileSet.html">TileSet</a>.<a class="xref" href="Godot.TileSet.TileLayoutEnum.html">TileLayoutEnum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_TileOffsetAxis_" data-uid="Godot.TileSet.TileOffsetAxis*"></a>
+
+  <h3 id="Godot_TileSet_TileOffsetAxis" data-uid="Godot.TileSet.TileOffsetAxis">
+  TileOffsetAxis
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>For all half-offset shapes (Isometric, Hexagonal and Half-Offset square), determines the offset axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileSet.TileOffsetAxisEnum TileOffsetAxis { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.TileSet.html">TileSet</a>.<a class="xref" href="Godot.TileSet.TileOffsetAxisEnum.html">TileOffsetAxisEnum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_TileShape_" data-uid="Godot.TileSet.TileShape*"></a>
+
+  <h3 id="Godot_TileSet_TileShape" data-uid="Godot.TileSet.TileShape">
+  TileShape
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The tile shape.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileSet.TileShapeEnum TileShape { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.TileSet.html">TileSet</a>.<a class="xref" href="Godot.TileSet.TileShapeEnum.html">TileShapeEnum</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_TileSize_" data-uid="Godot.TileSet.TileSize*"></a>
+
+  <h3 id="Godot_TileSet_TileSize" data-uid="Godot.TileSet.TileSize">
+  TileSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The tile size, in pixels. For all tile shapes, this size corresponds to the encompassing rectangle of the tile shape. This is thus the minimal cell size required in an atlas.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2I TileSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_UVClipping_" data-uid="Godot.TileSet.UVClipping*"></a>
+
+  <h3 id="Godot_TileSet_UVClipping" data-uid="Godot.TileSet.UVClipping">
+  UVClipping
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enables/Disable uv clipping when rendering the tiles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UVClipping { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_TileSet_AddCustomDataLayer_" data-uid="Godot.TileSet.AddCustomDataLayer*"></a>
+
+  <h3 id="Godot_TileSet_AddCustomDataLayer_System_Int32_" data-uid="Godot.TileSet.AddCustomDataLayer(System.Int32)">
+  AddCustomDataLayer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a custom data layer to the TileSet at the given position <code class="paramref">toPosition</code> in the array. If <code class="paramref">toPosition</code> is -1, adds it at the end of the array.</p>
+<p>Custom data layers allow assigning custom properties to atlas tiles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddCustomDataLayer(int toPosition = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_AddNavigationLayer_" data-uid="Godot.TileSet.AddNavigationLayer*"></a>
+
+  <h3 id="Godot_TileSet_AddNavigationLayer_System_Int32_" data-uid="Godot.TileSet.AddNavigationLayer(System.Int32)">
+  AddNavigationLayer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a navigation layer to the TileSet at the given position <code class="paramref">toPosition</code> in the array. If <code class="paramref">toPosition</code> is -1, adds it at the end of the array.</p>
+<p>Navigation layers allow assigning a navigable area to atlas tiles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddNavigationLayer(int toPosition = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_AddOcclusionLayer_" data-uid="Godot.TileSet.AddOcclusionLayer*"></a>
+
+  <h3 id="Godot_TileSet_AddOcclusionLayer_System_Int32_" data-uid="Godot.TileSet.AddOcclusionLayer(System.Int32)">
+  AddOcclusionLayer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an occlusion layer to the TileSet at the given position <code class="paramref">toPosition</code> in the array. If <code class="paramref">toPosition</code> is -1, adds it at the end of the array.</p>
+<p>Occlusion layers allow assigning occlusion polygons to atlas tiles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddOcclusionLayer(int toPosition = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_AddPattern_" data-uid="Godot.TileSet.AddPattern*"></a>
+
+  <h3 id="Godot_TileSet_AddPattern_Godot_TileMapPattern_System_Int32_" data-uid="Godot.TileSet.AddPattern(Godot.TileMapPattern,System.Int32)">
+  AddPattern(TileMapPattern, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a <a class="xref" href="Godot.TileMapPattern.html">TileMapPattern</a> to be stored in the TileSet resource. If provided, insert it at the given <code class="paramref">index</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AddPattern(TileMapPattern pattern, int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pattern</code> <a class="xref" href="Godot.TileMapPattern.html">TileMapPattern</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_AddPhysicsLayer_" data-uid="Godot.TileSet.AddPhysicsLayer*"></a>
+
+  <h3 id="Godot_TileSet_AddPhysicsLayer_System_Int32_" data-uid="Godot.TileSet.AddPhysicsLayer(System.Int32)">
+  AddPhysicsLayer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a physics layer to the TileSet at the given position <code class="paramref">toPosition</code> in the array. If <code class="paramref">toPosition</code> is -1, adds it at the end of the array.</p>
+<p>Physics layers allow assigning collision polygons to atlas tiles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddPhysicsLayer(int toPosition = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_AddSource_" data-uid="Godot.TileSet.AddSource*"></a>
+
+  <h3 id="Godot_TileSet_AddSource_Godot_TileSetSource_System_Int32_" data-uid="Godot.TileSet.AddSource(Godot.TileSetSource,System.Int32)">
+  AddSource(TileSetSource, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a <a class="xref" href="Godot.TileSetSource.html">TileSetSource</a> to the TileSet. If <code class="paramref">atlasSourceIdOverride</code> is not -1, also set its source ID. Otherwise, a unique identifier is automatically generated.</p>
+<p>The function returns the added source ID or -1 if the source could not be added.</p>
+<p>
+  <b>Warning:</b> A source cannot belong to two TileSets at the same time. If the added source was attached to another <a class="xref" href="Godot.TileSet.html">TileSet</a>, it will be removed from that one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AddSource(TileSetSource source, int atlasSourceIdOverride = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Godot.TileSetSource.html">TileSetSource</a></dt>
+    <dd></dd>
+    <dt><code>atlasSourceIdOverride</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_AddTerrain_" data-uid="Godot.TileSet.AddTerrain*"></a>
+
+  <h3 id="Godot_TileSet_AddTerrain_System_Int32_System_Int32_" data-uid="Godot.TileSet.AddTerrain(System.Int32,System.Int32)">
+  AddTerrain(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new terrain to the given terrain set <code class="paramref">terrainSet</code> at the given position <code class="paramref">toPosition</code> in the array. If <code class="paramref">toPosition</code> is -1, adds it at the end of the array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddTerrain(int terrainSet, int toPosition = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terrainSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>toPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_AddTerrainSet_" data-uid="Godot.TileSet.AddTerrainSet*"></a>
+
+  <h3 id="Godot_TileSet_AddTerrainSet_System_Int32_" data-uid="Godot.TileSet.AddTerrainSet(System.Int32)">
+  AddTerrainSet(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new terrain set at the given position <code class="paramref">toPosition</code> in the array. If <code class="paramref">toPosition</code> is -1, adds it at the end of the array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddTerrainSet(int toPosition = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_CleanupInvalidTileProxies_" data-uid="Godot.TileSet.CleanupInvalidTileProxies*"></a>
+
+  <h3 id="Godot_TileSet_CleanupInvalidTileProxies" data-uid="Godot.TileSet.CleanupInvalidTileProxies">
+  CleanupInvalidTileProxies()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears tile proxies pointing to invalid tiles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CleanupInvalidTileProxies()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_ClearTileProxies_" data-uid="Godot.TileSet.ClearTileProxies*"></a>
+
+  <h3 id="Godot_TileSet_ClearTileProxies" data-uid="Godot.TileSet.ClearTileProxies">
+  ClearTileProxies()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears all tile proxies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearTileProxies()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetAlternativeLevelTileProxy_" data-uid="Godot.TileSet.GetAlternativeLevelTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_GetAlternativeLevelTileProxy_System_Int32_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSet.GetAlternativeLevelTileProxy(System.Int32,Godot.Vector2I,System.Int32)">
+  GetAlternativeLevelTileProxy(int, Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the alternative-level proxy for the given identifiers. The returned array contains the three proxie's target identifiers (source ID, atlas coords ID and alternative tile ID).</p>
+<p>If the TileSet has no proxy for the given identifiers, returns an empty Array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array GetAlternativeLevelTileProxy(int sourceFrom, Vector2I coordsFrom, int alternativeFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>coordsFrom</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>alternativeFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetCoordsLevelTileProxy_" data-uid="Godot.TileSet.GetCoordsLevelTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_GetCoordsLevelTileProxy_System_Int32_Godot_Vector2I_" data-uid="Godot.TileSet.GetCoordsLevelTileProxy(System.Int32,Godot.Vector2I)">
+  GetCoordsLevelTileProxy(int, Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the coordinate-level proxy for the given identifiers. The returned array contains the two target identifiers of the proxy (source ID and atlas coordinates ID).</p>
+<p>If the TileSet has no proxy for the given identifiers, returns an empty Array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array GetCoordsLevelTileProxy(int sourceFrom, Vector2I coordsFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>coordsFrom</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetCustomDataLayerByName_" data-uid="Godot.TileSet.GetCustomDataLayerByName*"></a>
+
+  <h3 id="Godot_TileSet_GetCustomDataLayerByName_System_String_" data-uid="Godot.TileSet.GetCustomDataLayerByName(System.String)">
+  GetCustomDataLayerByName(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the index of the custom data layer identified by the given name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetCustomDataLayerByName(string layerName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetCustomDataLayerName_" data-uid="Godot.TileSet.GetCustomDataLayerName*"></a>
+
+  <h3 id="Godot_TileSet_GetCustomDataLayerName_System_Int32_" data-uid="Godot.TileSet.GetCustomDataLayerName(System.Int32)">
+  GetCustomDataLayerName(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the name of the custom data layer identified by the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetCustomDataLayerName(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetCustomDataLayerType_" data-uid="Godot.TileSet.GetCustomDataLayerType*"></a>
+
+  <h3 id="Godot_TileSet_GetCustomDataLayerType_System_Int32_" data-uid="Godot.TileSet.GetCustomDataLayerType(System.Int32)">
+  GetCustomDataLayerType(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the type of the custom data layer identified by the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variant.Type GetCustomDataLayerType(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a>.<a class="xref" href="Godot.Variant.Type.html">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetCustomDataLayersCount_" data-uid="Godot.TileSet.GetCustomDataLayersCount*"></a>
+
+  <h3 id="Godot_TileSet_GetCustomDataLayersCount" data-uid="Godot.TileSet.GetCustomDataLayersCount">
+  GetCustomDataLayersCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the custom data layers count.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetCustomDataLayersCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetNavigationLayerLayerValue_" data-uid="Godot.TileSet.GetNavigationLayerLayerValue*"></a>
+
+  <h3 id="Godot_TileSet_GetNavigationLayerLayerValue_System_Int32_System_Int32_" data-uid="Godot.TileSet.GetNavigationLayerLayerValue(System.Int32,System.Int32)">
+  GetNavigationLayerLayerValue(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether or not the specified navigation layer of the TileSet navigation data layer identified by the given <code class="paramref">layerIndex</code> is enabled, given a navigation_layers <code class="paramref">layerNumber</code> between 1 and 32.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetNavigationLayerLayerValue(int layerIndex, int layerNumber)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>layerNumber</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetNavigationLayerLayers_" data-uid="Godot.TileSet.GetNavigationLayerLayers*"></a>
+
+  <h3 id="Godot_TileSet_GetNavigationLayerLayers_System_Int32_" data-uid="Godot.TileSet.GetNavigationLayerLayers(System.Int32)">
+  GetNavigationLayerLayers(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the navigation layers (as in the Navigation server) of the given TileSet navigation layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint GetNavigationLayerLayers(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetNavigationLayersCount_" data-uid="Godot.TileSet.GetNavigationLayersCount*"></a>
+
+  <h3 id="Godot_TileSet_GetNavigationLayersCount" data-uid="Godot.TileSet.GetNavigationLayersCount">
+  GetNavigationLayersCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the navigation layers count.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetNavigationLayersCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetNextSourceId_" data-uid="Godot.TileSet.GetNextSourceId*"></a>
+
+  <h3 id="Godot_TileSet_GetNextSourceId" data-uid="Godot.TileSet.GetNextSourceId">
+  GetNextSourceId()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new unused source ID. This generated ID is the same that a call to <a class="xref" href="Godot.TileSet.html#Godot_TileSet_AddSource_Godot_TileSetSource_System_Int32_">AddSource(TileSetSource, int)</a> would return.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetNextSourceId()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetOcclusionLayerLightMask_" data-uid="Godot.TileSet.GetOcclusionLayerLightMask*"></a>
+
+  <h3 id="Godot_TileSet_GetOcclusionLayerLightMask_System_Int32_" data-uid="Godot.TileSet.GetOcclusionLayerLightMask(System.Int32)">
+  GetOcclusionLayerLightMask(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the light mask of the occlusion layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetOcclusionLayerLightMask(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetOcclusionLayerSdfCollision_" data-uid="Godot.TileSet.GetOcclusionLayerSdfCollision*"></a>
+
+  <h3 id="Godot_TileSet_GetOcclusionLayerSdfCollision_System_Int32_" data-uid="Godot.TileSet.GetOcclusionLayerSdfCollision(System.Int32)">
+  GetOcclusionLayerSdfCollision(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns if the occluders from this layer use <code>sdf_collision</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetOcclusionLayerSdfCollision(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetOcclusionLayersCount_" data-uid="Godot.TileSet.GetOcclusionLayersCount*"></a>
+
+  <h3 id="Godot_TileSet_GetOcclusionLayersCount" data-uid="Godot.TileSet.GetOcclusionLayersCount">
+  GetOcclusionLayersCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the occlusion layers count.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetOcclusionLayersCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetPattern_" data-uid="Godot.TileSet.GetPattern*"></a>
+
+  <h3 id="Godot_TileSet_GetPattern_System_Int32_" data-uid="Godot.TileSet.GetPattern(System.Int32)">
+  GetPattern(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.TileMapPattern.html">TileMapPattern</a> at the given <code class="paramref">index</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileMapPattern GetPattern(int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.TileMapPattern.html">TileMapPattern</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetPatternsCount_" data-uid="Godot.TileSet.GetPatternsCount*"></a>
+
+  <h3 id="Godot_TileSet_GetPatternsCount" data-uid="Godot.TileSet.GetPatternsCount">
+  GetPatternsCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of <a class="xref" href="Godot.TileMapPattern.html">TileMapPattern</a> this tile set handles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetPatternsCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetPhysicsLayerCollisionLayer_" data-uid="Godot.TileSet.GetPhysicsLayerCollisionLayer*"></a>
+
+  <h3 id="Godot_TileSet_GetPhysicsLayerCollisionLayer_System_Int32_" data-uid="Godot.TileSet.GetPhysicsLayerCollisionLayer(System.Int32)">
+  GetPhysicsLayerCollisionLayer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the collision layer (as in the physics server) bodies on the given TileSet's physics layer are in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint GetPhysicsLayerCollisionLayer(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetPhysicsLayerCollisionMask_" data-uid="Godot.TileSet.GetPhysicsLayerCollisionMask*"></a>
+
+  <h3 id="Godot_TileSet_GetPhysicsLayerCollisionMask_System_Int32_" data-uid="Godot.TileSet.GetPhysicsLayerCollisionMask(System.Int32)">
+  GetPhysicsLayerCollisionMask(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the collision mask of bodies on the given TileSet's physics layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint GetPhysicsLayerCollisionMask(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetPhysicsLayerCollisionPriority_" data-uid="Godot.TileSet.GetPhysicsLayerCollisionPriority*"></a>
+
+  <h3 id="Godot_TileSet_GetPhysicsLayerCollisionPriority_System_Int32_" data-uid="Godot.TileSet.GetPhysicsLayerCollisionPriority(System.Int32)">
+  GetPhysicsLayerCollisionPriority(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the collision priority of bodies on the given TileSet's physics layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetPhysicsLayerCollisionPriority(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetPhysicsLayerPhysicsMaterial_" data-uid="Godot.TileSet.GetPhysicsLayerPhysicsMaterial*"></a>
+
+  <h3 id="Godot_TileSet_GetPhysicsLayerPhysicsMaterial_System_Int32_" data-uid="Godot.TileSet.GetPhysicsLayerPhysicsMaterial(System.Int32)">
+  GetPhysicsLayerPhysicsMaterial(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the physics material of bodies on the given TileSet's physics layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PhysicsMaterial GetPhysicsLayerPhysicsMaterial(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.PhysicsMaterial.html">PhysicsMaterial</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetPhysicsLayersCount_" data-uid="Godot.TileSet.GetPhysicsLayersCount*"></a>
+
+  <h3 id="Godot_TileSet_GetPhysicsLayersCount" data-uid="Godot.TileSet.GetPhysicsLayersCount">
+  GetPhysicsLayersCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the physics layers count.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetPhysicsLayersCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetSource_" data-uid="Godot.TileSet.GetSource*"></a>
+
+  <h3 id="Godot_TileSet_GetSource_System_Int32_" data-uid="Godot.TileSet.GetSource(System.Int32)">
+  GetSource(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.TileSetSource.html">TileSetSource</a> with ID <code class="paramref">sourceId</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileSetSource GetSource(int sourceId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.TileSetSource.html">TileSetSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetSourceCount_" data-uid="Godot.TileSet.GetSourceCount*"></a>
+
+  <h3 id="Godot_TileSet_GetSourceCount" data-uid="Godot.TileSet.GetSourceCount">
+  GetSourceCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of <a class="xref" href="Godot.TileSetSource.html">TileSetSource</a> in this TileSet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetSourceCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetSourceId_" data-uid="Godot.TileSet.GetSourceId*"></a>
+
+  <h3 id="Godot_TileSet_GetSourceId_System_Int32_" data-uid="Godot.TileSet.GetSourceId(System.Int32)">
+  GetSourceId(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the source ID for source with index <code class="paramref">index</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetSourceId(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetSourceLevelTileProxy_" data-uid="Godot.TileSet.GetSourceLevelTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_GetSourceLevelTileProxy_System_Int32_" data-uid="Godot.TileSet.GetSourceLevelTileProxy(System.Int32)">
+  GetSourceLevelTileProxy(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the source-level proxy for the given source identifier.</p>
+<p>If the TileSet has no proxy for the given identifier, returns -1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetSourceLevelTileProxy(int sourceFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetTerrainColor_" data-uid="Godot.TileSet.GetTerrainColor*"></a>
+
+  <h3 id="Godot_TileSet_GetTerrainColor_System_Int32_System_Int32_" data-uid="Godot.TileSet.GetTerrainColor(System.Int32,System.Int32)">
+  GetTerrainColor(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a terrain's color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color GetTerrainColor(int terrainSet, int terrainIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terrainSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>terrainIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetTerrainName_" data-uid="Godot.TileSet.GetTerrainName*"></a>
+
+  <h3 id="Godot_TileSet_GetTerrainName_System_Int32_System_Int32_" data-uid="Godot.TileSet.GetTerrainName(System.Int32,System.Int32)">
+  GetTerrainName(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a terrain's name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetTerrainName(int terrainSet, int terrainIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terrainSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>terrainIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetTerrainSetMode_" data-uid="Godot.TileSet.GetTerrainSetMode*"></a>
+
+  <h3 id="Godot_TileSet_GetTerrainSetMode_System_Int32_" data-uid="Godot.TileSet.GetTerrainSetMode(System.Int32)">
+  GetTerrainSetMode(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a terrain set mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TileSet.TerrainMode GetTerrainSetMode(int terrainSet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terrainSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.TileSet.html">TileSet</a>.<a class="xref" href="Godot.TileSet.TerrainMode.html">TerrainMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetTerrainSetsCount_" data-uid="Godot.TileSet.GetTerrainSetsCount*"></a>
+
+  <h3 id="Godot_TileSet_GetTerrainSetsCount" data-uid="Godot.TileSet.GetTerrainSetsCount">
+  GetTerrainSetsCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the terrain sets count.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetTerrainSetsCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_GetTerrainsCount_" data-uid="Godot.TileSet.GetTerrainsCount*"></a>
+
+  <h3 id="Godot_TileSet_GetTerrainsCount_System_Int32_" data-uid="Godot.TileSet.GetTerrainsCount(System.Int32)">
+  GetTerrainsCount(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of terrains in the given terrain set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetTerrainsCount(int terrainSet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terrainSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_HasAlternativeLevelTileProxy_" data-uid="Godot.TileSet.HasAlternativeLevelTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_HasAlternativeLevelTileProxy_System_Int32_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSet.HasAlternativeLevelTileProxy(System.Int32,Godot.Vector2I,System.Int32)">
+  HasAlternativeLevelTileProxy(int, Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns if there is an alternative-level proxy for the given identifiers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasAlternativeLevelTileProxy(int sourceFrom, Vector2I coordsFrom, int alternativeFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>coordsFrom</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>alternativeFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_HasCoordsLevelTileProxy_" data-uid="Godot.TileSet.HasCoordsLevelTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_HasCoordsLevelTileProxy_System_Int32_Godot_Vector2I_" data-uid="Godot.TileSet.HasCoordsLevelTileProxy(System.Int32,Godot.Vector2I)">
+  HasCoordsLevelTileProxy(int, Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns if there is a coodinates-level proxy for the given identifiers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasCoordsLevelTileProxy(int sourceFrom, Vector2I coordsFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>coordsFrom</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_HasCustomDataLayerByName_" data-uid="Godot.TileSet.HasCustomDataLayerByName*"></a>
+
+  <h3 id="Godot_TileSet_HasCustomDataLayerByName_System_String_" data-uid="Godot.TileSet.HasCustomDataLayerByName(System.String)">
+  HasCustomDataLayerByName(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns if there is a custom data layer named <code class="paramref">layerName</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasCustomDataLayerByName(string layerName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_HasGodotClassMethod_" data-uid="Godot.TileSet.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_TileSet_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.TileSet.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_HasGodotClassSignal_" data-uid="Godot.TileSet.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_TileSet_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.TileSet.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_HasSource_" data-uid="Godot.TileSet.HasSource*"></a>
+
+  <h3 id="Godot_TileSet_HasSource_System_Int32_" data-uid="Godot.TileSet.HasSource(System.Int32)">
+  HasSource(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns if this TileSet has a source for the given source ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasSource(int sourceId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_HasSourceLevelTileProxy_" data-uid="Godot.TileSet.HasSourceLevelTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_HasSourceLevelTileProxy_System_Int32_" data-uid="Godot.TileSet.HasSourceLevelTileProxy(System.Int32)">
+  HasSourceLevelTileProxy(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns if there is a source-level proxy for the given source ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasSourceLevelTileProxy(int sourceFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_InvokeGodotClassMethod_" data-uid="Godot.TileSet.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_TileSet_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.TileSet.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_MapTileProxy_" data-uid="Godot.TileSet.MapTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_MapTileProxy_System_Int32_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSet.MapTileProxy(System.Int32,Godot.Vector2I,System.Int32)">
+  MapTileProxy(int, Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>According to the configured proxies, maps the provided identifiers to a new set of identifiers. The source ID, atlas coordinates ID and alternative tile ID are returned as a 3 elements Array.</p>
+<p>This function first look for matching alternative-level proxies, then coordinates-level proxies, then source-level proxies.</p>
+<p>If no proxy corresponding to provided identifiers are found, returns the same values the ones used as arguments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array MapTileProxy(int sourceFrom, Vector2I coordsFrom, int alternativeFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>coordsFrom</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>alternativeFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array.html">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_MoveCustomDataLayer_" data-uid="Godot.TileSet.MoveCustomDataLayer*"></a>
+
+  <h3 id="Godot_TileSet_MoveCustomDataLayer_System_Int32_System_Int32_" data-uid="Godot.TileSet.MoveCustomDataLayer(System.Int32,System.Int32)">
+  MoveCustomDataLayer(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves the custom data layer at index <code class="paramref">layerIndex</code> to the given position <code class="paramref">toPosition</code> in the array. Also updates the atlas tiles accordingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveCustomDataLayer(int layerIndex, int toPosition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>toPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_MoveNavigationLayer_" data-uid="Godot.TileSet.MoveNavigationLayer*"></a>
+
+  <h3 id="Godot_TileSet_MoveNavigationLayer_System_Int32_System_Int32_" data-uid="Godot.TileSet.MoveNavigationLayer(System.Int32,System.Int32)">
+  MoveNavigationLayer(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves the navigation layer at index <code class="paramref">layerIndex</code> to the given position <code class="paramref">toPosition</code> in the array. Also updates the atlas tiles accordingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveNavigationLayer(int layerIndex, int toPosition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>toPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_MoveOcclusionLayer_" data-uid="Godot.TileSet.MoveOcclusionLayer*"></a>
+
+  <h3 id="Godot_TileSet_MoveOcclusionLayer_System_Int32_System_Int32_" data-uid="Godot.TileSet.MoveOcclusionLayer(System.Int32,System.Int32)">
+  MoveOcclusionLayer(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves the occlusion layer at index <code class="paramref">layerIndex</code> to the given position <code class="paramref">toPosition</code> in the array. Also updates the atlas tiles accordingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveOcclusionLayer(int layerIndex, int toPosition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>toPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_MovePhysicsLayer_" data-uid="Godot.TileSet.MovePhysicsLayer*"></a>
+
+  <h3 id="Godot_TileSet_MovePhysicsLayer_System_Int32_System_Int32_" data-uid="Godot.TileSet.MovePhysicsLayer(System.Int32,System.Int32)">
+  MovePhysicsLayer(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves the physics layer at index <code class="paramref">layerIndex</code> to the given position <code class="paramref">toPosition</code> in the array. Also updates the atlas tiles accordingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MovePhysicsLayer(int layerIndex, int toPosition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>toPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_MoveTerrain_" data-uid="Godot.TileSet.MoveTerrain*"></a>
+
+  <h3 id="Godot_TileSet_MoveTerrain_System_Int32_System_Int32_System_Int32_" data-uid="Godot.TileSet.MoveTerrain(System.Int32,System.Int32,System.Int32)">
+  MoveTerrain(int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves the terrain at index <code class="paramref">terrainIndex</code> for terrain set <code class="paramref">terrainSet</code> to the given position <code class="paramref">toPosition</code> in the array. Also updates the atlas tiles accordingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveTerrain(int terrainSet, int terrainIndex, int toPosition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terrainSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>terrainIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>toPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_MoveTerrainSet_" data-uid="Godot.TileSet.MoveTerrainSet*"></a>
+
+  <h3 id="Godot_TileSet_MoveTerrainSet_System_Int32_System_Int32_" data-uid="Godot.TileSet.MoveTerrainSet(System.Int32,System.Int32)">
+  MoveTerrainSet(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves the terrain set at index <code class="paramref">terrainSet</code> to the given position <code class="paramref">toPosition</code> in the array. Also updates the atlas tiles accordingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveTerrainSet(int terrainSet, int toPosition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terrainSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>toPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_RemoveAlternativeLevelTileProxy_" data-uid="Godot.TileSet.RemoveAlternativeLevelTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_RemoveAlternativeLevelTileProxy_System_Int32_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSet.RemoveAlternativeLevelTileProxy(System.Int32,Godot.Vector2I,System.Int32)">
+  RemoveAlternativeLevelTileProxy(int, Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes an alternative-level proxy for the given identifiers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAlternativeLevelTileProxy(int sourceFrom, Vector2I coordsFrom, int alternativeFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>coordsFrom</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>alternativeFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_RemoveCoordsLevelTileProxy_" data-uid="Godot.TileSet.RemoveCoordsLevelTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_RemoveCoordsLevelTileProxy_System_Int32_Godot_Vector2I_" data-uid="Godot.TileSet.RemoveCoordsLevelTileProxy(System.Int32,Godot.Vector2I)">
+  RemoveCoordsLevelTileProxy(int, Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a coordinates-level proxy for the given identifiers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveCoordsLevelTileProxy(int sourceFrom, Vector2I coordsFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>coordsFrom</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_RemoveCustomDataLayer_" data-uid="Godot.TileSet.RemoveCustomDataLayer*"></a>
+
+  <h3 id="Godot_TileSet_RemoveCustomDataLayer_System_Int32_" data-uid="Godot.TileSet.RemoveCustomDataLayer(System.Int32)">
+  RemoveCustomDataLayer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the custom data layer at index <code class="paramref">layerIndex</code>. Also updates the atlas tiles accordingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveCustomDataLayer(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_RemoveNavigationLayer_" data-uid="Godot.TileSet.RemoveNavigationLayer*"></a>
+
+  <h3 id="Godot_TileSet_RemoveNavigationLayer_System_Int32_" data-uid="Godot.TileSet.RemoveNavigationLayer(System.Int32)">
+  RemoveNavigationLayer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the navigation layer at index <code class="paramref">layerIndex</code>. Also updates the atlas tiles accordingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveNavigationLayer(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_RemoveOcclusionLayer_" data-uid="Godot.TileSet.RemoveOcclusionLayer*"></a>
+
+  <h3 id="Godot_TileSet_RemoveOcclusionLayer_System_Int32_" data-uid="Godot.TileSet.RemoveOcclusionLayer(System.Int32)">
+  RemoveOcclusionLayer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the occlusion layer at index <code class="paramref">layerIndex</code>. Also updates the atlas tiles accordingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveOcclusionLayer(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_RemovePattern_" data-uid="Godot.TileSet.RemovePattern*"></a>
+
+  <h3 id="Godot_TileSet_RemovePattern_System_Int32_" data-uid="Godot.TileSet.RemovePattern(System.Int32)">
+  RemovePattern(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove the <a class="xref" href="Godot.TileMapPattern.html">TileMapPattern</a> at the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemovePattern(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_RemovePhysicsLayer_" data-uid="Godot.TileSet.RemovePhysicsLayer*"></a>
+
+  <h3 id="Godot_TileSet_RemovePhysicsLayer_System_Int32_" data-uid="Godot.TileSet.RemovePhysicsLayer(System.Int32)">
+  RemovePhysicsLayer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the physics layer at index <code class="paramref">layerIndex</code>. Also updates the atlas tiles accordingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemovePhysicsLayer(int layerIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_RemoveSource_" data-uid="Godot.TileSet.RemoveSource*"></a>
+
+  <h3 id="Godot_TileSet_RemoveSource_System_Int32_" data-uid="Godot.TileSet.RemoveSource(System.Int32)">
+  RemoveSource(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the source with the given source ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveSource(int sourceId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_RemoveSourceLevelTileProxy_" data-uid="Godot.TileSet.RemoveSourceLevelTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_RemoveSourceLevelTileProxy_System_Int32_" data-uid="Godot.TileSet.RemoveSourceLevelTileProxy(System.Int32)">
+  RemoveSourceLevelTileProxy(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a source-level tile proxy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveSourceLevelTileProxy(int sourceFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_RemoveTerrain_" data-uid="Godot.TileSet.RemoveTerrain*"></a>
+
+  <h3 id="Godot_TileSet_RemoveTerrain_System_Int32_System_Int32_" data-uid="Godot.TileSet.RemoveTerrain(System.Int32,System.Int32)">
+  RemoveTerrain(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the terrain at index <code class="paramref">terrainIndex</code> in the given terrain set <code class="paramref">terrainSet</code>. Also updates the atlas tiles accordingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveTerrain(int terrainSet, int terrainIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terrainSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>terrainIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_RemoveTerrainSet_" data-uid="Godot.TileSet.RemoveTerrainSet*"></a>
+
+  <h3 id="Godot_TileSet_RemoveTerrainSet_System_Int32_" data-uid="Godot.TileSet.RemoveTerrainSet(System.Int32)">
+  RemoveTerrainSet(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the terrain set at index <code class="paramref">terrainSet</code>. Also updates the atlas tiles accordingly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveTerrainSet(int terrainSet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terrainSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetAlternativeLevelTileProxy_" data-uid="Godot.TileSet.SetAlternativeLevelTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_SetAlternativeLevelTileProxy_System_Int32_Godot_Vector2I_System_Int32_System_Int32_Godot_Vector2I_System_Int32_" data-uid="Godot.TileSet.SetAlternativeLevelTileProxy(System.Int32,Godot.Vector2I,System.Int32,System.Int32,Godot.Vector2I,System.Int32)">
+  SetAlternativeLevelTileProxy(int, Vector2I, int, int, Vector2I, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create an alternative-level proxy for the given identifiers. A proxy will map set of tile identifiers to another set of identifiers.</p>
+<p>This can be used to replace a tile in all TileMaps using this TileSet, as TileMap nodes will find and use the proxy's target tile when one is available.</p>
+<p>Proxied tiles can be automatically replaced in TileMap nodes using the editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetAlternativeLevelTileProxy(int sourceFrom, Vector2I coordsFrom, int alternativeFrom, int sourceTo, Vector2I coordsTo, int alternativeTo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>coordsFrom</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>alternativeFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>sourceTo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>coordsTo</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>alternativeTo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetCoordsLevelTileProxy_" data-uid="Godot.TileSet.SetCoordsLevelTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_SetCoordsLevelTileProxy_System_Int32_Godot_Vector2I_System_Int32_Godot_Vector2I_" data-uid="Godot.TileSet.SetCoordsLevelTileProxy(System.Int32,Godot.Vector2I,System.Int32,Godot.Vector2I)">
+  SetCoordsLevelTileProxy(int, Vector2I, int, Vector2I)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a coordinates-level proxy for the given identifiers. A proxy will map set of tile identifiers to another set of identifiers. The alternative tile ID is kept the same when using coordinates-level proxies.</p>
+<p>This can be used to replace a tile in all TileMaps using this TileSet, as TileMap nodes will find and use the proxy's target tile when one is available.</p>
+<p>Proxied tiles can be automatically replaced in TileMap nodes using the editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCoordsLevelTileProxy(int pSourceFrom, Vector2I coordsFrom, int sourceTo, Vector2I coordsTo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pSourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>coordsFrom</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+    <dt><code>sourceTo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>coordsTo</code> <a class="xref" href="Godot.Vector2I.html">Vector2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetCustomDataLayerName_" data-uid="Godot.TileSet.SetCustomDataLayerName*"></a>
+
+  <h3 id="Godot_TileSet_SetCustomDataLayerName_System_Int32_System_String_" data-uid="Godot.TileSet.SetCustomDataLayerName(System.Int32,System.String)">
+  SetCustomDataLayerName(int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the name of the custom data layer identified by the given index. Names are identifiers of the layer therefore if the name is already taken it will fail and raise an error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCustomDataLayerName(int layerIndex, string layerName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>layerName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetCustomDataLayerType_" data-uid="Godot.TileSet.SetCustomDataLayerType*"></a>
+
+  <h3 id="Godot_TileSet_SetCustomDataLayerType_System_Int32_Godot_Variant_Type_" data-uid="Godot.TileSet.SetCustomDataLayerType(System.Int32,Godot.Variant.Type)">
+  SetCustomDataLayerType(int, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the type of the custom data layer identified by the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCustomDataLayerType(int layerIndex, Variant.Type layerType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>layerType</code> <a class="xref" href="Godot.Variant.html">Variant</a>.<a class="xref" href="Godot.Variant.Type.html">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetNavigationLayerLayerValue_" data-uid="Godot.TileSet.SetNavigationLayerLayerValue*"></a>
+
+  <h3 id="Godot_TileSet_SetNavigationLayerLayerValue_System_Int32_System_Int32_System_Boolean_" data-uid="Godot.TileSet.SetNavigationLayerLayerValue(System.Int32,System.Int32,System.Boolean)">
+  SetNavigationLayerLayerValue(int, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Based on <code class="paramref">value</code>, enables or disables the specified navigation layer of the TileSet navigation data layer identified by the given <code class="paramref">layerIndex</code>, given a navigation_layers <code class="paramref">layerNumber</code> between 1 and 32.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetNavigationLayerLayerValue(int layerIndex, int layerNumber, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>layerNumber</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetNavigationLayerLayers_" data-uid="Godot.TileSet.SetNavigationLayerLayers*"></a>
+
+  <h3 id="Godot_TileSet_SetNavigationLayerLayers_System_Int32_System_UInt32_" data-uid="Godot.TileSet.SetNavigationLayerLayers(System.Int32,System.UInt32)">
+  SetNavigationLayerLayers(int, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the navigation layers (as in the navigation server) for navigation regions in the given TileSet navigation layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetNavigationLayerLayers(int layerIndex, uint layers)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>layers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetOcclusionLayerLightMask_" data-uid="Godot.TileSet.SetOcclusionLayerLightMask*"></a>
+
+  <h3 id="Godot_TileSet_SetOcclusionLayerLightMask_System_Int32_System_Int32_" data-uid="Godot.TileSet.SetOcclusionLayerLightMask(System.Int32,System.Int32)">
+  SetOcclusionLayerLightMask(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the occlusion layer (as in the rendering server) for occluders in the given TileSet occlusion layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetOcclusionLayerLightMask(int layerIndex, int lightMask)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>lightMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetOcclusionLayerSdfCollision_" data-uid="Godot.TileSet.SetOcclusionLayerSdfCollision*"></a>
+
+  <h3 id="Godot_TileSet_SetOcclusionLayerSdfCollision_System_Int32_System_Boolean_" data-uid="Godot.TileSet.SetOcclusionLayerSdfCollision(System.Int32,System.Boolean)">
+  SetOcclusionLayerSdfCollision(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enables or disables SDF collision for occluders in the given TileSet occlusion layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetOcclusionLayerSdfCollision(int layerIndex, bool sdfCollision)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>sdfCollision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetPhysicsLayerCollisionLayer_" data-uid="Godot.TileSet.SetPhysicsLayerCollisionLayer*"></a>
+
+  <h3 id="Godot_TileSet_SetPhysicsLayerCollisionLayer_System_Int32_System_UInt32_" data-uid="Godot.TileSet.SetPhysicsLayerCollisionLayer(System.Int32,System.UInt32)">
+  SetPhysicsLayerCollisionLayer(int, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the collision layer (as in the physics server) for bodies in the given TileSet physics layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPhysicsLayerCollisionLayer(int layerIndex, uint layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetPhysicsLayerCollisionMask_" data-uid="Godot.TileSet.SetPhysicsLayerCollisionMask*"></a>
+
+  <h3 id="Godot_TileSet_SetPhysicsLayerCollisionMask_System_Int32_System_UInt32_" data-uid="Godot.TileSet.SetPhysicsLayerCollisionMask(System.Int32,System.UInt32)">
+  SetPhysicsLayerCollisionMask(int, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the collision mask for bodies in the given TileSet physics layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPhysicsLayerCollisionMask(int layerIndex, uint mask)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetPhysicsLayerCollisionPriority_" data-uid="Godot.TileSet.SetPhysicsLayerCollisionPriority*"></a>
+
+  <h3 id="Godot_TileSet_SetPhysicsLayerCollisionPriority_System_Int32_System_Single_" data-uid="Godot.TileSet.SetPhysicsLayerCollisionPriority(System.Int32,System.Single)">
+  SetPhysicsLayerCollisionPriority(int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the collision priority for bodies in the given TileSet physics layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPhysicsLayerCollisionPriority(int layerIndex, float priority)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>priority</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetPhysicsLayerPhysicsMaterial_" data-uid="Godot.TileSet.SetPhysicsLayerPhysicsMaterial*"></a>
+
+  <h3 id="Godot_TileSet_SetPhysicsLayerPhysicsMaterial_System_Int32_Godot_PhysicsMaterial_" data-uid="Godot.TileSet.SetPhysicsLayerPhysicsMaterial(System.Int32,Godot.PhysicsMaterial)">
+  SetPhysicsLayerPhysicsMaterial(int, PhysicsMaterial)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the physics material for bodies in the given TileSet physics layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPhysicsLayerPhysicsMaterial(int layerIndex, PhysicsMaterial physicsMaterial)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>physicsMaterial</code> <a class="xref" href="Godot.PhysicsMaterial.html">PhysicsMaterial</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetSourceId_" data-uid="Godot.TileSet.SetSourceId*"></a>
+
+  <h3 id="Godot_TileSet_SetSourceId_System_Int32_System_Int32_" data-uid="Godot.TileSet.SetSourceId(System.Int32,System.Int32)">
+  SetSourceId(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes a source's ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSourceId(int sourceId, int newSourceId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>newSourceId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetSourceLevelTileProxy_" data-uid="Godot.TileSet.SetSourceLevelTileProxy*"></a>
+
+  <h3 id="Godot_TileSet_SetSourceLevelTileProxy_System_Int32_System_Int32_" data-uid="Godot.TileSet.SetSourceLevelTileProxy(System.Int32,System.Int32)">
+  SetSourceLevelTileProxy(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a source-level proxy for the given source ID. A proxy will map set of tile identifiers to another set of identifiers. Both the atlas coordinates ID and the alternative tile ID are kept the same when using source-level proxies.</p>
+<p>This can be used to replace a source in all TileMaps using this TileSet, as TileMap nodes will find and use the proxy's target source when one is available.</p>
+<p>Proxied tiles can be automatically replaced in TileMap nodes using the editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSourceLevelTileProxy(int sourceFrom, int sourceTo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFrom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>sourceTo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetTerrainColor_" data-uid="Godot.TileSet.SetTerrainColor*"></a>
+
+  <h3 id="Godot_TileSet_SetTerrainColor_System_Int32_System_Int32_Godot_Color_" data-uid="Godot.TileSet.SetTerrainColor(System.Int32,System.Int32,Godot.Color)">
+  SetTerrainColor(int, int, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a terrain's color. This color is used for identifying the different terrains in the TileSet editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTerrainColor(int terrainSet, int terrainIndex, Color color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terrainSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>terrainIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetTerrainName_" data-uid="Godot.TileSet.SetTerrainName*"></a>
+
+  <h3 id="Godot_TileSet_SetTerrainName_System_Int32_System_Int32_System_String_" data-uid="Godot.TileSet.SetTerrainName(System.Int32,System.Int32,System.String)">
+  SetTerrainName(int, int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a terrain's name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTerrainName(int terrainSet, int terrainIndex, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terrainSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>terrainIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_TileSet_SetTerrainSetMode_" data-uid="Godot.TileSet.SetTerrainSetMode*"></a>
+
+  <h3 id="Godot_TileSet_SetTerrainSetMode_System_Int32_Godot_TileSet_TerrainMode_" data-uid="Godot.TileSet.SetTerrainSetMode(System.Int32,Godot.TileSet.TerrainMode)">
+  SetTerrainSetMode(int, TerrainMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a terrain mode. Each mode determines which bits of a tile shape is used to match the neighboring tiles' terrains.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTerrainSetMode(int terrainSet, TileSet.TerrainMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>terrainSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mode</code> <a class="xref" href="Godot.TileSet.html">TileSet</a>.<a class="xref" href="Godot.TileSet.TerrainMode.html">TerrainMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/TileSet.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

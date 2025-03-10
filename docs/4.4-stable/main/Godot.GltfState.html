@@ -1,0 +1,2638 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GltfState | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GltfState | Godot4 C# API ">
+      
+      <meta name="description" content="Contains all nodes and resources of a glTF file. This is used by  as data storage, which allows  and all  classes to remain stateless. GLTFState can be populated by  reading a file or by converting a Godot scene. Then the data can either be used to create a Godot scene or save to a glTF file. The code that converts to/from a Godot scene can be intercepted at arbitrary points by  classes. This allows for custom data to be stored in the glTF file or for custom data to be converted to/from Godot nodes.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.GltfState">
+
+
+
+  <h1 id="Godot_GltfState" data-uid="Godot.GltfState" class="text-break">
+Class GltfState  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Contains all nodes and resources of a glTF file. This is used by <a class="xref" href="Godot.GltfDocument.html">GltfDocument</a> as data storage, which allows <a class="xref" href="Godot.GltfDocument.html">GltfDocument</a> and all <a class="xref" href="Godot.GltfDocumentExtension.html">GltfDocumentExtension</a> classes to remain stateless.</p>
+<p>GLTFState can be populated by <a class="xref" href="Godot.GltfDocument.html">GltfDocument</a> reading a file or by converting a Godot scene. Then the data can either be used to create a Godot scene or save to a glTF file. The code that converts to/from a Godot scene can be intercepted at arbitrary points by <a class="xref" href="Godot.GltfDocumentExtension.html">GltfDocumentExtension</a> classes. This allows for custom data to be stored in the glTF file or for custom data to be converted to/from Godot nodes.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[GodotClassName(&quot;GLTFState&quot;)]
+public class GltfState : Resource, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><a class="xref" href="Godot.Resource.html">Resource</a></div>
+      <div><span class="xref">GltfState</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Godot.FbxState.html">FbxState</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__GetRid">Resource._GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__ResetState">Resource._ResetState()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__SetPathCache_System_String_">Resource._SetPathCache(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__SetupLocalToScene">Resource._SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_TakeOverPath_System_String_">Resource.TakeOverPath(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetPathCache_System_String_">Resource.SetPathCache(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetRid">Resource.GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetLocalScene">Resource.GetLocalScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToScene">Resource.SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResetState">Resource.ResetState()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetIdForPath_System_String_System_String_">Resource.SetIdForPath(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetIdForPath_System_String_">Resource.GetIdForPath(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_IsBuiltIn">Resource.IsBuiltIn()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GenerateSceneUniqueId">Resource.GenerateSceneUniqueId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitChanged">Resource.EmitChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Duplicate_System_Boolean_">Resource.Duplicate(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitSignalChanged">Resource.EmitSignalChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitSignalSetupLocalToSceneRequested">Resource.EmitSignalSetupLocalToSceneRequested()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceLocalToScene">Resource.ResourceLocalToScene</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourcePath">Resource.ResourcePath</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceName">Resource.ResourceName</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceSceneUniqueId">Resource.ResourceSceneUniqueId</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Changed">Resource.Changed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToSceneRequested">Resource.SetupLocalToSceneRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_InitRef">RefCounted.InitRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Reference">RefCounted.Reference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Unreference">RefCounted.Unreference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_GetReferenceCount">RefCounted.GetReferenceCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterGet_Godot_Variant_">GodotObject._IterGet(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterInit_Godot_Collections_Array_">GodotObject._IterInit(Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterNext_Godot_Collections_Array_">GodotObject._IterNext(Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">GodotObject.RemoveUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.EmitSignal(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.Call(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.CallDeferred(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_">GodotObject.GetMethodArgumentCount(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasConnections_Godot_StringName_">GodotObject.HasConnections(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetTranslationDomain">GodotObject.GetTranslationDomain()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetTranslationDomain_Godot_StringName_">GodotObject.SetTranslationDomain(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignalScriptChanged">GodotObject.EmitSignalScriptChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignalPropertyListChanged">GodotObject.EmitSignalPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_GltfState__ctor_" data-uid="Godot.GltfState.#ctor*"></a>
+
+  <h3 id="Godot_GltfState__ctor" data-uid="Godot.GltfState.#ctor">
+  GltfState()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GltfState()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Godot_GltfState_HandleBinaryDiscardTextures" data-uid="Godot.GltfState.HandleBinaryDiscardTextures">
+  HandleBinaryDiscardTextures
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Discards all embedded textures and uses untextured materials.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long HandleBinaryDiscardTextures = 0</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Godot_GltfState_HandleBinaryEmbedAsBasisu" data-uid="Godot.GltfState.HandleBinaryEmbedAsBasisu">
+  HandleBinaryEmbedAsBasisu
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Embeds textures VRAM compressed with Basis Universal into the generated scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long HandleBinaryEmbedAsBasisu = 2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Godot_GltfState_HandleBinaryEmbedAsUncompressed" data-uid="Godot.GltfState.HandleBinaryEmbedAsUncompressed">
+  HandleBinaryEmbedAsUncompressed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Embeds textures compressed losslessly into the generated scene, matching old behavior.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long HandleBinaryEmbedAsUncompressed = 3</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Godot_GltfState_HandleBinaryExtractTextures" data-uid="Godot.GltfState.HandleBinaryExtractTextures">
+  HandleBinaryExtractTextures
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Extracts embedded textures to be reimported and compressed. Editor only. Acts as uncompressed at runtime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long HandleBinaryExtractTextures = 1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_GltfState_BakeFps_" data-uid="Godot.GltfState.BakeFps*"></a>
+
+  <h3 id="Godot_GltfState_BakeFps" data-uid="Godot.GltfState.BakeFps">
+  BakeFps
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The baking fps of the animation for either import or export.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double BakeFps { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_BasePath_" data-uid="Godot.GltfState.BasePath*"></a>
+
+  <h3 id="Godot_GltfState_BasePath" data-uid="Godot.GltfState.BasePath">
+  BasePath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The folder path associated with this glTF data. This is used to find other files the glTF file references, like images or binary buffers. This will be set during import when appending from a file, and will be set during export when writing to a file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string BasePath { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_Buffers_" data-uid="Godot.GltfState.Buffers*"></a>
+
+  <h3 id="Godot_GltfState_Buffers" data-uid="Godot.GltfState.Buffers">
+  Buffers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;byte[]&gt; Buffers { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_Copyright_" data-uid="Godot.GltfState.Copyright*"></a>
+
+  <h3 id="Godot_GltfState_Copyright" data-uid="Godot.GltfState.Copyright">
+  Copyright
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The copyright string in the asset header of the glTF file. This is set during import if present and export if non-empty. See the glTF asset header documentation for more information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Copyright { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_CreateAnimations_" data-uid="Godot.GltfState.CreateAnimations*"></a>
+
+  <h3 id="Godot_GltfState_CreateAnimations" data-uid="Godot.GltfState.CreateAnimations">
+  CreateAnimations
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CreateAnimations { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_FileName_" data-uid="Godot.GltfState.FileName*"></a>
+
+  <h3 id="Godot_GltfState_FileName" data-uid="Godot.GltfState.FileName">
+  FileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file name associated with this glTF data. If it ends with <code>.gltf</code>, this is text-based glTF, otherwise this is binary GLB. This will be set during import when appending from a file, and will be set during export when writing to a file. If writing to a buffer, this will be an empty string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FileName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GlbData_" data-uid="Godot.GltfState.GlbData*"></a>
+
+  <h3 id="Godot_GltfState_GlbData" data-uid="Godot.GltfState.GlbData">
+  GlbData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The binary buffer attached to a .glb file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] GlbData { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_ImportAsSkeletonBones_" data-uid="Godot.GltfState.ImportAsSkeletonBones*"></a>
+
+  <h3 id="Godot_GltfState_ImportAsSkeletonBones" data-uid="Godot.GltfState.ImportAsSkeletonBones">
+  ImportAsSkeletonBones
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, forces all GLTFNodes in the document to be bones of a single <a class="xref" href="Godot.Skeleton3D.html">Skeleton3D</a> Godot node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ImportAsSkeletonBones { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_Json_" data-uid="Godot.GltfState.Json*"></a>
+
+  <h3 id="Godot_GltfState_Json" data-uid="Godot.GltfState.Json">
+  Json
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The original raw JSON document corresponding to this GLTFState.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary Json { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Dictionary.html">Dictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_MajorVersion_" data-uid="Godot.GltfState.MajorVersion*"></a>
+
+  <h3 id="Godot_GltfState_MajorVersion" data-uid="Godot.GltfState.MajorVersion">
+  MajorVersion
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MajorVersion { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_MinorVersion_" data-uid="Godot.GltfState.MinorVersion*"></a>
+
+  <h3 id="Godot_GltfState_MinorVersion" data-uid="Godot.GltfState.MinorVersion">
+  MinorVersion
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MinorVersion { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_RootNodes_" data-uid="Godot.GltfState.RootNodes*"></a>
+
+  <h3 id="Godot_GltfState_RootNodes" data-uid="Godot.GltfState.RootNodes">
+  RootNodes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The root nodes of the glTF file. Typically, a glTF file will only have one scene, and therefore one root node. However, a glTF file may have multiple scenes and therefore multiple root nodes, which will be generated as siblings of each other and as children of the root node of the generated Godot scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int[] RootNodes { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SceneName_" data-uid="Godot.GltfState.SceneName*"></a>
+
+  <h3 id="Godot_GltfState_SceneName" data-uid="Godot.GltfState.SceneName">
+  SceneName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the scene. When importing, if not specified, this will be the file name. When exporting, if specified, the scene name will be saved to the glTF file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SceneName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_UseNamedSkinBinds_" data-uid="Godot.GltfState.UseNamedSkinBinds*"></a>
+
+  <h3 id="Godot_GltfState_UseNamedSkinBinds" data-uid="Godot.GltfState.UseNamedSkinBinds">
+  UseNamedSkinBinds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UseNamedSkinBinds { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_GltfState_AddUsedExtension_" data-uid="Godot.GltfState.AddUsedExtension*"></a>
+
+  <h3 id="Godot_GltfState_AddUsedExtension_System_String_System_Boolean_" data-uid="Godot.GltfState.AddUsedExtension(System.String,System.Boolean)">
+  AddUsedExtension(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends an extension to the list of extensions used by this glTF file during serialization. If <code class="paramref">required</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the extension will also be added to the list of required extensions. Do not run this in <a class="xref" href="Godot.GltfDocumentExtension.html#Godot_GltfDocumentExtension__ExportPost_Godot_GltfState_">_ExportPost(GltfState)</a>, as that stage is too late to add extensions. The final list is sorted alphabetically.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddUsedExtension(string extensionName, bool required)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>extensionName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>required</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_AppendDataToBuffers_" data-uid="Godot.GltfState.AppendDataToBuffers*"></a>
+
+  <h3 id="Godot_GltfState_AppendDataToBuffers_System_Byte___System_Boolean_" data-uid="Godot.GltfState.AppendDataToBuffers(System.Byte[],System.Boolean)">
+  AppendDataToBuffers(byte[], bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends the given byte array data to the buffers and creates a <a class="xref" href="Godot.GltfBufferView.html">GltfBufferView</a> for it. The index of the destination <a class="xref" href="Godot.GltfBufferView.html">GltfBufferView</a> is returned. If <code class="paramref">deduplication</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the buffers will first be searched for duplicate data, otherwise new bytes will always be appended.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AppendDataToBuffers(byte[] data, bool deduplication)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>deduplication</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_AppendDataToBuffers_" data-uid="Godot.GltfState.AppendDataToBuffers*"></a>
+
+  <h3 id="Godot_GltfState_AppendDataToBuffers_System_ReadOnlySpan_System_Byte__System_Boolean_" data-uid="Godot.GltfState.AppendDataToBuffers(System.ReadOnlySpan{System.Byte},System.Boolean)">
+  AppendDataToBuffers(ReadOnlySpan&lt;byte&gt;, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends the given byte array data to the buffers and creates a <a class="xref" href="Godot.GltfBufferView.html">GltfBufferView</a> for it. The index of the destination <a class="xref" href="Godot.GltfBufferView.html">GltfBufferView</a> is returned. If <code class="paramref">deduplication</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the buffers will first be searched for duplicate data, otherwise new bytes will always be appended.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AppendDataToBuffers(ReadOnlySpan&lt;byte&gt; data, bool deduplication)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>deduplication</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_AppendGltfNode_" data-uid="Godot.GltfState.AppendGltfNode*"></a>
+
+  <h3 id="Godot_GltfState_AppendGltfNode_Godot_GltfNode_Godot_Node_System_Int32_" data-uid="Godot.GltfState.AppendGltfNode(Godot.GltfNode,Godot.Node,System.Int32)">
+  AppendGltfNode(GltfNode, Node, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Append the given <a class="xref" href="Godot.GltfNode.html">GltfNode</a> to the state, and return its new index. This can be used to export one Godot node as multiple glTF nodes, or inject new glTF nodes at import time. On import, this must be called before <a class="xref" href="Godot.GltfDocumentExtension.html#Godot_GltfDocumentExtension__GenerateSceneNode_Godot_GltfState_Godot_GltfNode_Godot_Node_">_GenerateSceneNode(GltfState, GltfNode, Node)</a> finishes for the parent node. On export, this must be called before <a class="xref" href="Godot.GltfDocumentExtension.html#Godot_GltfDocumentExtension__ExportNode_Godot_GltfState_Godot_GltfNode_Godot_Collections_Dictionary_Godot_Node_">_ExportNode(GltfState, GltfNode, Dictionary, Node)</a> runs for the parent node.</p>
+<p>The <code class="paramref">godotSceneNode</code> parameter is the Godot scene node that corresponds to this glTF node. This is highly recommended to be set to a valid node, but may be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if there is no corresponding Godot scene node. One Godot scene node may be used for multiple glTF nodes, so if exporting multiple glTF nodes for one Godot scene node, use the same Godot scene node for each.</p>
+<p>The <code class="paramref">parentNodeIndex</code> parameter is the index of the parent <a class="xref" href="Godot.GltfNode.html">GltfNode</a> in the state. If <code>-1</code>, the node will be a root node, otherwise the new node will be added to the parent's list of children. The index will also be written to the <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Parent">Parent</a> property of the new node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AppendGltfNode(GltfNode gltfNode, Node godotSceneNode, int parentNodeIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gltfNode</code> <a class="xref" href="Godot.GltfNode.html">GltfNode</a></dt>
+    <dd></dd>
+    <dt><code>godotSceneNode</code> <a class="xref" href="Godot.Node.html">Node</a></dt>
+    <dd></dd>
+    <dt><code>parentNodeIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetAccessors_" data-uid="Godot.GltfState.GetAccessors*"></a>
+
+  <h3 id="Godot_GltfState_GetAccessors" data-uid="Godot.GltfState.GetAccessors">
+  GetAccessors()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;GltfAccessor&gt; GetAccessors()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfAccessor.html">GltfAccessor</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetAdditionalData_" data-uid="Godot.GltfState.GetAdditionalData*"></a>
+
+  <h3 id="Godot_GltfState_GetAdditionalData_Godot_StringName_" data-uid="Godot.GltfState.GetAdditionalData(Godot.StringName)">
+  GetAdditionalData(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets additional arbitrary data in this <a class="xref" href="Godot.GltfState.html">GltfState</a> instance. This can be used to keep per-file state data in <a class="xref" href="Godot.GltfDocumentExtension.html">GltfDocumentExtension</a> classes, which is important because they are stateless.</p>
+<p>The argument should be the <a class="xref" href="Godot.GltfDocumentExtension.html">GltfDocumentExtension</a> name (does not have to match the extension name in the glTF file), and the return value can be anything you set. If nothing was set, the return value is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variant GetAdditionalData(StringName extensionName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>extensionName</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetAnimationPlayer_" data-uid="Godot.GltfState.GetAnimationPlayer*"></a>
+
+  <h3 id="Godot_GltfState_GetAnimationPlayer_System_Int32_" data-uid="Godot.GltfState.GetAnimationPlayer(System.Int32)">
+  GetAnimationPlayer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a> node with the given index. These nodes are only used during the export process when converting Godot <a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a> nodes to glTF animations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnimationPlayer GetAnimationPlayer(int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetAnimationPlayersCount_" data-uid="Godot.GltfState.GetAnimationPlayersCount*"></a>
+
+  <h3 id="Godot_GltfState_GetAnimationPlayersCount_System_Int32_" data-uid="Godot.GltfState.GetAnimationPlayersCount(System.Int32)">
+  GetAnimationPlayersCount(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of <a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a> nodes in this <a class="xref" href="Godot.GltfState.html">GltfState</a>. These nodes are only used during the export process when converting Godot <a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a> nodes to glTF animations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetAnimationPlayersCount(int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetAnimations_" data-uid="Godot.GltfState.GetAnimations*"></a>
+
+  <h3 id="Godot_GltfState_GetAnimations" data-uid="Godot.GltfState.GetAnimations">
+  GetAnimations()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array of all <a class="xref" href="Godot.GltfAnimation.html">GltfAnimation</a>s in the glTF file. When importing, these will be generated as animations in an <a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a> node. When exporting, these will be generated from Godot <a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a> nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;GltfAnimation&gt; GetAnimations()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfAnimation.html">GltfAnimation</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetBufferViews_" data-uid="Godot.GltfState.GetBufferViews*"></a>
+
+  <h3 id="Godot_GltfState_GetBufferViews" data-uid="Godot.GltfState.GetBufferViews">
+  GetBufferViews()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;GltfBufferView&gt; GetBufferViews()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfBufferView.html">GltfBufferView</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetCameras_" data-uid="Godot.GltfState.GetCameras*"></a>
+
+  <h3 id="Godot_GltfState_GetCameras" data-uid="Godot.GltfState.GetCameras">
+  GetCameras()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array of all <a class="xref" href="Godot.GltfCamera.html">GltfCamera</a>s in the glTF file. These are the cameras that the <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Camera">Camera</a> index refers to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;GltfCamera&gt; GetCameras()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfCamera.html">GltfCamera</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetHandleBinaryImage_" data-uid="Godot.GltfState.GetHandleBinaryImage*"></a>
+
+  <h3 id="Godot_GltfState_GetHandleBinaryImage" data-uid="Godot.GltfState.GetHandleBinaryImage">
+  GetHandleBinaryImage()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetHandleBinaryImage()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetImages_" data-uid="Godot.GltfState.GetImages*"></a>
+
+  <h3 id="Godot_GltfState_GetImages" data-uid="Godot.GltfState.GetImages">
+  GetImages()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the images of the glTF file as an array of <a class="xref" href="Godot.Texture2D.html">Texture2D</a>s. These are the images that the <a class="xref" href="Godot.GltfTexture.html#Godot_GltfTexture_SrcImage">SrcImage</a> index refers to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;Texture2D&gt; GetImages()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.Texture2D.html">Texture2D</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetLights_" data-uid="Godot.GltfState.GetLights*"></a>
+
+  <h3 id="Godot_GltfState_GetLights" data-uid="Godot.GltfState.GetLights">
+  GetLights()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array of all <a class="xref" href="Godot.GltfLight.html">GltfLight</a>s in the glTF file. These are the lights that the <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Light">Light</a> index refers to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;GltfLight&gt; GetLights()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfLight.html">GltfLight</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetMaterials_" data-uid="Godot.GltfState.GetMaterials*"></a>
+
+  <h3 id="Godot_GltfState_GetMaterials" data-uid="Godot.GltfState.GetMaterials">
+  GetMaterials()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;Material&gt; GetMaterials()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.Material.html">Material</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetMeshes_" data-uid="Godot.GltfState.GetMeshes*"></a>
+
+  <h3 id="Godot_GltfState_GetMeshes" data-uid="Godot.GltfState.GetMeshes">
+  GetMeshes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array of all <a class="xref" href="Godot.GltfMesh.html">GltfMesh</a>es in the glTF file. These are the meshes that the <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Mesh">Mesh</a> index refers to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;GltfMesh&gt; GetMeshes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfMesh.html">GltfMesh</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetNodeIndex_" data-uid="Godot.GltfState.GetNodeIndex*"></a>
+
+  <h3 id="Godot_GltfState_GetNodeIndex_Godot_Node_" data-uid="Godot.GltfState.GetNodeIndex(Godot.Node)">
+  GetNodeIndex(Node)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the index of the <a class="xref" href="Godot.GltfNode.html">GltfNode</a> corresponding to this Godot scene node. This is the inverse of <a class="xref" href="Godot.GltfState.html#Godot_GltfState_GetSceneNode_System_Int32_">GetSceneNode(int)</a>. Useful during the export process.</p>
+<p>
+  <b>Note:</b> Not every Godot scene node will have a corresponding <a class="xref" href="Godot.GltfNode.html">GltfNode</a>, and not every <a class="xref" href="Godot.GltfNode.html">GltfNode</a> will have a scene node generated. If there is no <a class="xref" href="Godot.GltfNode.html">GltfNode</a> index for this scene node, <code>-1</code> is returned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetNodeIndex(Node sceneNode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sceneNode</code> <a class="xref" href="Godot.Node.html">Node</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetNodes_" data-uid="Godot.GltfState.GetNodes*"></a>
+
+  <h3 id="Godot_GltfState_GetNodes" data-uid="Godot.GltfState.GetNodes">
+  GetNodes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array of all <a class="xref" href="Godot.GltfNode.html">GltfNode</a>s in the glTF file. These are the nodes that <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Children">Children</a> and <a class="xref" href="Godot.GltfState.html#Godot_GltfState_RootNodes">RootNodes</a> refer to. This includes nodes that may not be generated in the Godot scene, or nodes that may generate multiple Godot scene nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;GltfNode&gt; GetNodes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfNode.html">GltfNode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetSceneNode_" data-uid="Godot.GltfState.GetSceneNode*"></a>
+
+  <h3 id="Godot_GltfState_GetSceneNode_System_Int32_" data-uid="Godot.GltfState.GetSceneNode(System.Int32)">
+  GetSceneNode(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the Godot scene node that corresponds to the same index as the <a class="xref" href="Godot.GltfNode.html">GltfNode</a> it was generated from. This is the inverse of <a class="xref" href="Godot.GltfState.html#Godot_GltfState_GetNodeIndex_Godot_Node_">GetNodeIndex(Node)</a>. Useful during the import process.</p>
+<p>
+  <b>Note:</b> Not every <a class="xref" href="Godot.GltfNode.html">GltfNode</a> will have a scene node generated, and not every generated scene node will have a corresponding <a class="xref" href="Godot.GltfNode.html">GltfNode</a>. If there is no scene node for this <a class="xref" href="Godot.GltfNode.html">GltfNode</a> index, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is returned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Node GetSceneNode(int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Node.html">Node</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetSkeletons_" data-uid="Godot.GltfState.GetSkeletons*"></a>
+
+  <h3 id="Godot_GltfState_GetSkeletons" data-uid="Godot.GltfState.GetSkeletons">
+  GetSkeletons()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array of all <a class="xref" href="Godot.GltfSkeleton.html">GltfSkeleton</a>s in the glTF file. These are the skeletons that the <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Skeleton">Skeleton</a> index refers to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;GltfSkeleton&gt; GetSkeletons()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfSkeleton.html">GltfSkeleton</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetSkins_" data-uid="Godot.GltfState.GetSkins*"></a>
+
+  <h3 id="Godot_GltfState_GetSkins" data-uid="Godot.GltfState.GetSkins">
+  GetSkins()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array of all <a class="xref" href="Godot.GltfSkin.html">GltfSkin</a>s in the glTF file. These are the skins that the <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Skin">Skin</a> index refers to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;GltfSkin&gt; GetSkins()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfSkin.html">GltfSkin</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetTextureSamplers_" data-uid="Godot.GltfState.GetTextureSamplers*"></a>
+
+  <h3 id="Godot_GltfState_GetTextureSamplers" data-uid="Godot.GltfState.GetTextureSamplers">
+  GetTextureSamplers()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the array of texture samplers that are used by the textures contained in the glTF.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;GltfTextureSampler&gt; GetTextureSamplers()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfTextureSampler.html">GltfTextureSampler</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetTextures_" data-uid="Godot.GltfState.GetTextures*"></a>
+
+  <h3 id="Godot_GltfState_GetTextures" data-uid="Godot.GltfState.GetTextures">
+  GetTextures()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;GltfTexture&gt; GetTextures()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfTexture.html">GltfTexture</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetUniqueAnimationNames_" data-uid="Godot.GltfState.GetUniqueAnimationNames*"></a>
+
+  <h3 id="Godot_GltfState_GetUniqueAnimationNames" data-uid="Godot.GltfState.GetUniqueAnimationNames">
+  GetUniqueAnimationNames()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array of unique animation names. This is only used during the import process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;string&gt; GetUniqueAnimationNames()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_GetUniqueNames_" data-uid="Godot.GltfState.GetUniqueNames*"></a>
+
+  <h3 id="Godot_GltfState_GetUniqueNames" data-uid="Godot.GltfState.GetUniqueNames">
+  GetUniqueNames()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an array of unique node names. This is used in both the import process and export process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Array&lt;string&gt; GetUniqueNames()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_HasGodotClassMethod_" data-uid="Godot.GltfState.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_GltfState_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.GltfState.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_HasGodotClassSignal_" data-uid="Godot.GltfState.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_GltfState_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.GltfState.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_InvokeGodotClassMethod_" data-uid="Godot.GltfState.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_GltfState_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.GltfState.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetAccessors_" data-uid="Godot.GltfState.SetAccessors*"></a>
+
+  <h3 id="Godot_GltfState_SetAccessors_Godot_Collections_Array_Godot_GltfAccessor__" data-uid="Godot.GltfState.SetAccessors(Godot.Collections.Array{Godot.GltfAccessor})">
+  SetAccessors(Array&lt;GltfAccessor&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetAccessors(Array&lt;GltfAccessor&gt; accessors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>accessors</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfAccessor.html">GltfAccessor</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetAdditionalData_" data-uid="Godot.GltfState.SetAdditionalData*"></a>
+
+  <h3 id="Godot_GltfState_SetAdditionalData_Godot_StringName_Godot_Variant_" data-uid="Godot.GltfState.SetAdditionalData(Godot.StringName,Godot.Variant)">
+  SetAdditionalData(StringName, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets additional arbitrary data in this <a class="xref" href="Godot.GltfState.html">GltfState</a> instance. This can be used to keep per-file state data in <a class="xref" href="Godot.GltfDocumentExtension.html">GltfDocumentExtension</a> classes, which is important because they are stateless.</p>
+<p>The first argument should be the <a class="xref" href="Godot.GltfDocumentExtension.html">GltfDocumentExtension</a> name (does not have to match the extension name in the glTF file), and the second argument can be anything you want.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetAdditionalData(StringName extensionName, Variant additionalData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>extensionName</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>additionalData</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetAnimations_" data-uid="Godot.GltfState.SetAnimations*"></a>
+
+  <h3 id="Godot_GltfState_SetAnimations_Godot_Collections_Array_Godot_GltfAnimation__" data-uid="Godot.GltfState.SetAnimations(Godot.Collections.Array{Godot.GltfAnimation})">
+  SetAnimations(Array&lt;GltfAnimation&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <a class="xref" href="Godot.GltfAnimation.html">GltfAnimation</a>s in the state. When importing, these will be generated as animations in an <a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a> node. When exporting, these will be generated from Godot <a class="xref" href="Godot.AnimationPlayer.html">AnimationPlayer</a> nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetAnimations(Array&lt;GltfAnimation&gt; animations)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>animations</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfAnimation.html">GltfAnimation</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetBufferViews_" data-uid="Godot.GltfState.SetBufferViews*"></a>
+
+  <h3 id="Godot_GltfState_SetBufferViews_Godot_Collections_Array_Godot_GltfBufferView__" data-uid="Godot.GltfState.SetBufferViews(Godot.Collections.Array{Godot.GltfBufferView})">
+  SetBufferViews(Array&lt;GltfBufferView&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetBufferViews(Array&lt;GltfBufferView&gt; bufferViews)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bufferViews</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfBufferView.html">GltfBufferView</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetCameras_" data-uid="Godot.GltfState.SetCameras*"></a>
+
+  <h3 id="Godot_GltfState_SetCameras_Godot_Collections_Array_Godot_GltfCamera__" data-uid="Godot.GltfState.SetCameras(Godot.Collections.Array{Godot.GltfCamera})">
+  SetCameras(Array&lt;GltfCamera&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <a class="xref" href="Godot.GltfCamera.html">GltfCamera</a>s in the state. These are the cameras that the <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Camera">Camera</a> index refers to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCameras(Array&lt;GltfCamera&gt; cameras)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cameras</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfCamera.html">GltfCamera</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetHandleBinaryImage_" data-uid="Godot.GltfState.SetHandleBinaryImage*"></a>
+
+  <h3 id="Godot_GltfState_SetHandleBinaryImage_System_Int32_" data-uid="Godot.GltfState.SetHandleBinaryImage(System.Int32)">
+  SetHandleBinaryImage(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetHandleBinaryImage(int method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetImages_" data-uid="Godot.GltfState.SetImages*"></a>
+
+  <h3 id="Godot_GltfState_SetImages_Godot_Collections_Array_Godot_Texture2D__" data-uid="Godot.GltfState.SetImages(Godot.Collections.Array{Godot.Texture2D})">
+  SetImages(Array&lt;Texture2D&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the images in the state stored as an array of <a class="xref" href="Godot.Texture2D.html">Texture2D</a>s. This can be used during export. These are the images that the <a class="xref" href="Godot.GltfTexture.html#Godot_GltfTexture_SrcImage">SrcImage</a> index refers to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetImages(Array&lt;Texture2D&gt; images)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>images</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.Texture2D.html">Texture2D</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetLights_" data-uid="Godot.GltfState.SetLights*"></a>
+
+  <h3 id="Godot_GltfState_SetLights_Godot_Collections_Array_Godot_GltfLight__" data-uid="Godot.GltfState.SetLights(Godot.Collections.Array{Godot.GltfLight})">
+  SetLights(Array&lt;GltfLight&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <a class="xref" href="Godot.GltfLight.html">GltfLight</a>s in the state. These are the lights that the <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Light">Light</a> index refers to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLights(Array&lt;GltfLight&gt; lights)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lights</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfLight.html">GltfLight</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetMaterials_" data-uid="Godot.GltfState.SetMaterials*"></a>
+
+  <h3 id="Godot_GltfState_SetMaterials_Godot_Collections_Array_Godot_Material__" data-uid="Godot.GltfState.SetMaterials(Godot.Collections.Array{Godot.Material})">
+  SetMaterials(Array&lt;Material&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMaterials(Array&lt;Material&gt; materials)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>materials</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.Material.html">Material</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetMeshes_" data-uid="Godot.GltfState.SetMeshes*"></a>
+
+  <h3 id="Godot_GltfState_SetMeshes_Godot_Collections_Array_Godot_GltfMesh__" data-uid="Godot.GltfState.SetMeshes(Godot.Collections.Array{Godot.GltfMesh})">
+  SetMeshes(Array&lt;GltfMesh&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <a class="xref" href="Godot.GltfMesh.html">GltfMesh</a>es in the state. These are the meshes that the <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Mesh">Mesh</a> index refers to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMeshes(Array&lt;GltfMesh&gt; meshes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>meshes</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfMesh.html">GltfMesh</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetNodes_" data-uid="Godot.GltfState.SetNodes*"></a>
+
+  <h3 id="Godot_GltfState_SetNodes_Godot_Collections_Array_Godot_GltfNode__" data-uid="Godot.GltfState.SetNodes(Godot.Collections.Array{Godot.GltfNode})">
+  SetNodes(Array&lt;GltfNode&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <a class="xref" href="Godot.GltfNode.html">GltfNode</a>s in the state. These are the nodes that <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Children">Children</a> and <a class="xref" href="Godot.GltfState.html#Godot_GltfState_RootNodes">RootNodes</a> refer to. Some of the nodes set here may not be generated in the Godot scene, or may generate multiple Godot scene nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetNodes(Array&lt;GltfNode&gt; nodes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nodes</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfNode.html">GltfNode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetSkeletons_" data-uid="Godot.GltfState.SetSkeletons*"></a>
+
+  <h3 id="Godot_GltfState_SetSkeletons_Godot_Collections_Array_Godot_GltfSkeleton__" data-uid="Godot.GltfState.SetSkeletons(Godot.Collections.Array{Godot.GltfSkeleton})">
+  SetSkeletons(Array&lt;GltfSkeleton&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <a class="xref" href="Godot.GltfSkeleton.html">GltfSkeleton</a>s in the state. These are the skeletons that the <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Skeleton">Skeleton</a> index refers to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSkeletons(Array&lt;GltfSkeleton&gt; skeletons)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>skeletons</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfSkeleton.html">GltfSkeleton</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetSkins_" data-uid="Godot.GltfState.SetSkins*"></a>
+
+  <h3 id="Godot_GltfState_SetSkins_Godot_Collections_Array_Godot_GltfSkin__" data-uid="Godot.GltfState.SetSkins(Godot.Collections.Array{Godot.GltfSkin})">
+  SetSkins(Array&lt;GltfSkin&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <a class="xref" href="Godot.GltfSkin.html">GltfSkin</a>s in the state. These are the skins that the <a class="xref" href="Godot.GltfNode.html#Godot_GltfNode_Skin">Skin</a> index refers to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSkins(Array&lt;GltfSkin&gt; skins)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>skins</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfSkin.html">GltfSkin</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetTextureSamplers_" data-uid="Godot.GltfState.SetTextureSamplers*"></a>
+
+  <h3 id="Godot_GltfState_SetTextureSamplers_Godot_Collections_Array_Godot_GltfTextureSampler__" data-uid="Godot.GltfState.SetTextureSamplers(Godot.Collections.Array{Godot.GltfTextureSampler})">
+  SetTextureSamplers(Array&lt;GltfTextureSampler&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the array of texture samplers that are used by the textures contained in the glTF.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTextureSamplers(Array&lt;GltfTextureSampler&gt; textureSamplers)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>textureSamplers</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfTextureSampler.html">GltfTextureSampler</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetTextures_" data-uid="Godot.GltfState.SetTextures*"></a>
+
+  <h3 id="Godot_GltfState_SetTextures_Godot_Collections_Array_Godot_GltfTexture__" data-uid="Godot.GltfState.SetTextures(Godot.Collections.Array{Godot.GltfTexture})">
+  SetTextures(Array&lt;GltfTexture&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTextures(Array&lt;GltfTexture&gt; textures)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>textures</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="Godot.GltfTexture.html">GltfTexture</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetUniqueAnimationNames_" data-uid="Godot.GltfState.SetUniqueAnimationNames*"></a>
+
+  <h3 id="Godot_GltfState_SetUniqueAnimationNames_Godot_Collections_Array_System_String__" data-uid="Godot.GltfState.SetUniqueAnimationNames(Godot.Collections.Array{System.String})">
+  SetUniqueAnimationNames(Array&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the unique animation names in the state. This is only used during the import process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetUniqueAnimationNames(Array&lt;string&gt; uniqueAnimationNames)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>uniqueAnimationNames</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_GltfState_SetUniqueNames_" data-uid="Godot.GltfState.SetUniqueNames*"></a>
+
+  <h3 id="Godot_GltfState_SetUniqueNames_Godot_Collections_Array_System_String__" data-uid="Godot.GltfState.SetUniqueNames(Godot.Collections.Array{System.String})">
+  SetUniqueNames(Array&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the unique node names in the state. This is used in both the import process and export process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetUniqueNames(Array&lt;string&gt; uniqueNames)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>uniqueNames</code> <a class="xref" href="Godot.Collections.Array-1.html">Array</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/GltfState.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

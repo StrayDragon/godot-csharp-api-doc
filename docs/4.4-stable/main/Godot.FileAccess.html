@@ -1,0 +1,2923 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FileAccess | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FileAccess | Godot4 C# API ">
+      
+      <meta name="description" content="This class can be used to permanently store data in the user device&#39;s file system and to read from it. This is useful for storing game save data or player configuration files. Here&#39;s a sample on how to write and read from a file:    public void SaveToFile(string content)   {       using var file = FileAccess.Open(&quot;user://save_game.dat&quot;, FileAccess.ModeFlags.Write);       file.StoreString(content);   } public string LoadFromFile() { using var file = FileAccess.Open(&amp;quot;user://save_game.dat&amp;quot;, FileAccess.ModeFlags.Read); string content = file.GetAsText(); return content; }  In the example above, the file will be saved in the user data folder as specified in the Data paths documentation.     will close when it&#39;s freed, which happens when it goes out of scope or when it gets assigned with null.  can be used to close it before then explicitly. In C# the reference must be disposed manually, which can be done with the using statement or by calling the Dispose method directly.    Note: To access project resources once exported, it is recommended to use  instead of , as some files are converted to engine-specific formats and their original source files might not be present in the exported PCK package. If using , make sure the file is included in the export by changing its import mode to Keep File (exported as is) in the Import dock, or, for files where this option is not available, change the non-resource export filter in the Export dialog to include the file&#39;s extension (e.g. *.txt).    Note: Files are automatically closed only if the process exits &quot;normally&quot; (such as by clicking the window manager&#39;s close button or pressing Alt + F4). If you stop the project execution by pressing F8 while the project is running, the file won&#39;t be closed as the game process will be killed. You can work around this by calling  at regular intervals.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.FileAccess">
+
+
+
+  <h1 id="Godot_FileAccess" data-uid="Godot.FileAccess" class="text-break">
+Class FileAccess  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>This class can be used to permanently store data in the user device's file system and to read from it. This is useful for storing game save data or player configuration files.</p>
+<p>Here's a sample on how to write and read from a file:</p>
+<p>
+  <pre><code class="lang-csharp">public void SaveToFile(string content)
+  {
+      using var file = FileAccess.Open("user://save_game.dat", FileAccess.ModeFlags.Write);
+      file.StoreString(content);
+  }
+<p>public string LoadFromFile()
+{
+using var file = FileAccess.Open(&quot;user://save_game.dat&quot;, FileAccess.ModeFlags.Read);
+string content = file.GetAsText();
+return content;
+}</p></code></pre>
+
+<p>In the example above, the file will be saved in the user data folder as specified in the <a href="$DOCS_URL/tutorials/io/data_paths.html">Data paths</a> documentation.</p>
+<p>
+  <a class="xref" href="Godot.FileAccess.html">FileAccess</a> will close when it's freed, which happens when it goes out of scope or when it gets assigned with <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>. <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Close">Close()</a> can be used to close it before then explicitly. In C# the reference must be disposed manually, which can be done with the <code>using</code> statement or by calling the <code>Dispose</code> method directly.</p>
+<p>
+  <b>Note:</b> To access project resources once exported, it is recommended to use <a class="xref" href="Godot.ResourceLoader.html">ResourceLoader</a> instead of <a class="xref" href="Godot.FileAccess.html">FileAccess</a>, as some files are converted to engine-specific formats and their original source files might not be present in the exported PCK package. If using <a class="xref" href="Godot.FileAccess.html">FileAccess</a>, make sure the file is included in the export by changing its import mode to <b>Keep File (exported as is)</b> in the Import dock, or, for files where this option is not available, change the non-resource export filter in the Export dialog to include the file's extension (e.g. <code>*.txt</code>).</p>
+<p>
+  <b>Note:</b> Files are automatically closed only if the process exits "normally" (such as by clicking the window manager's close button or pressing <b>Alt + F4</b>). If you stop the project execution by pressing <b>F8</b> while the project is running, the file won't be closed as the game process will be killed. You can work around this by calling <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Flush">Flush()</a> at regular intervals.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FileAccess : RefCounted, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><span class="xref">FileAccess</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_InitRef">RefCounted.InitRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Reference">RefCounted.Reference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Unreference">RefCounted.Unreference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_GetReferenceCount">RefCounted.GetReferenceCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterGet_Godot_Variant_">GodotObject._IterGet(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterInit_Godot_Collections_Array_">GodotObject._IterInit(Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterNext_Godot_Collections_Array_">GodotObject._IterNext(Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">GodotObject.RemoveUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.EmitSignal(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.Call(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.CallDeferred(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_">GodotObject.GetMethodArgumentCount(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasConnections_Godot_StringName_">GodotObject.HasConnections(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetTranslationDomain">GodotObject.GetTranslationDomain()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetTranslationDomain_Godot_StringName_">GodotObject.SetTranslationDomain(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignalScriptChanged">GodotObject.EmitSignalScriptChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignalPropertyListChanged">GodotObject.EmitSignalPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_FileAccess_BigEndian_" data-uid="Godot.FileAccess.BigEndian*"></a>
+
+  <h3 id="Godot_FileAccess_BigEndian" data-uid="Godot.FileAccess.BigEndian">
+  BigEndian
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the file is read with big-endian <a href="https://en.wikipedia.org/wiki/Endianness">endianness</a>. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, the file is read with little-endian endianness. If in doubt, leave this to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> as most files are written with little-endian endianness.</p>
+<p>
+  <b>Note:</b>
+  <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_BigEndian">BigEndian</a> is only about the file format, not the CPU type. The CPU endianness doesn't affect the default endianness for files written.</p>
+<p>
+  <b>Note:</b> This is always reset to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> whenever you open the file. Therefore, you must set <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_BigEndian">BigEndian</a><i>after</i> opening the file, not before.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool BigEndian { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_FileAccess_Close_" data-uid="Godot.FileAccess.Close*"></a>
+
+  <h3 id="Godot_FileAccess_Close" data-uid="Godot.FileAccess.Close">
+  Close()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Closes the currently opened file and prevents subsequent read/write operations. Use <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Flush">Flush()</a> to persist the data to disk without closing the file.</p>
+<p>
+  <b>Note:</b>
+  <a class="xref" href="Godot.FileAccess.html">FileAccess</a> will automatically close when it's freed, which happens when it goes out of scope or when it gets assigned with <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>. In C# the reference must be disposed after we are done using it, this can be done with the <code>using</code> statement or calling the <code>Dispose</code> method directly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Close()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_CreateTemp_" data-uid="Godot.FileAccess.CreateTemp*"></a>
+
+  <h3 id="Godot_FileAccess_CreateTemp_System_Int32_System_String_System_String_System_Boolean_" data-uid="Godot.FileAccess.CreateTemp(System.Int32,System.String,System.String,System.Boolean)">
+  CreateTemp(int, string, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a temporary file. This file will be freed when the returned <a class="xref" href="Godot.FileAccess.html">FileAccess</a> is freed.</p>
+<p>If <code class="paramref">prefix</code> is not empty, it will be prefixed to the file name, separated by a <code>-</code>.</p>
+<p>If <code class="paramref">extension</code> is not empty, it will be appended to the temporary file name.</p>
+<p>If <code class="paramref">keep</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the file is not deleted when the returned <a class="xref" href="Godot.FileAccess.html">FileAccess</a> is freed.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if opening the file failed. You can use <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_GetOpenError">GetOpenError()</a> to check the error that occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FileAccess CreateTemp(int modeFlags, string prefix = &quot;&quot;, string extension = &quot;&quot;, bool keep = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>modeFlags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>prefix</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>extension</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>keep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileAccess.html">FileAccess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_EofReached_" data-uid="Godot.FileAccess.EofReached*"></a>
+
+  <h3 id="Godot_FileAccess_EofReached" data-uid="Godot.FileAccess.EofReached">
+  EofReached()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the file cursor has already read past the end of the file.</p>
+<p>
+  <b>Note:</b>
+  <code>eof_reached() == false</code> cannot be used to check whether there is more data available. To loop while there is more data available, use:</p>
+<p>
+  <pre><code class="lang-csharp">while (file.GetPosition() &lt; file.GetLength())
+  {
+      // Read data
+  }</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EofReached()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_FileExists_" data-uid="Godot.FileAccess.FileExists*"></a>
+
+  <h3 id="Godot_FileAccess_FileExists_System_String_" data-uid="Godot.FileAccess.FileExists(System.String)">
+  FileExists(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the file exists in the given path.</p>
+<p>
+  <b>Note:</b> Many resources types are imported (e.g. textures or sound files), and their source asset will not be included in the exported game, as only the imported version is used. See <a class="xref" href="Godot.ResourceLoader.html#Godot_ResourceLoader_Exists_System_String_System_String_">Exists(string, string)</a> for an alternative approach that takes resource remapping into account.</p>
+<p>For a non-static, relative equivalent, use <a class="xref" href="Godot.DirAccess.html#Godot_DirAccess_FileExists_System_String_">FileExists(string)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool FileExists(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_Flush_" data-uid="Godot.FileAccess.Flush*"></a>
+
+  <h3 id="Godot_FileAccess_Flush" data-uid="Godot.FileAccess.Flush">
+  Flush()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the file's buffer to disk. Flushing is automatically performed when the file is closed. This means you don't need to call <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Flush">Flush()</a> manually before closing a file. Still, calling <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Flush">Flush()</a> can be used to ensure the data is safe even if the project crashes instead of being closed gracefully.</p>
+<p>
+  <b>Note:</b> Only call <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Flush">Flush()</a> when you actually need it. Otherwise, it will decrease performance due to constant disk writes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Flush()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_Get16_" data-uid="Godot.FileAccess.Get16*"></a>
+
+  <h3 id="Godot_FileAccess_Get16" data-uid="Godot.FileAccess.Get16">
+  Get16()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next 16 bits from the file as an integer. See <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Store16_System_UInt16_">Store16(ushort)</a> for details on what values can be stored and retrieved this way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort Get16()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_Get32_" data-uid="Godot.FileAccess.Get32*"></a>
+
+  <h3 id="Godot_FileAccess_Get32" data-uid="Godot.FileAccess.Get32">
+  Get32()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next 32 bits from the file as an integer. See <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Store32_System_UInt32_">Store32(uint)</a> for details on what values can be stored and retrieved this way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint Get32()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_Get64_" data-uid="Godot.FileAccess.Get64*"></a>
+
+  <h3 id="Godot_FileAccess_Get64" data-uid="Godot.FileAccess.Get64">
+  Get64()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next 64 bits from the file as an integer. See <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Store64_System_UInt64_">Store64(ulong)</a> for details on what values can be stored and retrieved this way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Get64()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_Get8_" data-uid="Godot.FileAccess.Get8*"></a>
+
+  <h3 id="Godot_FileAccess_Get8" data-uid="Godot.FileAccess.Get8">
+  Get8()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next 8 bits from the file as an integer. See <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Store8_System_Byte_">Store8(byte)</a> for details on what values can be stored and retrieved this way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte Get8()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetAsText_" data-uid="Godot.FileAccess.GetAsText*"></a>
+
+  <h3 id="Godot_FileAccess_GetAsText_System_Boolean_" data-uid="Godot.FileAccess.GetAsText(System.Boolean)">
+  GetAsText(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the whole file as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>. Text is interpreted as being UTF-8 encoded.</p>
+<p>If <code class="paramref">skipCr</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, carriage return characters (<code>\r</code>, CR) will be ignored when parsing the UTF-8, so that only line feed characters (<code>\n</code>, LF) represent a new line (Unix convention).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetAsText(bool skipCr = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>skipCr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetBuffer_" data-uid="Godot.FileAccess.GetBuffer*"></a>
+
+  <h3 id="Godot_FileAccess_GetBuffer_System_Int64_" data-uid="Godot.FileAccess.GetBuffer(System.Int64)">
+  GetBuffer(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns next <code class="paramref">length</code> bytes of the file as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] GetBuffer(long length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetCsvLine_" data-uid="Godot.FileAccess.GetCsvLine*"></a>
+
+  <h3 id="Godot_FileAccess_GetCsvLine_System_String_" data-uid="Godot.FileAccess.GetCsvLine(System.String)">
+  GetCsvLine(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next value of the file in CSV (Comma-Separated Values) format. You can pass a different delimiter <code class="paramref">delim</code> to use other than the default <code>","</code> (comma). This delimiter must be one-character long, and cannot be a double quotation mark.</p>
+<p>Text is interpreted as being UTF-8 encoded. Text values must be enclosed in double quotes if they include the delimiter character. Double quotes within a text value can be escaped by doubling their occurrence.</p>
+<p>For example, the following CSV lines are valid and will be properly parsed as two strings each:</p>
+<p>
+  <pre><code class="lang-csharp">Alice,"Hello, Bob!"
+  Bob,Alice! What a surprise!
+  Alice,"I thought you'd reply with ""Hello, world""."</code></pre>
+
+<p>Note how the second line can omit the enclosing quotes as it does not include the delimiter. However it <i>could</i> very well use quotes, it was only written without for demonstration purposes. The third line must use <code>""</code> for each quotation mark that needs to be interpreted as such instead of the end of a text value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetCsvLine(string delim = &quot;,&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>delim</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetDouble_" data-uid="Godot.FileAccess.GetDouble*"></a>
+
+  <h3 id="Godot_FileAccess_GetDouble" data-uid="Godot.FileAccess.GetDouble">
+  GetDouble()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next 64 bits from the file as a floating-point number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GetDouble()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetError_" data-uid="Godot.FileAccess.GetError*"></a>
+
+  <h3 id="Godot_FileAccess_GetError" data-uid="Godot.FileAccess.GetError">
+  GetError()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the last error that happened when trying to perform operations. Compare with the <code>ERR_FILE_*</code> constants from <a class="xref" href="Godot.Error.html">Error</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Error GetError()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetFileAsBytes_" data-uid="Godot.FileAccess.GetFileAsBytes*"></a>
+
+  <h3 id="Godot_FileAccess_GetFileAsBytes_System_String_" data-uid="Godot.FileAccess.GetFileAsBytes(System.String)">
+  GetFileAsBytes(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the whole <code class="paramref">path</code> file contents as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[] without any decoding.</p>
+<p>Returns an empty <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[] if an error occurred while opening the file. You can use <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_GetOpenError">GetOpenError()</a> to check the error that occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetFileAsBytes(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetFileAsString_" data-uid="Godot.FileAccess.GetFileAsString*"></a>
+
+  <h3 id="Godot_FileAccess_GetFileAsString_System_String_" data-uid="Godot.FileAccess.GetFileAsString(System.String)">
+  GetFileAsString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the whole <code class="paramref">path</code> file contents as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>. Text is interpreted as being UTF-8 encoded.</p>
+<p>Returns an empty <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> if an error occurred while opening the file. You can use <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_GetOpenError">GetOpenError()</a> to check the error that occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetFileAsString(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetFloat_" data-uid="Godot.FileAccess.GetFloat*"></a>
+
+  <h3 id="Godot_FileAccess_GetFloat" data-uid="Godot.FileAccess.GetFloat">
+  GetFloat()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next 32 bits from the file as a floating-point number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetFloat()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetHalf_" data-uid="Godot.FileAccess.GetHalf*"></a>
+
+  <h3 id="Godot_FileAccess_GetHalf" data-uid="Godot.FileAccess.GetHalf">
+  GetHalf()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next 16 bits from the file as a half-precision floating-point number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetHalf()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetHiddenAttribute_" data-uid="Godot.FileAccess.GetHiddenAttribute*"></a>
+
+  <h3 id="Godot_FileAccess_GetHiddenAttribute_System_String_" data-uid="Godot.FileAccess.GetHiddenAttribute(System.String)">
+  GetHiddenAttribute(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, if file <code>hidden</code> attribute is set.</p>
+<p>
+  <b>Note:</b> This method is implemented on iOS, BSD, macOS, and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool GetHiddenAttribute(string file)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetLength_" data-uid="Godot.FileAccess.GetLength*"></a>
+
+  <h3 id="Godot_FileAccess_GetLength" data-uid="Godot.FileAccess.GetLength">
+  GetLength()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the size of the file in bytes. For a pipe, returns the number of bytes available for reading from the pipe.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong GetLength()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetLine_" data-uid="Godot.FileAccess.GetLine*"></a>
+
+  <h3 id="Godot_FileAccess_GetLine" data-uid="Godot.FileAccess.GetLine">
+  GetLine()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next line of the file as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>. The returned string doesn't include newline (<code>\n</code>) or carriage return (<code>\r</code>) characters, but does include any other leading or trailing whitespace.</p>
+<p>Text is interpreted as being UTF-8 encoded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetLine()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetMd5_" data-uid="Godot.FileAccess.GetMd5*"></a>
+
+  <h3 id="Godot_FileAccess_GetMd5_System_String_" data-uid="Godot.FileAccess.GetMd5(System.String)">
+  GetMd5(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an MD5 String representing the file at the given path or an empty <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> on failure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetMd5(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetModifiedTime_" data-uid="Godot.FileAccess.GetModifiedTime*"></a>
+
+  <h3 id="Godot_FileAccess_GetModifiedTime_System_String_" data-uid="Godot.FileAccess.GetModifiedTime(System.String)">
+  GetModifiedTime(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the last time the <code class="paramref">file</code> was modified in Unix timestamp format, or <code>0</code> on error. This Unix timestamp can be converted to another format using the <a class="xref" href="Godot.Time.html">Time</a> singleton.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong GetModifiedTime(string file)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetOpenError_" data-uid="Godot.FileAccess.GetOpenError*"></a>
+
+  <h3 id="Godot_FileAccess_GetOpenError" data-uid="Godot.FileAccess.GetOpenError">
+  GetOpenError()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the result of the last <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Open_System_String_Godot_FileAccess_ModeFlags_">Open(string, ModeFlags)</a> call in the current thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Error GetOpenError()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetPascalString_" data-uid="Godot.FileAccess.GetPascalString*"></a>
+
+  <h3 id="Godot_FileAccess_GetPascalString" data-uid="Godot.FileAccess.GetPascalString">
+  GetPascalString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> saved in Pascal format from the file.</p>
+<p>Text is interpreted as being UTF-8 encoded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetPascalString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetPath_" data-uid="Godot.FileAccess.GetPath*"></a>
+
+  <h3 id="Godot_FileAccess_GetPath" data-uid="Godot.FileAccess.GetPath">
+  GetPath()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the path as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> for the current open file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetPath()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetPathAbsolute_" data-uid="Godot.FileAccess.GetPathAbsolute*"></a>
+
+  <h3 id="Godot_FileAccess_GetPathAbsolute" data-uid="Godot.FileAccess.GetPathAbsolute">
+  GetPathAbsolute()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the absolute path as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> for the current open file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetPathAbsolute()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetPosition_" data-uid="Godot.FileAccess.GetPosition*"></a>
+
+  <h3 id="Godot_FileAccess_GetPosition" data-uid="Godot.FileAccess.GetPosition">
+  GetPosition()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the file cursor's position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong GetPosition()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetReadOnlyAttribute_" data-uid="Godot.FileAccess.GetReadOnlyAttribute*"></a>
+
+  <h3 id="Godot_FileAccess_GetReadOnlyAttribute_System_String_" data-uid="Godot.FileAccess.GetReadOnlyAttribute(System.String)">
+  GetReadOnlyAttribute(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, if file <code>read only</code> attribute is set.</p>
+<p>
+  <b>Note:</b> This method is implemented on iOS, BSD, macOS, and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool GetReadOnlyAttribute(string file)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetReal_" data-uid="Godot.FileAccess.GetReal*"></a>
+
+  <h3 id="Godot_FileAccess_GetReal" data-uid="Godot.FileAccess.GetReal">
+  GetReal()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next bits from the file as a floating-point number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetReal()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetSha256_" data-uid="Godot.FileAccess.GetSha256*"></a>
+
+  <h3 id="Godot_FileAccess_GetSha256_System_String_" data-uid="Godot.FileAccess.GetSha256(System.String)">
+  GetSha256(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an SHA-256 <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> representing the file at the given path or an empty <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> on failure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetSha256(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetUnixPermissions_" data-uid="Godot.FileAccess.GetUnixPermissions*"></a>
+
+  <h3 id="Godot_FileAccess_GetUnixPermissions_System_String_" data-uid="Godot.FileAccess.GetUnixPermissions(System.String)">
+  GetUnixPermissions(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns file UNIX permissions.</p>
+<p>
+  <b>Note:</b> This method is implemented on iOS, Linux/BSD, and macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FileAccess.UnixPermissionFlags GetUnixPermissions(string file)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileAccess.html">FileAccess</a>.<a class="xref" href="Godot.FileAccess.UnixPermissionFlags.html">UnixPermissionFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_GetVar_" data-uid="Godot.FileAccess.GetVar*"></a>
+
+  <h3 id="Godot_FileAccess_GetVar_System_Boolean_" data-uid="Godot.FileAccess.GetVar(System.Boolean)">
+  GetVar(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the next <a class="xref" href="Godot.Variant.html">Variant</a> value from the file. If <code class="paramref">allowObjects</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, decoding objects is allowed.</p>
+<p>Internally, this uses the same decoding mechanism as the <code>@GlobalScope.bytes_to_var</code> method.</p>
+<p>
+  <b>Warning:</b> Deserialized objects can contain code which gets executed. Do not use this option if the serialized object comes from untrusted sources to avoid potential security threats such as remote code execution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variant GetVar(bool allowObjects = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>allowObjects</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_HasGodotClassMethod_" data-uid="Godot.FileAccess.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_FileAccess_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.FileAccess.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_HasGodotClassSignal_" data-uid="Godot.FileAccess.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_FileAccess_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.FileAccess.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_InvokeGodotClassMethod_" data-uid="Godot.FileAccess.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_FileAccess_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.FileAccess.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_IsOpen_" data-uid="Godot.FileAccess.IsOpen*"></a>
+
+  <h3 id="Godot_FileAccess_IsOpen" data-uid="Godot.FileAccess.IsOpen">
+  IsOpen()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the file is currently opened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsOpen()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_Open_" data-uid="Godot.FileAccess.Open*"></a>
+
+  <h3 id="Godot_FileAccess_Open_System_String_Godot_FileAccess_ModeFlags_" data-uid="Godot.FileAccess.Open(System.String,Godot.FileAccess.ModeFlags)">
+  Open(string, ModeFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Godot.FileAccess.html">FileAccess</a> object and opens the file for writing or reading, depending on the flags.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if opening the file failed. You can use <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_GetOpenError">GetOpenError()</a> to check the error that occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FileAccess Open(string path, FileAccess.ModeFlags flags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>flags</code> <a class="xref" href="Godot.FileAccess.html">FileAccess</a>.<a class="xref" href="Godot.FileAccess.ModeFlags.html">ModeFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileAccess.html">FileAccess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_OpenCompressed_" data-uid="Godot.FileAccess.OpenCompressed*"></a>
+
+  <h3 id="Godot_FileAccess_OpenCompressed_System_String_Godot_FileAccess_ModeFlags_Godot_FileAccess_CompressionMode_" data-uid="Godot.FileAccess.OpenCompressed(System.String,Godot.FileAccess.ModeFlags,Godot.FileAccess.CompressionMode)">
+  OpenCompressed(string, ModeFlags, CompressionMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Godot.FileAccess.html">FileAccess</a> object and opens a compressed file for reading or writing.</p>
+<p>
+  <b>Note:</b>
+  <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_OpenCompressed_System_String_Godot_FileAccess_ModeFlags_Godot_FileAccess_CompressionMode_">OpenCompressed(string, ModeFlags, CompressionMode)</a> can only read files that were saved by Godot, not third-party compression formats. See <a href="https://github.com/godotengine/godot/issues/28999">GitHub issue #28999</a> for a workaround.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if opening the file failed. You can use <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_GetOpenError">GetOpenError()</a> to check the error that occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FileAccess OpenCompressed(string path, FileAccess.ModeFlags modeFlags, FileAccess.CompressionMode compressionMode = CompressionMode.Fastlz)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>modeFlags</code> <a class="xref" href="Godot.FileAccess.html">FileAccess</a>.<a class="xref" href="Godot.FileAccess.ModeFlags.html">ModeFlags</a></dt>
+    <dd></dd>
+    <dt><code>compressionMode</code> <a class="xref" href="Godot.FileAccess.html">FileAccess</a>.<a class="xref" href="Godot.FileAccess.CompressionMode.html">CompressionMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileAccess.html">FileAccess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_OpenEncrypted_" data-uid="Godot.FileAccess.OpenEncrypted*"></a>
+
+  <h3 id="Godot_FileAccess_OpenEncrypted_System_String_Godot_FileAccess_ModeFlags_System_Byte___System_Byte___" data-uid="Godot.FileAccess.OpenEncrypted(System.String,Godot.FileAccess.ModeFlags,System.Byte[],System.Byte[])">
+  OpenEncrypted(string, ModeFlags, byte[], byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Godot.FileAccess.html">FileAccess</a> object and opens an encrypted file in write or read mode. You need to pass a binary key to encrypt/decrypt it.</p>
+<p>
+  <b>Note:</b> The provided key must be 32 bytes long.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if opening the file failed. You can use <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_GetOpenError">GetOpenError()</a> to check the error that occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FileAccess OpenEncrypted(string path, FileAccess.ModeFlags modeFlags, byte[] key, byte[] iV = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>modeFlags</code> <a class="xref" href="Godot.FileAccess.html">FileAccess</a>.<a class="xref" href="Godot.FileAccess.ModeFlags.html">ModeFlags</a></dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>iV</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>If the parameter is null, then the default value is <code>Array.Empty&lt;byte&gt;()</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileAccess.html">FileAccess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_OpenEncrypted_" data-uid="Godot.FileAccess.OpenEncrypted*"></a>
+
+  <h3 id="Godot_FileAccess_OpenEncrypted_System_String_Godot_FileAccess_ModeFlags_System_ReadOnlySpan_System_Byte__System_ReadOnlySpan_System_Byte__" data-uid="Godot.FileAccess.OpenEncrypted(System.String,Godot.FileAccess.ModeFlags,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})">
+  OpenEncrypted(string, ModeFlags, ReadOnlySpan&lt;byte&gt;, ReadOnlySpan&lt;byte&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Godot.FileAccess.html">FileAccess</a> object and opens an encrypted file in write or read mode. You need to pass a binary key to encrypt/decrypt it.</p>
+<p>
+  <b>Note:</b> The provided key must be 32 bytes long.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if opening the file failed. You can use <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_GetOpenError">GetOpenError()</a> to check the error that occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FileAccess OpenEncrypted(string path, FileAccess.ModeFlags modeFlags, ReadOnlySpan&lt;byte&gt; key, ReadOnlySpan&lt;byte&gt; iV)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>modeFlags</code> <a class="xref" href="Godot.FileAccess.html">FileAccess</a>.<a class="xref" href="Godot.FileAccess.ModeFlags.html">ModeFlags</a></dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>iV</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileAccess.html">FileAccess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_OpenEncryptedWithPass_" data-uid="Godot.FileAccess.OpenEncryptedWithPass*"></a>
+
+  <h3 id="Godot_FileAccess_OpenEncryptedWithPass_System_String_Godot_FileAccess_ModeFlags_System_String_" data-uid="Godot.FileAccess.OpenEncryptedWithPass(System.String,Godot.FileAccess.ModeFlags,System.String)">
+  OpenEncryptedWithPass(string, ModeFlags, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Godot.FileAccess.html">FileAccess</a> object and opens an encrypted file in write or read mode. You need to pass a password to encrypt/decrypt it.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if opening the file failed. You can use <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_GetOpenError">GetOpenError()</a> to check the error that occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FileAccess OpenEncryptedWithPass(string path, FileAccess.ModeFlags modeFlags, string pass)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>modeFlags</code> <a class="xref" href="Godot.FileAccess.html">FileAccess</a>.<a class="xref" href="Godot.FileAccess.ModeFlags.html">ModeFlags</a></dt>
+    <dd></dd>
+    <dt><code>pass</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.FileAccess.html">FileAccess</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_Resize_" data-uid="Godot.FileAccess.Resize*"></a>
+
+  <h3 id="Godot_FileAccess_Resize_System_Int64_" data-uid="Godot.FileAccess.Resize(System.Int64)">
+  Resize(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resizes the file to a specified length. The file must be open in a mode that permits writing. If the file is extended, NUL characters are appended. If the file is truncated, all data from the end file to the original length of the file is lost.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Error Resize(long length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_Seek_" data-uid="Godot.FileAccess.Seek*"></a>
+
+  <h3 id="Godot_FileAccess_Seek_System_UInt64_" data-uid="Godot.FileAccess.Seek(System.UInt64)">
+  Seek(ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes the file reading/writing cursor to the specified position (in bytes from the beginning of the file).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Seek(ulong position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_SeekEnd_" data-uid="Godot.FileAccess.SeekEnd*"></a>
+
+  <h3 id="Godot_FileAccess_SeekEnd_System_Int64_" data-uid="Godot.FileAccess.SeekEnd(System.Int64)">
+  SeekEnd(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes the file reading/writing cursor to the specified position (in bytes from the end of the file).</p>
+<p>
+  <b>Note:</b> This is an offset, so you should use negative numbers or the cursor will be at the end of the file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SeekEnd(long position = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_SetHiddenAttribute_" data-uid="Godot.FileAccess.SetHiddenAttribute*"></a>
+
+  <h3 id="Godot_FileAccess_SetHiddenAttribute_System_String_System_Boolean_" data-uid="Godot.FileAccess.SetHiddenAttribute(System.String,System.Boolean)">
+  SetHiddenAttribute(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets file <b>hidden</b> attribute.</p>
+<p>
+  <b>Note:</b> This method is implemented on iOS, BSD, macOS, and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Error SetHiddenAttribute(string file, bool hidden)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>hidden</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_SetReadOnlyAttribute_" data-uid="Godot.FileAccess.SetReadOnlyAttribute*"></a>
+
+  <h3 id="Godot_FileAccess_SetReadOnlyAttribute_System_String_System_Boolean_" data-uid="Godot.FileAccess.SetReadOnlyAttribute(System.String,System.Boolean)">
+  SetReadOnlyAttribute(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets file <b>read only</b> attribute.</p>
+<p>
+  <b>Note:</b> This method is implemented on iOS, BSD, macOS, and Windows.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Error SetReadOnlyAttribute(string file, bool ro)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>ro</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_SetUnixPermissions_" data-uid="Godot.FileAccess.SetUnixPermissions*"></a>
+
+  <h3 id="Godot_FileAccess_SetUnixPermissions_System_String_Godot_FileAccess_UnixPermissionFlags_" data-uid="Godot.FileAccess.SetUnixPermissions(System.String,Godot.FileAccess.UnixPermissionFlags)">
+  SetUnixPermissions(string, UnixPermissionFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets file UNIX permissions.</p>
+<p>
+  <b>Note:</b> This method is implemented on iOS, Linux/BSD, and macOS.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Error SetUnixPermissions(string file, FileAccess.UnixPermissionFlags permissions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>file</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>permissions</code> <a class="xref" href="Godot.FileAccess.html">FileAccess</a>.<a class="xref" href="Godot.FileAccess.UnixPermissionFlags.html">UnixPermissionFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Error.html">Error</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_Store16_" data-uid="Godot.FileAccess.Store16*"></a>
+
+  <h3 id="Godot_FileAccess_Store16_System_UInt16_" data-uid="Godot.FileAccess.Store16(System.UInt16)">
+  Store16(ushort)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores an integer as 16 bits in the file.</p>
+<p>
+  <b>Note:</b> The <code class="paramref">value</code> should lie in the interval <code>[0, 2^16 - 1]</code>. Any other value will overflow and wrap around.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+<p>To store a signed integer, use <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Store64_System_UInt64_">Store64(ulong)</a> or store a signed integer from the interval <code>[-2^15, 2^15 - 1]</code> (i.e. keeping one bit for the signedness) and compute its sign manually when reading. For example:</p>
+<p>
+  <pre><code class="lang-csharp">public override void _Ready()
+  {
+      using var f = FileAccess.Open("user://file.dat", FileAccess.ModeFlags.WriteRead);
+      f.Store16(unchecked((ushort)-42)); // This wraps around and stores 65494 (2^16 - 42).
+      f.Store16(121); // In bounds, will store 121.
+      f.Seek(0); // Go back to start to read the stored value.
+      ushort read1 = f.Get16(); // 65494
+      ushort read2 = f.Get16(); // 121
+      short converted1 = (short)read1; // -42
+      short converted2 = (short)read2; // 121
+  }</code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Store16(ushort value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_Store32_" data-uid="Godot.FileAccess.Store32*"></a>
+
+  <h3 id="Godot_FileAccess_Store32_System_UInt32_" data-uid="Godot.FileAccess.Store32(System.UInt32)">
+  Store32(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores an integer as 32 bits in the file.</p>
+<p>
+  <b>Note:</b> The <code class="paramref">value</code> should lie in the interval <code>[0, 2^32 - 1]</code>. Any other value will overflow and wrap around.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+<p>To store a signed integer, use <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Store64_System_UInt64_">Store64(ulong)</a>, or convert it manually (see <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Store16_System_UInt16_">Store16(ushort)</a> for an example).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Store32(uint value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_Store64_" data-uid="Godot.FileAccess.Store64*"></a>
+
+  <h3 id="Godot_FileAccess_Store64_System_UInt64_" data-uid="Godot.FileAccess.Store64(System.UInt64)">
+  Store64(ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores an integer as 64 bits in the file.</p>
+<p>
+  <b>Note:</b> The <code class="paramref">value</code> must lie in the interval <code>[-2^63, 2^63 - 1]</code> (i.e. be a valid <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> value).</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Store64(ulong value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_Store8_" data-uid="Godot.FileAccess.Store8*"></a>
+
+  <h3 id="Godot_FileAccess_Store8_System_Byte_" data-uid="Godot.FileAccess.Store8(System.Byte)">
+  Store8(byte)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores an integer as 8 bits in the file.</p>
+<p>
+  <b>Note:</b> The <code class="paramref">value</code> should lie in the interval <code>[0, 255]</code>. Any other value will overflow and wrap around.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+<p>To store a signed integer, use <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Store64_System_UInt64_">Store64(ulong)</a>, or convert it manually (see <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_Store16_System_UInt16_">Store16(ushort)</a> for an example).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Store8(byte value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_StoreBuffer_" data-uid="Godot.FileAccess.StoreBuffer*"></a>
+
+  <h3 id="Godot_FileAccess_StoreBuffer_System_Byte___" data-uid="Godot.FileAccess.StoreBuffer(System.Byte[])">
+  StoreBuffer(byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores the given array of bytes in the file.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StoreBuffer(byte[] buffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_StoreBuffer_" data-uid="Godot.FileAccess.StoreBuffer*"></a>
+
+  <h3 id="Godot_FileAccess_StoreBuffer_System_ReadOnlySpan_System_Byte__" data-uid="Godot.FileAccess.StoreBuffer(System.ReadOnlySpan{System.Byte})">
+  StoreBuffer(ReadOnlySpan&lt;byte&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores the given array of bytes in the file.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StoreBuffer(ReadOnlySpan&lt;byte&gt; buffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_StoreCsvLine_" data-uid="Godot.FileAccess.StoreCsvLine*"></a>
+
+  <h3 id="Godot_FileAccess_StoreCsvLine_System_ReadOnlySpan_System_String__System_String_" data-uid="Godot.FileAccess.StoreCsvLine(System.ReadOnlySpan{System.String},System.String)">
+  StoreCsvLine(ReadOnlySpan&lt;string&gt;, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Store the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[] in the file as a line formatted in the CSV (Comma-Separated Values) format. You can pass a different delimiter <code class="paramref">delim</code> to use other than the default <code>","</code> (comma). This delimiter must be one-character long.</p>
+<p>Text will be encoded as UTF-8.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StoreCsvLine(ReadOnlySpan&lt;string&gt; values, string delim)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>delim</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_StoreCsvLine_" data-uid="Godot.FileAccess.StoreCsvLine*"></a>
+
+  <h3 id="Godot_FileAccess_StoreCsvLine_System_String___System_String_" data-uid="Godot.FileAccess.StoreCsvLine(System.String[],System.String)">
+  StoreCsvLine(string[], string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Store the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[] in the file as a line formatted in the CSV (Comma-Separated Values) format. You can pass a different delimiter <code class="paramref">delim</code> to use other than the default <code>","</code> (comma). This delimiter must be one-character long.</p>
+<p>Text will be encoded as UTF-8.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StoreCsvLine(string[] values, string delim = &quot;,&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+    <dt><code>delim</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_StoreDouble_" data-uid="Godot.FileAccess.StoreDouble*"></a>
+
+  <h3 id="Godot_FileAccess_StoreDouble_System_Double_" data-uid="Godot.FileAccess.StoreDouble(System.Double)">
+  StoreDouble(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores a floating-point number as 64 bits in the file.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StoreDouble(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_StoreFloat_" data-uid="Godot.FileAccess.StoreFloat*"></a>
+
+  <h3 id="Godot_FileAccess_StoreFloat_System_Single_" data-uid="Godot.FileAccess.StoreFloat(System.Single)">
+  StoreFloat(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores a floating-point number as 32 bits in the file.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StoreFloat(float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_StoreHalf_" data-uid="Godot.FileAccess.StoreHalf*"></a>
+
+  <h3 id="Godot_FileAccess_StoreHalf_System_Single_" data-uid="Godot.FileAccess.StoreHalf(System.Single)">
+  StoreHalf(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores a half-precision floating-point number as 16 bits in the file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StoreHalf(float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_StoreLine_" data-uid="Godot.FileAccess.StoreLine*"></a>
+
+  <h3 id="Godot_FileAccess_StoreLine_System_String_" data-uid="Godot.FileAccess.StoreLine(System.String)">
+  StoreLine(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores <code class="paramref">line</code> in the file followed by a newline character (<code>\n</code>), encoding the text as UTF-8.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StoreLine(string line)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_StorePascalString_" data-uid="Godot.FileAccess.StorePascalString*"></a>
+
+  <h3 id="Godot_FileAccess_StorePascalString_System_String_" data-uid="Godot.FileAccess.StorePascalString(System.String)">
+  StorePascalString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores the given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> as a line in the file in Pascal format (i.e. also store the length of the string).</p>
+<p>Text will be encoded as UTF-8.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StorePascalString(string @string)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>string</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_StoreReal_" data-uid="Godot.FileAccess.StoreReal*"></a>
+
+  <h3 id="Godot_FileAccess_StoreReal_System_Single_" data-uid="Godot.FileAccess.StoreReal(System.Single)">
+  StoreReal(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores a floating-point number in the file.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StoreReal(float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_StoreString_" data-uid="Godot.FileAccess.StoreString*"></a>
+
+  <h3 id="Godot_FileAccess_StoreString_System_String_" data-uid="Godot.FileAccess.StoreString(System.String)">
+  StoreString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores <code class="paramref">string</code> in the file without a newline character (<code>\n</code>), encoding the text as UTF-8.</p>
+<p>
+  <b>Note:</b> This method is intended to be used to write text files. The string is stored as a UTF-8 encoded buffer without string length or terminating zero, which means that it can't be loaded back easily. If you want to store a retrievable string in a binary file, consider using <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_StorePascalString_System_String_">StorePascalString(string)</a> instead. For retrieving strings from a text file, you can use <code>get_buffer(length).get_string_from_utf8()</code> (if you know the length) or <a class="xref" href="Godot.FileAccess.html#Godot_FileAccess_GetAsText_System_Boolean_">GetAsText(bool)</a>.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StoreString(string @string)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>string</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_FileAccess_StoreVar_" data-uid="Godot.FileAccess.StoreVar*"></a>
+
+  <h3 id="Godot_FileAccess_StoreVar_Godot_Variant_System_Boolean_" data-uid="Godot.FileAccess.StoreVar(Godot.Variant,System.Boolean)">
+  StoreVar(Variant, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores any Variant value in the file. If <code class="paramref">fullObjects</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, encoding objects is allowed (and can potentially include code).</p>
+<p>Internally, this uses the same encoding mechanism as the <code>@GlobalScope.var_to_bytes</code> method.</p>
+<p>
+  <b>Note:</b> Not all properties are included. Only properties that are configured with the <a class="xref" href="Godot.PropertyUsageFlags.html#Godot_PropertyUsageFlags_Storage">Storage</a> flag set will be serialized. You can add a new usage flag to a property by overriding the <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">_GetPropertyList()</a> method in your class. You can also check how property usage is configured by calling <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">_GetPropertyList()</a>. See <a class="xref" href="Godot.PropertyUsageFlags.html">PropertyUsageFlags</a> for the possible usage flags.</p>
+<p>
+  <b>Note:</b> If an error occurs, the resulting value of the file position indicator is indeterminate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StoreVar(Variant value, bool fullObjects = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+    <dt><code>fullObjects</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/FileAccess.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

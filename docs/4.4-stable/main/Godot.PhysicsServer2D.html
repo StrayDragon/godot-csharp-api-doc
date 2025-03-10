@@ -1,0 +1,4514 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PhysicsServer2D | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PhysicsServer2D | Godot4 C# API ">
+      
+      <meta name="description" content="PhysicsServer2D is the server responsible for all 2D physics. It can directly create and manipulate all physics objects: - A space is a self-contained world for a physics simulation. It contains bodies, areas, and joints. Its state can be queried for collision and intersection information, and several parameters of the simulation can be modified. - A shape is a geometric shape such as a circle, a rectangle, a capsule, or a polygon. It can be used for collision detection by adding it to a body/area, possibly with an extra transformation relative to the body/area&#39;s origin. Bodies/areas can have multiple (transformed) shapes added to them, and a single shape can be added to bodies/areas multiple times with different local transformations. - A body is a physical object which can be in static, kinematic, or rigid mode. Its state (such as position and velocity) can be queried and updated. A force integration callback can be set to customize the body&#39;s physics. - An area is a region in space which can be used to detect bodies and areas entering and exiting it. A body monitoring callback can be set to report entering/exiting body shapes, and similarly an area monitoring callback can be set. Gravity and damping can be overridden within the area by setting area parameters. - A joint is a constraint, either between two bodies or on one body relative to a point. Parameters such as the joint bias and the rest length of a spring joint can be adjusted. Physics objects in  may be created and manipulated independently; they do not have to be tied to nodes in the scene tree.    Note: All the 2D physics nodes use the physics server internally. Adding a physics node to the scene tree will cause a corresponding physics object to be created in the physics server. A rigid body node registers a callback that updates the node&#39;s transform with the transform of the respective body object in the physics server (every physics update). An area node registers a callback to inform the area node about overlaps with the respective area object in the physics server. The raycast node queries the direct state of the relevant space in the physics server.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.PhysicsServer2D">
+
+
+
+  <h1 id="Godot_PhysicsServer2D" data-uid="Godot.PhysicsServer2D" class="text-break">
+Class PhysicsServer2D  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>PhysicsServer2D is the server responsible for all 2D physics. It can directly create and manipulate all physics objects:</p>
+<p>- A <i>space</i> is a self-contained world for a physics simulation. It contains bodies, areas, and joints. Its state can be queried for collision and intersection information, and several parameters of the simulation can be modified.</p>
+<p>- A <i>shape</i> is a geometric shape such as a circle, a rectangle, a capsule, or a polygon. It can be used for collision detection by adding it to a body/area, possibly with an extra transformation relative to the body/area's origin. Bodies/areas can have multiple (transformed) shapes added to them, and a single shape can be added to bodies/areas multiple times with different local transformations.</p>
+<p>- A <i>body</i> is a physical object which can be in static, kinematic, or rigid mode. Its state (such as position and velocity) can be queried and updated. A force integration callback can be set to customize the body's physics.</p>
+<p>- An <i>area</i> is a region in space which can be used to detect bodies and areas entering and exiting it. A body monitoring callback can be set to report entering/exiting body shapes, and similarly an area monitoring callback can be set. Gravity and damping can be overridden within the area by setting area parameters.</p>
+<p>- A <i>joint</i> is a constraint, either between two bodies or on one body relative to a point. Parameters such as the joint bias and the rest length of a spring joint can be adjusted.</p>
+<p>Physics objects in <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a> may be created and manipulated independently; they do not have to be tied to nodes in the scene tree.</p>
+<p>
+  <b>Note:</b> All the 2D physics nodes use the physics server internally. Adding a physics node to the scene tree will cause a corresponding physics object to be created in the physics server. A rigid body node registers a callback that updates the node's transform with the transform of the respective body object in the physics server (every physics update). An area node registers a callback to inform the area node about overlaps with the respective area object in the physics server. The raycast node queries the direct state of the relevant space in the physics server.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class PhysicsServer2D</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PhysicsServer2D</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_PhysicsServer2D_Singleton_" data-uid="Godot.PhysicsServer2D.Singleton*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_Singleton" data-uid="Godot.PhysicsServer2D.Singleton">
+  Singleton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PhysicsServer2DInstance Singleton { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.PhysicsServer2DInstance.html">PhysicsServer2DInstance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_PhysicsServer2D_AreaAddShape_" data-uid="Godot.PhysicsServer2D.AreaAddShape*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaAddShape_Godot_Rid_Godot_Rid_System_Nullable_Godot_Transform2D__System_Boolean_" data-uid="Godot.PhysicsServer2D.AreaAddShape(Godot.Rid,Godot.Rid,System.Nullable{Godot.Transform2D},System.Boolean)">
+  AreaAddShape(Rid, Rid, Transform2D?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a shape to the area, with the given local transform. The shape (together with its <code class="paramref">transform</code> and <code class="paramref">disabled</code> properties) is added to an array of shapes, and the shapes of an area are usually referenced by their index in this array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaAddShape(Rid area, Rid shape, Transform2D? transform = null, bool disabled = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shape</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>transform</code> <a class="xref" href="Godot.Transform2D.html">Transform2D</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>Transform2D.Identity</code>.</p>
+</dd>
+    <dt><code>disabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaAttachCanvasInstanceId_" data-uid="Godot.PhysicsServer2D.AreaAttachCanvasInstanceId*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaAttachCanvasInstanceId_Godot_Rid_System_UInt64_" data-uid="Godot.PhysicsServer2D.AreaAttachCanvasInstanceId(Godot.Rid,System.UInt64)">
+  AreaAttachCanvasInstanceId(Rid, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attaches the <code>ObjectID</code> of a canvas to the area. Use <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GetInstanceId()</a> to get the <code>ObjectID</code> of a <a class="xref" href="Godot.CanvasLayer.html">CanvasLayer</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaAttachCanvasInstanceId(Rid area, ulong id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaAttachObjectInstanceId_" data-uid="Godot.PhysicsServer2D.AreaAttachObjectInstanceId*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaAttachObjectInstanceId_Godot_Rid_System_UInt64_" data-uid="Godot.PhysicsServer2D.AreaAttachObjectInstanceId(Godot.Rid,System.UInt64)">
+  AreaAttachObjectInstanceId(Rid, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attaches the <code>ObjectID</code> of an <a class="xref" href="Godot.GodotObject.html">GodotObject</a> to the area. Use <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GetInstanceId()</a> to get the <code>ObjectID</code> of a <a class="xref" href="Godot.CollisionObject2D.html">CollisionObject2D</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaAttachObjectInstanceId(Rid area, ulong id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaClearShapes_" data-uid="Godot.PhysicsServer2D.AreaClearShapes*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaClearShapes_Godot_Rid_" data-uid="Godot.PhysicsServer2D.AreaClearShapes(Godot.Rid)">
+  AreaClearShapes(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all shapes from the area. This does not delete the shapes themselves, so they can continue to be used elsewhere or added back later.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaClearShapes(Rid area)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaCreate_" data-uid="Godot.PhysicsServer2D.AreaCreate*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaCreate" data-uid="Godot.PhysicsServer2D.AreaCreate">
+  AreaCreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 2D area object in the physics server, and returns the <a class="xref" href="Godot.Rid.html">Rid</a> that identifies it. The default settings for the created area include a collision layer and mask set to <code>1</code>, and <code>monitorable</code> set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+<p>Use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_AreaAddShape_Godot_Rid_Godot_Rid_System_Nullable_Godot_Transform2D__System_Boolean_">AreaAddShape(Rid, Rid, Transform2D?, bool)</a> to add shapes to it, use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_AreaSetTransform_Godot_Rid_Godot_Transform2D_">AreaSetTransform(Rid, Transform2D)</a> to set its transform, and use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_AreaSetSpace_Godot_Rid_Godot_Rid_">AreaSetSpace(Rid, Rid)</a> to add the area to a space. If you want the area to be detectable use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_AreaSetMonitorable_Godot_Rid_System_Boolean_">AreaSetMonitorable(Rid, bool)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid AreaCreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaGetCanvasInstanceId_" data-uid="Godot.PhysicsServer2D.AreaGetCanvasInstanceId*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaGetCanvasInstanceId_Godot_Rid_" data-uid="Godot.PhysicsServer2D.AreaGetCanvasInstanceId(Godot.Rid)">
+  AreaGetCanvasInstanceId(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <code>ObjectID</code> of the canvas attached to the area. Use <code>@GlobalScope.instance_from_id</code> to retrieve a <a class="xref" href="Godot.CanvasLayer.html">CanvasLayer</a> from a nonzero <code>ObjectID</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong AreaGetCanvasInstanceId(Rid area)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaGetCollisionLayer_" data-uid="Godot.PhysicsServer2D.AreaGetCollisionLayer*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaGetCollisionLayer_Godot_Rid_" data-uid="Godot.PhysicsServer2D.AreaGetCollisionLayer(Godot.Rid)">
+  AreaGetCollisionLayer(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the physics layer or layers the area belongs to, as a bitmask.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint AreaGetCollisionLayer(Rid area)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaGetCollisionMask_" data-uid="Godot.PhysicsServer2D.AreaGetCollisionMask*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaGetCollisionMask_Godot_Rid_" data-uid="Godot.PhysicsServer2D.AreaGetCollisionMask(Godot.Rid)">
+  AreaGetCollisionMask(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the physics layer or layers the area can contact with, as a bitmask.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint AreaGetCollisionMask(Rid area)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaGetObjectInstanceId_" data-uid="Godot.PhysicsServer2D.AreaGetObjectInstanceId*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaGetObjectInstanceId_Godot_Rid_" data-uid="Godot.PhysicsServer2D.AreaGetObjectInstanceId(Godot.Rid)">
+  AreaGetObjectInstanceId(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <code>ObjectID</code> attached to the area. Use <code>@GlobalScope.instance_from_id</code> to retrieve an <a class="xref" href="Godot.GodotObject.html">GodotObject</a> from a nonzero <code>ObjectID</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong AreaGetObjectInstanceId(Rid area)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaGetParam_" data-uid="Godot.PhysicsServer2D.AreaGetParam*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaGetParam_Godot_Rid_Godot_PhysicsServer2D_AreaParameter_" data-uid="Godot.PhysicsServer2D.AreaGetParam(Godot.Rid,Godot.PhysicsServer2D.AreaParameter)">
+  AreaGetParam(Rid, AreaParameter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the value of the given area parameter. See <a class="xref" href="Godot.PhysicsServer2D.AreaParameter.html">PhysicsServer2D.AreaParameter</a> for the list of available parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Variant AreaGetParam(Rid area, PhysicsServer2D.AreaParameter param)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>param</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.AreaParameter.html">AreaParameter</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaGetShape_" data-uid="Godot.PhysicsServer2D.AreaGetShape*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaGetShape_Godot_Rid_System_Int32_" data-uid="Godot.PhysicsServer2D.AreaGetShape(Godot.Rid,System.Int32)">
+  AreaGetShape(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.Rid.html">Rid</a> of the shape with the given index in the area's array of shapes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid AreaGetShape(Rid area, int shapeIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaGetShapeCount_" data-uid="Godot.PhysicsServer2D.AreaGetShapeCount*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaGetShapeCount_Godot_Rid_" data-uid="Godot.PhysicsServer2D.AreaGetShapeCount(Godot.Rid)">
+  AreaGetShapeCount(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of shapes added to the area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int AreaGetShapeCount(Rid area)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaGetShapeTransform_" data-uid="Godot.PhysicsServer2D.AreaGetShapeTransform*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaGetShapeTransform_Godot_Rid_System_Int32_" data-uid="Godot.PhysicsServer2D.AreaGetShapeTransform(Godot.Rid,System.Int32)">
+  AreaGetShapeTransform(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the local transform matrix of the shape with the given index in the area's array of shapes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Transform2D AreaGetShapeTransform(Rid area, int shapeIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Transform2D.html">Transform2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaGetSpace_" data-uid="Godot.PhysicsServer2D.AreaGetSpace*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaGetSpace_Godot_Rid_" data-uid="Godot.PhysicsServer2D.AreaGetSpace(Godot.Rid)">
+  AreaGetSpace(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.Rid.html">Rid</a> of the space assigned to the area. Returns an empty <a class="xref" href="Godot.Rid.html">Rid</a> if no space is assigned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid AreaGetSpace(Rid area)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaGetTransform_" data-uid="Godot.PhysicsServer2D.AreaGetTransform*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaGetTransform_Godot_Rid_" data-uid="Godot.PhysicsServer2D.AreaGetTransform(Godot.Rid)">
+  AreaGetTransform(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the transform matrix of the area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Transform2D AreaGetTransform(Rid area)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Transform2D.html">Transform2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaRemoveShape_" data-uid="Godot.PhysicsServer2D.AreaRemoveShape*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaRemoveShape_Godot_Rid_System_Int32_" data-uid="Godot.PhysicsServer2D.AreaRemoveShape(Godot.Rid,System.Int32)">
+  AreaRemoveShape(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the shape with the given index from the area's array of shapes. The shape itself is not deleted, so it can continue to be used elsewhere or added back later. As a result of this operation, the area's shapes which used to have indices higher than <code class="paramref">shapeIdx</code> will have their index decreased by one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaRemoveShape(Rid area, int shapeIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaSetAreaMonitorCallback_" data-uid="Godot.PhysicsServer2D.AreaSetAreaMonitorCallback*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaSetAreaMonitorCallback_Godot_Rid_Godot_Callable_" data-uid="Godot.PhysicsServer2D.AreaSetAreaMonitorCallback(Godot.Rid,Godot.Callable)">
+  AreaSetAreaMonitorCallback(Rid, Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the area's area monitor callback. This callback will be called when any other (shape of an) area enters or exits (a shape of) the given area, and must take the following five parameters:</p>
+<p>1. an integer <code>status</code>: either <a class="xref" href="Godot.PhysicsServer2D.AreaBodyStatus.html#Godot_PhysicsServer2D_AreaBodyStatus_Added">Added</a> or <a class="xref" href="Godot.PhysicsServer2D.AreaBodyStatus.html#Godot_PhysicsServer2D_AreaBodyStatus_Removed">Removed</a> depending on whether the other area's shape entered or exited the area,</p>
+<p>2. an <a class="xref" href="Godot.Rid.html">Rid</a><code>area_rid</code>: the <a class="xref" href="Godot.Rid.html">Rid</a> of the other area that entered or exited the area,</p>
+<p>3. an integer <code>instance_id</code>: the <code>ObjectID</code> attached to the other area,</p>
+<p>4. an integer <code>area_shape_idx</code>: the index of the shape of the other area that entered or exited the area,</p>
+<p>5. an integer <code>self_shape_idx</code>: the index of the shape of the area where the other area entered or exited.</p>
+<p>By counting (or keeping track of) the shapes that enter and exit, it can be determined if an area (with all its shapes) is entering for the first time or exiting for the last time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaSetAreaMonitorCallback(Rid area, Callable callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaSetCollisionLayer_" data-uid="Godot.PhysicsServer2D.AreaSetCollisionLayer*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaSetCollisionLayer_Godot_Rid_System_UInt32_" data-uid="Godot.PhysicsServer2D.AreaSetCollisionLayer(Godot.Rid,System.UInt32)">
+  AreaSetCollisionLayer(Rid, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assigns the area to one or many physics layers, via a bitmask.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaSetCollisionLayer(Rid area, uint layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaSetCollisionMask_" data-uid="Godot.PhysicsServer2D.AreaSetCollisionMask*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaSetCollisionMask_Godot_Rid_System_UInt32_" data-uid="Godot.PhysicsServer2D.AreaSetCollisionMask(Godot.Rid,System.UInt32)">
+  AreaSetCollisionMask(Rid, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets which physics layers the area will monitor, via a bitmask.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaSetCollisionMask(Rid area, uint mask)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>mask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaSetMonitorCallback_" data-uid="Godot.PhysicsServer2D.AreaSetMonitorCallback*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaSetMonitorCallback_Godot_Rid_Godot_Callable_" data-uid="Godot.PhysicsServer2D.AreaSetMonitorCallback(Godot.Rid,Godot.Callable)">
+  AreaSetMonitorCallback(Rid, Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the area's body monitor callback. This callback will be called when any other (shape of a) body enters or exits (a shape of) the given area, and must take the following five parameters:</p>
+<p>1. an integer <code>status</code>: either <a class="xref" href="Godot.PhysicsServer2D.AreaBodyStatus.html#Godot_PhysicsServer2D_AreaBodyStatus_Added">Added</a> or <a class="xref" href="Godot.PhysicsServer2D.AreaBodyStatus.html#Godot_PhysicsServer2D_AreaBodyStatus_Removed">Removed</a> depending on whether the other body shape entered or exited the area,</p>
+<p>2. an <a class="xref" href="Godot.Rid.html">Rid</a><code>body_rid</code>: the <a class="xref" href="Godot.Rid.html">Rid</a> of the body that entered or exited the area,</p>
+<p>3. an integer <code>instance_id</code>: the <code>ObjectID</code> attached to the body,</p>
+<p>4. an integer <code>body_shape_idx</code>: the index of the shape of the body that entered or exited the area,</p>
+<p>5. an integer <code>self_shape_idx</code>: the index of the shape of the area where the body entered or exited.</p>
+<p>By counting (or keeping track of) the shapes that enter and exit, it can be determined if a body (with all its shapes) is entering for the first time or exiting for the last time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaSetMonitorCallback(Rid area, Callable callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaSetMonitorable_" data-uid="Godot.PhysicsServer2D.AreaSetMonitorable*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaSetMonitorable_Godot_Rid_System_Boolean_" data-uid="Godot.PhysicsServer2D.AreaSetMonitorable(Godot.Rid,System.Boolean)">
+  AreaSetMonitorable(Rid, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the area is monitorable or not. If <code class="paramref">monitorable</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the area monitoring callback of other areas will be called when this area enters or exits them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaSetMonitorable(Rid area, bool monitorable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>monitorable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaSetParam_" data-uid="Godot.PhysicsServer2D.AreaSetParam*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaSetParam_Godot_Rid_Godot_PhysicsServer2D_AreaParameter_Godot_Variant_" data-uid="Godot.PhysicsServer2D.AreaSetParam(Godot.Rid,Godot.PhysicsServer2D.AreaParameter,Godot.Variant)">
+  AreaSetParam(Rid, AreaParameter, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the value of the given area parameter. See <a class="xref" href="Godot.PhysicsServer2D.AreaParameter.html">PhysicsServer2D.AreaParameter</a> for the list of available parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaSetParam(Rid area, PhysicsServer2D.AreaParameter param, Variant value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>param</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.AreaParameter.html">AreaParameter</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaSetShape_" data-uid="Godot.PhysicsServer2D.AreaSetShape*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaSetShape_Godot_Rid_System_Int32_Godot_Rid_" data-uid="Godot.PhysicsServer2D.AreaSetShape(Godot.Rid,System.Int32,Godot.Rid)">
+  AreaSetShape(Rid, int, Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Replaces the area's shape at the given index by another shape, while not affecting the <code>transform</code> and <code>disabled</code> properties at the same index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaSetShape(Rid area, int shapeIdx, Rid shape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shape</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaSetShapeDisabled_" data-uid="Godot.PhysicsServer2D.AreaSetShapeDisabled*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaSetShapeDisabled_Godot_Rid_System_Int32_System_Boolean_" data-uid="Godot.PhysicsServer2D.AreaSetShapeDisabled(Godot.Rid,System.Int32,System.Boolean)">
+  AreaSetShapeDisabled(Rid, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the disabled property of the area's shape with the given index. If <code class="paramref">disabled</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, then the shape will not detect any other shapes entering or exiting it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaSetShapeDisabled(Rid area, int shapeIdx, bool disabled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>disabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaSetShapeTransform_" data-uid="Godot.PhysicsServer2D.AreaSetShapeTransform*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaSetShapeTransform_Godot_Rid_System_Int32_Godot_Transform2D_" data-uid="Godot.PhysicsServer2D.AreaSetShapeTransform(Godot.Rid,System.Int32,Godot.Transform2D)">
+  AreaSetShapeTransform(Rid, int, Transform2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the local transform matrix of the area's shape with the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaSetShapeTransform(Rid area, int shapeIdx, Transform2D transform)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>transform</code> <a class="xref" href="Godot.Transform2D.html">Transform2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaSetSpace_" data-uid="Godot.PhysicsServer2D.AreaSetSpace*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaSetSpace_Godot_Rid_Godot_Rid_" data-uid="Godot.PhysicsServer2D.AreaSetSpace(Godot.Rid,Godot.Rid)">
+  AreaSetSpace(Rid, Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the area to the given space, after removing the area from the previously assigned space (if any).</p>
+<p>
+  <b>Note:</b> To remove an area from a space without immediately adding it back elsewhere, use <code>PhysicsServer2D.area_set_space(area, RID())</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaSetSpace(Rid area, Rid space)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>space</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_AreaSetTransform_" data-uid="Godot.PhysicsServer2D.AreaSetTransform*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_AreaSetTransform_Godot_Rid_Godot_Transform2D_" data-uid="Godot.PhysicsServer2D.AreaSetTransform(Godot.Rid,Godot.Transform2D)">
+  AreaSetTransform(Rid, Transform2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the transform matrix of the area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreaSetTransform(Rid area, Transform2D transform)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>area</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>transform</code> <a class="xref" href="Godot.Transform2D.html">Transform2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyAddCollisionException_" data-uid="Godot.PhysicsServer2D.BodyAddCollisionException*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyAddCollisionException_Godot_Rid_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyAddCollisionException(Godot.Rid,Godot.Rid)">
+  BodyAddCollisionException(Rid, Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds <code class="paramref">exceptedBody</code> to the body's list of collision exceptions, so that collisions with it are ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyAddCollisionException(Rid body, Rid exceptedBody)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>exceptedBody</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyAddConstantCentralForce_" data-uid="Godot.PhysicsServer2D.BodyAddConstantCentralForce*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyAddConstantCentralForce_Godot_Rid_Godot_Vector2_" data-uid="Godot.PhysicsServer2D.BodyAddConstantCentralForce(Godot.Rid,Godot.Vector2)">
+  BodyAddConstantCentralForce(Rid, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a constant directional force to the body. The force does not affect rotation. The force remains applied over time until cleared with <code>PhysicsServer2D.body_set_constant_force(body, Vector2(0, 0))</code>.</p>
+<p>This is equivalent to using <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodyAddConstantForce_Godot_Rid_Godot_Vector2_System_Nullable_Godot_Vector2__">BodyAddConstantForce(Rid, Vector2, Vector2?)</a> at the body's center of mass.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyAddConstantCentralForce(Rid body, Vector2 force)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>force</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyAddConstantForce_" data-uid="Godot.PhysicsServer2D.BodyAddConstantForce*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyAddConstantForce_Godot_Rid_Godot_Vector2_System_Nullable_Godot_Vector2__" data-uid="Godot.PhysicsServer2D.BodyAddConstantForce(Godot.Rid,Godot.Vector2,System.Nullable{Godot.Vector2})">
+  BodyAddConstantForce(Rid, Vector2, Vector2?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a constant positioned force to the body. The force can affect rotation if <code class="paramref">position</code> is different from the body's center of mass. The force remains applied over time until cleared with <code>PhysicsServer2D.body_set_constant_force(body, Vector2(0, 0))</code>.</p>
+<p>
+  <code class="paramref">position</code> is the offset from the body origin in global coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyAddConstantForce(Rid body, Vector2 force, Vector2? position = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>force</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="Godot.Vector2.html">Vector2</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Vector2(0.0f, 0.0f)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyAddConstantTorque_" data-uid="Godot.PhysicsServer2D.BodyAddConstantTorque*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyAddConstantTorque_Godot_Rid_System_Single_" data-uid="Godot.PhysicsServer2D.BodyAddConstantTorque(Godot.Rid,System.Single)">
+  BodyAddConstantTorque(Rid, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a constant rotational force to the body. The force does not affect position. The force remains applied over time until cleared with <code>PhysicsServer2D.body_set_constant_torque(body, 0)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyAddConstantTorque(Rid body, float torque)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>torque</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyAddShape_" data-uid="Godot.PhysicsServer2D.BodyAddShape*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyAddShape_Godot_Rid_Godot_Rid_System_Nullable_Godot_Transform2D__System_Boolean_" data-uid="Godot.PhysicsServer2D.BodyAddShape(Godot.Rid,Godot.Rid,System.Nullable{Godot.Transform2D},System.Boolean)">
+  BodyAddShape(Rid, Rid, Transform2D?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a shape to the area, with the given local transform. The shape (together with its <code class="paramref">transform</code> and <code class="paramref">disabled</code> properties) is added to an array of shapes, and the shapes of a body are usually referenced by their index in this array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyAddShape(Rid body, Rid shape, Transform2D? transform = null, bool disabled = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shape</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>transform</code> <a class="xref" href="Godot.Transform2D.html">Transform2D</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>Transform2D.Identity</code>.</p>
+</dd>
+    <dt><code>disabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyApplyCentralForce_" data-uid="Godot.PhysicsServer2D.BodyApplyCentralForce*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyApplyCentralForce_Godot_Rid_Godot_Vector2_" data-uid="Godot.PhysicsServer2D.BodyApplyCentralForce(Godot.Rid,Godot.Vector2)">
+  BodyApplyCentralForce(Rid, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies a directional force to the body, at the body's center of mass. The force does not affect rotation. A force is time dependent and meant to be applied every physics update.</p>
+<p>This is equivalent to using <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodyApplyForce_Godot_Rid_Godot_Vector2_System_Nullable_Godot_Vector2__">BodyApplyForce(Rid, Vector2, Vector2?)</a> at the body's center of mass.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyApplyCentralForce(Rid body, Vector2 force)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>force</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyApplyCentralImpulse_" data-uid="Godot.PhysicsServer2D.BodyApplyCentralImpulse*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyApplyCentralImpulse_Godot_Rid_Godot_Vector2_" data-uid="Godot.PhysicsServer2D.BodyApplyCentralImpulse(Godot.Rid,Godot.Vector2)">
+  BodyApplyCentralImpulse(Rid, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies a directional impulse to the body, at the body's center of mass. The impulse does not affect rotation.</p>
+<p>An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).</p>
+<p>This is equivalent to using <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodyApplyImpulse_Godot_Rid_Godot_Vector2_System_Nullable_Godot_Vector2__">BodyApplyImpulse(Rid, Vector2, Vector2?)</a> at the body's center of mass.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyApplyCentralImpulse(Rid body, Vector2 impulse)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>impulse</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyApplyForce_" data-uid="Godot.PhysicsServer2D.BodyApplyForce*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyApplyForce_Godot_Rid_Godot_Vector2_System_Nullable_Godot_Vector2__" data-uid="Godot.PhysicsServer2D.BodyApplyForce(Godot.Rid,Godot.Vector2,System.Nullable{Godot.Vector2})">
+  BodyApplyForce(Rid, Vector2, Vector2?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies a positioned force to the body. The force can affect rotation if <code class="paramref">position</code> is different from the body's center of mass. A force is time dependent and meant to be applied every physics update.</p>
+<p>
+  <code class="paramref">position</code> is the offset from the body origin in global coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyApplyForce(Rid body, Vector2 force, Vector2? position = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>force</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="Godot.Vector2.html">Vector2</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Vector2(0.0f, 0.0f)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyApplyImpulse_" data-uid="Godot.PhysicsServer2D.BodyApplyImpulse*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyApplyImpulse_Godot_Rid_Godot_Vector2_System_Nullable_Godot_Vector2__" data-uid="Godot.PhysicsServer2D.BodyApplyImpulse(Godot.Rid,Godot.Vector2,System.Nullable{Godot.Vector2})">
+  BodyApplyImpulse(Rid, Vector2, Vector2?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies a positioned impulse to the body. The impulse can affect rotation if <code class="paramref">position</code> is different from the body's center of mass.</p>
+<p>An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).</p>
+<p>
+  <code class="paramref">position</code> is the offset from the body origin in global coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyApplyImpulse(Rid body, Vector2 impulse, Vector2? position = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>impulse</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="Godot.Vector2.html">Vector2</a>?</dt>
+    <dd><p>If the parameter is null, then the default value is <code>new Vector2(0.0f, 0.0f)</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyApplyTorque_" data-uid="Godot.PhysicsServer2D.BodyApplyTorque*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyApplyTorque_Godot_Rid_System_Single_" data-uid="Godot.PhysicsServer2D.BodyApplyTorque(Godot.Rid,System.Single)">
+  BodyApplyTorque(Rid, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies a rotational force to the body. The force does not affect position. A force is time dependent and meant to be applied every physics update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyApplyTorque(Rid body, float torque)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>torque</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyApplyTorqueImpulse_" data-uid="Godot.PhysicsServer2D.BodyApplyTorqueImpulse*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyApplyTorqueImpulse_Godot_Rid_System_Single_" data-uid="Godot.PhysicsServer2D.BodyApplyTorqueImpulse(Godot.Rid,System.Single)">
+  BodyApplyTorqueImpulse(Rid, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies a rotational impulse to the body. The impulse does not affect position.</p>
+<p>An impulse is time-independent! Applying an impulse every frame would result in a framerate-dependent force. For this reason, it should only be used when simulating one-time impacts (use the "_force" functions otherwise).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyApplyTorqueImpulse(Rid body, float impulse)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>impulse</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyAttachCanvasInstanceId_" data-uid="Godot.PhysicsServer2D.BodyAttachCanvasInstanceId*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyAttachCanvasInstanceId_Godot_Rid_System_UInt64_" data-uid="Godot.PhysicsServer2D.BodyAttachCanvasInstanceId(Godot.Rid,System.UInt64)">
+  BodyAttachCanvasInstanceId(Rid, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attaches the <code>ObjectID</code> of a canvas to the body. Use <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GetInstanceId()</a> to get the <code>ObjectID</code> of a <a class="xref" href="Godot.CanvasLayer.html">CanvasLayer</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyAttachCanvasInstanceId(Rid body, ulong id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyAttachObjectInstanceId_" data-uid="Godot.PhysicsServer2D.BodyAttachObjectInstanceId*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyAttachObjectInstanceId_Godot_Rid_System_UInt64_" data-uid="Godot.PhysicsServer2D.BodyAttachObjectInstanceId(Godot.Rid,System.UInt64)">
+  BodyAttachObjectInstanceId(Rid, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attaches the <code>ObjectID</code> of an <a class="xref" href="Godot.GodotObject.html">GodotObject</a> to the body. Use <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GetInstanceId()</a> to get the <code>ObjectID</code> of a <a class="xref" href="Godot.CollisionObject2D.html">CollisionObject2D</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyAttachObjectInstanceId(Rid body, ulong id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyClearShapes_" data-uid="Godot.PhysicsServer2D.BodyClearShapes*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyClearShapes_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyClearShapes(Godot.Rid)">
+  BodyClearShapes(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all shapes from the body. This does not delete the shapes themselves, so they can continue to be used elsewhere or added back later.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyClearShapes(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyCreate_" data-uid="Godot.PhysicsServer2D.BodyCreate*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyCreate" data-uid="Godot.PhysicsServer2D.BodyCreate">
+  BodyCreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 2D body object in the physics server, and returns the <a class="xref" href="Godot.Rid.html">Rid</a> that identifies it. The default settings for the created area include a collision layer and mask set to <code>1</code>, and body mode set to <a class="xref" href="Godot.PhysicsServer2D.BodyMode.html#Godot_PhysicsServer2D_BodyMode_Rigid">Rigid</a>.</p>
+<p>Use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodyAddShape_Godot_Rid_Godot_Rid_System_Nullable_Godot_Transform2D__System_Boolean_">BodyAddShape(Rid, Rid, Transform2D?, bool)</a> to add shapes to it, use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodySetState_Godot_Rid_Godot_PhysicsServer2D_BodyState_Godot_Variant_">BodySetState(Rid, BodyState, Variant)</a> to set its transform, and use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodySetSpace_Godot_Rid_Godot_Rid_">BodySetSpace(Rid, Rid)</a> to add the body to a space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid BodyCreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetCanvasInstanceId_" data-uid="Godot.PhysicsServer2D.BodyGetCanvasInstanceId*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetCanvasInstanceId_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetCanvasInstanceId(Godot.Rid)">
+  BodyGetCanvasInstanceId(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <code>ObjectID</code> of the canvas attached to the body. Use <code>@GlobalScope.instance_from_id</code> to retrieve a <a class="xref" href="Godot.CanvasLayer.html">CanvasLayer</a> from a nonzero <code>ObjectID</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong BodyGetCanvasInstanceId(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetCollisionLayer_" data-uid="Godot.PhysicsServer2D.BodyGetCollisionLayer*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetCollisionLayer_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetCollisionLayer(Godot.Rid)">
+  BodyGetCollisionLayer(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the physics layer or layers the body belongs to, as a bitmask.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint BodyGetCollisionLayer(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetCollisionMask_" data-uid="Godot.PhysicsServer2D.BodyGetCollisionMask*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetCollisionMask_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetCollisionMask(Godot.Rid)">
+  BodyGetCollisionMask(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the physics layer or layers the body can collide with, as a bitmask.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint BodyGetCollisionMask(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetCollisionPriority_" data-uid="Godot.PhysicsServer2D.BodyGetCollisionPriority*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetCollisionPriority_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetCollisionPriority(Godot.Rid)">
+  BodyGetCollisionPriority(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the body's collision priority. This is used in the depenetration phase of <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodyTestMotion_Godot_Rid_Godot_PhysicsTestMotionParameters2D_Godot_PhysicsTestMotionResult2D_">BodyTestMotion(Rid, PhysicsTestMotionParameters2D, PhysicsTestMotionResult2D)</a>. The higher the priority is, the lower the penetration into the body will be.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float BodyGetCollisionPriority(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetConstantForce_" data-uid="Godot.PhysicsServer2D.BodyGetConstantForce*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetConstantForce_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetConstantForce(Godot.Rid)">
+  BodyGetConstantForce(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the body's total constant positional force applied during each physics update.</p>
+<p>See <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodyAddConstantForce_Godot_Rid_Godot_Vector2_System_Nullable_Godot_Vector2__">BodyAddConstantForce(Rid, Vector2, Vector2?)</a> and <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodyAddConstantCentralForce_Godot_Rid_Godot_Vector2_">BodyAddConstantCentralForce(Rid, Vector2)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 BodyGetConstantForce(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetConstantTorque_" data-uid="Godot.PhysicsServer2D.BodyGetConstantTorque*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetConstantTorque_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetConstantTorque(Godot.Rid)">
+  BodyGetConstantTorque(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the body's total constant rotational force applied during each physics update.</p>
+<p>See <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodyAddConstantTorque_Godot_Rid_System_Single_">BodyAddConstantTorque(Rid, float)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float BodyGetConstantTorque(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetContinuousCollisionDetectionMode_" data-uid="Godot.PhysicsServer2D.BodyGetContinuousCollisionDetectionMode*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetContinuousCollisionDetectionMode_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetContinuousCollisionDetectionMode(Godot.Rid)">
+  BodyGetContinuousCollisionDetectionMode(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the body's continuous collision detection mode (see <a class="xref" href="Godot.PhysicsServer2D.CcdMode.html">PhysicsServer2D.CcdMode</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PhysicsServer2D.CcdMode BodyGetContinuousCollisionDetectionMode(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.CcdMode.html">CcdMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetDirectState_" data-uid="Godot.PhysicsServer2D.BodyGetDirectState*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetDirectState_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetDirectState(Godot.Rid)">
+  BodyGetDirectState(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.PhysicsDirectBodyState2D.html">PhysicsDirectBodyState2D</a> of the body. Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the body is destroyed or not assigned to a space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PhysicsDirectBodyState2D BodyGetDirectState(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.PhysicsDirectBodyState2D.html">PhysicsDirectBodyState2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetMaxContactsReported_" data-uid="Godot.PhysicsServer2D.BodyGetMaxContactsReported*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetMaxContactsReported_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetMaxContactsReported(Godot.Rid)">
+  BodyGetMaxContactsReported(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the maximum number of contacts that the body can report. See <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodySetMaxContactsReported_Godot_Rid_System_Int32_">BodySetMaxContactsReported(Rid, int)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int BodyGetMaxContactsReported(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetMode_" data-uid="Godot.PhysicsServer2D.BodyGetMode*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetMode_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetMode(Godot.Rid)">
+  BodyGetMode(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the body's mode (see <a class="xref" href="Godot.PhysicsServer2D.BodyMode.html">PhysicsServer2D.BodyMode</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PhysicsServer2D.BodyMode BodyGetMode(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.BodyMode.html">BodyMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetObjectInstanceId_" data-uid="Godot.PhysicsServer2D.BodyGetObjectInstanceId*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetObjectInstanceId_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetObjectInstanceId(Godot.Rid)">
+  BodyGetObjectInstanceId(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <code>ObjectID</code> attached to the body. Use <code>@GlobalScope.instance_from_id</code> to retrieve an <a class="xref" href="Godot.GodotObject.html">GodotObject</a> from a nonzero <code>ObjectID</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong BodyGetObjectInstanceId(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetParam_" data-uid="Godot.PhysicsServer2D.BodyGetParam*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetParam_Godot_Rid_Godot_PhysicsServer2D_BodyParameter_" data-uid="Godot.PhysicsServer2D.BodyGetParam(Godot.Rid,Godot.PhysicsServer2D.BodyParameter)">
+  BodyGetParam(Rid, BodyParameter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the value of the given body parameter. See <a class="xref" href="Godot.PhysicsServer2D.BodyParameter.html">PhysicsServer2D.BodyParameter</a> for the list of available parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Variant BodyGetParam(Rid body, PhysicsServer2D.BodyParameter param)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>param</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.BodyParameter.html">BodyParameter</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetShape_" data-uid="Godot.PhysicsServer2D.BodyGetShape*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetShape_Godot_Rid_System_Int32_" data-uid="Godot.PhysicsServer2D.BodyGetShape(Godot.Rid,System.Int32)">
+  BodyGetShape(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.Rid.html">Rid</a> of the shape with the given index in the body's array of shapes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid BodyGetShape(Rid body, int shapeIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetShapeCount_" data-uid="Godot.PhysicsServer2D.BodyGetShapeCount*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetShapeCount_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetShapeCount(Godot.Rid)">
+  BodyGetShapeCount(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of shapes added to the body.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int BodyGetShapeCount(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetShapeTransform_" data-uid="Godot.PhysicsServer2D.BodyGetShapeTransform*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetShapeTransform_Godot_Rid_System_Int32_" data-uid="Godot.PhysicsServer2D.BodyGetShapeTransform(Godot.Rid,System.Int32)">
+  BodyGetShapeTransform(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the local transform matrix of the shape with the given index in the area's array of shapes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Transform2D BodyGetShapeTransform(Rid body, int shapeIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Transform2D.html">Transform2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetSpace_" data-uid="Godot.PhysicsServer2D.BodyGetSpace*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetSpace_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyGetSpace(Godot.Rid)">
+  BodyGetSpace(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.Rid.html">Rid</a> of the space assigned to the body. Returns an empty <a class="xref" href="Godot.Rid.html">Rid</a> if no space is assigned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid BodyGetSpace(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyGetState_" data-uid="Godot.PhysicsServer2D.BodyGetState*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyGetState_Godot_Rid_Godot_PhysicsServer2D_BodyState_" data-uid="Godot.PhysicsServer2D.BodyGetState(Godot.Rid,Godot.PhysicsServer2D.BodyState)">
+  BodyGetState(Rid, BodyState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the value of the given state of the body. See <a class="xref" href="Godot.PhysicsServer2D.BodyState.html">PhysicsServer2D.BodyState</a> for the list of available states.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Variant BodyGetState(Rid body, PhysicsServer2D.BodyState state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.BodyState.html">BodyState</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyIsOmittingForceIntegration_" data-uid="Godot.PhysicsServer2D.BodyIsOmittingForceIntegration*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyIsOmittingForceIntegration_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyIsOmittingForceIntegration(Godot.Rid)">
+  BodyIsOmittingForceIntegration(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the body is omitting the standard force integration. See <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodySetOmitForceIntegration_Godot_Rid_System_Boolean_">BodySetOmitForceIntegration(Rid, bool)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool BodyIsOmittingForceIntegration(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyRemoveCollisionException_" data-uid="Godot.PhysicsServer2D.BodyRemoveCollisionException*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyRemoveCollisionException_Godot_Rid_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyRemoveCollisionException(Godot.Rid,Godot.Rid)">
+  BodyRemoveCollisionException(Rid, Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes <code class="paramref">exceptedBody</code> from the body's list of collision exceptions, so that collisions with it are no longer ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyRemoveCollisionException(Rid body, Rid exceptedBody)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>exceptedBody</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyRemoveShape_" data-uid="Godot.PhysicsServer2D.BodyRemoveShape*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyRemoveShape_Godot_Rid_System_Int32_" data-uid="Godot.PhysicsServer2D.BodyRemoveShape(Godot.Rid,System.Int32)">
+  BodyRemoveShape(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the shape with the given index from the body's array of shapes. The shape itself is not deleted, so it can continue to be used elsewhere or added back later. As a result of this operation, the body's shapes which used to have indices higher than <code class="paramref">shapeIdx</code> will have their index decreased by one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyRemoveShape(Rid body, int shapeIdx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyResetMassProperties_" data-uid="Godot.PhysicsServer2D.BodyResetMassProperties*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyResetMassProperties_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodyResetMassProperties(Godot.Rid)">
+  BodyResetMassProperties(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restores the default inertia and center of mass of the body based on its shapes. This undoes any custom values previously set using <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodySetParam_Godot_Rid_Godot_PhysicsServer2D_BodyParameter_Godot_Variant_">BodySetParam(Rid, BodyParameter, Variant)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodyResetMassProperties(Rid body)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetAxisVelocity_" data-uid="Godot.PhysicsServer2D.BodySetAxisVelocity*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetAxisVelocity_Godot_Rid_Godot_Vector2_" data-uid="Godot.PhysicsServer2D.BodySetAxisVelocity(Godot.Rid,Godot.Vector2)">
+  BodySetAxisVelocity(Rid, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modifies the body's linear velocity so that its projection to the axis <code>axis_velocity.normalized()</code> is exactly <code>axis_velocity.length()</code>. This is useful for jumping behavior.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetAxisVelocity(Rid body, Vector2 axisVelocity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>axisVelocity</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetCollisionLayer_" data-uid="Godot.PhysicsServer2D.BodySetCollisionLayer*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetCollisionLayer_Godot_Rid_System_UInt32_" data-uid="Godot.PhysicsServer2D.BodySetCollisionLayer(Godot.Rid,System.UInt32)">
+  BodySetCollisionLayer(Rid, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the physics layer or layers the body belongs to, via a bitmask.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetCollisionLayer(Rid body, uint layer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>layer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetCollisionMask_" data-uid="Godot.PhysicsServer2D.BodySetCollisionMask*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetCollisionMask_Godot_Rid_System_UInt32_" data-uid="Godot.PhysicsServer2D.BodySetCollisionMask(Godot.Rid,System.UInt32)">
+  BodySetCollisionMask(Rid, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the physics layer or layers the body can collide with, via a bitmask.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetCollisionMask(Rid body, uint mask)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>mask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetCollisionPriority_" data-uid="Godot.PhysicsServer2D.BodySetCollisionPriority*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetCollisionPriority_Godot_Rid_System_Single_" data-uid="Godot.PhysicsServer2D.BodySetCollisionPriority(Godot.Rid,System.Single)">
+  BodySetCollisionPriority(Rid, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the body's collision priority. This is used in the depenetration phase of <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodyTestMotion_Godot_Rid_Godot_PhysicsTestMotionParameters2D_Godot_PhysicsTestMotionResult2D_">BodyTestMotion(Rid, PhysicsTestMotionParameters2D, PhysicsTestMotionResult2D)</a>. The higher the priority is, the lower the penetration into the body will be.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetCollisionPriority(Rid body, float priority)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>priority</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetConstantForce_" data-uid="Godot.PhysicsServer2D.BodySetConstantForce*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetConstantForce_Godot_Rid_Godot_Vector2_" data-uid="Godot.PhysicsServer2D.BodySetConstantForce(Godot.Rid,Godot.Vector2)">
+  BodySetConstantForce(Rid, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the body's total constant positional force applied during each physics update.</p>
+<p>See <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodyAddConstantForce_Godot_Rid_Godot_Vector2_System_Nullable_Godot_Vector2__">BodyAddConstantForce(Rid, Vector2, Vector2?)</a> and <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodyAddConstantCentralForce_Godot_Rid_Godot_Vector2_">BodyAddConstantCentralForce(Rid, Vector2)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetConstantForce(Rid body, Vector2 force)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>force</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetConstantTorque_" data-uid="Godot.PhysicsServer2D.BodySetConstantTorque*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetConstantTorque_Godot_Rid_System_Single_" data-uid="Godot.PhysicsServer2D.BodySetConstantTorque(Godot.Rid,System.Single)">
+  BodySetConstantTorque(Rid, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the body's total constant rotational force applied during each physics update.</p>
+<p>See <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodyAddConstantTorque_Godot_Rid_System_Single_">BodyAddConstantTorque(Rid, float)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetConstantTorque(Rid body, float torque)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>torque</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetContinuousCollisionDetectionMode_" data-uid="Godot.PhysicsServer2D.BodySetContinuousCollisionDetectionMode*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetContinuousCollisionDetectionMode_Godot_Rid_Godot_PhysicsServer2D_CcdMode_" data-uid="Godot.PhysicsServer2D.BodySetContinuousCollisionDetectionMode(Godot.Rid,Godot.PhysicsServer2D.CcdMode)">
+  BodySetContinuousCollisionDetectionMode(Rid, CcdMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the continuous collision detection mode using one of the <a class="xref" href="Godot.PhysicsServer2D.CcdMode.html">PhysicsServer2D.CcdMode</a> constants.</p>
+<p>Continuous collision detection tries to predict where a moving body would collide in between physics updates, instead of moving it and correcting its movement if it collided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetContinuousCollisionDetectionMode(Rid body, PhysicsServer2D.CcdMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>mode</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.CcdMode.html">CcdMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetForceIntegrationCallback_" data-uid="Godot.PhysicsServer2D.BodySetForceIntegrationCallback*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetForceIntegrationCallback_Godot_Rid_Godot_Callable_Godot_Variant_" data-uid="Godot.PhysicsServer2D.BodySetForceIntegrationCallback(Godot.Rid,Godot.Callable,Godot.Variant)">
+  BodySetForceIntegrationCallback(Rid, Callable, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the body's custom force integration callback function to <code class="paramref">callable</code>. Use an empty <a class="xref" href="Godot.Callable.html">Callable</a> (<code>Callable()</code>) to clear the custom callback.</p>
+<p>The function <code class="paramref">callable</code> will be called every physics tick, before the standard force integration (see <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodySetOmitForceIntegration_Godot_Rid_System_Boolean_">BodySetOmitForceIntegration(Rid, bool)</a>). It can be used for example to update the body's linear and angular velocity based on contact with other bodies.</p>
+<p>If <code class="paramref">userdata</code> is not <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the function <code class="paramref">callable</code> must take the following two parameters:</p>
+<p>1. <code>state</code>: a <a class="xref" href="Godot.PhysicsDirectBodyState2D.html">PhysicsDirectBodyState2D</a> used to retrieve and modify the body's state,</p>
+<p>2. <code>userdata</code>: a <a class="xref" href="Godot.Variant.html">Variant</a>; its value will be the <code class="paramref">userdata</code> passed into this method.</p>
+<p>If <code class="paramref">userdata</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, then <code class="paramref">callable</code> must take only the <code>state</code> parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetForceIntegrationCallback(Rid body, Callable callable, Variant userdata = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>callable</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+    <dt><code>userdata</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetMaxContactsReported_" data-uid="Godot.PhysicsServer2D.BodySetMaxContactsReported*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetMaxContactsReported_Godot_Rid_System_Int32_" data-uid="Godot.PhysicsServer2D.BodySetMaxContactsReported(Godot.Rid,System.Int32)">
+  BodySetMaxContactsReported(Rid, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the maximum number of contacts that the body can report. If <code class="paramref">amount</code> is greater than zero, then the body will keep track of at most this many contacts with other bodies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetMaxContactsReported(Rid body, int amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetMode_" data-uid="Godot.PhysicsServer2D.BodySetMode*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetMode_Godot_Rid_Godot_PhysicsServer2D_BodyMode_" data-uid="Godot.PhysicsServer2D.BodySetMode(Godot.Rid,Godot.PhysicsServer2D.BodyMode)">
+  BodySetMode(Rid, BodyMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the body's mode. See <a class="xref" href="Godot.PhysicsServer2D.BodyMode.html">PhysicsServer2D.BodyMode</a> for the list of available modes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetMode(Rid body, PhysicsServer2D.BodyMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>mode</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.BodyMode.html">BodyMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetOmitForceIntegration_" data-uid="Godot.PhysicsServer2D.BodySetOmitForceIntegration*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetOmitForceIntegration_Godot_Rid_System_Boolean_" data-uid="Godot.PhysicsServer2D.BodySetOmitForceIntegration(Godot.Rid,System.Boolean)">
+  BodySetOmitForceIntegration(Rid, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the body omits the standard force integration. If <code class="paramref">enable</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the body will not automatically use applied forces, torques, and damping to update the body's linear and angular velocity. In this case, <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_BodySetForceIntegrationCallback_Godot_Rid_Godot_Callable_Godot_Variant_">BodySetForceIntegrationCallback(Rid, Callable, Variant)</a> can be used to manually update the linear and angular velocity instead.</p>
+<p>This method is called when the property <a class="xref" href="Godot.RigidBody2D.html#Godot_RigidBody2D_CustomIntegrator">CustomIntegrator</a> is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetOmitForceIntegration(Rid body, bool enable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>enable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetParam_" data-uid="Godot.PhysicsServer2D.BodySetParam*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetParam_Godot_Rid_Godot_PhysicsServer2D_BodyParameter_Godot_Variant_" data-uid="Godot.PhysicsServer2D.BodySetParam(Godot.Rid,Godot.PhysicsServer2D.BodyParameter,Godot.Variant)">
+  BodySetParam(Rid, BodyParameter, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the value of the given body parameter. See <a class="xref" href="Godot.PhysicsServer2D.BodyParameter.html">PhysicsServer2D.BodyParameter</a> for the list of available parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetParam(Rid body, PhysicsServer2D.BodyParameter param, Variant value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>param</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.BodyParameter.html">BodyParameter</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetShape_" data-uid="Godot.PhysicsServer2D.BodySetShape*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetShape_Godot_Rid_System_Int32_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodySetShape(Godot.Rid,System.Int32,Godot.Rid)">
+  BodySetShape(Rid, int, Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Replaces the body's shape at the given index by another shape, while not affecting the <code>transform</code>, <code>disabled</code>, and one-way collision properties at the same index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetShape(Rid body, int shapeIdx, Rid shape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>shape</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetShapeAsOneWayCollision_" data-uid="Godot.PhysicsServer2D.BodySetShapeAsOneWayCollision*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetShapeAsOneWayCollision_Godot_Rid_System_Int32_System_Boolean_System_Single_" data-uid="Godot.PhysicsServer2D.BodySetShapeAsOneWayCollision(Godot.Rid,System.Int32,System.Boolean,System.Single)">
+  BodySetShapeAsOneWayCollision(Rid, int, bool, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the one-way collision properties of the body's shape with the given index. If <code class="paramref">enable</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the one-way collision direction given by the shape's local upward axis <code>body_get_shape_transform(body, shape_idx).y</code> will be used to ignore collisions with the shape in the opposite direction, and to ensure depenetration of kinematic bodies happens in this direction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetShapeAsOneWayCollision(Rid body, int shapeIdx, bool enable, float margin)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>enable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>margin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetShapeDisabled_" data-uid="Godot.PhysicsServer2D.BodySetShapeDisabled*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetShapeDisabled_Godot_Rid_System_Int32_System_Boolean_" data-uid="Godot.PhysicsServer2D.BodySetShapeDisabled(Godot.Rid,System.Int32,System.Boolean)">
+  BodySetShapeDisabled(Rid, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the disabled property of the body's shape with the given index. If <code class="paramref">disabled</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, then the shape will be ignored in all collision detection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetShapeDisabled(Rid body, int shapeIdx, bool disabled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>disabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetShapeTransform_" data-uid="Godot.PhysicsServer2D.BodySetShapeTransform*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetShapeTransform_Godot_Rid_System_Int32_Godot_Transform2D_" data-uid="Godot.PhysicsServer2D.BodySetShapeTransform(Godot.Rid,System.Int32,Godot.Transform2D)">
+  BodySetShapeTransform(Rid, int, Transform2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the local transform matrix of the body's shape with the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetShapeTransform(Rid body, int shapeIdx, Transform2D transform)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>shapeIdx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>transform</code> <a class="xref" href="Godot.Transform2D.html">Transform2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetSpace_" data-uid="Godot.PhysicsServer2D.BodySetSpace*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetSpace_Godot_Rid_Godot_Rid_" data-uid="Godot.PhysicsServer2D.BodySetSpace(Godot.Rid,Godot.Rid)">
+  BodySetSpace(Rid, Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the body to the given space, after removing the body from the previously assigned space (if any). If the body's mode is set to <a class="xref" href="Godot.PhysicsServer2D.BodyMode.html#Godot_PhysicsServer2D_BodyMode_Rigid">Rigid</a>, then adding the body to a space will have the following additional effects:</p>
+<p>- If the parameter <a class="xref" href="Godot.PhysicsServer2D.BodyParameter.html#Godot_PhysicsServer2D_BodyParameter_CenterOfMass">CenterOfMass</a> has never been set explicitly, then the value of that parameter will be recalculated based on the body's shapes.</p>
+<p>- If the parameter <a class="xref" href="Godot.PhysicsServer2D.BodyParameter.html#Godot_PhysicsServer2D_BodyParameter_Inertia">Inertia</a> is set to a value <code>&lt;= 0.0</code>, then the value of that parameter will be recalculated based on the body's shapes, mass, and center of mass.</p>
+<p>
+  <b>Note:</b> To remove a body from a space without immediately adding it back elsewhere, use <code>PhysicsServer2D.body_set_space(body, RID())</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetSpace(Rid body, Rid space)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>space</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetState_" data-uid="Godot.PhysicsServer2D.BodySetState*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetState_Godot_Rid_Godot_PhysicsServer2D_BodyState_Godot_Variant_" data-uid="Godot.PhysicsServer2D.BodySetState(Godot.Rid,Godot.PhysicsServer2D.BodyState,Godot.Variant)">
+  BodySetState(Rid, BodyState, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the value of a body's state. See <a class="xref" href="Godot.PhysicsServer2D.BodyState.html">PhysicsServer2D.BodyState</a> for the list of available states.</p>
+<p>
+  <b>Note:</b> The state change doesn't take effect immediately. The state will change on the next physics frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetState(Rid body, PhysicsServer2D.BodyState state, Variant value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>state</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.BodyState.html">BodyState</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodySetStateSyncCallback_" data-uid="Godot.PhysicsServer2D.BodySetStateSyncCallback*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodySetStateSyncCallback_Godot_Rid_Godot_Callable_" data-uid="Godot.PhysicsServer2D.BodySetStateSyncCallback(Godot.Rid,Godot.Callable)">
+  BodySetStateSyncCallback(Rid, Callable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the body's state synchronization callback function to <code class="paramref">callable</code>. Use an empty <a class="xref" href="Godot.Callable.html">Callable</a> (<code>Callable()</code>) to clear the callback.</p>
+<p>The function <code class="paramref">callable</code> will be called every physics frame, assuming that the body was active during the previous physics tick, and can be used to fetch the latest state from the physics server.</p>
+<p>The function <code class="paramref">callable</code> must take the following parameters:</p>
+<p>1. <code>state</code>: a <a class="xref" href="Godot.PhysicsDirectBodyState2D.html">PhysicsDirectBodyState2D</a>, used to retrieve the body's state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BodySetStateSyncCallback(Rid body, Callable callable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>callable</code> <a class="xref" href="Godot.Callable.html">Callable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_BodyTestMotion_" data-uid="Godot.PhysicsServer2D.BodyTestMotion*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_BodyTestMotion_Godot_Rid_Godot_PhysicsTestMotionParameters2D_Godot_PhysicsTestMotionResult2D_" data-uid="Godot.PhysicsServer2D.BodyTestMotion(Godot.Rid,Godot.PhysicsTestMotionParameters2D,Godot.PhysicsTestMotionResult2D)">
+  BodyTestMotion(Rid, PhysicsTestMotionParameters2D, PhysicsTestMotionResult2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if a collision would result from moving the body along a motion vector from a given point in space. See <a class="xref" href="Godot.PhysicsTestMotionParameters2D.html">PhysicsTestMotionParameters2D</a> for the available motion parameters. Optionally a <a class="xref" href="Godot.PhysicsTestMotionResult2D.html">PhysicsTestMotionResult2D</a> object can be passed, which will be used to store the information about the resulting collision.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool BodyTestMotion(Rid body, PhysicsTestMotionParameters2D parameters, PhysicsTestMotionResult2D result = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>body</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>parameters</code> <a class="xref" href="Godot.PhysicsTestMotionParameters2D.html">PhysicsTestMotionParameters2D</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="Godot.PhysicsTestMotionResult2D.html">PhysicsTestMotionResult2D</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_CapsuleShapeCreate_" data-uid="Godot.PhysicsServer2D.CapsuleShapeCreate*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_CapsuleShapeCreate" data-uid="Godot.PhysicsServer2D.CapsuleShapeCreate">
+  CapsuleShapeCreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 2D capsule shape in the physics server, and returns the <a class="xref" href="Godot.Rid.html">Rid</a> that identifies it. Use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_ShapeSetData_Godot_Rid_Godot_Variant_">ShapeSetData(Rid, Variant)</a> to set the capsule's height and radius.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid CapsuleShapeCreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_CircleShapeCreate_" data-uid="Godot.PhysicsServer2D.CircleShapeCreate*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_CircleShapeCreate" data-uid="Godot.PhysicsServer2D.CircleShapeCreate">
+  CircleShapeCreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 2D circle shape in the physics server, and returns the <a class="xref" href="Godot.Rid.html">Rid</a> that identifies it. Use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_ShapeSetData_Godot_Rid_Godot_Variant_">ShapeSetData(Rid, Variant)</a> to set the circle's radius.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid CircleShapeCreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_ConcavePolygonShapeCreate_" data-uid="Godot.PhysicsServer2D.ConcavePolygonShapeCreate*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_ConcavePolygonShapeCreate" data-uid="Godot.PhysicsServer2D.ConcavePolygonShapeCreate">
+  ConcavePolygonShapeCreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 2D concave polygon shape in the physics server, and returns the <a class="xref" href="Godot.Rid.html">Rid</a> that identifies it. Use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_ShapeSetData_Godot_Rid_Godot_Variant_">ShapeSetData(Rid, Variant)</a> to set the concave polygon's segments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid ConcavePolygonShapeCreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_ConvexPolygonShapeCreate_" data-uid="Godot.PhysicsServer2D.ConvexPolygonShapeCreate*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_ConvexPolygonShapeCreate" data-uid="Godot.PhysicsServer2D.ConvexPolygonShapeCreate">
+  ConvexPolygonShapeCreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 2D convex polygon shape in the physics server, and returns the <a class="xref" href="Godot.Rid.html">Rid</a> that identifies it. Use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_ShapeSetData_Godot_Rid_Godot_Variant_">ShapeSetData(Rid, Variant)</a> to set the convex polygon's points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid ConvexPolygonShapeCreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_DampedSpringJointGetParam_" data-uid="Godot.PhysicsServer2D.DampedSpringJointGetParam*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_DampedSpringJointGetParam_Godot_Rid_Godot_PhysicsServer2D_DampedSpringParam_" data-uid="Godot.PhysicsServer2D.DampedSpringJointGetParam(Godot.Rid,Godot.PhysicsServer2D.DampedSpringParam)">
+  DampedSpringJointGetParam(Rid, DampedSpringParam)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the value of the given damped spring joint parameter. See <a class="xref" href="Godot.PhysicsServer2D.DampedSpringParam.html">PhysicsServer2D.DampedSpringParam</a> for the list of available parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DampedSpringJointGetParam(Rid joint, PhysicsServer2D.DampedSpringParam param)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>param</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.DampedSpringParam.html">DampedSpringParam</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_DampedSpringJointSetParam_" data-uid="Godot.PhysicsServer2D.DampedSpringJointSetParam*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_DampedSpringJointSetParam_Godot_Rid_Godot_PhysicsServer2D_DampedSpringParam_System_Single_" data-uid="Godot.PhysicsServer2D.DampedSpringJointSetParam(Godot.Rid,Godot.PhysicsServer2D.DampedSpringParam,System.Single)">
+  DampedSpringJointSetParam(Rid, DampedSpringParam, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the value of the given damped spring joint parameter. See <a class="xref" href="Godot.PhysicsServer2D.DampedSpringParam.html">PhysicsServer2D.DampedSpringParam</a> for the list of available parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DampedSpringJointSetParam(Rid joint, PhysicsServer2D.DampedSpringParam param, float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>param</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.DampedSpringParam.html">DampedSpringParam</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_FreeRid_" data-uid="Godot.PhysicsServer2D.FreeRid*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_FreeRid_Godot_Rid_" data-uid="Godot.PhysicsServer2D.FreeRid(Godot.Rid)">
+  FreeRid(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Destroys any of the objects created by PhysicsServer2D. If the <a class="xref" href="Godot.Rid.html">Rid</a> passed is not one of the objects that can be created by PhysicsServer2D, an error will be printed to the console.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FreeRid(Rid rid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rid</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_GetProcessInfo_" data-uid="Godot.PhysicsServer2D.GetProcessInfo*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_GetProcessInfo_Godot_PhysicsServer2D_ProcessInfo_" data-uid="Godot.PhysicsServer2D.GetProcessInfo(Godot.PhysicsServer2D.ProcessInfo)">
+  GetProcessInfo(ProcessInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns information about the current state of the 2D physics engine. See <a class="xref" href="Godot.PhysicsServer2D.ProcessInfo.html">PhysicsServer2D.ProcessInfo</a> for the list of available states.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetProcessInfo(PhysicsServer2D.ProcessInfo processInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>processInfo</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.ProcessInfo.html">ProcessInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_JointClear_" data-uid="Godot.PhysicsServer2D.JointClear*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_JointClear_Godot_Rid_" data-uid="Godot.PhysicsServer2D.JointClear(Godot.Rid)">
+  JointClear(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Destroys the joint with the given <a class="xref" href="Godot.Rid.html">Rid</a>, creates a new uninitialized joint, and makes the <a class="xref" href="Godot.Rid.html">Rid</a> refer to this new joint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void JointClear(Rid joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_JointCreate_" data-uid="Godot.PhysicsServer2D.JointCreate*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_JointCreate" data-uid="Godot.PhysicsServer2D.JointCreate">
+  JointCreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 2D joint in the physics server, and returns the <a class="xref" href="Godot.Rid.html">Rid</a> that identifies it. To set the joint type, use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_JointMakeDampedSpring_Godot_Rid_Godot_Vector2_Godot_Vector2_Godot_Rid_Godot_Rid_">JointMakeDampedSpring(Rid, Vector2, Vector2, Rid, Rid)</a>, <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_JointMakeGroove_Godot_Rid_Godot_Vector2_Godot_Vector2_Godot_Vector2_Godot_Rid_Godot_Rid_">JointMakeGroove(Rid, Vector2, Vector2, Vector2, Rid, Rid)</a> or <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_JointMakePin_Godot_Rid_Godot_Vector2_Godot_Rid_Godot_Rid_">JointMakePin(Rid, Vector2, Rid, Rid)</a>. Use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_JointSetParam_Godot_Rid_Godot_PhysicsServer2D_JointParam_System_Single_">JointSetParam(Rid, JointParam, float)</a> to set generic joint parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid JointCreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_JointDisableCollisionsBetweenBodies_" data-uid="Godot.PhysicsServer2D.JointDisableCollisionsBetweenBodies*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_JointDisableCollisionsBetweenBodies_Godot_Rid_System_Boolean_" data-uid="Godot.PhysicsServer2D.JointDisableCollisionsBetweenBodies(Godot.Rid,System.Boolean)">
+  JointDisableCollisionsBetweenBodies(Rid, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the bodies attached to the <a class="xref" href="Godot.Joint2D.html">Joint2D</a> will collide with each other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void JointDisableCollisionsBetweenBodies(Rid joint, bool disable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>disable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_JointGetParam_" data-uid="Godot.PhysicsServer2D.JointGetParam*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_JointGetParam_Godot_Rid_Godot_PhysicsServer2D_JointParam_" data-uid="Godot.PhysicsServer2D.JointGetParam(Godot.Rid,Godot.PhysicsServer2D.JointParam)">
+  JointGetParam(Rid, JointParam)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the value of the given joint parameter. See <a class="xref" href="Godot.PhysicsServer2D.JointParam.html">PhysicsServer2D.JointParam</a> for the list of available parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float JointGetParam(Rid joint, PhysicsServer2D.JointParam param)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>param</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.JointParam.html">JointParam</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_JointGetType_" data-uid="Godot.PhysicsServer2D.JointGetType*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_JointGetType_Godot_Rid_" data-uid="Godot.PhysicsServer2D.JointGetType(Godot.Rid)">
+  JointGetType(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the joint's type (see <a class="xref" href="Godot.PhysicsServer2D.JointType.html">PhysicsServer2D.JointType</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PhysicsServer2D.JointType JointGetType(Rid joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.JointType.html">JointType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_JointIsDisabledCollisionsBetweenBodies_" data-uid="Godot.PhysicsServer2D.JointIsDisabledCollisionsBetweenBodies*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_JointIsDisabledCollisionsBetweenBodies_Godot_Rid_" data-uid="Godot.PhysicsServer2D.JointIsDisabledCollisionsBetweenBodies(Godot.Rid)">
+  JointIsDisabledCollisionsBetweenBodies(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether the bodies attached to the <a class="xref" href="Godot.Joint2D.html">Joint2D</a> will collide with each other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool JointIsDisabledCollisionsBetweenBodies(Rid joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_JointMakeDampedSpring_" data-uid="Godot.PhysicsServer2D.JointMakeDampedSpring*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_JointMakeDampedSpring_Godot_Rid_Godot_Vector2_Godot_Vector2_Godot_Rid_Godot_Rid_" data-uid="Godot.PhysicsServer2D.JointMakeDampedSpring(Godot.Rid,Godot.Vector2,Godot.Vector2,Godot.Rid,Godot.Rid)">
+  JointMakeDampedSpring(Rid, Vector2, Vector2, Rid, Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Makes the joint a damped spring joint, attached at the point <code class="paramref">anchorA</code> (given in global coordinates) on the body <code class="paramref">bodyA</code> and at the point <code class="paramref">anchorB</code> (given in global coordinates) on the body <code class="paramref">bodyB</code>. To set the parameters which are specific to the damped spring, see <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_DampedSpringJointSetParam_Godot_Rid_Godot_PhysicsServer2D_DampedSpringParam_System_Single_">DampedSpringJointSetParam(Rid, DampedSpringParam, float)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void JointMakeDampedSpring(Rid joint, Vector2 anchorA, Vector2 anchorB, Rid bodyA, Rid bodyB = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>anchorA</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>anchorB</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>bodyA</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>bodyB</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_JointMakeGroove_" data-uid="Godot.PhysicsServer2D.JointMakeGroove*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_JointMakeGroove_Godot_Rid_Godot_Vector2_Godot_Vector2_Godot_Vector2_Godot_Rid_Godot_Rid_" data-uid="Godot.PhysicsServer2D.JointMakeGroove(Godot.Rid,Godot.Vector2,Godot.Vector2,Godot.Vector2,Godot.Rid,Godot.Rid)">
+  JointMakeGroove(Rid, Vector2, Vector2, Vector2, Rid, Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Makes the joint a groove joint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void JointMakeGroove(Rid joint, Vector2 groove1A, Vector2 groove2A, Vector2 anchorB, Rid bodyA = default, Rid bodyB = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>groove1A</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>groove2A</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>anchorB</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>bodyA</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>bodyB</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_JointMakePin_" data-uid="Godot.PhysicsServer2D.JointMakePin*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_JointMakePin_Godot_Rid_Godot_Vector2_Godot_Rid_Godot_Rid_" data-uid="Godot.PhysicsServer2D.JointMakePin(Godot.Rid,Godot.Vector2,Godot.Rid,Godot.Rid)">
+  JointMakePin(Rid, Vector2, Rid, Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Makes the joint a pin joint. If <code class="paramref">bodyB</code> is an empty <a class="xref" href="Godot.Rid.html">Rid</a>, then <code class="paramref">bodyA</code> is pinned to the point <code class="paramref">anchor</code> (given in global coordinates); otherwise, <code class="paramref">bodyA</code> is pinned to <code class="paramref">bodyB</code> at the point <code class="paramref">anchor</code> (given in global coordinates). To set the parameters which are specific to the pin joint, see <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_PinJointSetParam_Godot_Rid_Godot_PhysicsServer2D_PinJointParam_System_Single_">PinJointSetParam(Rid, PinJointParam, float)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void JointMakePin(Rid joint, Vector2 anchor, Rid bodyA, Rid bodyB = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>anchor</code> <a class="xref" href="Godot.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>bodyA</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>bodyB</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_JointSetParam_" data-uid="Godot.PhysicsServer2D.JointSetParam*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_JointSetParam_Godot_Rid_Godot_PhysicsServer2D_JointParam_System_Single_" data-uid="Godot.PhysicsServer2D.JointSetParam(Godot.Rid,Godot.PhysicsServer2D.JointParam,System.Single)">
+  JointSetParam(Rid, JointParam, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the value of the given joint parameter. See <a class="xref" href="Godot.PhysicsServer2D.JointParam.html">PhysicsServer2D.JointParam</a> for the list of available parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void JointSetParam(Rid joint, PhysicsServer2D.JointParam param, float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>param</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.JointParam.html">JointParam</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_PinJointGetFlag_" data-uid="Godot.PhysicsServer2D.PinJointGetFlag*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_PinJointGetFlag_Godot_Rid_Godot_PhysicsServer2D_PinJointFlag_" data-uid="Godot.PhysicsServer2D.PinJointGetFlag(Godot.Rid,Godot.PhysicsServer2D.PinJointFlag)">
+  PinJointGetFlag(Rid, PinJointFlag)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a pin joint flag (see <a class="xref" href="Godot.PhysicsServer2D.PinJointFlag.html">PhysicsServer2D.PinJointFlag</a> constants).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool PinJointGetFlag(Rid joint, PhysicsServer2D.PinJointFlag flag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>flag</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.PinJointFlag.html">PinJointFlag</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_PinJointGetParam_" data-uid="Godot.PhysicsServer2D.PinJointGetParam*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_PinJointGetParam_Godot_Rid_Godot_PhysicsServer2D_PinJointParam_" data-uid="Godot.PhysicsServer2D.PinJointGetParam(Godot.Rid,Godot.PhysicsServer2D.PinJointParam)">
+  PinJointGetParam(Rid, PinJointParam)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the value of a pin joint parameter. See <a class="xref" href="Godot.PhysicsServer2D.PinJointParam.html">PhysicsServer2D.PinJointParam</a> for a list of available parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float PinJointGetParam(Rid joint, PhysicsServer2D.PinJointParam param)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>param</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.PinJointParam.html">PinJointParam</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_PinJointSetFlag_" data-uid="Godot.PhysicsServer2D.PinJointSetFlag*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_PinJointSetFlag_Godot_Rid_Godot_PhysicsServer2D_PinJointFlag_System_Boolean_" data-uid="Godot.PhysicsServer2D.PinJointSetFlag(Godot.Rid,Godot.PhysicsServer2D.PinJointFlag,System.Boolean)">
+  PinJointSetFlag(Rid, PinJointFlag, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a pin joint flag (see <a class="xref" href="Godot.PhysicsServer2D.PinJointFlag.html">PhysicsServer2D.PinJointFlag</a> constants).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void PinJointSetFlag(Rid joint, PhysicsServer2D.PinJointFlag flag, bool enabled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>flag</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.PinJointFlag.html">PinJointFlag</a></dt>
+    <dd></dd>
+    <dt><code>enabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_PinJointSetParam_" data-uid="Godot.PhysicsServer2D.PinJointSetParam*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_PinJointSetParam_Godot_Rid_Godot_PhysicsServer2D_PinJointParam_System_Single_" data-uid="Godot.PhysicsServer2D.PinJointSetParam(Godot.Rid,Godot.PhysicsServer2D.PinJointParam,System.Single)">
+  PinJointSetParam(Rid, PinJointParam, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a pin joint parameter. See <a class="xref" href="Godot.PhysicsServer2D.PinJointParam.html">PhysicsServer2D.PinJointParam</a> for a list of available parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void PinJointSetParam(Rid joint, PhysicsServer2D.PinJointParam param, float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>param</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.PinJointParam.html">PinJointParam</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_RectangleShapeCreate_" data-uid="Godot.PhysicsServer2D.RectangleShapeCreate*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_RectangleShapeCreate" data-uid="Godot.PhysicsServer2D.RectangleShapeCreate">
+  RectangleShapeCreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 2D rectangle shape in the physics server, and returns the <a class="xref" href="Godot.Rid.html">Rid</a> that identifies it. Use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_ShapeSetData_Godot_Rid_Godot_Variant_">ShapeSetData(Rid, Variant)</a> to set the rectangle's half-extents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid RectangleShapeCreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_SegmentShapeCreate_" data-uid="Godot.PhysicsServer2D.SegmentShapeCreate*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_SegmentShapeCreate" data-uid="Godot.PhysicsServer2D.SegmentShapeCreate">
+  SegmentShapeCreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 2D segment shape in the physics server, and returns the <a class="xref" href="Godot.Rid.html">Rid</a> that identifies it. Use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_ShapeSetData_Godot_Rid_Godot_Variant_">ShapeSetData(Rid, Variant)</a> to set the segment's start and end points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid SegmentShapeCreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_SeparationRayShapeCreate_" data-uid="Godot.PhysicsServer2D.SeparationRayShapeCreate*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_SeparationRayShapeCreate" data-uid="Godot.PhysicsServer2D.SeparationRayShapeCreate">
+  SeparationRayShapeCreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 2D separation ray shape in the physics server, and returns the <a class="xref" href="Godot.Rid.html">Rid</a> that identifies it. Use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_ShapeSetData_Godot_Rid_Godot_Variant_">ShapeSetData(Rid, Variant)</a> to set the shape's <code>length</code> and <code>slide_on_slope</code> properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid SeparationRayShapeCreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_SetActive_" data-uid="Godot.PhysicsServer2D.SetActive*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_SetActive_System_Boolean_" data-uid="Godot.PhysicsServer2D.SetActive(System.Boolean)">
+  SetActive(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Activates or deactivates the 2D physics server. If <code class="paramref">active</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, then the physics server will not do anything in its physics step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetActive(bool active)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>active</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_ShapeGetData_" data-uid="Godot.PhysicsServer2D.ShapeGetData*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_ShapeGetData_Godot_Rid_" data-uid="Godot.PhysicsServer2D.ShapeGetData(Godot.Rid)">
+  ShapeGetData(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the shape data that defines the configuration of the shape, such as the half-extents of a rectangle or the segments of a concave shape. See <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_ShapeSetData_Godot_Rid_Godot_Variant_">ShapeSetData(Rid, Variant)</a> for the precise format of this data in each case.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Variant ShapeGetData(Rid shape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shape</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_ShapeGetType_" data-uid="Godot.PhysicsServer2D.ShapeGetType*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_ShapeGetType_Godot_Rid_" data-uid="Godot.PhysicsServer2D.ShapeGetType(Godot.Rid)">
+  ShapeGetType(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the shape's type (see <a class="xref" href="Godot.PhysicsServer2D.ShapeType.html">PhysicsServer2D.ShapeType</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PhysicsServer2D.ShapeType ShapeGetType(Rid shape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shape</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.ShapeType.html">ShapeType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_ShapeSetData_" data-uid="Godot.PhysicsServer2D.ShapeSetData*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_ShapeSetData_Godot_Rid_Godot_Variant_" data-uid="Godot.PhysicsServer2D.ShapeSetData(Godot.Rid,Godot.Variant)">
+  ShapeSetData(Rid, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the shape data that defines the configuration of the shape. The <code class="paramref">data</code> to be passed depends on the shape's type (see <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_ShapeGetType_Godot_Rid_">ShapeGetType(Rid)</a>):</p>
+<p>- <a class="xref" href="Godot.PhysicsServer2D.ShapeType.html#Godot_PhysicsServer2D_ShapeType_WorldBoundary">WorldBoundary</a>: an array of length two containing a <a class="xref" href="Godot.Vector2.html">Vector2</a><code>normal</code> direction and a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> distance <code>d</code>,</p>
+<p>- <a class="xref" href="Godot.PhysicsServer2D.ShapeType.html#Godot_PhysicsServer2D_ShapeType_SeparationRay">SeparationRay</a>: a dictionary containing the key <code>length</code> with a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a> value and the key <code>slide_on_slope</code> with a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> value,</p>
+<p>- <a class="xref" href="Godot.PhysicsServer2D.ShapeType.html#Godot_PhysicsServer2D_ShapeType_Segment">Segment</a>: a <a class="xref" href="Godot.Rect2.html">Rect2</a><code>rect</code> containing the first point of the segment in <code>rect.position</code> and the second point of the segment in <code>rect.size</code>,</p>
+<p>- <a class="xref" href="Godot.PhysicsServer2D.ShapeType.html#Godot_PhysicsServer2D_ShapeType_Circle">Circle</a>: a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a><code>radius</code>,</p>
+<p>- <a class="xref" href="Godot.PhysicsServer2D.ShapeType.html#Godot_PhysicsServer2D_ShapeType_Rectangle">Rectangle</a>: a <a class="xref" href="Godot.Vector2.html">Vector2</a><code>half_extents</code>,</p>
+<p>- <a class="xref" href="Godot.PhysicsServer2D.ShapeType.html#Godot_PhysicsServer2D_ShapeType_Capsule">Capsule</a>: an array of length two (or a <a class="xref" href="Godot.Vector2.html">Vector2</a>) containing a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a><code>height</code> and a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a><code>radius</code>,</p>
+<p>- <a class="xref" href="Godot.PhysicsServer2D.ShapeType.html#Godot_PhysicsServer2D_ShapeType_ConvexPolygon">ConvexPolygon</a>: either a <a class="xref" href="Godot.Vector2.html">Vector2</a>[] of points defining a convex polygon in counterclockwise order (the clockwise outward normal of each segment formed by consecutive points is calculated internally), or a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[] of length divisible by four so that every 4-tuple of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>s contains the coordinates of a point followed by the coordinates of the clockwise outward normal vector to the segment between the current point and the next point,</p>
+<p>- <a class="xref" href="Godot.PhysicsServer2D.ShapeType.html#Godot_PhysicsServer2D_ShapeType_ConcavePolygon">ConcavePolygon</a>: a <a class="xref" href="Godot.Vector2.html">Vector2</a>[] of length divisible by two (each pair of points forms one segment).</p>
+<p>
+  <b>Warning:</b> In the case of <a class="xref" href="Godot.PhysicsServer2D.ShapeType.html#Godot_PhysicsServer2D_ShapeType_ConvexPolygon">ConvexPolygon</a>, this method does not check if the points supplied actually form a convex polygon (unlike the <a class="xref" href="Godot.CollisionPolygon2D.html#Godot_CollisionPolygon2D_Polygon">Polygon</a> property).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ShapeSetData(Rid shape, Variant data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shape</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_SpaceCreate_" data-uid="Godot.PhysicsServer2D.SpaceCreate*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_SpaceCreate" data-uid="Godot.PhysicsServer2D.SpaceCreate">
+  SpaceCreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 2D space in the physics server, and returns the <a class="xref" href="Godot.Rid.html">Rid</a> that identifies it. A space contains bodies and areas, and controls the stepping of the physics simulation of the objects in it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid SpaceCreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_SpaceGetDirectState_" data-uid="Godot.PhysicsServer2D.SpaceGetDirectState*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_SpaceGetDirectState_Godot_Rid_" data-uid="Godot.PhysicsServer2D.SpaceGetDirectState(Godot.Rid)">
+  SpaceGetDirectState(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the state of a space, a <a class="xref" href="Godot.PhysicsDirectSpaceState2D.html">PhysicsDirectSpaceState2D</a>. This object can be used for collision/intersection queries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PhysicsDirectSpaceState2D SpaceGetDirectState(Rid space)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>space</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.PhysicsDirectSpaceState2D.html">PhysicsDirectSpaceState2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_SpaceGetParam_" data-uid="Godot.PhysicsServer2D.SpaceGetParam*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_SpaceGetParam_Godot_Rid_Godot_PhysicsServer2D_SpaceParameter_" data-uid="Godot.PhysicsServer2D.SpaceGetParam(Godot.Rid,Godot.PhysicsServer2D.SpaceParameter)">
+  SpaceGetParam(Rid, SpaceParameter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the value of the given space parameter. See <a class="xref" href="Godot.PhysicsServer2D.SpaceParameter.html">PhysicsServer2D.SpaceParameter</a> for the list of available parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SpaceGetParam(Rid space, PhysicsServer2D.SpaceParameter param)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>space</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>param</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.SpaceParameter.html">SpaceParameter</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_SpaceIsActive_" data-uid="Godot.PhysicsServer2D.SpaceIsActive*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_SpaceIsActive_Godot_Rid_" data-uid="Godot.PhysicsServer2D.SpaceIsActive(Godot.Rid)">
+  SpaceIsActive(Rid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the space is active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SpaceIsActive(Rid space)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>space</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_SpaceSetActive_" data-uid="Godot.PhysicsServer2D.SpaceSetActive*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_SpaceSetActive_Godot_Rid_System_Boolean_" data-uid="Godot.PhysicsServer2D.SpaceSetActive(Godot.Rid,System.Boolean)">
+  SpaceSetActive(Rid, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Activates or deactivates the space. If <code class="paramref">active</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, then the physics server will not do anything with this space in its physics step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SpaceSetActive(Rid space, bool active)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>space</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>active</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_SpaceSetParam_" data-uid="Godot.PhysicsServer2D.SpaceSetParam*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_SpaceSetParam_Godot_Rid_Godot_PhysicsServer2D_SpaceParameter_System_Single_" data-uid="Godot.PhysicsServer2D.SpaceSetParam(Godot.Rid,Godot.PhysicsServer2D.SpaceParameter,System.Single)">
+  SpaceSetParam(Rid, SpaceParameter, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the value of the given space parameter. See <a class="xref" href="Godot.PhysicsServer2D.SpaceParameter.html">PhysicsServer2D.SpaceParameter</a> for the list of available parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SpaceSetParam(Rid space, PhysicsServer2D.SpaceParameter param, float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>space</code> <a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+    <dt><code>param</code> <a class="xref" href="Godot.PhysicsServer2D.html">PhysicsServer2D</a>.<a class="xref" href="Godot.PhysicsServer2D.SpaceParameter.html">SpaceParameter</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_PhysicsServer2D_WorldBoundaryShapeCreate_" data-uid="Godot.PhysicsServer2D.WorldBoundaryShapeCreate*"></a>
+
+  <h3 id="Godot_PhysicsServer2D_WorldBoundaryShapeCreate" data-uid="Godot.PhysicsServer2D.WorldBoundaryShapeCreate">
+  WorldBoundaryShapeCreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a 2D world boundary shape in the physics server, and returns the <a class="xref" href="Godot.Rid.html">Rid</a> that identifies it. Use <a class="xref" href="Godot.PhysicsServer2D.html#Godot_PhysicsServer2D_ShapeSetData_Godot_Rid_Godot_Variant_">ShapeSetData(Rid, Variant)</a> to set the shape's normal direction and distance properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rid WorldBoundaryShapeCreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Rid.html">Rid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/PhysicsServer2D.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

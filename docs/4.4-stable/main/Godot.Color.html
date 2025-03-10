@@ -1,0 +1,2711 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Color | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Color | Godot4 C# API ">
+      
+      <meta name="description" content="A color represented by red, green, blue, and alpha (RGBA) components. The alpha component is often used for transparency. Values are in floating-point and usually range from 0 to 1. Some properties (such as ) may accept values greater than 1 (overbright or HDR colors). If you want to supply values in a range of 0 to 255, you should use  and the r8/g8/b8/a8 properties.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.Color">
+
+
+
+  <h1 id="Godot_Color" data-uid="Godot.Color" class="text-break">
+Struct Color  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A color represented by red, green, blue, and alpha (RGBA) components.
+The alpha component is often used for transparency.
+Values are in floating-point and usually range from 0 to 1.
+Some properties (such as <a class="xref" href="Godot.CanvasItem.html#Godot_CanvasItem_Modulate">Modulate</a>) may accept values
+greater than 1 (overbright or HDR colors).</p>
+<p>If you want to supply values in a range of 0 to 255, you should use
+<a class="xref" href="Godot.Color.html#Godot_Color_Color8_System_Byte_System_Byte_System_Byte_System_Byte_">Color8(byte, byte, byte, byte)</a> and the <code>r8</code>/<code>g8</code>/<code>b8</code>/<code>a8</code> properties.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct Color : IEquatable&lt;Color&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Godot.Color.html">Color</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_Color__ctor_" data-uid="Godot.Color.#ctor*"></a>
+
+  <h3 id="Godot_Color__ctor_Godot_Color_System_Single_" data-uid="Godot.Color.#ctor(Godot.Color,System.Single)">
+  Color(Color, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Godot.Color.html">Color</a> from an existing color and an alpha value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color(Color c, float a = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The color to construct from. Only its RGB values are used.</p>
+</dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The color's alpha value, typically on the range of 0 to 1.
+A value of 0 means that the color is fully transparent.
+A value of 1 means that the color is fully opaque.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color__ctor_" data-uid="Godot.Color.#ctor*"></a>
+
+  <h3 id="Godot_Color__ctor_System_Single_System_Single_System_Single_System_Single_" data-uid="Godot.Color.#ctor(System.Single,System.Single,System.Single,System.Single)">
+  Color(float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Godot.Color.html">Color</a> from RGBA values, typically on the range of 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color(float r, float g, float b, float a = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The color's red component, typically on the range of 0 to 1.</p>
+</dd>
+    <dt><code>g</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The color's green component, typically on the range of 0 to 1.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The color's blue component, typically on the range of 0 to 1.</p>
+</dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The color's alpha value, typically on the range of 0 to 1.
+A value of 0 means that the color is fully transparent.
+A value of 1 means that the color is fully opaque.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color__ctor_" data-uid="Godot.Color.#ctor*"></a>
+
+  <h3 id="Godot_Color__ctor_System_String_" data-uid="Godot.Color.#ctor(System.String)">
+  Color(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Godot.Color.html">Color</a> either from an HTML color code or from a
+standardized color name. Supported color names are the same as the
+<a class="xref" href="Godot.Colors.html">Colors</a> constants.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color(string code)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>code</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The HTML color code or color name to construct from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>A color cannot be inferred from the given <code class="paramref">code</code>.
+It was invalid HTML and a color with that name was not found.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Godot_Color__ctor_" data-uid="Godot.Color.#ctor*"></a>
+
+  <h3 id="Godot_Color__ctor_System_String_System_Single_" data-uid="Godot.Color.#ctor(System.String,System.Single)">
+  Color(string, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Godot.Color.html">Color</a> either from an HTML color code or from a
+standardized color name, with <code class="paramref">alpha</code> on the range of 0 to 1. Supported
+color names are the same as the <a class="xref" href="Godot.Colors.html">Colors</a> constants.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color(string code, float alpha)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>code</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The HTML color code or color name to construct from.</p>
+</dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The alpha (transparency) value, typically on the range of 0 to 1.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color__ctor_" data-uid="Godot.Color.#ctor*"></a>
+
+  <h3 id="Godot_Color__ctor_System_UInt32_" data-uid="Godot.Color.#ctor(System.UInt32)">
+  Color(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Godot.Color.html">Color</a> from an unsigned 32-bit integer in RGBA format
+(each byte represents a color channel).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color(uint rgba)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rgba</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>The <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">uint</a> representing the color as 0xRRGGBBAA.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color__ctor_" data-uid="Godot.Color.#ctor*"></a>
+
+  <h3 id="Godot_Color__ctor_System_UInt64_" data-uid="Godot.Color.#ctor(System.UInt64)">
+  Color(ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Godot.Color.html">Color</a> from an unsigned 64-bit integer in RGBA format
+(each word represents a color channel).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color(ulong rgba)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rgba</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">ulong</a> representing the color as 0xRRRRGGGGBBBBAAAA.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Godot_Color_A" data-uid="Godot.Color.A">
+  A
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The color's alpha component, typically on the range of 0 to 1.
+A value of 0 means that the color is fully transparent.
+A value of 1 means that the color is fully opaque.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float A</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Godot_Color_B" data-uid="Godot.Color.B">
+  B
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The color's blue component, typically on the range of 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float B</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Godot_Color_G" data-uid="Godot.Color.G">
+  G
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The color's green component, typically on the range of 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float G</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Godot_Color_R" data-uid="Godot.Color.R">
+  R
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The color's red component, typically on the range of 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float R</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_Color_A8_" data-uid="Godot.Color.A8*"></a>
+
+  <h3 id="Godot_Color_A8" data-uid="Godot.Color.A8">
+  A8
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wrapper for <a class="xref" href="Godot.Color.html#Godot_Color_A">A</a> that uses the range 0 to 255 instead of 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int A8 { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Getting is equivalent to multiplying by 255 and rounding. Setting is equivalent to dividing by 255.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_B8_" data-uid="Godot.Color.B8*"></a>
+
+  <h3 id="Godot_Color_B8" data-uid="Godot.Color.B8">
+  B8
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wrapper for <a class="xref" href="Godot.Color.html#Godot_Color_B">B</a> that uses the range 0 to 255 instead of 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int B8 { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Getting is equivalent to multiplying by 255 and rounding. Setting is equivalent to dividing by 255.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_G8_" data-uid="Godot.Color.G8*"></a>
+
+  <h3 id="Godot_Color_G8" data-uid="Godot.Color.G8">
+  G8
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wrapper for <a class="xref" href="Godot.Color.html#Godot_Color_G">G</a> that uses the range 0 to 255 instead of 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int G8 { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Getting is equivalent to multiplying by 255 and rounding. Setting is equivalent to dividing by 255.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_H_" data-uid="Godot.Color.H*"></a>
+
+  <h3 id="Godot_Color_H" data-uid="Godot.Color.H">
+  H
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The HSV hue of this color, on the range 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float H { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Getting is a long process, refer to the source code for details. Setting uses <a class="xref" href="Godot.Color.html#Godot_Color_FromHsv_System_Single_System_Single_System_Single_System_Single_">FromHsv(float, float, float, float)</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_Item_" data-uid="Godot.Color.Item*"></a>
+
+  <h3 id="Godot_Color_Item_System_Int32_" data-uid="Godot.Color.Item(System.Int32)">
+  this[int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Access color components using their index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float this[int index] { readonly get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p><code>[0]</code> is equivalent to <a class="xref" href="Godot.Color.html#Godot_Color_R">R</a>,
+<code>[1]</code> is equivalent to <a class="xref" href="Godot.Color.html#Godot_Color_G">G</a>,
+<code>[2]</code> is equivalent to <a class="xref" href="Godot.Color.html#Godot_Color_B">B</a>,
+<code>[3]</code> is equivalent to <a class="xref" href="Godot.Color.html#Godot_Color_A">A</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_Luminance_" data-uid="Godot.Color.Luminance*"></a>
+
+  <h3 id="Godot_Color_Luminance" data-uid="Godot.Color.Luminance">
+  Luminance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the light intensity of the color, as a value between 0.0 and 1.0 (inclusive).
+This is useful when determining light or dark color. Colors with a luminance smaller
+than 0.5 can be generally considered dark.
+Note: <a class="xref" href="Godot.Color.html#Godot_Color_Luminance">Luminance</a> relies on the color being in the linear color space to
+return an accurate relative luminance value. If the color is in the sRGB color space
+use <a class="xref" href="Godot.Color.html#Godot_Color_SrgbToLinear">SrgbToLinear()</a> to convert it to the linear color space first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float Luminance { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_OkHslH_" data-uid="Godot.Color.OkHslH*"></a>
+
+  <h3 id="Godot_Color_OkHslH" data-uid="Godot.Color.OkHslH">
+  OkHslH
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The OKHSL hue of this color, on the range 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float OkHslH { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_OkHslL_" data-uid="Godot.Color.OkHslL*"></a>
+
+  <h3 id="Godot_Color_OkHslL" data-uid="Godot.Color.OkHslL">
+  OkHslL
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The OKHSL lightness of this color, on the range 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float OkHslL { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_OkHslS_" data-uid="Godot.Color.OkHslS*"></a>
+
+  <h3 id="Godot_Color_OkHslS" data-uid="Godot.Color.OkHslS">
+  OkHslS
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The OKHSL saturation of this color, on the range 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float OkHslS { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_R8_" data-uid="Godot.Color.R8*"></a>
+
+  <h3 id="Godot_Color_R8" data-uid="Godot.Color.R8">
+  R8
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wrapper for <a class="xref" href="Godot.Color.html#Godot_Color_R">R</a> that uses the range 0 to 255 instead of 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int R8 { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Getting is equivalent to multiplying by 255 and rounding. Setting is equivalent to dividing by 255.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_S_" data-uid="Godot.Color.S*"></a>
+
+  <h3 id="Godot_Color_S" data-uid="Godot.Color.S">
+  S
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The HSV saturation of this color, on the range 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float S { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Getting is equivalent to the ratio between the min and max RGB value. Setting uses <a class="xref" href="Godot.Color.html#Godot_Color_FromHsv_System_Single_System_Single_System_Single_System_Single_">FromHsv(float, float, float, float)</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_V_" data-uid="Godot.Color.V*"></a>
+
+  <h3 id="Godot_Color_V" data-uid="Godot.Color.V">
+  V
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The HSV value (brightness) of this color, on the range 0 to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float V { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Getting is equivalent to using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.math.max#system-math-max(system-single-system-single)">Max(float, float)</a> on the RGB components. Setting uses <a class="xref" href="Godot.Color.html#Godot_Color_FromHsv_System_Single_System_Single_System_Single_System_Single_">FromHsv(float, float, float, float)</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_Color_Blend_" data-uid="Godot.Color.Blend*"></a>
+
+  <h3 id="Godot_Color_Blend_Godot_Color_" data-uid="Godot.Color.Blend(Godot.Color)">
+  Blend(Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new color resulting from blending this color over another.
+If the color is opaque, the result is also opaque.
+The second color may have a range of alpha values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Color Blend(Color over)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>over</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The color to blend over.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>This color blended over <code class="paramref">over</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_Clamp_" data-uid="Godot.Color.Clamp*"></a>
+
+  <h3 id="Godot_Color_Clamp_System_Nullable_Godot_Color__System_Nullable_Godot_Color__" data-uid="Godot.Color.Clamp(System.Nullable{Godot.Color},System.Nullable{Godot.Color})">
+  Clamp(Color?, Color?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new color with all components clamped between the
+components of <code class="paramref">min</code> and <code class="paramref">max</code>
+using <a class="xref" href="Godot.Mathf.html#Godot_Mathf_Clamp_System_Single_System_Single_System_Single_">Clamp(float, float, float)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Color Clamp(Color? min = null, Color? max = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>min</code> <a class="xref" href="Godot.Color.html">Color</a>?</dt>
+    <dd><p>The color with minimum allowed values.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="Godot.Color.html">Color</a>?</dt>
+    <dd><p>The color with maximum allowed values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The color with all components clamped.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_Color8_" data-uid="Godot.Color.Color8*"></a>
+
+  <h3 id="Godot_Color_Color8_System_Byte_System_Byte_System_Byte_System_Byte_" data-uid="Godot.Color.Color8(System.Byte,System.Byte,System.Byte,System.Byte)">
+  Color8(byte, byte, byte, byte)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a color constructed from integer red, green, blue, and alpha channels.
+Each channel should have 8 bits of information ranging from 0 to 255.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color Color8(byte r8, byte g8, byte b8, byte a8 = 255)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r8</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The red component represented on the range of 0 to 255.</p>
+</dd>
+    <dt><code>g8</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The green component represented on the range of 0 to 255.</p>
+</dd>
+    <dt><code>b8</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The blue component represented on the range of 0 to 255.</p>
+</dd>
+    <dt><code>a8</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The alpha (transparency) component represented on the range of 0 to 255.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The constructed color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_Darkened_" data-uid="Godot.Color.Darkened*"></a>
+
+  <h3 id="Godot_Color_Darkened_System_Single_" data-uid="Godot.Color.Darkened(System.Single)">
+  Darkened(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new color resulting from making this color darker
+by the specified ratio (on the range of 0 to 1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Color Darkened(float amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The ratio to darken by.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The darkened color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_Equals_" data-uid="Godot.Color.Equals*"></a>
+
+  <h3 id="Godot_Color_Equals_Godot_Color_" data-uid="Godot.Color.Equals(Godot.Color)">
+  Equals(Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the colors are exactly equal.
+Note: Due to floating-point precision errors, consider using
+<a class="xref" href="Godot.Color.html#Godot_Color_IsEqualApprox_Godot_Color_">IsEqualApprox(Color)</a> instead, which is more reliable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(Color other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The other color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the colors are equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_Equals_" data-uid="Godot.Color.Equals*"></a>
+
+  <h3 id="Godot_Color_Equals_System_Object_" data-uid="Godot.Color.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this color and <code class="paramref">obj</code> are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The other object to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the color and the other object are equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_FromHsv_" data-uid="Godot.Color.FromHsv*"></a>
+
+  <h3 id="Godot_Color_FromHsv_System_Single_System_Single_System_Single_System_Single_" data-uid="Godot.Color.FromHsv(System.Single,System.Single,System.Single,System.Single)">
+  FromHsv(float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a color from an HSV profile. The <code class="paramref">hue</code>,
+<code class="paramref">saturation</code>, and <code class="paramref">value</code> are typically
+between 0.0 and 1.0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color FromHsv(float hue, float saturation, float value, float alpha = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The HSV hue, typically on the range of 0 to 1.</p>
+</dd>
+    <dt><code>saturation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The HSV saturation, typically on the range of 0 to 1.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The HSV value (brightness), typically on the range of 0 to 1.</p>
+</dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The alpha (transparency) value, typically on the range of 0 to 1.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The constructed color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_FromHtml_" data-uid="Godot.Color.FromHtml*"></a>
+
+  <h3 id="Godot_Color_FromHtml_System_ReadOnlySpan_System_Char__" data-uid="Godot.Color.FromHtml(System.ReadOnlySpan{System.Char})">
+  FromHtml(ReadOnlySpan&lt;char&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Godot.Color.html">Color</a> from the HTML hexadecimal color string in RGBA format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color FromHtml(ReadOnlySpan&lt;char&gt; rgba)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rgba</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>&gt;</dt>
+    <dd><p>A string for the HTML hexadecimal representation of this color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_FromOkHsl_" data-uid="Godot.Color.FromOkHsl*"></a>
+
+  <h3 id="Godot_Color_FromOkHsl_System_Single_System_Single_System_Single_System_Single_" data-uid="Godot.Color.FromOkHsl(System.Single,System.Single,System.Single,System.Single)">
+  FromOkHsl(float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a color from an OK HSL profile. The <code class="paramref">hue</code>,
+<code class="paramref">saturation</code>, and <code class="paramref">lightness</code> are typically
+between 0.0 and 1.0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color FromOkHsl(float hue, float saturation, float lightness, float alpha = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The OK HSL hue, typically on the range of 0 to 1.</p>
+</dd>
+    <dt><code>saturation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The OK HSL saturation, typically on the range of 0 to 1.</p>
+</dd>
+    <dt><code>lightness</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The OK HSL lightness, typically on the range of 0 to 1.</p>
+</dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The alpha (transparency) value, typically on the range of 0 to 1.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The constructed color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_FromRgbe9995_" data-uid="Godot.Color.FromRgbe9995*"></a>
+
+  <h3 id="Godot_Color_FromRgbe9995_System_UInt32_" data-uid="Godot.Color.FromRgbe9995(System.UInt32)">
+  FromRgbe9995(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Encodes a <a class="xref" href="Godot.Color.html">Color</a> from a RGBE9995 format integer.
+See <a class="xref" href="Godot.Image.Format.html#Godot_Image_Format_Rgbe9995">Rgbe9995</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color FromRgbe9995(uint rgbe)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rgbe</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>The RGBE9995 encoded color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The constructed color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_FromString_" data-uid="Godot.Color.FromString*"></a>
+
+  <h3 id="Godot_Color_FromString_System_String_Godot_Color_" data-uid="Godot.Color.FromString(System.String,Godot.Color)">
+  FromString(string, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a color from the given string, which can be either an HTML color
+code or a named color. Returns <code class="paramref">default</code> if the color cannot
+be inferred from the string. Supported color names are the same as the
+<a class="xref" href="Godot.Colors.html">Colors</a> constants.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color FromString(string str, Color @default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The HTML color code or color name.</p>
+</dd>
+    <dt><code>default</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The fallback color to return if the color cannot be inferred.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The constructed color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_GetHashCode_" data-uid="Godot.Color.GetHashCode*"></a>
+
+  <h3 id="Godot_Color_GetHashCode" data-uid="Godot.Color.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the hash function for <a class="xref" href="Godot.Color.html">Color</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for this color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_HtmlIsValid_" data-uid="Godot.Color.HtmlIsValid*"></a>
+
+  <h3 id="Godot_Color_HtmlIsValid_System_ReadOnlySpan_System_Char__" data-uid="Godot.Color.HtmlIsValid(System.ReadOnlySpan{System.Char})">
+  HtmlIsValid(ReadOnlySpan&lt;char&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">color</code> is a valid HTML hexadecimal
+color string. The string must be a hexadecimal value (case-insensitive) of either 3,
+4, 6 or 8 digits, and may be prefixed by a hash sign (<code>#</code>). This method is
+identical to <a class="xref" href="Godot.StringExtensions.html#Godot_StringExtensions_IsValidHtmlColor_System_String_">IsValidHtmlColor(string)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HtmlIsValid(ReadOnlySpan&lt;char&gt; color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>&gt;</dt>
+    <dd><p>The HTML hexadecimal color string.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the string was a valid HTML hexadecimal color string.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_Inverted_" data-uid="Godot.Color.Inverted*"></a>
+
+  <h3 id="Godot_Color_Inverted" data-uid="Godot.Color.Inverted">
+  Inverted()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the inverted color: <code>(1 - r, 1 - g, 1 - b, a)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Color Inverted()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The inverted color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_IsEqualApprox_" data-uid="Godot.Color.IsEqualApprox*"></a>
+
+  <h3 id="Godot_Color_IsEqualApprox_Godot_Color_" data-uid="Godot.Color.IsEqualApprox(Godot.Color)">
+  IsEqualApprox(Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if this color and <code class="paramref">other</code> are approximately equal,
+by running <a class="xref" href="Godot.Mathf.html#Godot_Mathf_IsEqualApprox_System_Single_System_Single_">IsEqualApprox(float, float)</a> on each component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsEqualApprox(Color other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The other color to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the colors are approximately equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_Lerp_" data-uid="Godot.Color.Lerp*"></a>
+
+  <h3 id="Godot_Color_Lerp_Godot_Color_System_Single_" data-uid="Godot.Color.Lerp(Godot.Color,System.Single)">
+  Lerp(Color, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the result of the linear interpolation between
+this color and <code class="paramref">to</code> by amount <code class="paramref">weight</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Color Lerp(Color to, float weight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>to</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The destination color for interpolation.</p>
+</dd>
+    <dt><code>weight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>A value on the range of 0.0 to 1.0, representing the amount of interpolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The resulting color of the interpolation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_Lightened_" data-uid="Godot.Color.Lightened*"></a>
+
+  <h3 id="Godot_Color_Lightened_System_Single_" data-uid="Godot.Color.Lightened(System.Single)">
+  Lightened(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a new color resulting from making this color lighter
+by the specified ratio (on the range of 0 to 1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Color Lightened(float amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The ratio to lighten by.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The lightened color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_LinearToSrgb_" data-uid="Godot.Color.LinearToSrgb*"></a>
+
+  <h3 id="Godot_Color_LinearToSrgb" data-uid="Godot.Color.LinearToSrgb">
+  LinearToSrgb()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the color converted to the sRGB color space.
+This method assumes the original color is in the linear color space.
+See also <a class="xref" href="Godot.Color.html#Godot_Color_SrgbToLinear">SrgbToLinear()</a> which performs the opposite operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Color LinearToSrgb()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The sRGB color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_SrgbToLinear_" data-uid="Godot.Color.SrgbToLinear*"></a>
+
+  <h3 id="Godot_Color_SrgbToLinear" data-uid="Godot.Color.SrgbToLinear">
+  SrgbToLinear()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the color converted to linear color space.
+This method assumes the original color already is in sRGB color space.
+See also <a class="xref" href="Godot.Color.html#Godot_Color_LinearToSrgb">LinearToSrgb()</a> which performs the opposite operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Color SrgbToLinear()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The color in linear color space.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_ToAbgr32_" data-uid="Godot.Color.ToAbgr32*"></a>
+
+  <h3 id="Godot_Color_ToAbgr32" data-uid="Godot.Color.ToAbgr32">
+  ToAbgr32()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the color converted to an unsigned 32-bit integer in ABGR
+format (each byte represents a color channel).
+ABGR is the reversed version of the default format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly uint ToAbgr32()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">uint</a> representing this color in ABGR32 format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_ToAbgr64_" data-uid="Godot.Color.ToAbgr64*"></a>
+
+  <h3 id="Godot_Color_ToAbgr64" data-uid="Godot.Color.ToAbgr64">
+  ToAbgr64()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the color converted to an unsigned 64-bit integer in ABGR
+format (each word represents a color channel).
+ABGR is the reversed version of the default format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly ulong ToAbgr64()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">ulong</a> representing this color in ABGR64 format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_ToArgb32_" data-uid="Godot.Color.ToArgb32*"></a>
+
+  <h3 id="Godot_Color_ToArgb32" data-uid="Godot.Color.ToArgb32">
+  ToArgb32()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the color converted to an unsigned 32-bit integer in ARGB
+format (each byte represents a color channel).
+ARGB is more compatible with DirectX, but not used much in Godot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly uint ToArgb32()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">uint</a> representing this color in ARGB32 format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_ToArgb64_" data-uid="Godot.Color.ToArgb64*"></a>
+
+  <h3 id="Godot_Color_ToArgb64" data-uid="Godot.Color.ToArgb64">
+  ToArgb64()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the color converted to an unsigned 64-bit integer in ARGB
+format (each word represents a color channel).
+ARGB is more compatible with DirectX, but not used much in Godot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly ulong ToArgb64()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">ulong</a> representing this color in ARGB64 format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_ToHsv_" data-uid="Godot.Color.ToHsv*"></a>
+
+  <h3 id="Godot_Color_ToHsv_System_Single__System_Single__System_Single__" data-uid="Godot.Color.ToHsv(System.Single@,System.Single@,System.Single@)">
+  ToHsv(out float, out float, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a color to HSV values. This is equivalent to using each of
+the <code>h</code>/<code>s</code>/<code>v</code> properties, but much more efficient.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly void ToHsv(out float hue, out float saturation, out float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Output parameter for the HSV hue.</p>
+</dd>
+    <dt><code>saturation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Output parameter for the HSV saturation.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Output parameter for the HSV value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_ToHtml_" data-uid="Godot.Color.ToHtml*"></a>
+
+  <h3 id="Godot_Color_ToHtml_System_Boolean_" data-uid="Godot.Color.ToHtml(System.Boolean)">
+  ToHtml(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the color's HTML hexadecimal color string in RGBA format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToHtml(bool includeAlpha = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>includeAlpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not to include alpha. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, the color is RGB instead of RGBA.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string for the HTML hexadecimal representation of this color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_ToRgba32_" data-uid="Godot.Color.ToRgba32*"></a>
+
+  <h3 id="Godot_Color_ToRgba32" data-uid="Godot.Color.ToRgba32">
+  ToRgba32()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the color converted to an unsigned 32-bit integer in RGBA
+format (each byte represents a color channel).
+RGBA is Godot's default and recommended format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly uint ToRgba32()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">uint</a> representing this color in RGBA32 format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_ToRgba64_" data-uid="Godot.Color.ToRgba64*"></a>
+
+  <h3 id="Godot_Color_ToRgba64" data-uid="Godot.Color.ToRgba64">
+  ToRgba64()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the color converted to an unsigned 64-bit integer in RGBA
+format (each word represents a color channel).
+RGBA is Godot's default and recommended format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly ulong ToRgba64()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">ulong</a> representing this color in RGBA64 format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_ToString_" data-uid="Godot.Color.ToString*"></a>
+
+  <h3 id="Godot_Color_ToString" data-uid="Godot.Color.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts this <a class="xref" href="Godot.Color.html">Color</a> to a string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string representation of this color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_ToString_" data-uid="Godot.Color.ToString*"></a>
+
+  <h3 id="Godot_Color_ToString_System_String_" data-uid="Godot.Color.ToString(System.String)">
+  ToString(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts this <a class="xref" href="Godot.Color.html">Color</a> to a string with the given <code class="paramref">format</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string? format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string representation of this color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Godot_Color_op_Addition_" data-uid="Godot.Color.op_Addition*"></a>
+
+  <h3 id="Godot_Color_op_Addition_Godot_Color_Godot_Color_" data-uid="Godot.Color.op_Addition(Godot.Color,Godot.Color)">
+  operator +(Color, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds each component of the <a class="xref" href="Godot.Color.html">Color</a>
+with the components of the given <a class="xref" href="Godot.Color.html">Color</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color operator +(Color left, Color right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The left color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The right color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The added color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_Division_" data-uid="Godot.Color.op_Division*"></a>
+
+  <h3 id="Godot_Color_op_Division_Godot_Color_Godot_Color_" data-uid="Godot.Color.op_Division(Godot.Color,Godot.Color)">
+  operator /(Color, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Divides each component of the <a class="xref" href="Godot.Color.html">Color</a>
+by the components of the given <a class="xref" href="Godot.Color.html">Color</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color operator /(Color left, Color right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The dividend color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The divisor color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The divided color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_Division_" data-uid="Godot.Color.op_Division*"></a>
+
+  <h3 id="Godot_Color_op_Division_Godot_Color_System_Single_" data-uid="Godot.Color.op_Division(Godot.Color,System.Single)">
+  operator /(Color, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Divides each component of the <a class="xref" href="Godot.Color.html">Color</a>
+by the given <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types">float</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color operator /(Color color, float scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The dividend vector.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The divisor value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The divided color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_Equality_" data-uid="Godot.Color.op_Equality*"></a>
+
+  <h3 id="Godot_Color_op_Equality_Godot_Color_Godot_Color_" data-uid="Godot.Color.op_Equality(Godot.Color,Godot.Color)">
+  operator ==(Color, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the colors are exactly equal.
+Note: Due to floating-point precision errors, consider using
+<a class="xref" href="Godot.Color.html#Godot_Color_IsEqualApprox_Godot_Color_">IsEqualApprox(Color)</a> instead, which is more reliable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Color left, Color right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The left color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The right color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the colors are equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_GreaterThan_" data-uid="Godot.Color.op_GreaterThan*"></a>
+
+  <h3 id="Godot_Color_op_GreaterThan_Godot_Color_Godot_Color_" data-uid="Godot.Color.op_GreaterThan(Godot.Color,Godot.Color)">
+  operator &gt;(Color, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares two <a class="xref" href="Godot.Color.html">Color</a>s by first checking if
+the red value of the <code class="paramref">left</code> color is greater than
+the red value of the <code class="paramref">right</code> color.
+If the red values are exactly equal, then it repeats this check
+with the green values of the two colors, then with the blue values,
+and then with the alpha value.
+This operator is useful for sorting colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(Color left, Color right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The left color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The right color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the left is greater than the right.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_GreaterThanOrEqual_" data-uid="Godot.Color.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="Godot_Color_op_GreaterThanOrEqual_Godot_Color_Godot_Color_" data-uid="Godot.Color.op_GreaterThanOrEqual(Godot.Color,Godot.Color)">
+  operator &gt;=(Color, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares two <a class="xref" href="Godot.Color.html">Color</a>s by first checking if
+the red value of the <code class="paramref">left</code> color is greater than
+or equal to the red value of the <code class="paramref">right</code> color.
+If the red values are exactly equal, then it repeats this check
+with the green values of the two colors, then with the blue values,
+and then with the alpha value.
+This operator is useful for sorting colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(Color left, Color right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The left color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The right color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the left is greater than or equal to the right.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_Inequality_" data-uid="Godot.Color.op_Inequality*"></a>
+
+  <h3 id="Godot_Color_op_Inequality_Godot_Color_Godot_Color_" data-uid="Godot.Color.op_Inequality(Godot.Color,Godot.Color)">
+  operator !=(Color, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the colors are not equal.
+Note: Due to floating-point precision errors, consider using
+<a class="xref" href="Godot.Color.html#Godot_Color_IsEqualApprox_Godot_Color_">IsEqualApprox(Color)</a> instead, which is more reliable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Color left, Color right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The left color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The right color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the colors are equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_LessThan_" data-uid="Godot.Color.op_LessThan*"></a>
+
+  <h3 id="Godot_Color_op_LessThan_Godot_Color_Godot_Color_" data-uid="Godot.Color.op_LessThan(Godot.Color,Godot.Color)">
+  operator &lt;(Color, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares two <a class="xref" href="Godot.Color.html">Color</a>s by first checking if
+the red value of the <code class="paramref">left</code> color is less than
+the red value of the <code class="paramref">right</code> color.
+If the red values are exactly equal, then it repeats this check
+with the green values of the two colors, then with the blue values,
+and then with the alpha value.
+This operator is useful for sorting colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(Color left, Color right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The left color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The right color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the left is less than the right.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_LessThanOrEqual_" data-uid="Godot.Color.op_LessThanOrEqual*"></a>
+
+  <h3 id="Godot_Color_op_LessThanOrEqual_Godot_Color_Godot_Color_" data-uid="Godot.Color.op_LessThanOrEqual(Godot.Color,Godot.Color)">
+  operator &lt;=(Color, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares two <a class="xref" href="Godot.Color.html">Color</a>s by first checking if
+the red value of the <code class="paramref">left</code> color is less than
+or equal to the red value of the <code class="paramref">right</code> color.
+If the red values are exactly equal, then it repeats this check
+with the green values of the two colors, then with the blue values,
+and then with the alpha value.
+This operator is useful for sorting colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(Color left, Color right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The left color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The right color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not the left is less than or equal to the right.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_Multiply_" data-uid="Godot.Color.op_Multiply*"></a>
+
+  <h3 id="Godot_Color_op_Multiply_Godot_Color_Godot_Color_" data-uid="Godot.Color.op_Multiply(Godot.Color,Godot.Color)">
+  operator *(Color, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Multiplies each component of the <a class="xref" href="Godot.Color.html">Color</a>
+by the components of the given <a class="xref" href="Godot.Color.html">Color</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color operator *(Color left, Color right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The left color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The right color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The multiplied color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_Multiply_" data-uid="Godot.Color.op_Multiply*"></a>
+
+  <h3 id="Godot_Color_op_Multiply_Godot_Color_System_Single_" data-uid="Godot.Color.op_Multiply(Godot.Color,System.Single)">
+  operator *(Color, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Multiplies each component of the <a class="xref" href="Godot.Color.html">Color</a>
+by the given <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types">float</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color operator *(Color color, float scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The color to multiply.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The value to multiply by.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The multiplied color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_Multiply_" data-uid="Godot.Color.op_Multiply*"></a>
+
+  <h3 id="Godot_Color_op_Multiply_System_Single_Godot_Color_" data-uid="Godot.Color.op_Multiply(System.Single,Godot.Color)">
+  operator *(float, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Multiplies each component of the <a class="xref" href="Godot.Color.html">Color</a>
+by the given <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types">float</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color operator *(float scale, Color color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The value to multiply by.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The color to multiply.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The multiplied color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_Subtraction_" data-uid="Godot.Color.op_Subtraction*"></a>
+
+  <h3 id="Godot_Color_op_Subtraction_Godot_Color_Godot_Color_" data-uid="Godot.Color.op_Subtraction(Godot.Color,Godot.Color)">
+  operator -(Color, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts each component of the <a class="xref" href="Godot.Color.html">Color</a>
+by the components of the given <a class="xref" href="Godot.Color.html">Color</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color operator -(Color left, Color right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The left color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The right color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The subtracted color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Color_op_UnaryNegation_" data-uid="Godot.Color.op_UnaryNegation*"></a>
+
+  <h3 id="Godot_Color_op_UnaryNegation_Godot_Color_" data-uid="Godot.Color.op_UnaryNegation(Godot.Color)">
+  operator -(Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Inverts the given color. This is equivalent to
+<code>Colors.White - c</code> or
+<code>new Color(1 - c.R, 1 - c.G, 1 - c.B, 1 - c.A)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color operator -(Color color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The color to invert.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd><p>The inverted color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Core/Color.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,4022 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SpringBoneSimulator3D | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SpringBoneSimulator3D | Godot4 C# API ">
+      
+      <meta name="description" content="This  can be used to wiggle hair, cloth, and tails. This modifier behaves differently from  as it attempts to return the original pose after modification. If you setup  and , it is treated as one bone chain. Note that it does not support a branched chain like Y-shaped chains. When a bone chain is created, an array is generated from the bones that exist in between and listed in the joint list. Several properties can be applied to each joint, such as , , and . For simplicity, you can set values to all joints at the same time by using a . If you want to specify detailed values individually, set  to true. For physical simulation,  can have children as self-standing collisions that are not related to , see also .    Warning: A scaled  will likely not behave as expected. Make sure that the parent  and its bones are not scaled.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.SpringBoneSimulator3D">
+
+
+
+  <h1 id="Godot_SpringBoneSimulator3D" data-uid="Godot.SpringBoneSimulator3D" class="text-break">
+Class SpringBoneSimulator3D  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>This <a class="xref" href="Godot.SkeletonModifier3D.html">SkeletonModifier3D</a> can be used to wiggle hair, cloth, and tails. This modifier behaves differently from <a class="xref" href="Godot.PhysicalBoneSimulator3D.html">PhysicalBoneSimulator3D</a> as it attempts to return the original pose after modification.</p>
+<p>If you setup <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetRootBone_System_Int32_System_Int32_">SetRootBone(int, int)</a> and <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetEndBone_System_Int32_System_Int32_">SetEndBone(int, int)</a>, it is treated as one bone chain. Note that it does not support a branched chain like Y-shaped chains.</p>
+<p>When a bone chain is created, an array is generated from the bones that exist in between and listed in the joint list.</p>
+<p>Several properties can be applied to each joint, such as <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetJointStiffness_System_Int32_System_Int32_System_Single_">SetJointStiffness(int, int, float)</a>, <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetJointDrag_System_Int32_System_Int32_System_Single_">SetJointDrag(int, int, float)</a>, and <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetJointGravity_System_Int32_System_Int32_System_Single_">SetJointGravity(int, int, float)</a>.</p>
+<p>For simplicity, you can set values to all joints at the same time by using a <a class="xref" href="Godot.Curve.html">Curve</a>. If you want to specify detailed values individually, set <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetIndividualConfig_System_Int32_System_Boolean_">SetIndividualConfig(int, bool)</a> to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+<p>For physical simulation, <a class="xref" href="Godot.SpringBoneSimulator3D.html">SpringBoneSimulator3D</a> can have children as self-standing collisions that are not related to <a class="xref" href="Godot.PhysicsServer3D.html">PhysicsServer3D</a>, see also <a class="xref" href="Godot.SpringBoneCollision3D.html">SpringBoneCollision3D</a>.</p>
+<p>
+  <b>Warning:</b> A scaled <a class="xref" href="Godot.SpringBoneSimulator3D.html">SpringBoneSimulator3D</a> will likely not behave as expected. Make sure that the parent <a class="xref" href="Godot.Skeleton3D.html">Skeleton3D</a> and its bones are not scaled.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SpringBoneSimulator3D : SkeletonModifier3D, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.Node.html">Node</a></div>
+      <div><a class="xref" href="Godot.Node3D.html">Node3D</a></div>
+      <div><a class="xref" href="Godot.SkeletonModifier3D.html">SkeletonModifier3D</a></div>
+      <div><span class="xref">SpringBoneSimulator3D</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.SkeletonModifier3D.html#Godot_SkeletonModifier3D__ProcessModification">SkeletonModifier3D._ProcessModification()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.SkeletonModifier3D.html#Godot_SkeletonModifier3D_GetSkeleton">SkeletonModifier3D.GetSkeleton()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.SkeletonModifier3D.html#Godot_SkeletonModifier3D_EmitSignalModificationProcessed">SkeletonModifier3D.EmitSignalModificationProcessed()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.SkeletonModifier3D.html#Godot_SkeletonModifier3D_Active">SkeletonModifier3D.Active</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.SkeletonModifier3D.html#Godot_SkeletonModifier3D_Influence">SkeletonModifier3D.Influence</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.SkeletonModifier3D.html#Godot_SkeletonModifier3D_ModificationProcessed">SkeletonModifier3D.ModificationProcessed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_NotificationTransformChanged">Node3D.NotificationTransformChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_NotificationEnterWorld">Node3D.NotificationEnterWorld</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_NotificationExitWorld">Node3D.NotificationExitWorld</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_NotificationVisibilityChanged">Node3D.NotificationVisibilityChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_NotificationLocalTransformChanged">Node3D.NotificationLocalTransformChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_GetGlobalTransformInterpolated">Node3D.GetGlobalTransformInterpolated()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_GetParentNode3D">Node3D.GetParentNode3D()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_SetIgnoreTransformNotification_System_Boolean_">Node3D.SetIgnoreTransformNotification(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_SetDisableScale_System_Boolean_">Node3D.SetDisableScale(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_IsScaleDisabled">Node3D.IsScaleDisabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_GetWorld3D">Node3D.GetWorld3D()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_ForceUpdateTransform">Node3D.ForceUpdateTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_UpdateGizmos">Node3D.UpdateGizmos()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_AddGizmo_Godot_Node3DGizmo_">Node3D.AddGizmo(Node3DGizmo)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_GetGizmos">Node3D.GetGizmos()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_ClearGizmos">Node3D.ClearGizmos()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_SetSubgizmoSelection_Godot_Node3DGizmo_System_Int32_Godot_Transform3D_">Node3D.SetSubgizmoSelection(Node3DGizmo, int, Transform3D)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_ClearSubgizmoSelection">Node3D.ClearSubgizmoSelection()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_IsVisibleInTree">Node3D.IsVisibleInTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_Show">Node3D.Show()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_Hide">Node3D.Hide()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_SetNotifyLocalTransform_System_Boolean_">Node3D.SetNotifyLocalTransform(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_IsLocalTransformNotificationEnabled">Node3D.IsLocalTransformNotificationEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_SetNotifyTransform_System_Boolean_">Node3D.SetNotifyTransform(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_IsTransformNotificationEnabled">Node3D.IsTransformNotificationEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_Rotate_Godot_Vector3_System_Single_">Node3D.Rotate(Vector3, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_GlobalRotate_Godot_Vector3_System_Single_">Node3D.GlobalRotate(Vector3, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_GlobalScale_Godot_Vector3_">Node3D.GlobalScale(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_GlobalTranslate_Godot_Vector3_">Node3D.GlobalTranslate(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_RotateObjectLocal_Godot_Vector3_System_Single_">Node3D.RotateObjectLocal(Vector3, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_ScaleObjectLocal_Godot_Vector3_">Node3D.ScaleObjectLocal(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_TranslateObjectLocal_Godot_Vector3_">Node3D.TranslateObjectLocal(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_RotateX_System_Single_">Node3D.RotateX(float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_RotateY_System_Single_">Node3D.RotateY(float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_RotateZ_System_Single_">Node3D.RotateZ(float)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_Translate_Godot_Vector3_">Node3D.Translate(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_Orthonormalize">Node3D.Orthonormalize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_SetIdentity">Node3D.SetIdentity()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_LookAt_Godot_Vector3_System_Nullable_Godot_Vector3__System_Boolean_">Node3D.LookAt(Vector3, Vector3?, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_LookAtFromPosition_Godot_Vector3_Godot_Vector3_System_Nullable_Godot_Vector3__System_Boolean_">Node3D.LookAtFromPosition(Vector3, Vector3, Vector3?, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_ToLocal_Godot_Vector3_">Node3D.ToLocal(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_ToGlobal_Godot_Vector3_">Node3D.ToGlobal(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_EmitSignalVisibilityChanged">Node3D.EmitSignalVisibilityChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_Transform">Node3D.Transform</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_GlobalTransform">Node3D.GlobalTransform</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_Position">Node3D.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_Rotation">Node3D.Rotation</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_RotationDegrees">Node3D.RotationDegrees</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_Quaternion">Node3D.Quaternion</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_Basis">Node3D.Basis</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_Scale">Node3D.Scale</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_RotationEditMode">Node3D.RotationEditMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_RotationOrder">Node3D.RotationOrder</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_TopLevel">Node3D.TopLevel</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_GlobalPosition">Node3D.GlobalPosition</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_GlobalBasis">Node3D.GlobalBasis</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_GlobalRotation">Node3D.GlobalRotation</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_GlobalRotationDegrees">Node3D.GlobalRotationDegrees</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_Visible">Node3D.Visible</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_VisibilityParent">Node3D.VisibilityParent</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node3D.html#Godot_Node3D_VisibilityChanged">Node3D.VisibilityChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEnterTree">Node.NotificationEnterTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationExitTree">Node.NotificationExitTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationMovedInParent">Node.NotificationMovedInParent</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationReady">Node.NotificationReady</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPaused">Node.NotificationPaused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationUnpaused">Node.NotificationUnpaused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPhysicsProcess">Node.NotificationPhysicsProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationProcess">Node.NotificationProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationParented">Node.NotificationParented</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationUnparented">Node.NotificationUnparented</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationSceneInstantiated">Node.NotificationSceneInstantiated</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationDragBegin">Node.NotificationDragBegin</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationDragEnd">Node.NotificationDragEnd</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPathRenamed">Node.NotificationPathRenamed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationChildOrderChanged">Node.NotificationChildOrderChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationInternalProcess">Node.NotificationInternalProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationInternalPhysicsProcess">Node.NotificationInternalPhysicsProcess</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationPostEnterTree">Node.NotificationPostEnterTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationDisabled">Node.NotificationDisabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEnabled">Node.NotificationEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationResetPhysicsInterpolation">Node.NotificationResetPhysicsInterpolation</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEditorPreSave">Node.NotificationEditorPreSave</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationEditorPostSave">Node.NotificationEditorPostSave</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMMouseEnter">Node.NotificationWMMouseEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMMouseExit">Node.NotificationWMMouseExit</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMWindowFocusIn">Node.NotificationWMWindowFocusIn</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMWindowFocusOut">Node.NotificationWMWindowFocusOut</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMCloseRequest">Node.NotificationWMCloseRequest</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMGoBackRequest">Node.NotificationWMGoBackRequest</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMSizeChanged">Node.NotificationWMSizeChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMDpiChange">Node.NotificationWMDpiChange</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationVpMouseEnter">Node.NotificationVpMouseEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationVpMouseExit">Node.NotificationVpMouseExit</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationOsMemoryWarning">Node.NotificationOsMemoryWarning</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationTranslationChanged">Node.NotificationTranslationChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationWMAbout">Node.NotificationWMAbout</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationCrash">Node.NotificationCrash</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationOsImeUpdate">Node.NotificationOsImeUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationResumed">Node.NotificationApplicationResumed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationPaused">Node.NotificationApplicationPaused</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationFocusIn">Node.NotificationApplicationFocusIn</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationApplicationFocusOut">Node.NotificationApplicationFocusOut</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotificationTextServerChanged">Node.NotificationTextServerChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNode__1_Godot_NodePath_">Node.GetNode&lt;T&gt;(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeOrNull__1_Godot_NodePath_">Node.GetNodeOrNull&lt;T&gt;(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChild__1_System_Int32_System_Boolean_">Node.GetChild&lt;T&gt;(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChildOrNull__1_System_Int32_System_Boolean_">Node.GetChildOrNull&lt;T&gt;(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetOwner__1">Node.GetOwner&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetOwnerOrNull__1">Node.GetOwnerOrNull&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetParent__1">Node.GetParent&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetParentOrNull__1">Node.GetParentOrNull&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__EnterTree">Node._EnterTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__ExitTree">Node._ExitTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__GetConfigurationWarnings">Node._GetConfigurationWarnings()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__Input_Godot_InputEvent_">Node._Input(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__PhysicsProcess_System_Double_">Node._PhysicsProcess(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__Process_System_Double_">Node._Process(double)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__Ready">Node._Ready()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__ShortcutInput_Godot_InputEvent_">Node._ShortcutInput(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__UnhandledInput_Godot_InputEvent_">Node._UnhandledInput(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node__UnhandledKeyInput_Godot_InputEvent_">Node._UnhandledKeyInput(InputEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PrintOrphanNodes">Node.PrintOrphanNodes()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AddSibling_Godot_Node_System_Boolean_">Node.AddSibling(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AddChild_Godot_Node_System_Boolean_Godot_Node_InternalMode_">Node.AddChild(Node, bool, Node.InternalMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RemoveChild_Godot_Node_">Node.RemoveChild(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Reparent_Godot_Node_System_Boolean_">Node.Reparent(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChildCount_System_Boolean_">Node.GetChildCount(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChildren_System_Boolean_">Node.GetChildren(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetChild_System_Int32_System_Boolean_">Node.GetChild(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_HasNode_Godot_NodePath_">Node.HasNode(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNode_Godot_NodePath_">Node.GetNode(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeOrNull_Godot_NodePath_">Node.GetNodeOrNull(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetParent">Node.GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_FindChild_System_String_System_Boolean_System_Boolean_">Node.FindChild(string, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_FindChildren_System_String_System_String_System_Boolean_System_Boolean_">Node.FindChildren(string, string, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_FindParent_System_String_">Node.FindParent(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_HasNodeAndResource_Godot_NodePath_">Node.HasNodeAndResource(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetNodeAndResource_Godot_NodePath_">Node.GetNodeAndResource(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsInsideTree">Node.IsInsideTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPartOfEditedScene">Node.IsPartOfEditedScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsAncestorOf_Godot_Node_">Node.IsAncestorOf(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsGreaterThan_Godot_Node_">Node.IsGreaterThan(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetPath">Node.GetPath()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetPathTo_Godot_Node_System_Boolean_">Node.GetPathTo(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AddToGroup_Godot_StringName_System_Boolean_">Node.AddToGroup(StringName, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RemoveFromGroup_Godot_StringName_">Node.RemoveFromGroup(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsInGroup_Godot_StringName_">Node.IsInGroup(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_MoveChild_Godot_Node_System_Int32_">Node.MoveChild(Node, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetGroups">Node.GetGroups()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetIndex_System_Boolean_">Node.GetIndex(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PrintTree">Node.PrintTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PrintTreePretty">Node.PrintTreePretty()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetTreeString">Node.GetTreeString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetTreeStringPretty">Node.GetTreeStringPretty()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PropagateNotification_System_Int32_">Node.PropagateNotification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PropagateCall_Godot_StringName_Godot_Collections_Array_System_Boolean_">Node.PropagateCall(StringName, Array, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetPhysicsProcess_System_Boolean_">Node.SetPhysicsProcess(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetPhysicsProcessDeltaTime">Node.GetPhysicsProcessDeltaTime()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsProcessing">Node.IsPhysicsProcessing()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetProcessDeltaTime">Node.GetProcessDeltaTime()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcess_System_Boolean_">Node.SetProcess(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessing">Node.IsProcessing()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessInput_System_Boolean_">Node.SetProcessInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingInput">Node.IsProcessingInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessShortcutInput_System_Boolean_">Node.SetProcessShortcutInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingShortcutInput">Node.IsProcessingShortcutInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessUnhandledInput_System_Boolean_">Node.SetProcessUnhandledInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingUnhandledInput">Node.IsProcessingUnhandledInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessUnhandledKeyInput_System_Boolean_">Node.SetProcessUnhandledKeyInput(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingUnhandledKeyInput">Node.IsProcessingUnhandledKeyInput()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CanProcess">Node.CanProcess()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetDisplayFolded_System_Boolean_">Node.SetDisplayFolded(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsDisplayedFolded">Node.IsDisplayedFolded()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetProcessInternal_System_Boolean_">Node.SetProcessInternal(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsProcessingInternal">Node.IsProcessingInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetPhysicsProcessInternal_System_Boolean_">Node.SetPhysicsProcessInternal(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsProcessingInternal">Node.IsPhysicsProcessingInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsInterpolated">Node.IsPhysicsInterpolated()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsPhysicsInterpolatedAndEnabled">Node.IsPhysicsInterpolatedAndEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ResetPhysicsInterpolation">Node.ResetPhysicsInterpolation()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetTranslationDomainInherited">Node.SetTranslationDomainInherited()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetWindow">Node.GetWindow()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetLastExclusiveWindow">Node.GetLastExclusiveWindow()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetTree">Node.GetTree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CreateTween">Node.CreateTween()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Duplicate_System_Int32_">Node.Duplicate(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ReplaceBy_Godot_Node_System_Boolean_">Node.ReplaceBy(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetSceneInstanceLoadPlaceholder_System_Boolean_">Node.SetSceneInstanceLoadPlaceholder(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetSceneInstanceLoadPlaceholder">Node.GetSceneInstanceLoadPlaceholder()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetEditableInstance_Godot_Node_System_Boolean_">Node.SetEditableInstance(Node, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsEditableInstance_Godot_Node_">Node.IsEditableInstance(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetViewport">Node.GetViewport()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_QueueFree">Node.QueueFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RequestReady">Node.RequestReady()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsNodeReady">Node.IsNodeReady()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetMultiplayerAuthority_System_Int32_System_Boolean_">Node.SetMultiplayerAuthority(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetMultiplayerAuthority">Node.GetMultiplayerAuthority()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_IsMultiplayerAuthority">Node.IsMultiplayerAuthority()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RpcConfig_Godot_StringName_Godot_Variant_">Node.RpcConfig(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_GetRpcConfig">Node.GetRpcConfig()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Atr_System_String_Godot_StringName_">Node.Atr(string, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AtrN_System_String_Godot_StringName_System_Int32_Godot_StringName_">Node.AtrN(string, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Rpc_Godot_StringName_Godot_Variant___">Node.Rpc(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Rpc_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">Node.Rpc(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RpcId_System_Int64_Godot_StringName_Godot_Variant___">Node.RpcId(long, StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_RpcId_System_Int64_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">Node.RpcId(long, StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_UpdateConfigurationWarnings">Node.UpdateConfigurationWarnings()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CallDeferredThreadGroup_Godot_StringName_Godot_Variant___">Node.CallDeferredThreadGroup(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CallDeferredThreadGroup_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">Node.CallDeferredThreadGroup(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetDeferredThreadGroup_Godot_StringName_Godot_Variant_">Node.SetDeferredThreadGroup(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotifyDeferredThreadGroup_System_Int32_">Node.NotifyDeferredThreadGroup(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CallThreadSafe_Godot_StringName_Godot_Variant___">Node.CallThreadSafe(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_CallThreadSafe_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">Node.CallThreadSafe(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SetThreadSafe_Godot_StringName_Godot_Variant_">Node.SetThreadSafe(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_NotifyThreadSafe_System_Int32_">Node.NotifyThreadSafe(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EmitSignalReady">Node.EmitSignalReady()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EmitSignalRenamed">Node.EmitSignalRenamed()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EmitSignalTreeEntered">Node.EmitSignalTreeEntered()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EmitSignalTreeExiting">Node.EmitSignalTreeExiting()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EmitSignalTreeExited">Node.EmitSignalTreeExited()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EmitSignalChildEnteredTree_Godot_Node_">Node.EmitSignalChildEnteredTree(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EmitSignalChildExitingTree_Godot_Node_">Node.EmitSignalChildExitingTree(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EmitSignalChildOrderChanged">Node.EmitSignalChildOrderChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EmitSignalReplacingBy_Godot_Node_">Node.EmitSignalReplacingBy(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EmitSignalEditorDescriptionChanged_Godot_Node_">Node.EmitSignalEditorDescriptionChanged(Node)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EmitSignalEditorStateChanged">Node.EmitSignalEditorStateChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Name">Node.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_UniqueNameInOwner">Node.UniqueNameInOwner</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_SceneFilePath">Node.SceneFilePath</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Owner">Node.Owner</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Multiplayer">Node.Multiplayer</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessMode">Node.ProcessMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessPriority">Node.ProcessPriority</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessPhysicsPriority">Node.ProcessPhysicsPriority</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessThreadGroup">Node.ProcessThreadGroup</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessThreadGroupOrder">Node.ProcessThreadGroupOrder</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ProcessThreadMessages">Node.ProcessThreadMessages</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_PhysicsInterpolationMode">Node.PhysicsInterpolationMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_AutoTranslateMode">Node.AutoTranslateMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EditorDescription">Node.EditorDescription</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Ready">Node.Ready</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_Renamed">Node.Renamed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_TreeEntered">Node.TreeEntered</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_TreeExiting">Node.TreeExiting</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_TreeExited">Node.TreeExited</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ChildEnteredTree">Node.ChildEnteredTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ChildExitingTree">Node.ChildExitingTree</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ChildOrderChanged">Node.ChildOrderChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_ReplacingBy">Node.ReplacingBy</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EditorDescriptionChanged">Node.EditorDescriptionChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Node.html#Godot_Node_EditorStateChanged">Node.EditorStateChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterGet_Godot_Variant_">GodotObject._IterGet(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterInit_Godot_Collections_Array_">GodotObject._IterInit(Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterNext_Godot_Collections_Array_">GodotObject._IterNext(Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">GodotObject.RemoveUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.EmitSignal(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.Call(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.CallDeferred(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_">GodotObject.GetMethodArgumentCount(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasConnections_Godot_StringName_">GodotObject.HasConnections(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetTranslationDomain">GodotObject.GetTranslationDomain()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetTranslationDomain_Godot_StringName_">GodotObject.SetTranslationDomain(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignalScriptChanged">GodotObject.EmitSignalScriptChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignalPropertyListChanged">GodotObject.EmitSignalPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_SpringBoneSimulator3D__ctor_" data-uid="Godot.SpringBoneSimulator3D.#ctor*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D__ctor" data-uid="Godot.SpringBoneSimulator3D.#ctor">
+  SpringBoneSimulator3D()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpringBoneSimulator3D()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_SpringBoneSimulator3D_SettingCount_" data-uid="Godot.SpringBoneSimulator3D.SettingCount*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SettingCount" data-uid="Godot.SpringBoneSimulator3D.SettingCount">
+  SettingCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SettingCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_SpringBoneSimulator3D_AreAllChildCollisionsEnabled_" data-uid="Godot.SpringBoneSimulator3D.AreAllChildCollisionsEnabled*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_AreAllChildCollisionsEnabled_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.AreAllChildCollisionsEnabled(System.Int32)">
+  AreAllChildCollisionsEnabled(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the all child <a class="xref" href="Godot.SpringBoneCollision3D.html">SpringBoneCollision3D</a>s are contained in the collision list at <code class="paramref">index</code> in the settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AreAllChildCollisionsEnabled(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_ClearCollisions_" data-uid="Godot.SpringBoneSimulator3D.ClearCollisions*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_ClearCollisions_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.ClearCollisions(System.Int32)">
+  ClearCollisions(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears all collisions from the collision list at <code class="paramref">index</code> in the settings when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_AreAllChildCollisionsEnabled_System_Int32_">AreAllChildCollisionsEnabled(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearCollisions(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_ClearExcludeCollisions_" data-uid="Godot.SpringBoneSimulator3D.ClearExcludeCollisions*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_ClearExcludeCollisions_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.ClearExcludeCollisions(System.Int32)">
+  ClearExcludeCollisions(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears all exclude collisions from the collision list at <code class="paramref">index</code> in the settings when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_AreAllChildCollisionsEnabled_System_Int32_">AreAllChildCollisionsEnabled(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearExcludeCollisions(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_ClearSettings_" data-uid="Godot.SpringBoneSimulator3D.ClearSettings*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_ClearSettings" data-uid="Godot.SpringBoneSimulator3D.ClearSettings">
+  ClearSettings()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears all settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearSettings()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetCenterBone_" data-uid="Godot.SpringBoneSimulator3D.GetCenterBone*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetCenterBone_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetCenterBone(System.Int32)">
+  GetCenterBone(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the center bone index of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetCenterBone(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetCenterBoneName_" data-uid="Godot.SpringBoneSimulator3D.GetCenterBoneName*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetCenterBoneName_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetCenterBoneName(System.Int32)">
+  GetCenterBoneName(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the center bone name of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetCenterBoneName(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetCenterFrom_" data-uid="Godot.SpringBoneSimulator3D.GetCenterFrom*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetCenterFrom_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetCenterFrom(System.Int32)">
+  GetCenterFrom(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns what the center originates from in the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpringBoneSimulator3D.CenterFrom GetCenterFrom(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.SpringBoneSimulator3D.html">SpringBoneSimulator3D</a>.<a class="xref" href="Godot.SpringBoneSimulator3D.CenterFrom.html">CenterFrom</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetCenterNode_" data-uid="Godot.SpringBoneSimulator3D.GetCenterNode*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetCenterNode_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetCenterNode(System.Int32)">
+  GetCenterNode(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the center node path of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NodePath GetCenterNode(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.NodePath.html">NodePath</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetCollisionCount_" data-uid="Godot.SpringBoneSimulator3D.GetCollisionCount*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetCollisionCount_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetCollisionCount(System.Int32)">
+  GetCollisionCount(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the collision count of the bone chain's collision list when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_AreAllChildCollisionsEnabled_System_Int32_">AreAllChildCollisionsEnabled(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetCollisionCount(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetCollisionPath_" data-uid="Godot.SpringBoneSimulator3D.GetCollisionPath*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetCollisionPath_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetCollisionPath(System.Int32,System.Int32)">
+  GetCollisionPath(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the node path of the <a class="xref" href="Godot.SpringBoneCollision3D.html">SpringBoneCollision3D</a> at <code class="paramref">collision</code> in the bone chain's collision list when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_AreAllChildCollisionsEnabled_System_Int32_">AreAllChildCollisionsEnabled(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NodePath GetCollisionPath(int index, int collision)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>collision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.NodePath.html">NodePath</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetDrag_" data-uid="Godot.SpringBoneSimulator3D.GetDrag*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetDrag_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetDrag(System.Int32)">
+  GetDrag(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the drag force damping curve of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetDrag(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetDragDampingCurve_" data-uid="Godot.SpringBoneSimulator3D.GetDragDampingCurve*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetDragDampingCurve_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetDragDampingCurve(System.Int32)">
+  GetDragDampingCurve(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the drag force damping curve of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Curve GetDragDampingCurve(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Curve.html">Curve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetEndBone_" data-uid="Godot.SpringBoneSimulator3D.GetEndBone*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetEndBone_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetEndBone(System.Int32)">
+  GetEndBone(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the end bone index of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetEndBone(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetEndBoneDirection_" data-uid="Godot.SpringBoneSimulator3D.GetEndBoneDirection*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetEndBoneDirection_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetEndBoneDirection(System.Int32)">
+  GetEndBoneDirection(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the end bone's tail direction of the bone chain when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_IsEndBoneExtended_System_Int32_">IsEndBoneExtended(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpringBoneSimulator3D.BoneDirection GetEndBoneDirection(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.SpringBoneSimulator3D.html">SpringBoneSimulator3D</a>.<a class="xref" href="Godot.SpringBoneSimulator3D.BoneDirection.html">BoneDirection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetEndBoneLength_" data-uid="Godot.SpringBoneSimulator3D.GetEndBoneLength*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetEndBoneLength_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetEndBoneLength(System.Int32)">
+  GetEndBoneLength(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the end bone's tail length of the bone chain when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_IsEndBoneExtended_System_Int32_">IsEndBoneExtended(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetEndBoneLength(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetEndBoneName_" data-uid="Godot.SpringBoneSimulator3D.GetEndBoneName*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetEndBoneName_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetEndBoneName(System.Int32)">
+  GetEndBoneName(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the end bone name of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetEndBoneName(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetExcludeCollisionCount_" data-uid="Godot.SpringBoneSimulator3D.GetExcludeCollisionCount*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetExcludeCollisionCount_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetExcludeCollisionCount(System.Int32)">
+  GetExcludeCollisionCount(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the exclude collision count of the bone chain's exclude collision list when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_AreAllChildCollisionsEnabled_System_Int32_">AreAllChildCollisionsEnabled(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetExcludeCollisionCount(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetExcludeCollisionPath_" data-uid="Godot.SpringBoneSimulator3D.GetExcludeCollisionPath*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetExcludeCollisionPath_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetExcludeCollisionPath(System.Int32,System.Int32)">
+  GetExcludeCollisionPath(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the node path of the <a class="xref" href="Godot.SpringBoneCollision3D.html">SpringBoneCollision3D</a> at <code class="paramref">collision</code> in the bone chain's exclude collision list when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_AreAllChildCollisionsEnabled_System_Int32_">AreAllChildCollisionsEnabled(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NodePath GetExcludeCollisionPath(int index, int collision)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>collision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.NodePath.html">NodePath</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetGravity_" data-uid="Godot.SpringBoneSimulator3D.GetGravity*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetGravity_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetGravity(System.Int32)">
+  GetGravity(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the gravity amount of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetGravity(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetGravityDampingCurve_" data-uid="Godot.SpringBoneSimulator3D.GetGravityDampingCurve*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetGravityDampingCurve_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetGravityDampingCurve(System.Int32)">
+  GetGravityDampingCurve(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the gravity amount damping curve of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Curve GetGravityDampingCurve(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Curve.html">Curve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetGravityDirection_" data-uid="Godot.SpringBoneSimulator3D.GetGravityDirection*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetGravityDirection_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetGravityDirection(System.Int32)">
+  GetGravityDirection(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the gravity direction of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetGravityDirection(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetJointBone_" data-uid="Godot.SpringBoneSimulator3D.GetJointBone*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetJointBone_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetJointBone(System.Int32,System.Int32)">
+  GetJointBone(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the bone index at <code class="paramref">joint</code> in the bone chain's joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetJointBone(int index, int joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetJointBoneName_" data-uid="Godot.SpringBoneSimulator3D.GetJointBoneName*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetJointBoneName_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetJointBoneName(System.Int32,System.Int32)">
+  GetJointBoneName(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the bone name at <code class="paramref">joint</code> in the bone chain's joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetJointBoneName(int index, int joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetJointCount_" data-uid="Godot.SpringBoneSimulator3D.GetJointCount*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetJointCount_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetJointCount(System.Int32)">
+  GetJointCount(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the joint count of the bone chain's joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetJointCount(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetJointDrag_" data-uid="Godot.SpringBoneSimulator3D.GetJointDrag*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetJointDrag_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetJointDrag(System.Int32,System.Int32)">
+  GetJointDrag(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the drag force at <code class="paramref">joint</code> in the bone chain's joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetJointDrag(int index, int joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetJointGravity_" data-uid="Godot.SpringBoneSimulator3D.GetJointGravity*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetJointGravity_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetJointGravity(System.Int32,System.Int32)">
+  GetJointGravity(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the gravity amount at <code class="paramref">joint</code> in the bone chain's joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetJointGravity(int index, int joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetJointGravityDirection_" data-uid="Godot.SpringBoneSimulator3D.GetJointGravityDirection*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetJointGravityDirection_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetJointGravityDirection(System.Int32,System.Int32)">
+  GetJointGravityDirection(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the gravity direction at <code class="paramref">joint</code> in the bone chain's joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetJointGravityDirection(int index, int joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetJointRadius_" data-uid="Godot.SpringBoneSimulator3D.GetJointRadius*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetJointRadius_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetJointRadius(System.Int32,System.Int32)">
+  GetJointRadius(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the radius at <code class="paramref">joint</code> in the bone chain's joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetJointRadius(int index, int joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetJointRotationAxis_" data-uid="Godot.SpringBoneSimulator3D.GetJointRotationAxis*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetJointRotationAxis_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetJointRotationAxis(System.Int32,System.Int32)">
+  GetJointRotationAxis(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the rotation axis at <code class="paramref">joint</code> in the bone chain's joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpringBoneSimulator3D.RotationAxis GetJointRotationAxis(int index, int joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.SpringBoneSimulator3D.html">SpringBoneSimulator3D</a>.<a class="xref" href="Godot.SpringBoneSimulator3D.RotationAxis.html">RotationAxis</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetJointStiffness_" data-uid="Godot.SpringBoneSimulator3D.GetJointStiffness*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetJointStiffness_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetJointStiffness(System.Int32,System.Int32)">
+  GetJointStiffness(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the stiffness force at <code class="paramref">joint</code> in the bone chain's joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetJointStiffness(int index, int joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetRadius_" data-uid="Godot.SpringBoneSimulator3D.GetRadius*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetRadius_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetRadius(System.Int32)">
+  GetRadius(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the joint radius of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetRadius(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetRadiusDampingCurve_" data-uid="Godot.SpringBoneSimulator3D.GetRadiusDampingCurve*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetRadiusDampingCurve_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetRadiusDampingCurve(System.Int32)">
+  GetRadiusDampingCurve(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the joint radius damping curve of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Curve GetRadiusDampingCurve(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Curve.html">Curve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetRootBone_" data-uid="Godot.SpringBoneSimulator3D.GetRootBone*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetRootBone_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetRootBone(System.Int32)">
+  GetRootBone(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the root bone index of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetRootBone(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetRootBoneName_" data-uid="Godot.SpringBoneSimulator3D.GetRootBoneName*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetRootBoneName_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetRootBoneName(System.Int32)">
+  GetRootBoneName(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the root bone name of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetRootBoneName(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetRotationAxis_" data-uid="Godot.SpringBoneSimulator3D.GetRotationAxis*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetRotationAxis_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetRotationAxis(System.Int32)">
+  GetRotationAxis(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the rotation axis of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpringBoneSimulator3D.RotationAxis GetRotationAxis(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.SpringBoneSimulator3D.html">SpringBoneSimulator3D</a>.<a class="xref" href="Godot.SpringBoneSimulator3D.RotationAxis.html">RotationAxis</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetStiffness_" data-uid="Godot.SpringBoneSimulator3D.GetStiffness*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetStiffness_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetStiffness(System.Int32)">
+  GetStiffness(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the stiffness force of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float GetStiffness(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_GetStiffnessDampingCurve_" data-uid="Godot.SpringBoneSimulator3D.GetStiffnessDampingCurve*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_GetStiffnessDampingCurve_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.GetStiffnessDampingCurve(System.Int32)">
+  GetStiffnessDampingCurve(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the stiffness force damping curve of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Curve GetStiffnessDampingCurve(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Curve.html">Curve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_HasGodotClassMethod_" data-uid="Godot.SpringBoneSimulator3D.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.SpringBoneSimulator3D.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_HasGodotClassSignal_" data-uid="Godot.SpringBoneSimulator3D.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.SpringBoneSimulator3D.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_InvokeGodotClassMethod_" data-uid="Godot.SpringBoneSimulator3D.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.SpringBoneSimulator3D.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_IsConfigIndividual_" data-uid="Godot.SpringBoneSimulator3D.IsConfigIndividual*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_IsConfigIndividual_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.IsConfigIndividual(System.Int32)">
+  IsConfigIndividual(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the config can be edited individually for each joint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsConfigIndividual(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_IsEndBoneExtended_" data-uid="Godot.SpringBoneSimulator3D.IsEndBoneExtended*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_IsEndBoneExtended_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.IsEndBoneExtended(System.Int32)">
+  IsEndBoneExtended(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the end bone is extended to have the tail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEndBoneExtended(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_Reset_" data-uid="Godot.SpringBoneSimulator3D.Reset*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_Reset" data-uid="Godot.SpringBoneSimulator3D.Reset">
+  Reset()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets a simulating state with respect to the current bone pose.</p>
+<p>It is useful to prevent the simulation result getting violent. For example, calling this immediately after a call to <a class="xref" href="Godot.AnimationPlayer.html#Godot_AnimationPlayer_Play_Godot_StringName_System_Double_System_Single_System_Boolean_">Play(StringName, double, float, bool)</a> without a fading, or within the previous <a class="xref" href="Godot.SkeletonModifier3D.html#Godot_SkeletonModifier3D_ModificationProcessed">ModificationProcessed</a> signal if it's condition changes significantly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetCenterBone_" data-uid="Godot.SpringBoneSimulator3D.SetCenterBone*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetCenterBone_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.SetCenterBone(System.Int32,System.Int32)">
+  SetCenterBone(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the center bone index of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCenterBone(int index, int bone)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bone</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetCenterBoneName_" data-uid="Godot.SpringBoneSimulator3D.SetCenterBoneName*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetCenterBoneName_System_Int32_System_String_" data-uid="Godot.SpringBoneSimulator3D.SetCenterBoneName(System.Int32,System.String)">
+  SetCenterBoneName(int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the center bone name of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCenterBoneName(int index, string boneName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>boneName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetCenterFrom_" data-uid="Godot.SpringBoneSimulator3D.SetCenterFrom*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetCenterFrom_System_Int32_Godot_SpringBoneSimulator3D_CenterFrom_" data-uid="Godot.SpringBoneSimulator3D.SetCenterFrom(System.Int32,Godot.SpringBoneSimulator3D.CenterFrom)">
+  SetCenterFrom(int, CenterFrom)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets what the center originates from in the bone chain.</p>
+<p>Bone movement is calculated based on the difference in relative distance between center and bone in the previous and next frames.</p>
+<p>For example, if the parent <a class="xref" href="Godot.Skeleton3D.html">Skeleton3D</a> is used as the center, the bones are considered to have not moved if the <a class="xref" href="Godot.Skeleton3D.html">Skeleton3D</a> moves in the world.</p>
+<p>In this case, only a change in the bone pose is considered to be a bone movement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCenterFrom(int index, SpringBoneSimulator3D.CenterFrom centerFrom)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>centerFrom</code> <a class="xref" href="Godot.SpringBoneSimulator3D.html">SpringBoneSimulator3D</a>.<a class="xref" href="Godot.SpringBoneSimulator3D.CenterFrom.html">CenterFrom</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetCenterNode_" data-uid="Godot.SpringBoneSimulator3D.SetCenterNode*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetCenterNode_System_Int32_Godot_NodePath_" data-uid="Godot.SpringBoneSimulator3D.SetCenterNode(System.Int32,Godot.NodePath)">
+  SetCenterNode(int, NodePath)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the center node path of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCenterNode(int index, NodePath nodePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>nodePath</code> <a class="xref" href="Godot.NodePath.html">NodePath</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetCollisionCount_" data-uid="Godot.SpringBoneSimulator3D.SetCollisionCount*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetCollisionCount_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.SetCollisionCount(System.Int32,System.Int32)">
+  SetCollisionCount(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the number of collisions in the collision list at <code class="paramref">index</code> in the settings when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_AreAllChildCollisionsEnabled_System_Int32_">AreAllChildCollisionsEnabled(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCollisionCount(int index, int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetCollisionPath_" data-uid="Godot.SpringBoneSimulator3D.SetCollisionPath*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetCollisionPath_System_Int32_System_Int32_Godot_NodePath_" data-uid="Godot.SpringBoneSimulator3D.SetCollisionPath(System.Int32,System.Int32,Godot.NodePath)">
+  SetCollisionPath(int, int, NodePath)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the node path of the <a class="xref" href="Godot.SpringBoneCollision3D.html">SpringBoneCollision3D</a> at <code class="paramref">collision</code> in the bone chain's collision list when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_AreAllChildCollisionsEnabled_System_Int32_">AreAllChildCollisionsEnabled(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCollisionPath(int index, int collision, NodePath nodePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>collision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>nodePath</code> <a class="xref" href="Godot.NodePath.html">NodePath</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetDrag_" data-uid="Godot.SpringBoneSimulator3D.SetDrag*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetDrag_System_Int32_System_Single_" data-uid="Godot.SpringBoneSimulator3D.SetDrag(System.Int32,System.Single)">
+  SetDrag(int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the drag force of the bone chain. The greater the value, the more suppressed the wiggling.</p>
+<p>The value is scaled by <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetDragDampingCurve_System_Int32_Godot_Curve_">SetDragDampingCurve(int, Curve)</a> and cached in each joint setting in the joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDrag(int index, float drag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>drag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetDragDampingCurve_" data-uid="Godot.SpringBoneSimulator3D.SetDragDampingCurve*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetDragDampingCurve_System_Int32_Godot_Curve_" data-uid="Godot.SpringBoneSimulator3D.SetDragDampingCurve(System.Int32,Godot.Curve)">
+  SetDragDampingCurve(int, Curve)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the drag force damping curve of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDragDampingCurve(int index, Curve curve)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>curve</code> <a class="xref" href="Godot.Curve.html">Curve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetEnableAllChildCollisions_" data-uid="Godot.SpringBoneSimulator3D.SetEnableAllChildCollisions*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetEnableAllChildCollisions_System_Int32_System_Boolean_" data-uid="Godot.SpringBoneSimulator3D.SetEnableAllChildCollisions(System.Int32,System.Boolean)">
+  SetEnableAllChildCollisions(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If sets <code class="paramref">enabled</code> to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the all child <a class="xref" href="Godot.SpringBoneCollision3D.html">SpringBoneCollision3D</a>s are collided and <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetExcludeCollisionPath_System_Int32_System_Int32_Godot_NodePath_">SetExcludeCollisionPath(int, int, NodePath)</a> is enabled as an exclusion list at <code class="paramref">index</code> in the settings.</p>
+<p>If sets <code class="paramref">enabled</code> to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, you need to manually register all valid collisions with <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetCollisionPath_System_Int32_System_Int32_Godot_NodePath_">SetCollisionPath(int, int, NodePath)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetEnableAllChildCollisions(int index, bool enabled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>enabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetEndBone_" data-uid="Godot.SpringBoneSimulator3D.SetEndBone*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetEndBone_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.SetEndBone(System.Int32,System.Int32)">
+  SetEndBone(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the end bone index of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetEndBone(int index, int bone)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bone</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetEndBoneDirection_" data-uid="Godot.SpringBoneSimulator3D.SetEndBoneDirection*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetEndBoneDirection_System_Int32_Godot_SpringBoneSimulator3D_BoneDirection_" data-uid="Godot.SpringBoneSimulator3D.SetEndBoneDirection(System.Int32,Godot.SpringBoneSimulator3D.BoneDirection)">
+  SetEndBoneDirection(int, BoneDirection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the end bone tail direction of the bone chain when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_IsEndBoneExtended_System_Int32_">IsEndBoneExtended(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetEndBoneDirection(int index, SpringBoneSimulator3D.BoneDirection boneDirection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>boneDirection</code> <a class="xref" href="Godot.SpringBoneSimulator3D.html">SpringBoneSimulator3D</a>.<a class="xref" href="Godot.SpringBoneSimulator3D.BoneDirection.html">BoneDirection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetEndBoneLength_" data-uid="Godot.SpringBoneSimulator3D.SetEndBoneLength*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetEndBoneLength_System_Int32_System_Single_" data-uid="Godot.SpringBoneSimulator3D.SetEndBoneLength(System.Int32,System.Single)">
+  SetEndBoneLength(int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the end bone tail length of the bone chain when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_IsEndBoneExtended_System_Int32_">IsEndBoneExtended(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetEndBoneLength(int index, float length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetEndBoneName_" data-uid="Godot.SpringBoneSimulator3D.SetEndBoneName*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetEndBoneName_System_Int32_System_String_" data-uid="Godot.SpringBoneSimulator3D.SetEndBoneName(System.Int32,System.String)">
+  SetEndBoneName(int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the end bone name of the bone chain.</p>
+<p>
+  <b>Note:</b> End bone must be the root bone or a child of the root bone. If they are the same, the tail must be extended by <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetExtendEndBone_System_Int32_System_Boolean_">SetExtendEndBone(int, bool)</a> to jiggle the bone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetEndBoneName(int index, string boneName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>boneName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetExcludeCollisionCount_" data-uid="Godot.SpringBoneSimulator3D.SetExcludeCollisionCount*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetExcludeCollisionCount_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.SetExcludeCollisionCount(System.Int32,System.Int32)">
+  SetExcludeCollisionCount(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the number of exclude collisions in the exclude collision list at <code class="paramref">index</code> in the settings when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_AreAllChildCollisionsEnabled_System_Int32_">AreAllChildCollisionsEnabled(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetExcludeCollisionCount(int index, int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetExcludeCollisionPath_" data-uid="Godot.SpringBoneSimulator3D.SetExcludeCollisionPath*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetExcludeCollisionPath_System_Int32_System_Int32_Godot_NodePath_" data-uid="Godot.SpringBoneSimulator3D.SetExcludeCollisionPath(System.Int32,System.Int32,Godot.NodePath)">
+  SetExcludeCollisionPath(int, int, NodePath)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the node path of the <a class="xref" href="Godot.SpringBoneCollision3D.html">SpringBoneCollision3D</a> at <code class="paramref">collision</code> in the bone chain's exclude collision list when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_AreAllChildCollisionsEnabled_System_Int32_">AreAllChildCollisionsEnabled(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetExcludeCollisionPath(int index, int collision, NodePath nodePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>collision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>nodePath</code> <a class="xref" href="Godot.NodePath.html">NodePath</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetExtendEndBone_" data-uid="Godot.SpringBoneSimulator3D.SetExtendEndBone*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetExtendEndBone_System_Int32_System_Boolean_" data-uid="Godot.SpringBoneSimulator3D.SetExtendEndBone(System.Int32,System.Boolean)">
+  SetExtendEndBone(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <code class="paramref">enabled</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the end bone is extended to have the tail.</p>
+<p>The extended tail config is allocated to the last element in the joint list.</p>
+<p>In other words, if you set <code class="paramref">enabled</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, the config of last element in the joint list has no effect in the simulated result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetExtendEndBone(int index, bool enabled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>enabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetGravity_" data-uid="Godot.SpringBoneSimulator3D.SetGravity*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetGravity_System_Int32_System_Single_" data-uid="Godot.SpringBoneSimulator3D.SetGravity(System.Int32,System.Single)">
+  SetGravity(int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the gravity amount of the bone chain. This value is not an acceleration, but a constant velocity of movement in <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetGravityDirection_System_Int32_Godot_Vector3_">SetGravityDirection(int, Vector3)</a>.</p>
+<p>If <code class="paramref">gravity</code> is not <code>0</code>, the modified pose will not return to the original pose since it is always affected by gravity.</p>
+<p>The value is scaled by <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetGravityDampingCurve_System_Int32_Godot_Curve_">SetGravityDampingCurve(int, Curve)</a> and cached in each joint setting in the joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGravity(int index, float gravity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>gravity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetGravityDampingCurve_" data-uid="Godot.SpringBoneSimulator3D.SetGravityDampingCurve*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetGravityDampingCurve_System_Int32_Godot_Curve_" data-uid="Godot.SpringBoneSimulator3D.SetGravityDampingCurve(System.Int32,Godot.Curve)">
+  SetGravityDampingCurve(int, Curve)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the gravity amount damping curve of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGravityDampingCurve(int index, Curve curve)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>curve</code> <a class="xref" href="Godot.Curve.html">Curve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetGravityDirection_" data-uid="Godot.SpringBoneSimulator3D.SetGravityDirection*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetGravityDirection_System_Int32_Godot_Vector3_" data-uid="Godot.SpringBoneSimulator3D.SetGravityDirection(System.Int32,Godot.Vector3)">
+  SetGravityDirection(int, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the gravity direction of the bone chain. This value is internally normalized and then multiplied by <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetGravity_System_Int32_System_Single_">SetGravity(int, float)</a>.</p>
+<p>The value is cached in each joint setting in the joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetGravityDirection(int index, Vector3 gravityDirection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>gravityDirection</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetIndividualConfig_" data-uid="Godot.SpringBoneSimulator3D.SetIndividualConfig*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetIndividualConfig_System_Int32_System_Boolean_" data-uid="Godot.SpringBoneSimulator3D.SetIndividualConfig(System.Int32,System.Boolean)">
+  SetIndividualConfig(int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <code class="paramref">enabled</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the config can be edited individually for each joint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetIndividualConfig(int index, bool enabled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>enabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetJointDrag_" data-uid="Godot.SpringBoneSimulator3D.SetJointDrag*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetJointDrag_System_Int32_System_Int32_System_Single_" data-uid="Godot.SpringBoneSimulator3D.SetJointDrag(System.Int32,System.Int32,System.Single)">
+  SetJointDrag(int, int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the drag force at <code class="paramref">joint</code> in the bone chain's joint list when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_IsConfigIndividual_System_Int32_">IsConfigIndividual(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetJointDrag(int index, int joint, float drag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>drag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetJointGravity_" data-uid="Godot.SpringBoneSimulator3D.SetJointGravity*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetJointGravity_System_Int32_System_Int32_System_Single_" data-uid="Godot.SpringBoneSimulator3D.SetJointGravity(System.Int32,System.Int32,System.Single)">
+  SetJointGravity(int, int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the gravity amount at <code class="paramref">joint</code> in the bone chain's joint list when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_IsConfigIndividual_System_Int32_">IsConfigIndividual(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetJointGravity(int index, int joint, float gravity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>gravity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetJointGravityDirection_" data-uid="Godot.SpringBoneSimulator3D.SetJointGravityDirection*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetJointGravityDirection_System_Int32_System_Int32_Godot_Vector3_" data-uid="Godot.SpringBoneSimulator3D.SetJointGravityDirection(System.Int32,System.Int32,Godot.Vector3)">
+  SetJointGravityDirection(int, int, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the gravity direction at <code class="paramref">joint</code> in the bone chain's joint list when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_IsConfigIndividual_System_Int32_">IsConfigIndividual(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetJointGravityDirection(int index, int joint, Vector3 gravityDirection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>gravityDirection</code> <a class="xref" href="Godot.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetJointRadius_" data-uid="Godot.SpringBoneSimulator3D.SetJointRadius*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetJointRadius_System_Int32_System_Int32_System_Single_" data-uid="Godot.SpringBoneSimulator3D.SetJointRadius(System.Int32,System.Int32,System.Single)">
+  SetJointRadius(int, int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the joint radius at <code class="paramref">joint</code> in the bone chain's joint list when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_IsConfigIndividual_System_Int32_">IsConfigIndividual(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetJointRadius(int index, int joint, float radius)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetJointRotationAxis_" data-uid="Godot.SpringBoneSimulator3D.SetJointRotationAxis*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetJointRotationAxis_System_Int32_System_Int32_Godot_SpringBoneSimulator3D_RotationAxis_" data-uid="Godot.SpringBoneSimulator3D.SetJointRotationAxis(System.Int32,System.Int32,Godot.SpringBoneSimulator3D.RotationAxis)">
+  SetJointRotationAxis(int, int, RotationAxis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the rotation axis at <code class="paramref">joint</code> in the bone chain's joint list when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_IsConfigIndividual_System_Int32_">IsConfigIndividual(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetJointRotationAxis(int index, int joint, SpringBoneSimulator3D.RotationAxis axis)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>axis</code> <a class="xref" href="Godot.SpringBoneSimulator3D.html">SpringBoneSimulator3D</a>.<a class="xref" href="Godot.SpringBoneSimulator3D.RotationAxis.html">RotationAxis</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetJointStiffness_" data-uid="Godot.SpringBoneSimulator3D.SetJointStiffness*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetJointStiffness_System_Int32_System_Int32_System_Single_" data-uid="Godot.SpringBoneSimulator3D.SetJointStiffness(System.Int32,System.Int32,System.Single)">
+  SetJointStiffness(int, int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the stiffness force at <code class="paramref">joint</code> in the bone chain's joint list when <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_IsConfigIndividual_System_Int32_">IsConfigIndividual(int)</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetJointStiffness(int index, int joint, float stiffness)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>joint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>stiffness</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetRadius_" data-uid="Godot.SpringBoneSimulator3D.SetRadius*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetRadius_System_Int32_System_Single_" data-uid="Godot.SpringBoneSimulator3D.SetRadius(System.Int32,System.Single)">
+  SetRadius(int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the joint radius of the bone chain. It is used to move and slide with the <a class="xref" href="Godot.SpringBoneCollision3D.html">SpringBoneCollision3D</a> in the collision list.</p>
+<p>The value is scaled by <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetRadiusDampingCurve_System_Int32_Godot_Curve_">SetRadiusDampingCurve(int, Curve)</a> and cached in each joint setting in the joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetRadius(int index, float radius)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetRadiusDampingCurve_" data-uid="Godot.SpringBoneSimulator3D.SetRadiusDampingCurve*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetRadiusDampingCurve_System_Int32_Godot_Curve_" data-uid="Godot.SpringBoneSimulator3D.SetRadiusDampingCurve(System.Int32,Godot.Curve)">
+  SetRadiusDampingCurve(int, Curve)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the joint radius damping curve of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetRadiusDampingCurve(int index, Curve curve)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>curve</code> <a class="xref" href="Godot.Curve.html">Curve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetRootBone_" data-uid="Godot.SpringBoneSimulator3D.SetRootBone*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetRootBone_System_Int32_System_Int32_" data-uid="Godot.SpringBoneSimulator3D.SetRootBone(System.Int32,System.Int32)">
+  SetRootBone(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the root bone index of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetRootBone(int index, int bone)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bone</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetRootBoneName_" data-uid="Godot.SpringBoneSimulator3D.SetRootBoneName*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetRootBoneName_System_Int32_System_String_" data-uid="Godot.SpringBoneSimulator3D.SetRootBoneName(System.Int32,System.String)">
+  SetRootBoneName(int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the root bone name of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetRootBoneName(int index, string boneName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>boneName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetRotationAxis_" data-uid="Godot.SpringBoneSimulator3D.SetRotationAxis*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetRotationAxis_System_Int32_Godot_SpringBoneSimulator3D_RotationAxis_" data-uid="Godot.SpringBoneSimulator3D.SetRotationAxis(System.Int32,Godot.SpringBoneSimulator3D.RotationAxis)">
+  SetRotationAxis(int, RotationAxis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the rotation axis of the bone chain. If sets a specific axis, it acts like a hinge joint.</p>
+<p>The value is cached in each joint setting in the joint list.</p>
+<p>
+  <b>Note:</b> The rotation axis and the forward vector shouldn't be colinear to avoid unintended rotation since <a class="xref" href="Godot.SpringBoneSimulator3D.html">SpringBoneSimulator3D</a> does not factor in twisting forces.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetRotationAxis(int index, SpringBoneSimulator3D.RotationAxis axis)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>axis</code> <a class="xref" href="Godot.SpringBoneSimulator3D.html">SpringBoneSimulator3D</a>.<a class="xref" href="Godot.SpringBoneSimulator3D.RotationAxis.html">RotationAxis</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetStiffness_" data-uid="Godot.SpringBoneSimulator3D.SetStiffness*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetStiffness_System_Int32_System_Single_" data-uid="Godot.SpringBoneSimulator3D.SetStiffness(System.Int32,System.Single)">
+  SetStiffness(int, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the stiffness force of the bone chain. The greater the value, the faster it recovers to its initial pose.</p>
+<p>If <code class="paramref">stiffness</code> is <code>0</code>, the modified pose will not return to the original pose.</p>
+<p>The value is scaled by <a class="xref" href="Godot.SpringBoneSimulator3D.html#Godot_SpringBoneSimulator3D_SetStiffnessDampingCurve_System_Int32_Godot_Curve_">SetStiffnessDampingCurve(int, Curve)</a> and cached in each joint setting in the joint list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetStiffness(int index, float stiffness)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>stiffness</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_SpringBoneSimulator3D_SetStiffnessDampingCurve_" data-uid="Godot.SpringBoneSimulator3D.SetStiffnessDampingCurve*"></a>
+
+  <h3 id="Godot_SpringBoneSimulator3D_SetStiffnessDampingCurve_System_Int32_Godot_Curve_" data-uid="Godot.SpringBoneSimulator3D.SetStiffnessDampingCurve(System.Int32,Godot.Curve)">
+  SetStiffnessDampingCurve(int, Curve)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the stiffness force damping curve of the bone chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetStiffnessDampingCurve(int index, Curve curve)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>curve</code> <a class="xref" href="Godot.Curve.html">Curve</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/SpringBoneSimulator3D.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

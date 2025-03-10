@@ -1,0 +1,3040 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Theme | Godot4 C# API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Theme | Godot4 C# API ">
+      
+      <meta name="description" content="A resource used for styling/skinning  and  nodes. While individual controls can be styled using their local theme overrides (see ), theme resources allow you to store and apply the same settings across all controls sharing the same type (e.g. style all s the same). One theme resource can be used for the entire project, but you can also set a separate theme resource to a branch of control nodes. A theme resource assigned to a control applies to the control itself, as well as all of its direct and indirect children (as long as a chain of controls is uninterrupted). Use ProjectSettings.gui/theme/custom to set up a project-scope theme that will be available to every control in your project. Use  of any control node to set up a theme that will be available to that control and all of its direct and indirect children.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Godot.Theme">
+
+
+
+  <h1 id="Godot_Theme" data-uid="Godot.Theme" class="text-break">
+Class Theme  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="../editor/Godot.html">Godot</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GodotSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A resource used for styling/skinning <a class="xref" href="Godot.Control.html">Control</a> and <a class="xref" href="Godot.Window.html">Window</a> nodes. While individual controls can be styled using their local theme overrides (see <a class="xref" href="Godot.Control.html#Godot_Control_AddThemeColorOverride_Godot_StringName_Godot_Color_">AddThemeColorOverride(StringName, Color)</a>), theme resources allow you to store and apply the same settings across all controls sharing the same type (e.g. style all <a class="xref" href="Godot.Button.html">Button</a>s the same). One theme resource can be used for the entire project, but you can also set a separate theme resource to a branch of control nodes. A theme resource assigned to a control applies to the control itself, as well as all of its direct and indirect children (as long as a chain of controls is uninterrupted).</p>
+<p>Use <code>ProjectSettings.gui/theme/custom</code> to set up a project-scope theme that will be available to every control in your project.</p>
+<p>Use <a class="xref" href="Godot.Control.html#Godot_Control_Theme">Theme</a> of any control node to set up a theme that will be available to that control and all of its direct and indirect children.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Theme : Resource, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Godot.GodotObject.html">GodotObject</a></div>
+      <div><a class="xref" href="Godot.RefCounted.html">RefCounted</a></div>
+      <div><a class="xref" href="Godot.Resource.html">Resource</a></div>
+      <div><span class="xref">Theme</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__GetRid">Resource._GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__ResetState">Resource._ResetState()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__SetPathCache_System_String_">Resource._SetPathCache(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource__SetupLocalToScene">Resource._SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_TakeOverPath_System_String_">Resource.TakeOverPath(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetPathCache_System_String_">Resource.SetPathCache(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetRid">Resource.GetRid()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetLocalScene">Resource.GetLocalScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToScene">Resource.SetupLocalToScene()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResetState">Resource.ResetState()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetIdForPath_System_String_System_String_">Resource.SetIdForPath(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GetIdForPath_System_String_">Resource.GetIdForPath(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_IsBuiltIn">Resource.IsBuiltIn()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_GenerateSceneUniqueId">Resource.GenerateSceneUniqueId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitChanged">Resource.EmitChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Duplicate_System_Boolean_">Resource.Duplicate(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitSignalChanged">Resource.EmitSignalChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_EmitSignalSetupLocalToSceneRequested">Resource.EmitSignalSetupLocalToSceneRequested()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceLocalToScene">Resource.ResourceLocalToScene</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourcePath">Resource.ResourcePath</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceName">Resource.ResourceName</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_ResourceSceneUniqueId">Resource.ResourceSceneUniqueId</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_Changed">Resource.Changed</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.Resource.html#Godot_Resource_SetupLocalToSceneRequested">Resource.SetupLocalToSceneRequested</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_InitRef">RefCounted.InitRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Reference">RefCounted.Reference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_Unreference">RefCounted.Unreference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.RefCounted.html#Godot_RefCounted_GetReferenceCount">RefCounted.GetReferenceCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPostinitialize">GodotObject.NotificationPostinitialize</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationPredelete">GodotObject.NotificationPredelete</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotificationExtensionReloaded">GodotObject.NotificationExtensionReloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_InstanceFromId_System_UInt64_">GodotObject.InstanceFromId(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceIdValid_System_UInt64_">GodotObject.IsInstanceIdValid(ulong)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsInstanceValid_Godot_GodotObject_">GodotObject.IsInstanceValid(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_WeakRef_Godot_GodotObject_">GodotObject.WeakRef(GodotObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose">GodotObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Dispose_System_Boolean_">GodotObject.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToString">GodotObject.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ToSignal_Godot_GodotObject_Godot_StringName_">GodotObject.ToSignal(GodotObject, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Get_Godot_StringName_">GodotObject._Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__GetPropertyList">GodotObject._GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterGet_Godot_Variant_">GodotObject._IterGet(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterInit_Godot_Collections_Array_">GodotObject._IterInit(Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__IterNext_Godot_Collections_Array_">GodotObject._IterNext(Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Notification_System_Int32_">GodotObject._Notification(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyCanRevert_Godot_StringName_">GodotObject._PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__PropertyGetRevert_Godot_StringName_">GodotObject._PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__Set_Godot_StringName_Godot_Variant_">GodotObject._Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject__ValidateProperty_Godot_Collections_Dictionary_">GodotObject._ValidateProperty(Dictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Free">GodotObject.Free()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetClass">GodotObject.GetClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsClass_System_String_">GodotObject.IsClass(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Set_Godot_StringName_Godot_Variant_">GodotObject.Set(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Get_Godot_StringName_">GodotObject.Get(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetIndexed_Godot_NodePath_Godot_Variant_">GodotObject.SetIndexed(NodePath, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIndexed_Godot_NodePath_">GodotObject.GetIndexed(NodePath)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetPropertyList">GodotObject.GetPropertyList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodList">GodotObject.GetMethodList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyCanRevert_Godot_StringName_">GodotObject.PropertyCanRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyGetRevert_Godot_StringName_">GodotObject.PropertyGetRevert(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Notification_System_Int32_System_Boolean_">GodotObject.Notification(int, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetInstanceId">GodotObject.GetInstanceId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetScript_Godot_Variant_">GodotObject.SetScript(Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetScript">GodotObject.GetScript()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMeta_Godot_StringName_Godot_Variant_">GodotObject.SetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveMeta_Godot_StringName_">GodotObject.RemoveMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMeta_Godot_StringName_Godot_Variant_">GodotObject.GetMeta(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMeta_Godot_StringName_">GodotObject.HasMeta(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMetaList">GodotObject.GetMetaList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_AddUserSignal_System_String_Godot_Collections_Array_">GodotObject.AddUserSignal(string, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasUserSignal_Godot_StringName_">GodotObject.HasUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_RemoveUserSignal_Godot_StringName_">GodotObject.RemoveUserSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_Godot_Variant___">GodotObject.EmitSignal(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignal_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.EmitSignal(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_Godot_Variant___">GodotObject.Call(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Call_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.Call(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_Godot_Variant___">GodotObject.CallDeferred(StringName, params Variant[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CallDeferred_Godot_StringName_System_ReadOnlySpan_Godot_Variant__">GodotObject.CallDeferred(StringName, ReadOnlySpan&lt;Variant&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetDeferred_Godot_StringName_Godot_Variant_">GodotObject.SetDeferred(StringName, Variant)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Callv_Godot_StringName_Godot_Collections_Array_">GodotObject.Callv(StringName, Array)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasMethod_Godot_StringName_">GodotObject.HasMethod(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetMethodArgumentCount_Godot_StringName_">GodotObject.GetMethodArgumentCount(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasSignal_Godot_StringName_">GodotObject.HasSignal(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalList">GodotObject.GetSignalList()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetSignalConnectionList_Godot_StringName_">GodotObject.GetSignalConnectionList(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetIncomingConnections">GodotObject.GetIncomingConnections()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Connect_Godot_StringName_Godot_Callable_System_UInt32_">GodotObject.Connect(StringName, Callable, uint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Disconnect_Godot_StringName_Godot_Callable_">GodotObject.Disconnect(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsConnected_Godot_StringName_Godot_Callable_">GodotObject.IsConnected(StringName, Callable)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_HasConnections_Godot_StringName_">GodotObject.HasConnections(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetBlockSignals_System_Boolean_">GodotObject.SetBlockSignals(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsBlockingSignals">GodotObject.IsBlockingSignals()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NotifyPropertyListChanged">GodotObject.NotifyPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetMessageTranslation_System_Boolean_">GodotObject.SetMessageTranslation(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CanTranslateMessages">GodotObject.CanTranslateMessages()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_Tr_Godot_StringName_Godot_StringName_">GodotObject.Tr(StringName, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_TrN_Godot_StringName_Godot_StringName_System_Int32_Godot_StringName_">GodotObject.TrN(StringName, StringName, int, StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_GetTranslationDomain">GodotObject.GetTranslationDomain()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_SetTranslationDomain_Godot_StringName_">GodotObject.SetTranslationDomain(StringName)</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_IsQueuedForDeletion">GodotObject.IsQueuedForDeletion()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_CancelFree">GodotObject.CancelFree()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignalScriptChanged">GodotObject.EmitSignalScriptChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_EmitSignalPropertyListChanged">GodotObject.EmitSignalPropertyListChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_NativeInstance">GodotObject.NativeInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_ScriptChanged">GodotObject.ScriptChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Godot.GodotObject.html#Godot_GodotObject_PropertyListChanged">GodotObject.PropertyListChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Godot_Theme__ctor_" data-uid="Godot.Theme.#ctor*"></a>
+
+  <h3 id="Godot_Theme__ctor" data-uid="Godot.Theme.#ctor">
+  Theme()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Theme()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Godot_Theme_DefaultBaseScale_" data-uid="Godot.Theme.DefaultBaseScale*"></a>
+
+  <h3 id="Godot_Theme_DefaultBaseScale" data-uid="Godot.Theme.DefaultBaseScale">
+  DefaultBaseScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default base scale factor of this theme resource. Used by some controls to scale their visual properties based on the global scale factor. If this value is set to <code>0.0</code>, the global scale factor is used (see <a class="xref" href="Godot.ThemeDB.html#Godot_ThemeDB_FallbackBaseScale">FallbackBaseScale</a>).</p>
+<p>Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasDefaultBaseScale">HasDefaultBaseScale()</a> to check if this value is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float DefaultBaseScale { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_DefaultFont_" data-uid="Godot.Theme.DefaultFont*"></a>
+
+  <h3 id="Godot_Theme_DefaultFont" data-uid="Godot.Theme.DefaultFont">
+  DefaultFont
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default font of this theme resource. Used as the default value when trying to fetch a font resource that doesn't exist in this theme or is in invalid state. If the default font is also missing or invalid, the engine fallback value is used (see <a class="xref" href="Godot.ThemeDB.html#Godot_ThemeDB_FallbackFont">FallbackFont</a>).</p>
+<p>Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasDefaultFont">HasDefaultFont()</a> to check if this value is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Font DefaultFont { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Font.html">Font</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_DefaultFontSize_" data-uid="Godot.Theme.DefaultFontSize*"></a>
+
+  <h3 id="Godot_Theme_DefaultFontSize" data-uid="Godot.Theme.DefaultFontSize">
+  DefaultFontSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default font size of this theme resource. Used as the default value when trying to fetch a font size value that doesn't exist in this theme or is in invalid state. If the default font size is also missing or invalid, the engine fallback value is used (see <a class="xref" href="Godot.ThemeDB.html#Godot_ThemeDB_FallbackFontSize">FallbackFontSize</a>).</p>
+<p>Values below <code>1</code> are invalid and can be used to unset the property. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasDefaultFontSize">HasDefaultFontSize()</a> to check if this value is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DefaultFontSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Godot_Theme_AddType_" data-uid="Godot.Theme.AddType*"></a>
+
+  <h3 id="Godot_Theme_AddType_Godot_StringName_" data-uid="Godot.Theme.AddType(Godot.StringName)">
+  AddType(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an empty theme type for every valid data type.</p>
+<p>
+  <b>Note:</b> Empty types are not saved with the theme. This method only exists to perform in-memory changes to the resource. Use available <code>set_*</code> methods to add theme items.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddType(StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_Clear_" data-uid="Godot.Theme.Clear*"></a>
+
+  <h3 id="Godot_Theme_Clear" data-uid="Godot.Theme.Clear">
+  Clear()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all the theme properties defined on the theme resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_ClearColor_" data-uid="Godot.Theme.ClearColor*"></a>
+
+  <h3 id="Godot_Theme_ClearColor_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.ClearColor(Godot.StringName,Godot.StringName)">
+  ClearColor(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the <a class="xref" href="Godot.Color.html">Color</a> property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Fails if it doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasColor_Godot_StringName_Godot_StringName_">HasColor(StringName, StringName)</a> to check for existence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearColor(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_ClearConstant_" data-uid="Godot.Theme.ClearConstant*"></a>
+
+  <h3 id="Godot_Theme_ClearConstant_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.ClearConstant(Godot.StringName,Godot.StringName)">
+  ClearConstant(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the constant property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Fails if it doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasConstant_Godot_StringName_Godot_StringName_">HasConstant(StringName, StringName)</a> to check for existence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearConstant(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_ClearFont_" data-uid="Godot.Theme.ClearFont*"></a>
+
+  <h3 id="Godot_Theme_ClearFont_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.ClearFont(Godot.StringName,Godot.StringName)">
+  ClearFont(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the <a class="xref" href="Godot.Font.html">Font</a> property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Fails if it doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasFont_Godot_StringName_Godot_StringName_">HasFont(StringName, StringName)</a> to check for existence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearFont(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_ClearFontSize_" data-uid="Godot.Theme.ClearFontSize*"></a>
+
+  <h3 id="Godot_Theme_ClearFontSize_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.ClearFontSize(Godot.StringName,Godot.StringName)">
+  ClearFontSize(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the font size property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Fails if it doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasFontSize_Godot_StringName_Godot_StringName_">HasFontSize(StringName, StringName)</a> to check for existence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearFontSize(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_ClearIcon_" data-uid="Godot.Theme.ClearIcon*"></a>
+
+  <h3 id="Godot_Theme_ClearIcon_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.ClearIcon(Godot.StringName,Godot.StringName)">
+  ClearIcon(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the icon property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Fails if it doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasIcon_Godot_StringName_Godot_StringName_">HasIcon(StringName, StringName)</a> to check for existence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearIcon(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_ClearStylebox_" data-uid="Godot.Theme.ClearStylebox*"></a>
+
+  <h3 id="Godot_Theme_ClearStylebox_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.ClearStylebox(Godot.StringName,Godot.StringName)">
+  ClearStylebox(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the <a class="xref" href="Godot.StyleBox.html">StyleBox</a> property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Fails if it doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasStylebox_Godot_StringName_Godot_StringName_">HasStylebox(StringName, StringName)</a> to check for existence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearStylebox(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_ClearThemeItem_" data-uid="Godot.Theme.ClearThemeItem*"></a>
+
+  <h3 id="Godot_Theme_ClearThemeItem_Godot_Theme_DataType_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.ClearThemeItem(Godot.Theme.DataType,Godot.StringName,Godot.StringName)">
+  ClearThemeItem(DataType, StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the theme property of <code class="paramref">dataType</code> defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Fails if it doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasThemeItem_Godot_Theme_DataType_Godot_StringName_Godot_StringName_">HasThemeItem(DataType, StringName, StringName)</a> to check for existence.</p>
+<p>
+  <b>Note:</b> This method is analogous to calling the corresponding data type specific method, but can be used for more generalized logic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearThemeItem(Theme.DataType dataType, StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="Godot.Theme.html">Theme</a>.<a class="xref" href="Godot.Theme.DataType.html">DataType</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_ClearTypeVariation_" data-uid="Godot.Theme.ClearTypeVariation*"></a>
+
+  <h3 id="Godot_Theme_ClearTypeVariation_Godot_StringName_" data-uid="Godot.Theme.ClearTypeVariation(Godot.StringName)">
+  ClearTypeVariation(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unmarks <code class="paramref">themeType</code> as being a variation of another theme type. See <a class="xref" href="Godot.Theme.html#Godot_Theme_SetTypeVariation_Godot_StringName_Godot_StringName_">SetTypeVariation(StringName, StringName)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearTypeVariation(StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetColor_" data-uid="Godot.Theme.GetColor*"></a>
+
+  <h3 id="Godot_Theme_GetColor_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.GetColor(Godot.StringName,Godot.StringName)">
+  GetColor(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.Color.html">Color</a> property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Returns the default color value if the property doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasColor_Godot_StringName_Godot_StringName_">HasColor(StringName, StringName)</a> to check for existence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color GetColor(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetColorList_" data-uid="Godot.Theme.GetColorList*"></a>
+
+  <h3 id="Godot_Theme_GetColorList_System_String_" data-uid="Godot.Theme.GetColorList(System.String)">
+  GetColorList(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of names for <a class="xref" href="Godot.Color.html">Color</a> properties defined with <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetColorTypeList">GetColorTypeList()</a> to get a list of possible theme type names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetColorList(string themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>themeType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetColorTypeList_" data-uid="Godot.Theme.GetColorTypeList*"></a>
+
+  <h3 id="Godot_Theme_GetColorTypeList" data-uid="Godot.Theme.GetColorTypeList">
+  GetColorTypeList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all unique theme type names for <a class="xref" href="Godot.Color.html">Color</a> properties. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetTypeList">GetTypeList()</a> to get a list of all unique theme types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetColorTypeList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetConstant_" data-uid="Godot.Theme.GetConstant*"></a>
+
+  <h3 id="Godot_Theme_GetConstant_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.GetConstant(Godot.StringName,Godot.StringName)">
+  GetConstant(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the constant property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Returns <code>0</code> if the property doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasConstant_Godot_StringName_Godot_StringName_">HasConstant(StringName, StringName)</a> to check for existence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetConstant(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetConstantList_" data-uid="Godot.Theme.GetConstantList*"></a>
+
+  <h3 id="Godot_Theme_GetConstantList_System_String_" data-uid="Godot.Theme.GetConstantList(System.String)">
+  GetConstantList(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of names for constant properties defined with <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetConstantTypeList">GetConstantTypeList()</a> to get a list of possible theme type names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetConstantList(string themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>themeType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetConstantTypeList_" data-uid="Godot.Theme.GetConstantTypeList*"></a>
+
+  <h3 id="Godot_Theme_GetConstantTypeList" data-uid="Godot.Theme.GetConstantTypeList">
+  GetConstantTypeList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all unique theme type names for constant properties. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetTypeList">GetTypeList()</a> to get a list of all unique theme types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetConstantTypeList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetFont_" data-uid="Godot.Theme.GetFont*"></a>
+
+  <h3 id="Godot_Theme_GetFont_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.GetFont(Godot.StringName,Godot.StringName)">
+  GetFont(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.Font.html">Font</a> property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Returns the default theme font if the property doesn't exist and the default theme font is set up (see <a class="xref" href="Godot.Theme.html#Godot_Theme_DefaultFont">DefaultFont</a>). Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasFont_Godot_StringName_Godot_StringName_">HasFont(StringName, StringName)</a> to check for existence of the property and <a class="xref" href="Godot.Theme.html#Godot_Theme_HasDefaultFont">HasDefaultFont()</a> to check for existence of the default theme font.</p>
+<p>Returns the engine fallback font value, if neither exist (see <a class="xref" href="Godot.ThemeDB.html#Godot_ThemeDB_FallbackFont">FallbackFont</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Font GetFont(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Font.html">Font</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetFontList_" data-uid="Godot.Theme.GetFontList*"></a>
+
+  <h3 id="Godot_Theme_GetFontList_System_String_" data-uid="Godot.Theme.GetFontList(System.String)">
+  GetFontList(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of names for <a class="xref" href="Godot.Font.html">Font</a> properties defined with <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetFontTypeList">GetFontTypeList()</a> to get a list of possible theme type names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetFontList(string themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>themeType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetFontSize_" data-uid="Godot.Theme.GetFontSize*"></a>
+
+  <h3 id="Godot_Theme_GetFontSize_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.GetFontSize(Godot.StringName,Godot.StringName)">
+  GetFontSize(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the font size property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Returns the default theme font size if the property doesn't exist and the default theme font size is set up (see <a class="xref" href="Godot.Theme.html#Godot_Theme_DefaultFontSize">DefaultFontSize</a>). Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasFontSize_Godot_StringName_Godot_StringName_">HasFontSize(StringName, StringName)</a> to check for existence of the property and <a class="xref" href="Godot.Theme.html#Godot_Theme_HasDefaultFontSize">HasDefaultFontSize()</a> to check for existence of the default theme font.</p>
+<p>Returns the engine fallback font size value, if neither exist (see <a class="xref" href="Godot.ThemeDB.html#Godot_ThemeDB_FallbackFontSize">FallbackFontSize</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetFontSize(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetFontSizeList_" data-uid="Godot.Theme.GetFontSizeList*"></a>
+
+  <h3 id="Godot_Theme_GetFontSizeList_System_String_" data-uid="Godot.Theme.GetFontSizeList(System.String)">
+  GetFontSizeList(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of names for font size properties defined with <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetFontSizeTypeList">GetFontSizeTypeList()</a> to get a list of possible theme type names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetFontSizeList(string themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>themeType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetFontSizeTypeList_" data-uid="Godot.Theme.GetFontSizeTypeList*"></a>
+
+  <h3 id="Godot_Theme_GetFontSizeTypeList" data-uid="Godot.Theme.GetFontSizeTypeList">
+  GetFontSizeTypeList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all unique theme type names for font size properties. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetTypeList">GetTypeList()</a> to get a list of all unique theme types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetFontSizeTypeList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetFontTypeList_" data-uid="Godot.Theme.GetFontTypeList*"></a>
+
+  <h3 id="Godot_Theme_GetFontTypeList" data-uid="Godot.Theme.GetFontTypeList">
+  GetFontTypeList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all unique theme type names for <a class="xref" href="Godot.Font.html">Font</a> properties. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetTypeList">GetTypeList()</a> to get a list of all unique theme types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetFontTypeList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetIcon_" data-uid="Godot.Theme.GetIcon*"></a>
+
+  <h3 id="Godot_Theme_GetIcon_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.GetIcon(Godot.StringName,Godot.StringName)">
+  GetIcon(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the icon property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Returns the engine fallback icon value if the property doesn't exist (see <a class="xref" href="Godot.ThemeDB.html#Godot_ThemeDB_FallbackIcon">FallbackIcon</a>). Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasIcon_Godot_StringName_Godot_StringName_">HasIcon(StringName, StringName)</a> to check for existence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture2D GetIcon(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetIconList_" data-uid="Godot.Theme.GetIconList*"></a>
+
+  <h3 id="Godot_Theme_GetIconList_System_String_" data-uid="Godot.Theme.GetIconList(System.String)">
+  GetIconList(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of names for icon properties defined with <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetIconTypeList">GetIconTypeList()</a> to get a list of possible theme type names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetIconList(string themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>themeType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetIconTypeList_" data-uid="Godot.Theme.GetIconTypeList*"></a>
+
+  <h3 id="Godot_Theme_GetIconTypeList" data-uid="Godot.Theme.GetIconTypeList">
+  GetIconTypeList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all unique theme type names for icon properties. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetTypeList">GetTypeList()</a> to get a list of all unique theme types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetIconTypeList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetStylebox_" data-uid="Godot.Theme.GetStylebox*"></a>
+
+  <h3 id="Godot_Theme_GetStylebox_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.GetStylebox(Godot.StringName,Godot.StringName)">
+  GetStylebox(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Godot.StyleBox.html">StyleBox</a> property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Returns the engine fallback stylebox value if the property doesn't exist (see <a class="xref" href="Godot.ThemeDB.html#Godot_ThemeDB_FallbackStylebox">FallbackStylebox</a>). Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasStylebox_Godot_StringName_Godot_StringName_">HasStylebox(StringName, StringName)</a> to check for existence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StyleBox GetStylebox(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.StyleBox.html">StyleBox</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetStyleboxList_" data-uid="Godot.Theme.GetStyleboxList*"></a>
+
+  <h3 id="Godot_Theme_GetStyleboxList_System_String_" data-uid="Godot.Theme.GetStyleboxList(System.String)">
+  GetStyleboxList(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of names for <a class="xref" href="Godot.StyleBox.html">StyleBox</a> properties defined with <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetStyleboxTypeList">GetStyleboxTypeList()</a> to get a list of possible theme type names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetStyleboxList(string themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>themeType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetStyleboxTypeList_" data-uid="Godot.Theme.GetStyleboxTypeList*"></a>
+
+  <h3 id="Godot_Theme_GetStyleboxTypeList" data-uid="Godot.Theme.GetStyleboxTypeList">
+  GetStyleboxTypeList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all unique theme type names for <a class="xref" href="Godot.StyleBox.html">StyleBox</a> properties. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetTypeList">GetTypeList()</a> to get a list of all unique theme types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetStyleboxTypeList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetThemeItem_" data-uid="Godot.Theme.GetThemeItem*"></a>
+
+  <h3 id="Godot_Theme_GetThemeItem_Godot_Theme_DataType_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.GetThemeItem(Godot.Theme.DataType,Godot.StringName,Godot.StringName)">
+  GetThemeItem(DataType, StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the theme property of <code class="paramref">dataType</code> defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>, if it exists.</p>
+<p>Returns the engine fallback value if the property doesn't exist (see <a class="xref" href="Godot.ThemeDB.html">ThemeDB</a>). Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasThemeItem_Godot_Theme_DataType_Godot_StringName_Godot_StringName_">HasThemeItem(DataType, StringName, StringName)</a> to check for existence.</p>
+<p>
+  <b>Note:</b> This method is analogous to calling the corresponding data type specific method, but can be used for more generalized logic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Variant GetThemeItem(Theme.DataType dataType, StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="Godot.Theme.html">Theme</a>.<a class="xref" href="Godot.Theme.DataType.html">DataType</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetThemeItemList_" data-uid="Godot.Theme.GetThemeItemList*"></a>
+
+  <h3 id="Godot_Theme_GetThemeItemList_Godot_Theme_DataType_System_String_" data-uid="Godot.Theme.GetThemeItemList(Godot.Theme.DataType,System.String)">
+  GetThemeItemList(DataType, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of names for properties of <code class="paramref">dataType</code> defined with <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetThemeItemTypeList_Godot_Theme_DataType_">GetThemeItemTypeList(DataType)</a> to get a list of possible theme type names.</p>
+<p>
+  <b>Note:</b> This method is analogous to calling the corresponding data type specific method, but can be used for more generalized logic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetThemeItemList(Theme.DataType dataType, string themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="Godot.Theme.html">Theme</a>.<a class="xref" href="Godot.Theme.DataType.html">DataType</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetThemeItemTypeList_" data-uid="Godot.Theme.GetThemeItemTypeList*"></a>
+
+  <h3 id="Godot_Theme_GetThemeItemTypeList_Godot_Theme_DataType_" data-uid="Godot.Theme.GetThemeItemTypeList(Godot.Theme.DataType)">
+  GetThemeItemTypeList(DataType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all unique theme type names for <code class="paramref">dataType</code> properties. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_GetTypeList">GetTypeList()</a> to get a list of all unique theme types.</p>
+<p>
+  <b>Note:</b> This method is analogous to calling the corresponding data type specific method, but can be used for more generalized logic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetThemeItemTypeList(Theme.DataType dataType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="Godot.Theme.html">Theme</a>.<a class="xref" href="Godot.Theme.DataType.html">DataType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetTypeList_" data-uid="Godot.Theme.GetTypeList*"></a>
+
+  <h3 id="Godot_Theme_GetTypeList" data-uid="Godot.Theme.GetTypeList">
+  GetTypeList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all unique theme type names. Use the appropriate <code>get_*_type_list</code> method to get a list of unique theme types for a single data type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetTypeList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetTypeVariationBase_" data-uid="Godot.Theme.GetTypeVariationBase*"></a>
+
+  <h3 id="Godot_Theme_GetTypeVariationBase_Godot_StringName_" data-uid="Godot.Theme.GetTypeVariationBase(Godot.StringName)">
+  GetTypeVariationBase(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the name of the base theme type if <code class="paramref">themeType</code> is a valid variation type. Returns an empty string otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringName GetTypeVariationBase(StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_GetTypeVariationList_" data-uid="Godot.Theme.GetTypeVariationList*"></a>
+
+  <h3 id="Godot_Theme_GetTypeVariationList_Godot_StringName_" data-uid="Godot.Theme.GetTypeVariationList(Godot.StringName)">
+  GetTypeVariationList(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a list of all type variations for the given <code class="paramref">baseType</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetTypeVariationList(StringName baseType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>baseType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_HasColor_" data-uid="Godot.Theme.HasColor*"></a>
+
+  <h3 id="Godot_Theme_HasColor_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.HasColor(Godot.StringName,Godot.StringName)">
+  HasColor(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <a class="xref" href="Godot.Color.html">Color</a> property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code> exists.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if it doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_SetColor_Godot_StringName_Godot_StringName_Godot_Color_">SetColor(StringName, StringName, Color)</a> to define it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasColor(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_HasConstant_" data-uid="Godot.Theme.HasConstant*"></a>
+
+  <h3 id="Godot_Theme_HasConstant_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.HasConstant(Godot.StringName,Godot.StringName)">
+  HasConstant(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the constant property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code> exists.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if it doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_SetConstant_Godot_StringName_Godot_StringName_System_Int32_">SetConstant(StringName, StringName, int)</a> to define it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasConstant(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_HasDefaultBaseScale_" data-uid="Godot.Theme.HasDefaultBaseScale*"></a>
+
+  <h3 id="Godot_Theme_HasDefaultBaseScale" data-uid="Godot.Theme.HasDefaultBaseScale">
+  HasDefaultBaseScale()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="Godot.Theme.html#Godot_Theme_DefaultBaseScale">DefaultBaseScale</a> has a valid value.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if it doesn't. The value must be greater than <code>0.0</code> to be considered valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasDefaultBaseScale()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_HasDefaultFont_" data-uid="Godot.Theme.HasDefaultFont*"></a>
+
+  <h3 id="Godot_Theme_HasDefaultFont" data-uid="Godot.Theme.HasDefaultFont">
+  HasDefaultFont()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="Godot.Theme.html#Godot_Theme_DefaultFont">DefaultFont</a> has a valid value.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if it doesn't.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasDefaultFont()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_HasDefaultFontSize_" data-uid="Godot.Theme.HasDefaultFontSize*"></a>
+
+  <h3 id="Godot_Theme_HasDefaultFontSize" data-uid="Godot.Theme.HasDefaultFontSize">
+  HasDefaultFontSize()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="Godot.Theme.html#Godot_Theme_DefaultFontSize">DefaultFontSize</a> has a valid value.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if it doesn't. The value must be greater than <code>0</code> to be considered valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasDefaultFontSize()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_HasFont_" data-uid="Godot.Theme.HasFont*"></a>
+
+  <h3 id="Godot_Theme_HasFont_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.HasFont(Godot.StringName,Godot.StringName)">
+  HasFont(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <a class="xref" href="Godot.Font.html">Font</a> property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code> exists, or if the default theme font is set up (see <a class="xref" href="Godot.Theme.html#Godot_Theme_HasDefaultFont">HasDefaultFont()</a>).</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if neither exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_SetFont_Godot_StringName_Godot_StringName_Godot_Font_">SetFont(StringName, StringName, Font)</a> to define the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasFont(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_HasFontSize_" data-uid="Godot.Theme.HasFontSize*"></a>
+
+  <h3 id="Godot_Theme_HasFontSize_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.HasFontSize(Godot.StringName,Godot.StringName)">
+  HasFontSize(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the font size property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code> exists, or if the default theme font size is set up (see <a class="xref" href="Godot.Theme.html#Godot_Theme_HasDefaultFontSize">HasDefaultFontSize()</a>).</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if neither exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_SetFontSize_Godot_StringName_Godot_StringName_System_Int32_">SetFontSize(StringName, StringName, int)</a> to define the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasFontSize(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_HasGodotClassMethod_" data-uid="Godot.Theme.HasGodotClassMethod*"></a>
+
+  <h3 id="Godot_Theme_HasGodotClassMethod_Godot_NativeInterop_godot_string_name__" data-uid="Godot.Theme.HasGodotClassMethod(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassMethod(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a method with the given name.
+This method is used by Godot to check if a method exists before invoking it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassMethod(in godot_string_name method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_HasGodotClassSignal_" data-uid="Godot.Theme.HasGodotClassSignal*"></a>
+
+  <h3 id="Godot_Theme_HasGodotClassSignal_Godot_NativeInterop_godot_string_name__" data-uid="Godot.Theme.HasGodotClassSignal(Godot.NativeInterop.godot_string_name@)">
+  HasGodotClassSignal(in godot_string_name)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check if the type contains a signal with the given name.
+This method is used by Godot to check if a signal exists before raising it.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool HasGodotClassSignal(in godot_string_name signal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>signal</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the signal to check for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_HasIcon_" data-uid="Godot.Theme.HasIcon*"></a>
+
+  <h3 id="Godot_Theme_HasIcon_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.HasIcon(Godot.StringName,Godot.StringName)">
+  HasIcon(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the icon property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code> exists.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if it doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_SetIcon_Godot_StringName_Godot_StringName_Godot_Texture2D_">SetIcon(StringName, StringName, Texture2D)</a> to define it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasIcon(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_HasStylebox_" data-uid="Godot.Theme.HasStylebox*"></a>
+
+  <h3 id="Godot_Theme_HasStylebox_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.HasStylebox(Godot.StringName,Godot.StringName)">
+  HasStylebox(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <a class="xref" href="Godot.StyleBox.html">StyleBox</a> property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code> exists.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if it doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_SetStylebox_Godot_StringName_Godot_StringName_Godot_StyleBox_">SetStylebox(StringName, StringName, StyleBox)</a> to define it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasStylebox(StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_HasThemeItem_" data-uid="Godot.Theme.HasThemeItem*"></a>
+
+  <h3 id="Godot_Theme_HasThemeItem_Godot_Theme_DataType_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.HasThemeItem(Godot.Theme.DataType,Godot.StringName,Godot.StringName)">
+  HasThemeItem(DataType, StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the theme property of <code class="paramref">dataType</code> defined by <code class="paramref">name</code> and <code class="paramref">themeType</code> exists.</p>
+<p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if it doesn't exist. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_SetThemeItem_Godot_Theme_DataType_Godot_StringName_Godot_StringName_Godot_Variant_">SetThemeItem(DataType, StringName, StringName, Variant)</a> to define it.</p>
+<p>
+  <b>Note:</b> This method is analogous to calling the corresponding data type specific method, but can be used for more generalized logic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasThemeItem(Theme.DataType dataType, StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="Godot.Theme.html">Theme</a>.<a class="xref" href="Godot.Theme.DataType.html">DataType</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_InvokeGodotClassMethod_" data-uid="Godot.Theme.InvokeGodotClassMethod*"></a>
+
+  <h3 id="Godot_Theme_InvokeGodotClassMethod_Godot_NativeInterop_godot_string_name__Godot_NativeInterop_NativeVariantPtrArgs_Godot_NativeInterop_godot_variant__" data-uid="Godot.Theme.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name@,Godot.NativeInterop.NativeVariantPtrArgs,Godot.NativeInterop.godot_variant@)">
+  InvokeGodotClassMethod(in godot_string_name, NativeVariantPtrArgs, out godot_variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the method with the given name, using the given arguments.
+This method is used by Godot to invoke methods from the engine side.
+Do not call or override this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool InvokeGodotClassMethod(in godot_string_name method, NativeVariantPtrArgs args, out godot_variant ret)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="Godot.NativeInterop.godot_string_name.html">godot_string_name</a></dt>
+    <dd><p>Name of the method to invoke.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="Godot.NativeInterop.NativeVariantPtrArgs.html">NativeVariantPtrArgs</a></dt>
+    <dd><p>Arguments to use with the invoked method.</p>
+</dd>
+    <dt><code>ret</code> <a class="xref" href="Godot.NativeInterop.godot_variant.html">godot_variant</a></dt>
+    <dd><p>Value returned by the invoked method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_IsTypeVariation_" data-uid="Godot.Theme.IsTypeVariation*"></a>
+
+  <h3 id="Godot_Theme_IsTypeVariation_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.IsTypeVariation(Godot.StringName,Godot.StringName)">
+  IsTypeVariation(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">themeType</code> is marked as a variation of <code class="paramref">baseType</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsTypeVariation(StringName themeType, StringName baseType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>baseType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_MergeWith_" data-uid="Godot.Theme.MergeWith*"></a>
+
+  <h3 id="Godot_Theme_MergeWith_Godot_Theme_" data-uid="Godot.Theme.MergeWith(Godot.Theme)">
+  MergeWith(Theme)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds missing and overrides existing definitions with values from the <code class="paramref">other</code> theme resource.</p>
+<p>
+  <b>Note:</b> This modifies the current theme. If you want to merge two themes together without modifying either one, create a new empty theme and merge the other two into it one after another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MergeWith(Theme other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Godot.Theme.html">Theme</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_RemoveType_" data-uid="Godot.Theme.RemoveType*"></a>
+
+  <h3 id="Godot_Theme_RemoveType_Godot_StringName_" data-uid="Godot.Theme.RemoveType(Godot.StringName)">
+  RemoveType(StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the theme type, gracefully discarding defined theme items. If the type is a variation, this information is also erased. If the type is a base for type variations, those variations lose their base.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveType(StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_RenameColor_" data-uid="Godot.Theme.RenameColor*"></a>
+
+  <h3 id="Godot_Theme_RenameColor_Godot_StringName_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.RenameColor(Godot.StringName,Godot.StringName,Godot.StringName)">
+  RenameColor(StringName, StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renames the <a class="xref" href="Godot.Color.html">Color</a> property defined by <code class="paramref">oldName</code> and <code class="paramref">themeType</code> to <code class="paramref">name</code>, if it exists.</p>
+<p>Fails if it doesn't exist, or if a similar property with the new name already exists. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasColor_Godot_StringName_Godot_StringName_">HasColor(StringName, StringName)</a> to check for existence, and <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearColor_Godot_StringName_Godot_StringName_">ClearColor(StringName, StringName)</a> to remove the existing property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenameColor(StringName oldName, StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oldName</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_RenameConstant_" data-uid="Godot.Theme.RenameConstant*"></a>
+
+  <h3 id="Godot_Theme_RenameConstant_Godot_StringName_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.RenameConstant(Godot.StringName,Godot.StringName,Godot.StringName)">
+  RenameConstant(StringName, StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renames the constant property defined by <code class="paramref">oldName</code> and <code class="paramref">themeType</code> to <code class="paramref">name</code>, if it exists.</p>
+<p>Fails if it doesn't exist, or if a similar property with the new name already exists. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasConstant_Godot_StringName_Godot_StringName_">HasConstant(StringName, StringName)</a> to check for existence, and <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearConstant_Godot_StringName_Godot_StringName_">ClearConstant(StringName, StringName)</a> to remove the existing property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenameConstant(StringName oldName, StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oldName</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_RenameFont_" data-uid="Godot.Theme.RenameFont*"></a>
+
+  <h3 id="Godot_Theme_RenameFont_Godot_StringName_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.RenameFont(Godot.StringName,Godot.StringName,Godot.StringName)">
+  RenameFont(StringName, StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renames the <a class="xref" href="Godot.Font.html">Font</a> property defined by <code class="paramref">oldName</code> and <code class="paramref">themeType</code> to <code class="paramref">name</code>, if it exists.</p>
+<p>Fails if it doesn't exist, or if a similar property with the new name already exists. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasFont_Godot_StringName_Godot_StringName_">HasFont(StringName, StringName)</a> to check for existence, and <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearFont_Godot_StringName_Godot_StringName_">ClearFont(StringName, StringName)</a> to remove the existing property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenameFont(StringName oldName, StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oldName</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_RenameFontSize_" data-uid="Godot.Theme.RenameFontSize*"></a>
+
+  <h3 id="Godot_Theme_RenameFontSize_Godot_StringName_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.RenameFontSize(Godot.StringName,Godot.StringName,Godot.StringName)">
+  RenameFontSize(StringName, StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renames the font size property defined by <code class="paramref">oldName</code> and <code class="paramref">themeType</code> to <code class="paramref">name</code>, if it exists.</p>
+<p>Fails if it doesn't exist, or if a similar property with the new name already exists. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasFontSize_Godot_StringName_Godot_StringName_">HasFontSize(StringName, StringName)</a> to check for existence, and <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearFontSize_Godot_StringName_Godot_StringName_">ClearFontSize(StringName, StringName)</a> to remove the existing property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenameFontSize(StringName oldName, StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oldName</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_RenameIcon_" data-uid="Godot.Theme.RenameIcon*"></a>
+
+  <h3 id="Godot_Theme_RenameIcon_Godot_StringName_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.RenameIcon(Godot.StringName,Godot.StringName,Godot.StringName)">
+  RenameIcon(StringName, StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renames the icon property defined by <code class="paramref">oldName</code> and <code class="paramref">themeType</code> to <code class="paramref">name</code>, if it exists.</p>
+<p>Fails if it doesn't exist, or if a similar property with the new name already exists. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasIcon_Godot_StringName_Godot_StringName_">HasIcon(StringName, StringName)</a> to check for existence, and <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearIcon_Godot_StringName_Godot_StringName_">ClearIcon(StringName, StringName)</a> to remove the existing property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenameIcon(StringName oldName, StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oldName</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_RenameStylebox_" data-uid="Godot.Theme.RenameStylebox*"></a>
+
+  <h3 id="Godot_Theme_RenameStylebox_Godot_StringName_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.RenameStylebox(Godot.StringName,Godot.StringName,Godot.StringName)">
+  RenameStylebox(StringName, StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renames the <a class="xref" href="Godot.StyleBox.html">StyleBox</a> property defined by <code class="paramref">oldName</code> and <code class="paramref">themeType</code> to <code class="paramref">name</code>, if it exists.</p>
+<p>Fails if it doesn't exist, or if a similar property with the new name already exists. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasStylebox_Godot_StringName_Godot_StringName_">HasStylebox(StringName, StringName)</a> to check for existence, and <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearStylebox_Godot_StringName_Godot_StringName_">ClearStylebox(StringName, StringName)</a> to remove the existing property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenameStylebox(StringName oldName, StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oldName</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_RenameThemeItem_" data-uid="Godot.Theme.RenameThemeItem*"></a>
+
+  <h3 id="Godot_Theme_RenameThemeItem_Godot_Theme_DataType_Godot_StringName_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.RenameThemeItem(Godot.Theme.DataType,Godot.StringName,Godot.StringName,Godot.StringName)">
+  RenameThemeItem(DataType, StringName, StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renames the theme property of <code class="paramref">dataType</code> defined by <code class="paramref">oldName</code> and <code class="paramref">themeType</code> to <code class="paramref">name</code>, if it exists.</p>
+<p>Fails if it doesn't exist, or if a similar property with the new name already exists. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_HasThemeItem_Godot_Theme_DataType_Godot_StringName_Godot_StringName_">HasThemeItem(DataType, StringName, StringName)</a> to check for existence, and <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearThemeItem_Godot_Theme_DataType_Godot_StringName_Godot_StringName_">ClearThemeItem(DataType, StringName, StringName)</a> to remove the existing property.</p>
+<p>
+  <b>Note:</b> This method is analogous to calling the corresponding data type specific method, but can be used for more generalized logic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenameThemeItem(Theme.DataType dataType, StringName oldName, StringName name, StringName themeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="Godot.Theme.html">Theme</a>.<a class="xref" href="Godot.Theme.DataType.html">DataType</a></dt>
+    <dd></dd>
+    <dt><code>oldName</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_SetColor_" data-uid="Godot.Theme.SetColor*"></a>
+
+  <h3 id="Godot_Theme_SetColor_Godot_StringName_Godot_StringName_Godot_Color_" data-uid="Godot.Theme.SetColor(Godot.StringName,Godot.StringName,Godot.Color)">
+  SetColor(StringName, StringName, Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates or changes the value of the <a class="xref" href="Godot.Color.html">Color</a> property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearColor_Godot_StringName_Godot_StringName_">ClearColor(StringName, StringName)</a> to remove the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetColor(StringName name, StringName themeType, Color color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="Godot.Color.html">Color</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_SetConstant_" data-uid="Godot.Theme.SetConstant*"></a>
+
+  <h3 id="Godot_Theme_SetConstant_Godot_StringName_Godot_StringName_System_Int32_" data-uid="Godot.Theme.SetConstant(Godot.StringName,Godot.StringName,System.Int32)">
+  SetConstant(StringName, StringName, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates or changes the value of the constant property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearConstant_Godot_StringName_Godot_StringName_">ClearConstant(StringName, StringName)</a> to remove the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetConstant(StringName name, StringName themeType, int constant)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>constant</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_SetFont_" data-uid="Godot.Theme.SetFont*"></a>
+
+  <h3 id="Godot_Theme_SetFont_Godot_StringName_Godot_StringName_Godot_Font_" data-uid="Godot.Theme.SetFont(Godot.StringName,Godot.StringName,Godot.Font)">
+  SetFont(StringName, StringName, Font)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates or changes the value of the <a class="xref" href="Godot.Font.html">Font</a> property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearFont_Godot_StringName_Godot_StringName_">ClearFont(StringName, StringName)</a> to remove the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetFont(StringName name, StringName themeType, Font font)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>font</code> <a class="xref" href="Godot.Font.html">Font</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_SetFontSize_" data-uid="Godot.Theme.SetFontSize*"></a>
+
+  <h3 id="Godot_Theme_SetFontSize_Godot_StringName_Godot_StringName_System_Int32_" data-uid="Godot.Theme.SetFontSize(Godot.StringName,Godot.StringName,System.Int32)">
+  SetFontSize(StringName, StringName, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates or changes the value of the font size property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearFontSize_Godot_StringName_Godot_StringName_">ClearFontSize(StringName, StringName)</a> to remove the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetFontSize(StringName name, StringName themeType, int fontSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>fontSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_SetIcon_" data-uid="Godot.Theme.SetIcon*"></a>
+
+  <h3 id="Godot_Theme_SetIcon_Godot_StringName_Godot_StringName_Godot_Texture2D_" data-uid="Godot.Theme.SetIcon(Godot.StringName,Godot.StringName,Godot.Texture2D)">
+  SetIcon(StringName, StringName, Texture2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates or changes the value of the icon property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearIcon_Godot_StringName_Godot_StringName_">ClearIcon(StringName, StringName)</a> to remove the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetIcon(StringName name, StringName themeType, Texture2D texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>texture</code> <a class="xref" href="Godot.Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_SetStylebox_" data-uid="Godot.Theme.SetStylebox*"></a>
+
+  <h3 id="Godot_Theme_SetStylebox_Godot_StringName_Godot_StringName_Godot_StyleBox_" data-uid="Godot.Theme.SetStylebox(Godot.StringName,Godot.StringName,Godot.StyleBox)">
+  SetStylebox(StringName, StringName, StyleBox)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates or changes the value of the <a class="xref" href="Godot.StyleBox.html">StyleBox</a> property defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearStylebox_Godot_StringName_Godot_StringName_">ClearStylebox(StringName, StringName)</a> to remove the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetStylebox(StringName name, StringName themeType, StyleBox texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>texture</code> <a class="xref" href="Godot.StyleBox.html">StyleBox</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_SetThemeItem_" data-uid="Godot.Theme.SetThemeItem*"></a>
+
+  <h3 id="Godot_Theme_SetThemeItem_Godot_Theme_DataType_Godot_StringName_Godot_StringName_Godot_Variant_" data-uid="Godot.Theme.SetThemeItem(Godot.Theme.DataType,Godot.StringName,Godot.StringName,Godot.Variant)">
+  SetThemeItem(DataType, StringName, StringName, Variant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates or changes the value of the theme property of <code class="paramref">dataType</code> defined by <code class="paramref">name</code> and <code class="paramref">themeType</code>. Use <a class="xref" href="Godot.Theme.html#Godot_Theme_ClearThemeItem_Godot_Theme_DataType_Godot_StringName_Godot_StringName_">ClearThemeItem(DataType, StringName, StringName)</a> to remove the property.</p>
+<p>Fails if the <code class="paramref">value</code> type is not accepted by <code class="paramref">dataType</code>.</p>
+<p>
+  <b>Note:</b> This method is analogous to calling the corresponding data type specific method, but can be used for more generalized logic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetThemeItem(Theme.DataType dataType, StringName name, StringName themeType, Variant value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="Godot.Theme.html">Theme</a>.<a class="xref" href="Godot.Theme.DataType.html">DataType</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="Godot.Variant.html">Variant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Godot_Theme_SetTypeVariation_" data-uid="Godot.Theme.SetTypeVariation*"></a>
+
+  <h3 id="Godot_Theme_SetTypeVariation_Godot_StringName_Godot_StringName_" data-uid="Godot.Theme.SetTypeVariation(Godot.StringName,Godot.StringName)">
+  SetTypeVariation(StringName, StringName)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Marks <code class="paramref">themeType</code> as a variation of <code class="paramref">baseType</code>.</p>
+<p>This adds <code class="paramref">themeType</code> as a suggested option for <a class="xref" href="Godot.Control.html#Godot_Control_ThemeTypeVariation">ThemeTypeVariation</a> on a <a class="xref" href="Godot.Control.html">Control</a> that is of the <code class="paramref">baseType</code> class.</p>
+<p>Variations can also be nested, i.e. <code class="paramref">baseType</code> can be another variation. If a chain of variations ends with a <code class="paramref">baseType</code> matching the class of the <a class="xref" href="Godot.Control.html">Control</a>, the whole chain is going to be suggested as options.</p>
+<p>
+  <b>Note:</b> Suggestions only show up if this theme resource is set as the project default theme. See <code>ProjectSettings.gui/theme/custom</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTypeVariation(StringName themeType, StringName baseType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>themeType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+    <dt><code>baseType</code> <a class="xref" href="Godot.StringName.html">StringName</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/godotengine/godot/blob/4c311cbee68c0b66ff8ebb8b0defdd9979dd2a41/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Theme.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Godot Documentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
